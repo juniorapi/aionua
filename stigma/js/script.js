@@ -212,7 +212,7 @@ Calc.drawStigma = function(stigmaName) {
 	var icon = stigma.icon +'_g'+ lvl;
 	if (stigma.icons && stigma.icons[lvl])
 		icon = stigma.icons[lvl];
-	res += '<div class="stigma-free" id="stigma_'+ stigmaName +'" style="background-image:url(/stigma/icons/skills/'+ icon + '.png)"><div class="stigma-free-hover"></div>';
+	res += '<div class="stigma-free" id="stigma_'+ stigmaName +'" style="background-image:url(/aionua/stigma/icons/skills/'+ icon + '.png)"><div class="stigma-free-hover"></div>';
 	if (! aval) {
 		if (Calc.hasStigma(stigmaName)) {
 			res += '<div class="stigma-green"></div>';
@@ -250,7 +250,7 @@ Calc.drawStigmaSlot = function(num) {
 		if (stigma.icons && stigma.icons[lvl])
 			icon = stigma.icons[lvl];
 		
-		res += '<div class="stigma-icon" style="background:url(/stigma/icons/skills/'+ icon +'.png)"></div>';
+		res += '<div class="stigma-icon" style="background:url(/aionua/stigma/icons/skills/'+ icon +'.png)"></div>';
 	
 		res += '<div class="stigma-tools"><div class="stigma-delete"></div>';
 		var top, left;
