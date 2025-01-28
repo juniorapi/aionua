@@ -71,3 +71,6 @@ td:hover {
     display: block;
     margin: 5px 0;
 }
+.text-red {
+    color: #ff4d4d; /* Червоний колір тексту */
+		}
