@@ -591,13 +591,13 @@ a:link, a:visited {
 .cost-abyss {
 	width:16px;
 	height:16px;
-	background: url(/stigma/img/cost.png);
+	background: url(/aionua/stigma/img/cost.png);
 }
 
 .cost-shard {
 	width:16px;
 	height:16px;
-	background: url(/stigma/img/cost.png);
+	background: url(/aionua/stigma/img/cost.png);
 	background-position: 0px -16px;
 }
 
