@@ -29,9 +29,9 @@
 				html += '<div class="slot-min-inactive"></div>';
 			}
 			if (opts['icon']) {
-				html += '<div class="slot-icon"><img class="img-armfusion" src="/stigma/icons/items/'+ opts['icon'] +'.png" /></div>';
+				html += '<div class="slot-icon"><img class="img-armfusion" src="/aionua/stigma/icons/items/'+ opts['icon'] +'.png" /></div>';
 			} else {
-				html += '<div class="slot-icon"><img class="img-armfusion" src="/stigma/img/slots_armfusion.png" /></div>';
+				html += '<div class="slot-icon"><img class="img-armfusion" src="/aionua/stigma/img/slots_armfusion.png" /></div>';
 			}
 		} else {
 			if (opts['inactive']) {
