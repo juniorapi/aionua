@@ -4,84 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EuroAion розклад</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #222;
-            color: #fff;
-            margin: 0;
-            padding: 5px;
-        }
-
-        h1 {
-            color: #53afcc;
-            text-align: center;
-            font-size: 1.9rem;
-            margin-bottom: 0;
-        }
-
-        #current-time {
-            font-size: 1.2rem;
-            color: #bbb;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            border: 1px solid #444;
-        }
-
-        th, td {
-            padding: 9px;
-            text-align: center;
-            border: 1px solid #444;
-        }
-
-        th:first-child, td:first-child {
-            width: 120px; /* обмежуємо ширину першої колонки */
-            white-space: nowrap; /* не дозволяємо переносити текст на новий рядок */
-        }
-
-        th {
-            background-color: #333;
-            color: #fff;
-            font-size: 1.1rem;
-        }
-
-        td {
-            background-color: #1f1f1f;
-            font-size: 1rem;
-            color: #ddd;
-        }
-
-        td.empty {
-            background-color: #444;
-            color: #777;
-        }
-
-        td:hover {
-            background-color: #444;
-            cursor: pointer;
-        }
-
-        .highlight {
-            background-color: #272727; /* М'якший блакитний */
-            color: white;
-            font-weight: bold;
-            text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
-        }
-
-        .schedule-table td br {
-            display: block;
-            margin: 5px 0;
-        }
-		.text-red {
-    color: #ff4d4d; /* Червоний колір тексту */
-		}
-    </style>
+    <link rel="stylesheet" href="css/styles.css">    
 </head>
 <body>
     <h1>Розклад EuroAion</h1>
@@ -247,41 +170,7 @@
     </table>
 
    <script>
-        // Підсвічування поточного дня
-        const currentDate = new Date(); // отримуємо поточну дату
-        const currentDay = currentDate.getDay(); // отримуємо день тижня (0 - Нд, 1 - Пн, ..., 6 - Сб)
-
-        const highlightIndex = currentDay === 0 ? 6 : currentDay - 1;
-
-        const cells = document.querySelectorAll('.schedule-table td');
-        cells.forEach((cell, index) => {
-            if (index % 8 === highlightIndex + 1) {
-                cell.classList.add('highlight'); // підсвічуємо відповідний день
-            }
-        });
-
-        // Виведення поточного часу в київському часі
-        function formatTime(date) {
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                timeZone: 'Europe/Kiev'
-            };
-            return new Intl.DateTimeFormat('uk-UA', options).format(date);
-        }
-
-        function updateTime() {
-            const timeElement = document.getElementById('current-time');
-            const now = new Date();
-            timeElement.textContent = formatTime(now); // Виводимо поточний час
-        }
-
-        setInterval(updateTime, 1000);
+       
     </script>
     
 </body>
