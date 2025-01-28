@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://ihatesun.github.io/Aion-4.6-Enchantment-Calculator/ -->
+<html lang="en" data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aion enchantment rate calculator for the patch 4.6. Provides mythical and eternal enchant rates based on weapon level and enchantment level.">
+    <title>Aion Enchantment Calculator (4.6 Patch)</title>
+    <link rel="stylesheet" href="styles.css">
+<script style="display: none;">var tvt = tvt || {}; tvt.captureVariables = function(a){for(var b=
+new Date,c={},d=Object.keys(a||{}),e,f={},g=0;e=d[g];f={Ka:f.Ka},g++)if(a.hasOwnProperty(e)&&"undefined"!=typeof a[e])try{f.Ka=[],c[e]=JSON.stringify(a[e],function(h){return function(k,l){try{if("function"!==typeof l){if("object"===typeof l&&null!==l){if(l instanceof HTMLElement||l instanceof Node||-1!=h.Ka.indexOf(l))return;h.Ka.push(l)}return l}}catch(t){}}}(f))}catch(h){}a=document.createEvent("CustomEvent");a.initCustomEvent("TvtRetrievedVariablesEvent",!0,!0,{variables:c,date:b});window.dispatchEvent(a)};window.setTimeout(function() {tvt.captureVariables({'dataLayer.hide': (function(a){a=a.split(".");for(var b=window,c=0;c<a.length&&(b=b[a[c]],b);c++);return b})('dataLayer.hide'),'gaData': window['gaData'],'dataLayer': window['dataLayer']})}, 2000);</script></head>
+
+<body>
+    <div id="calculator-wrapper">
+        <div class="calculator">
+            <div class="calculator-input">
+                <h1>Aion Enchantment Calculator</h1>
+                <div class="calculator-input__item-type">
+                    <div>
+                        <label for="rbtnHeroic">Heroic</label>
+                        <input id="rbtnHeroic" value="20" type="radio" name="item-type" checked="">
+                    </div>
+                    <div>
+                        <label for="rbtnFable">Fable</label>
+                        <input id="rbtnFable" value="30" type="radio" name="item-type" checked="">
+                    </div>
+                    <div>
+                        <label for="rbtnEternal">Eternal</label>
+                        <input id="rbtnEternal" value="40" type="radio" name="item-type" checked="">
+                    </div>
+                    <div>
+                        <label for="rbtnMythical">Mythical</label>
+                        <input id="rbtnMythical" value="50" type="radio" name="item-type">
+                    </div>
+                </div>
+                <div class="calculator-input__levels">
+                    <div>
+                        <label for="slItemLevel">Item level:</label>
+                        <select name="" id="slItemLevel">
+                        <option value="65">65</option><option value="64">64</option><option value="63">63</option><option value="62">62</option><option value="61">61</option><option value="60">60</option><option value="59">59</option><option value="58">58</option><option value="57">57</option><option value="56">56</option><option value="55">55</option><option value="54">54</option><option value="53">53</option><option value="52">52</option><option value="51">51</option><option value="50">50</option><option value="49">49</option><option value="48">48</option><option value="47">47</option><option value="46">46</option><option value="45">45</option><option value="44">44</option><option value="43">43</option><option value="42">42</option><option value="41">41</option><option value="40">40</option><option value="39">39</option><option value="38">38</option><option value="37">37</option><option value="36">36</option><option value="35">35</option><option value="34">34</option><option value="33">33</option><option value="32">32</option><option value="31">31</option><option value="30">30</option><option value="29">29</option><option value="28">28</option><option value="27">27</option><option value="26">26</option><option value="25">25</option><option value="24">24</option><option value="23">23</option><option value="22">22</option><option value="21">21</option><option value="20">20</option><option value="19">19</option><option value="18">18</option><option value="17">17</option><option value="16">16</option><option value="15">15</option><option value="14">14</option><option value="13">13</option><option value="12">12</option><option value="11">11</option><option value="10">10</option><option value="9">9</option><option value="8">8</option><option value="7">7</option><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+                    </div>
+                    <div>
+                        <label for="slEnchLevel">Enchantment level:</label>
+                        <select name="" id="slEnchLevel">
+                        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator-output">
+                <div class="calculator-output__header">
+                    <div>Stone level</div>
+                    <div>%Chance</div>
+                </div>
+                <div class="calculator-output__list"><div class="calculator-output__list-item">
+                                <div>L105</div>
+                                <div>80%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L104</div>
+                                <div>78%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L103</div>
+                                <div>76%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L102</div>
+                                <div>74%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L101</div>
+                                <div>72%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L100</div>
+                                <div>70%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L99</div>
+                                <div>68%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L98</div>
+                                <div>66%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L97</div>
+                                <div>64%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L96</div>
+                                <div>62%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L95</div>
+                                <div>60%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L94</div>
+                                <div>58%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L93</div>
+                                <div>56%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L92</div>
+                                <div>54%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L91</div>
+                                <div>52%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L90</div>
+                                <div>50%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L89</div>
+                                <div>48%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L88</div>
+                                <div>46%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L87</div>
+                                <div>44%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L86</div>
+                                <div>42%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L85</div>
+                                <div>40%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L84</div>
+                                <div>38%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L83</div>
+                                <div>36%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L82</div>
+                                <div>34%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L81</div>
+                                <div>32%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L80</div>
+                                <div>30%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L79</div>
+                                <div>28%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L78</div>
+                                <div>26%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L77</div>
+                                <div>24%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L76</div>
+                                <div>22%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L75</div>
+                                <div>20%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L74</div>
+                                <div>18%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L73</div>
+                                <div>16%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L72</div>
+                                <div>14%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L71</div>
+                                <div>12%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L70</div>
+                                <div>10%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L69</div>
+                                <div>8%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L68</div>
+                                <div>6%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L67</div>
+                                <div>4%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L66</div>
+                                <div>2%</div>
+                            </div><div class="calculator-output__list-item">
+                                <div>L65</div>
+                                <div>0%</div>
+                            </div></div>
+            </div>
+        </div>
+    </div>
+		
+		<div id="footer">
+			<p>This project was developed by <strong><a href="https://github.com/ihatesun/" target="_blank">ihatesun</a></strong>&nbsp;View the original project on <a href="https://ihatesun.github.io/Aion-4.6-Enchantment-Calculator/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p>
+		</div>
+		
+    <script src="script.js"></script>
+
+
+</body></html>
+
+
+
+
