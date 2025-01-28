@@ -1,0 +1,512 @@
+@charset "utf-8";
+.name_class,h1,h4.vision {
+	text-shadow: 0 0 15px rgba(0,0,0,1);
+}
+#hover_border,.hover {
+	position: absolute;
+}
+#default_build,#footer,#link_build,#no_script,#stigma_info h3,.name_class,h1,h4.vision {
+	text-align: center;
+}
+
+.class, #language img {
+	transition: all 0.2s ease;
+}
+
+input:hover, input:focus, input:active {outline: none;}
+.name_class,h1,h4.vision {
+	font-weight: 400;
+}
+#enchant,#tooltip {
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+@font-face {
+	font-family: RomicCyr;
+	src: url(/stigmas/fonts/romiccyr.ttf)format('truetype');
+}
+::-webkit-scrollbar {
+	height: 5px;
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background-color: #999;
+}
+::-webkit-scrollbar-track-piece {
+	background-color: #312919;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #787878;
+	border-radius: 3px;
+	height: 50px;
+}
+#left_stigma,#right_stigma {
+	border-radius: 10px;
+	padding: 10px;
+}
+::-webkit-scrollbar-corner {
+	background-color: #999;
+}
+::-webkit-resizer {
+	background-color: #666;
+}
+::-moz-selection {
+	background: #000;
+	color: #fff;
+}
+body {
+	background-attachment: fixed;
+	background-color: #312919;
+	background-image: url(/stigmas/img/backgroungtmp.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 11px;
+	margin: 0;
+	min-height: 900px;
+	padding: 0;
+}
+
+#stigma_info .else,.name_class,h1,h4.vision {
+	font-family: RomicCyr;
+}
+h1 {
+	color: #F3E1D0;
+	font-size: 35px;
+}
+h4.vision {
+	font-size: 16px;
+	margin: 0;
+}
+hr {
+	background-color: #3D3D3D;
+	border: none;
+	border-bottom: 1px solid #565656;
+	height: 1px;
+	width: 100%;
+}
+#default_build,#left_stigma,#link_build {
+	border: 2px solid #201808;
+}
+.name_class {
+	border-bottom: 1px solid #555;
+	font-size: 20px;
+	margin: 0;
+	padding-bottom: 10px;
+}
+#wrapper {
+	height: auto;
+	margin: 0 auto;
+	width: 950px;
+}
+#classes {
+	height: 65px;
+	margin: 10px auto 20px;
+	width: 788px;
+}
+#classes .class {
+	opacity: .5;
+}
+#classes .class:hover,#classes .selected {
+	opacity: 1;
+}
+#classes img {
+	margin: 0 auto;
+}
+#left_stigma {
+	float: left;
+	height: 293px;
+	width: 379px;
+}
+
+.left_stigma_bg1 {background: url(/stigmas/img/bg.jpg);}
+.left_stigma_bg2 {background: url(/stigmas/img/bg.jpg) 0 313px;}
+
+
+.list {
+	display: inline-block;
+	height: 40px;
+	margin: 5px;
+	width: 40px;
+}
+.hover {
+	background-image: url(/stigmas/img/border_slot.png);
+	display: block;
+	height: 40px;
+	left: 23px;
+	top: 21px;
+	width: 40px;
+	z-index: 2;
+}
+#right_stigma {
+	background: url(/stigmas/img/bg_before.gif)no-repeat,url(/stigmas/img/bg_after.gif)0 100% no-repeat,url(/stigmas/img/bg_center.gif)repeat-y,0 0;
+	float: right;
+	margin-bottom: 40px;
+	min-height: 295px;
+	width: 500px;
+}
+.hid_stig,.stigma {
+	border-radius: 3px;
+	display: inline-block;
+	height: 40px;
+	margin: 5px;
+	overflow: hidden;
+	width: 40px;
+}
+.hid_stig:hover {
+	cursor: help;
+}
+#stigma_info {
+	border-top: 1px solid #555;
+	width: 100%;
+}
+#stigma_info table {
+	border-spacing: 15px 5px;
+	margin: auto;
+}
+#stigma_info .else {
+	font-size: 30px;
+}
+#skill_desc,#skill_info,#skill_name {
+	font-size: 11px;
+}
+#stigma_info td {
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	height: 40px;
+	margin-right: 10px;
+	padding: 0;
+	width: 40px;
+}
+#default_build,#link_build {
+	font-size: 13px;
+	padding-top: 5px;
+}
+#stigma_info .plus {
+	background-image: url(/stigmas/img/plus.png);
+}
+#stigma_info .result {
+	background-image: url(/stigmas/img/result.png);
+}
+#stigma_info img {
+	display: block;
+	margin: 0 auto;
+}
+#default_build,#enchant .button,#left_stigma section,#link_build,#skill_desc,#skill_name {
+	display: inline-block;
+}
+#skill_info {
+	height: auto;
+	margin-top: 5px;
+	width: 100%;
+}
+#stigma_info h4 {
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+#stigma_info p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+#skill_name {
+	color: #B7B7B7;
+	width: 100px;
+}
+.clear {
+	clear: both;
+}
+section#wrap_gold1 {
+	height: 78px;
+	left: 148px;
+	position: relative;
+	top: 2px;
+	width: 85px;
+}
+section#wrap_gold1.default {
+	background: url(/stigmas/img/gold_slots.png) 0 78px;
+}
+section#wrap_gold1.current,section#wrap_gold1:hover {
+	background: url(/stigmas/img/gold_slots.png);
+}
+section#wrap_gold1 #gold1 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+section#wrap_blue1 {
+	height: 78px;
+	left: 250px;
+	position: relative;
+	top: -7px;
+	width: 85px;
+}
+section#wrap_blue1.default {
+	background: url(/stigmas/img/blue_slots.png)0 78px;
+}
+section#wrap_blue1.current,section#wrap_blue1:hover {
+	background: url(/stigmas/img/blue_slots.png);
+}
+section#wrap_blue1 #blue1 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+section#wrap_blue2 {
+	height: 78px;
+	left: -48px;
+	position: relative;
+	top: -7px;
+	width: 85px;
+}
+section#wrap_blue2.default {
+	background: url(/stigmas/img/blue_slots.png)0 78px;
+}
+section#wrap_blue2.current,section#wrap_blue2:hover {
+	background: url(/stigmas/img/blue_slots.png);
+}
+section#wrap_blue2 #blue2 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+section#wrap_green1 {
+	height: 78px;
+	left: 242px;
+	position: relative;
+	top: 25px;
+	width: 85px;
+}
+section#wrap_green1.default {
+	background: url(/stigmas/img/green_slots.png)0 78px;
+}
+section#wrap_green1.current,section#wrap_green1:hover {
+	background: url(/stigmas/img/green_slots.png);
+}
+section#wrap_green1 #green1 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+section#wrap_green2 {
+	height: 78px;
+	left: 60px;
+	position: relative;
+	top: 69px;
+	width: 85px;
+}
+section#wrap_green2.default {
+	background: url(/stigmas/img/green_slots.png)0 78px;
+}
+section#wrap_green2.current,section#wrap_green2:hover {
+	background: url(/stigmas/img/green_slots.png);
+}
+section#wrap_green2 #green2 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+section#wrap_green3 {
+	height: 78px;
+	left: -125px;
+	position: relative;
+	top: 26px;
+	width: 85px;
+}
+#default_build,#link_build {
+	height: 22px;
+	top: 39px;
+	width: 150px;
+}
+section#wrap_green3.default {
+	background: url(/stigmas/img/green_slots.png)0 78px;
+}
+section#wrap_green3.current,section#wrap_green3:hover {
+	background: url(/stigmas/img/green_slots.png);
+}
+#default_build,#footer,#link_build {
+	background-color: #2B241C;
+}
+section#wrap_green3 #green3 {
+	left: 17px;
+	position: relative;
+	top: 14px;
+}
+#hidden_stigma {
+	cursor: help;
+	left: 167px;
+	position: relative;
+	top: -112px;
+}
+#default_build,#link_build,.blue1,.blue2,.blue3,.blue4,.blue5,.blue6,.enchant,.gold1,.gold2,.green1,.green2,.green3,.green4,.green5,.green6,.green7,.green8,.green9,.hidden1,.hidden2,.hidden3 {
+	cursor: pointer;
+}
+#link_build {
+	border-radius: 0 0 0 5px;
+	left: -17px;
+	position: relative;
+}
+#default_build {
+	border-radius: 0 0 5px;
+	left: -23px;
+	position: relative;
+}
+#enchant,#tooltip {
+	border: 1px solid #555;
+}
+#footer {
+	border-top: 1px solid #201808;
+	bottom: 0;
+	font-size: 12px;
+	height: 35px;
+	opacity: .8;
+	position: fixed;
+	width: 100%;
+}
+#enchant,#tooltip,.enchant {
+	position: absolute;
+}
+#footer p {
+	margin: 7px 0 0;
+}
+#footer a {
+	color: #fff;
+	text-decoration: none;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+#no_script_wr {
+	background-color: #2B241B;
+	border-bottom: 1px solid #201808;
+	height: 50px;
+	width: 100%;
+}
+#enchant,#tooltip {
+	background-color: #484848;
+}
+#no_script {
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 7px;
+	width: 950px;
+}
+#no_script img {
+	float: left;
+	margin-right: 5px;
+}
+#tooltip {
+	border-radius: 3px;
+	opacity: .97;
+	max-width: 350px;
+	z-index: 3000;
+}
+#enchant {
+	opacity: .9;
+	padding: 10px 10px 5px;
+	text-align: center;
+	width: 185px;
+}
+
+#tooltip_slot {
+	border-radius: 3px;
+	opacity: .97;
+	background-color: #484848;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	border: 1px solid #555;
+	display: none;
+	padding: 5px 7px 5px 7px;
+	position: absolute;
+}
+
+
+#enchant .button {
+	background-color: #353535;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	height: 23px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	padding-top: 7px;
+	width: 30px;
+}
+.enchant {opacity: .5;}
+.enchant:hover {display: block;}
+.numbers {color: #F2E3A0;}
+.enchant_num {
+	color: #2FF019;
+	text-shadow: 0 0 4px rgba(150,150,150,1);
+}
+
+
+#char_lvl {
+	background: none;
+	border: 1px solid rgba(85,85,85,0);
+	border-bottom: 1px solid #555555;
+	font-family: RomicCyr;
+	font-size: 17px;
+	color: #fff;
+	text-shadow: 0 0 5px rgba(0,0,0,1);
+	width: 40px;
+	text-align: center;
+}
+
+#char_lvl:hover,#char_lvl:focus {
+	border: 1px solid #555555;
+}
+
+
+
+.disable_stigma {opacity: .6;}
+.skill {
+	width: 350px;
+	padding: 7px 5px 7px 5px;
+}
+
+	.skill .name {
+		font-size: 12px;
+	}
+
+	.skill .name span             {font-size: 11px; color: #B7B7B7;}
+	.skill .name span.alert       {color: #DB4343;}
+	.skill .name span.enchant_num {color: #2FF019; text-shadow: 0 0 4px rgba(150,150,150,1);}
+	.skill .name span.lvl         {float: right;}
+
+	.skill hr {
+		width: 100%;
+		height: 1px;
+		background-color: #3D3D3D;
+		border: none;
+		border-bottom: 1px solid #565656;
+	}
+
+	.skill .type span {float: right;}
+
+	.skill table {font-size: 11px; width: 100%;}
+		.skill table tr td {padding: 0;}
+		.skill table tr td:first-child {width: 30%; color: #B7B7B7;}
+
+	.skill span.highlighted {color: #F2E3A0;}
+	.skill .condition {
+		color: #B7B7B7;
+	}
+
+
+#lang {
+	position: absolute;
+	float: right;
+	left: 390px;
+}
+
+
+#language {
+	position: absolute;
+	float: right;
+	right: 35px;
+}
+
+#language img {opacity: .3;margin-left: 10px; cursor: pointer;}
+#language img.current {opacity: .85;}
+#language img:hover {opacity: 1.0;}
+
+.lvlup {width: 9px;}

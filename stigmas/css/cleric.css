@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/cleric/ee53e4fa6cfce8d5c192f187e3830d05_67.png);} /* Молния правосудия */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/ee53e4fa6cfce8d5c192f187e3830d05_67.png);} /* Молния правосудия */
+
+.hidden2{background:url(/stigmas/img/cleric/c2e76969026e5717cb1bd07fab627388_32.png);} /* Свет спасения */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/c2e76969026e5717cb1bd07fab627388_32.png);} /* Свет спасения */
+
+.hidden3{background:url(/stigmas/img/cleric/c487974300b6b2984c059ffb4b415446_07.png);} /* Призыв: Дух провокации */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/c487974300b6b2984c059ffb4b415446_07.png);} /* Призыв: Дух провокации */
+
+
+.gold1{background:url(/stigmas/img/cleric/live_pr_healershand_g1.png);} /* Право на жизнь */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_healershand_g1.png);} /* Право на жизнь */
+
+.gold2{background:url(/stigmas/img/cleric/live_pr_calllightning_g1.png);} /* Обряд неприступности */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_calllightning_g1.png);} /* Обряд неприступности */
+
+
+.blue1{background:url(/stigmas/img/cleric/live_pr_light_healingservent_g1.png);} /* Призыв: Энергия исцеления */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_light_healingservent_g1.png);} /* Призыв: Энергия исцеления */
+
+.blue2{background:url(/stigmas/img/cleric/live_pr_suffermemory_g1.png);} /* Ослабляющее клеймо */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_suffermemory_g1.png);} /* Ослабляющее клеймо */
+
+.blue3{background:url(/stigmas/img/cleric/live_pr_light_eternalservent_g1.png);} /* Призыв: Святая энергия */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_light_eternalservent_g1.png);} /* Призыв: Святая энергия */
+
+.blue4{background:url(/stigmas/img/cleric/live_pr_painlinks_g1.png);} /* Цепь страданий */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_painlinks_g1.png);} /* Цепь страданий */
+
+.blue5{background:url(/stigmas/img/cleric/live_pr_regeneraitionshine_g1.png);} /* Сияние регенерации */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_regeneraitionshine_g1.png);} /* Сияние регенерации */
+
+.blue6{background:url(/stigmas/img/cleric/live_pr_tranquility_g1.png);} /* Волна святости */
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_tranquility_g1.png);} /* Волна святости */
+
+
+.green1{background:url(/stigmas/img/cleric/cbt_pr_bindingheal_g1.png);} /* Исцеляющее сочувствие */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/cbt_pr_bindingheal_g1.png);} /* Исцеляющее сочувствие */
+
+.green2{background:url(/stigmas/img/cleric/live_pr_restorelife_g1.png);} /* Спасительная длань */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_restorelife_g1.png);} /* Спасительная длань */
+
+.green3{background:url(/stigmas/img/cleric/live_pr_healinggrace_g1.png);} /* Покровительство целителя */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_healinggrace_g1.png);} /* Покровительство целителя */
+
+.green4{background:url(/stigmas/img/cleric/cbt_pr_reversecondition_g1.png);} /* Реверс */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/cbt_pr_reversecondition_g1.png);} /* Реверс */
+
+.green5{background:url(/stigmas/img/cleric/pr_thunderofpunishment_g1.png);} /* Молния возмездия */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/pr_thunderofpunishment_g1.png);} /* Молния возмездия */
+
+.green6{background:url(/stigmas/img/cleric/cbt_pr_blindinglight_g1.png);} /* Блик */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/cbt_pr_blindinglight_g1.png);} /* Блик */
+
+.green7{background:url(/stigmas/img/cleric/cbt_pr_coursewound_g1.png);} /* Запрет восстановления */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/cbt_pr_coursewound_g1.png);} /* Запрет восстановления */
+
+.green8{background:url(/stigmas/img/cleric/pr_sprint_g1.png);} /* Резкое ускорение */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/pr_sprint_g1.png);} /* Резкое ускорение */
+
+.green9{background:url(/stigmas/img/cleric/live_pr_offensivemode_g1.png);} /* Право на уничтожение */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/cleric/live_pr_offensivemode_g1.png);} /* Право на уничтожение */
+
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/cleric.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

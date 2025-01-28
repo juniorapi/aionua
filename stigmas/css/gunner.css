@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/gunner/93436e44e05a8cc4e587a390e6158750_68.png);} /* Преследование */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/93436e44e05a8cc4e587a390e6158750_68.png);} /* Преследование */
+
+.hidden2{background:url(/stigmas/img/gunner/dfb30a524f2fe80f17fe1e4eafb3ae81_71.png);} /* Обширный зал */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/dfb30a524f2fe80f17fe1e4eafb3ae81_71.png);} /* Обширный зал */
+
+.hidden3{background:url(/stigmas/img/gunner/a411d4869cdc88f14c9ab371945b20a1_80.png);} /* Магический обстрел */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/a411d4869cdc88f14c9ab371945b20a1_80.png);} /* Магический обстрел */
+
+
+.gold1{background:url(/stigmas/img/gunner/live_gu_sunningshot_g1.png);} /* Оглушающий выстрел */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_sunningshot_g1.png);} /* Оглушающий выстрел */
+
+.gold2{background:url(/stigmas/img/gunner/live_gu_mentaliccannon_1_g1.png);} /* Рассекающая пушка */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_mentaliccannon_1_g1.png);} /* Рассекающая пушка */
+
+
+.blue1{background:url(/stigmas/img/gunner/live_gu_antigravitycannon_g1.png);} /* Сковывающее ядро */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_antigravitycannon_g1.png);} /* Сковывающее ядро */
+
+.blue2{background:url(/stigmas/img/gunner/live_gu_firechainrefresh_g1.png);} /* Зарядка магического взрыва */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_firechainrefresh_g1.png);} /* Зарядка магического взрыва */
+
+.blue3{background:url(/stigmas/img/gunner/live_gu_empowerammo_g1.png);} /* Усиление магического взрыва */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_empowerammo_g1.png);} /* Усиление магического взрыва */
+
+.blue4{background:url(/stigmas/img/gunner/live_gu_empowermagic_g1.png);} /* Мудрость магии */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_empowermagic_g1.png);} /* Мудрость магии */
+
+.blue5{background:url(/stigmas/img/gunner/live_gu_veinsnipe_g1.png);} /* Проникающий выстрел */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_veinsnipe_g1.png);} /* Проникающий выстрел */
+
+.blue6{background:url(/stigmas/img/gunner/live_gu_armorbreak_g1.png);} /* Ядро разлома */
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_armorbreak_g1.png);} /* Ядро разлома */
+
+
+.green1{background:url(/stigmas/img/gunner/live_gu_icecannon_g1.png);} /* Удар заморозки */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_icecannon_g1.png);} /* Удар заморозки */
+
+.green2{background:url(/stigmas/img/gunner/live_gu_vassblaster_1_g1.png);} /* Вызов канонады */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_vassblaster_1_g1.png);} /* Вызов канонады */
+
+.green3{background:url(/stigmas/img/gunner/live_gu_magicalbreathing_g1.png);} /* Магическое дыхание */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_magicalbreathing_g1.png);} /* Магическое дыхание */
+
+.green4{background:url(/stigmas/img/gunner/live_gu_mentalsnatcher_g1.png);} /* Поглощающий выстрел */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_mentalsnatcher_g1.png);} /* Поглощающий выстрел */
+
+.green5{background:url(/stigmas/img/gunner/live_gu_flamecannon_1_g1.png);} /* Огненный залп */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_flamecannon_1_g1.png);} /* Огненный залп */
+
+.green6{background:url(/stigmas/img/gunner/live_gu_soulbreakcannon_1_g1.png);} /* Призрачная пушка */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_soulbreakcannon_1_g1.png);} /* Призрачная пушка */
+
+.green7{background:url(/stigmas/img/gunner/live_gu_bullseye_g1.png);} /* Сосредоточенность */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_bullseye_g1.png);} /* Сосредоточенность */
+
+.green8{background:url(/stigmas/img/gunner/live_gu_shockcannon_1_g1.png);} /* Шоковая пушка */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_shockcannon_1_g1.png);} /* Шоковая пушка */
+
+.green9{background:url(/stigmas/img/gunner/live_gu_onepointrapidfire_g1.png);} /* Быстрый выстрел */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/gunner/live_gu_onepointrapidfire_g1.png);} /* Быстрый выстрел */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/gunner.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/assassin/db5dc2dc85378b9a805ad96434f0ac7a_39.png);} /* Молниеносная засада */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/db5dc2dc85378b9a805ad96434f0ac7a_39.png);} /* Молниеносная засада */
+
+.hidden2{background:url(/stigmas/img/assassin/a8231ffa36fd3b9c88bb27fd00511c21_36.png);} /* Вспышка */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/a8231ffa36fd3b9c88bb27fd00511c21_36.png);} /* Вспышка */
+
+.hidden3{background:url(/stigmas/img/assassin/6ecdcf9350f694bd5f8d30095fb7c160_42.png);} /* Модель клейма */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/6ecdcf9350f694bd5f8d30095fb7c160_42.png);} /* Модель клейма */
+
+.gold1{background:url(/stigmas/img/assassin/live_as_venomslash_g1.png);} /* Клинок обморока */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_venomslash_g1.png);} /* Клинок обморока */
+
+.gold2{background:url(/stigmas/img/assassin/f20598a17eaeec28acd57a78b48e1f9d_45.png);} /* Клятва кинжала */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/f20598a17eaeec28acd57a78b48e1f9d_45.png);} /* Клятва кинжала */
+
+.blue1{background:url(/stigmas/img/assassin/live_as_flashslash_g1.png);} /* Рассекающая молния */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_flashslash_g1.png);} /* Рассекающая молния */
+
+.blue2{background:url(/stigmas/img/assassin/live_as_chainsignetburst_g1.png);} /* Вспышка сложного клейма */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_chainsignetburst_g1.png);} /* Вспышка сложного клейма */
+
+.blue3{background:url(/stigmas/img/assassin/live_as_assaultslash_g1.png);} /* Кровоточащий порез */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_assaultslash_g1.png);} /* Кровоточащий порез */
+
+.blue4{background:url(/stigmas/img/assassin/as_runnersstance_g1.png);} /* Спасение */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/as_runnersstance_g1.png);} /* Спасение */
+
+.blue5{background:url(/stigmas/img/assassin/live_as_explosionpoison_g1.png);} /* Порох */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_explosionpoison_g1.png);} /* Порох */
+
+.blue6{background:url(/stigmas/img/assassin/live_as_senseboost_g1.png);} /* Обострение чувств */
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_senseboost_g1.png);} /* Обострение чувств */
+
+
+.green1{background:url(/stigmas/img/assassin/cbt_as_visiouseye_g1.png);} /* Око гнева */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/cbt_as_visiouseye_g1.png);} /* Око гнева */
+
+.green2{background:url(/stigmas/img/assassin/cbt_as_signetwave_g1.png);} /* Нанесение клейма на расстоянии */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/cbt_as_signetwave_g1.png);} /* Нанесение клейма на расстоянии */
+
+.green3{background:url(/stigmas/img/assassin/live_as_venomstab_g1.png);} /* Атака ядом */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_venomstab_g1.png);} /* Атака ядом */
+
+.green4{background:url(/stigmas/img/assassin/live_as_hitmanmind_g1.png);} /* Клятва точности */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_hitmanmind_g1.png);} /* Клятва точности */
+
+.green5{background:url(/stigmas/img/assassin/as_backblow_g1.png);} /* Обратный сокрушительный удар */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/as_backblow_g1.png);} /* Обратный сокрушительный удар */
+
+.green6{background:url(/stigmas/img/assassin/cbt_as_carvesignetchain_g1.png);} /* Нанесение сложного клейма */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/cbt_as_carvesignetchain_g1.png);} /* Нанесение сложного клейма */
+
+.green7{background:url(/stigmas/img/assassin/live_as_shadowdrop_g1.png);} /* Падение в тень */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_shadowdrop_g1.png);} /* Падение в тень */
+
+.green8{background:url(/stigmas/img/assassin/live_as_stigma_shadowwalk_g1.png);} /* Теневой шаг */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_stigma_shadowwalk_g1.png);} /* Теневой шаг */
+
+.green9{background:url(/stigmas/img/assassin/live_as_stabstance_g1.png);} /* Готовность */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/assassin/live_as_stabstance_g1.png);} /* Готовность */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/assassin.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

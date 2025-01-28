@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/aethertech/841f464e7b47bc6dedfe22301443383c_52.png);} /* Взрыв ида */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/841f464e7b47bc6dedfe22301443383c_52.png);} /* Взрыв ида */
+
+.hidden2{background:url(/stigmas/img/aethertech/1444b138836889afefa864d540f78fea_61.png);} /* Быстрая зарядка */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/1444b138836889afefa864d540f78fea_61.png);} /* Быстрая зарядка */
+
+.hidden3{background:url(/stigmas/img/aethertech/3dd9c71e891ce4b913f0fd648ca5b345_49.png);} /* Распространение света */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/3dd9c71e891ce4b913f0fd648ca5b345_49.png);} /* Распространение света */
+
+
+.gold1{background:url(/stigmas/img/aethertech/ri_eathiumwall_g1.png);} /* Барьер ида */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_eathiumwall_g1.png);} /* Барьер ида */
+
+.gold2{background:url(/stigmas/img/aethertech/ri_powerslam_g1.png);} /* Сокрушительный прорыв */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_powerslam_g1.png);} /* Сокрушительный прорыв */
+
+
+.blue1{background:url(/stigmas/img/aethertech/ri_magneticfield_g1.png);} /* Энергетический барьер */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_magneticfield_g1.png);} /* Энергетический барьер */
+
+.blue2{background:url(/stigmas/img/aethertech/ri_speedoverdrive_g1.png);} /* Повышение подвижности */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_speedoverdrive_g1.png);} /* Повышение подвижности */
+
+.blue3{background:url(/stigmas/img/aethertech/ri_weaponsmash_g1.png);} /* Изнуряющая атака */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_weaponsmash_g1.png);} /* Изнуряющая атака */
+
+.blue4{background:url(/stigmas/img/aethertech/ri_rapidattack_g1.png);} /* Град атак */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_rapidattack_g1.png);} /* Град атак */
+
+.blue5{background:url(/stigmas/img/aethertech/ri_overcharge_g1.png);} /* Максимальная отдача */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_overcharge_g1.png);} /* Максимальная отдача */
+
+.blue6{background:url(/stigmas/img/aethertech/ri_bindingslam_g1.png);} /* Электрические оковы */
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_bindingslam_g1.png);} /* Электрические оковы */
+
+
+.green1{background:url(/stigmas/img/aethertech/ri_forwardstrike_g1.png);} /* Сокрушающая волна */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_forwardstrike_g1.png);} /* Сокрушающая волна */
+
+.green2{background:url(/stigmas/img/aethertech/ri_eathiumreactive_g1.png);} /* Магическая перезарядка */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_eathiumreactive_g1.png);} /* Магическая перезарядка */
+
+.green3{background:url(/stigmas/img/aethertech/ri_eathiumcompress_g1.png);} /* Магическая компрессия */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_eathiumcompress_g1.png);} /* Магическая компрессия */
+
+.green4{background:url(/stigmas/img/aethertech/ri_itheumreflector_g1.png);} /* Амортизирующая мембрана */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_itheumreflector_g1.png);} /* Амортизирующая мембрана */
+
+.green5{background:url(/stigmas/img/aethertech/ri_eathiumblast_g1.png);} /* Идиумовая канонада */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_eathiumblast_g1.png);} /* Идиумовая канонада */
+
+.green6{background:url(/stigmas/img/aethertech/ri_flamethrow_g1.png);} /* Идиумовая кара */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_flamethrow_g1.png);} /* Идиумовая кара */
+
+.green7{background:url(/stigmas/img/aethertech/ri_eathiumbeam_g1.png);} /* Идиумовый луч */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_eathiumbeam_g1.png);} /* Идиумовый луч */
+
+.green8{background:url(/stigmas/img/aethertech/ri_shielddestroyer_g1.png);} /* Разрушение барьеров */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_shielddestroyer_g1.png);} /* Разрушение барьеров */
+
+.green9{background:url(/stigmas/img/aethertech/ri_tunesensor_g1.png);} /* Регулировка */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/aethertech/ri_tunesensor_g1.png);} /* Регулировка */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/aethertech.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

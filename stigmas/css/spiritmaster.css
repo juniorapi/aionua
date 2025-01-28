@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/spiritmaster/7ba09a8904ae8309681f9e137b31a2b2_41.png);} /* Единение с элементалем */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/7ba09a8904ae8309681f9e137b31a2b2_41.png);} /* Единение с элементалем */
+
+.hidden2{background:url(/stigmas/img/spiritmaster/83e81dc25446d9e1e96ed45c32c96506_49.png);} /* Команда: Прикрытие */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/83e81dc25446d9e1e96ed45c32c96506_49.png);} /* Команда: Прикрытие */
+
+.hidden3{background:url(/stigmas/img/spiritmaster/05956daf6e18bdeab3c9482c1b6f00e9_49.png);} /* Обширное поглощение */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/05956daf6e18bdeab3c9482c1b6f00e9_49.png);} /* Обширное поглощение */
+
+
+.gold1{background:url(/stigmas/img/spiritmaster/live_el_hellcurse_g1.png);} /* Загробное проклятие */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_hellcurse_g1.png);} /* Загробное проклятие */
+
+.gold2{background:url(/stigmas/img/spiritmaster/e43675969d494602aea19e167cf5cceb_96.png);} /* Усиление элементаля: Усиленные доспехи */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/e43675969d494602aea19e167cf5cceb_96.png);} /* Усиление элементаля: Усиленные доспехи */
+
+
+.blue1{background:url(/stigmas/img/spiritmaster/live_el_enfeeblement_g1.png);} /* Замедляющие кандалы */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_enfeeblement_g1.png);} /* Замедляющие кандалы */
+
+.blue2{background:url(/stigmas/img/spiritmaster/live_el_hellpain_g1.png);} /* Невыносимые муки */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_hellpain_g1.png);} /* Невыносимые муки */
+
+.blue3{background:url(/stigmas/img/spiritmaster/live_el_manareverse_g1.png);} /* Сжечь чары */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_manareverse_g1.png);} /* Сжечь чары */
+
+.blue4{background:url(/stigmas/img/spiritmaster/live_el_stigma_order_destructimpact_g1.png);} /* Команда: Сокрушающая атака */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_stigma_order_destructimpact_g1.png);} /* Команда: Сокрушающая атака */
+
+.blue5{background:url(/stigmas/img/spiritmaster/live_el_light_slave_stormservent_g1.png);} /* Призыв: Энергия урагана */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_light_slave_stormservent_g1.png);} /* Призыв: Энергия урагана */
+
+.blue6{background:url(/stigmas/img/spiritmaster/live_el_elementalcharge_g1.png);} /* Усиление элементаля: Исцеление */
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_elementalcharge_g1.png);} /* Усиление элементаля: Исцеление */
+
+
+.green1{background:url(/stigmas/img/spiritmaster/el_earthguardiance_g1.png);} /* Страж земли */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/el_earthguardiance_g1.png);} /* Страж земли */
+
+.green2{background:url(/stigmas/img/spiritmaster/live_el_escape_g1.png);} /* Герб маскировки */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_escape_g1.png);} /* Герб маскировки */
+
+.green3{background:url(/stigmas/img/spiritmaster/live_el_stigma_stormblade_g1.png);} /* Ураган гнева */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_stigma_stormblade_g1.png);} /* Ураган гнева */
+
+.green4{background:url(/stigmas/img/spiritmaster/live_el_stigma_order_ethereruption_g1.png);} /* Команда: Сжечь дотла */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_stigma_order_ethereruption_g1.png);} /* Команда: Сжечь дотла */
+
+.green5{background:url(/stigmas/img/spiritmaster/el_cursedbreath_1_g1.png);} /* Гнев земли */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/el_cursedbreath_1_g1.png);} /* Гнев земли */
+
+.green6{background:url(/stigmas/img/spiritmaster/cbt_el_sympatheticswitch_g1.png);} /* Жертва элементаля */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/cbt_el_sympatheticswitch_g1.png);} /* Жертва элементаля */
+
+.green7{background:url(/stigmas/img/spiritmaster/el_magicalbreakdown_g1.png);} /* Проклятие магической силы */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/el_magicalbreakdown_g1.png);} /* Проклятие магической силы */
+
+.green8{background:url(/stigmas/img/spiritmaster/live_el_enervationcurse_g1.png);} /* Проклятие тьмы */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/live_el_enervationcurse_g1.png);} /* Проклятие тьмы */
+
+.green9{background:url(/stigmas/img/spiritmaster/cbt_el_order_elementalfield_g1.png);} /* Падение молнии */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/spiritmaster/cbt_el_order_elementalfield_g1.png);} /* Падение молнии */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/spiritmaster.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

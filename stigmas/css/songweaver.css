@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/songweaver/e9fe857fe97c28ada17ddfd20d263380_74.png);} /* Иллюзия реквием */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/e9fe857fe97c28ada17ddfd20d263380_74.png);} /* Иллюзия реквием */
+
+.hidden2{background:url(/stigmas/img/songweaver/4649519db334734dbb627b5b17c0b7b9_83.png);} /* Ноктюрн очистки */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/4649519db334734dbb627b5b17c0b7b9_83.png);} /* Ноктюрн очистки */
+
+.hidden3{background:url(/stigmas/img/songweaver/dea5743e56b751dae1902907095b7bd7_64.png);} /* Песня иллюзии */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/dea5743e56b751dae1902907095b7bd7_64.png);} /* Песня иллюзии */
+
+
+.gold1{background:url(/stigmas/img/songweaver/live_ba_songofgale_g1.png);} /* Аккорд дисгармонии */
+.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofgale_g1.png);} /* Аккорд дисгармонии */
+
+.gold2{background:url(/stigmas/img/songweaver/live_ba_songofbless_g1.png);} /* Мотив освобождения */
+.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofbless_g1.png);} /* Мотив освобождения */
+
+
+.blue1{background:url(/stigmas/img/songweaver/live_ba_songofmassheal_g1.png);} /* Мелодия исцеления */
+.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofmassheal_g1.png);} /* Мелодия исцеления */
+
+.blue2{background:url(/stigmas/img/songweaver/live_ba_delayparalyze_g1.png);} /* Эхо паралича */
+.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_delayparalyze_g1.png);} /* Эхо паралича */
+
+.blue3{background:url(/stigmas/img/songweaver/live_ba_playingstyleschangeb_g1.png);} /* Закон усиления */
+.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_playingstyleschangeb_g1.png);} /* Закон усиления */
+
+.blue4{background:url(/stigmas/img/songweaver/live_ba_playingstyleschangea_g1.png);} /* Закон исцеления */
+.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_playingstyleschangea_g1.png);} /* Закон исцеления */
+
+.blue5{background:url(/stigmas/img/songweaver/live_ba_songofpain_g1.png);} /* Рапсодия мушки */
+.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofpain_g1.png);} /* Рапсодия мушки */
+
+.blue6{background:url(/stigmas/img/songweaver/ba_songofwarmth_g1.png);} /* Мелодия радости*/
+.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/ba_songofwarmth_g1.png);} /* Мелодия радости*/
+
+
+.green1{background:url(/stigmas/img/songweaver/live_ba_songoffirm_g1.png);} /* Мотив самообладания */
+.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songoffirm_g1.png);} /* Мотив самообладания */
+
+.green2{background:url(/stigmas/img/songweaver/live_ba_songofbrave_g1.png);} /* Мотив отваги */
+.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofbrave_g1.png);} /* Мотив отваги */
+
+.green3{background:url(/stigmas/img/songweaver/live_ba_songofdestroy_g1.png);} /* Фантазия разрушения */
+.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofdestroy_g1.png);} /* Фантазия разрушения */
+
+.green4{background:url(/stigmas/img/songweaver/live_ba_songofearth_g1.png);} /* Пчелиный марш */
+.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofearth_g1.png);} /* Пчелиный марш */
+
+.green5{background:url(/stigmas/img/songweaver/live_ba_songofmanareverse_g1.png);} /* Рапсодия забвения */
+.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofmanareverse_g1.png);} /* Рапсодия забвения */
+
+.green6{background:url(/stigmas/img/songweaver/live_ba_songofadvance_g1.png);} /* Мотив нападения */
+.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofadvance_g1.png);} /* Мотив нападения */
+
+.green7{background:url(/stigmas/img/songweaver/live_ba_songofregeneration_g1.png);} /* Мотив рождения */
+.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofregeneration_g1.png);} /* Мотив рождения */
+
+.green8{background:url(/stigmas/img/songweaver/live_ba_lullaby_g1.png);} /* Танец шута */
+.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_lullaby_g1.png);} /* Танец шута */
+
+.green9{background:url(/stigmas/img/songweaver/live_ba_songofserenity_g1.png);} /* Мелодия невозмутимости */
+.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/songweaver/live_ba_songofserenity_g1.png);} /* Мелодия невозмутимости */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/songweaver.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}

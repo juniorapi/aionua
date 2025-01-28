@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.hidden1{background:url(/stigmas/img/gladiator/fi_movewhirl_g1.png);} /* Рубящий вихрь */
+.hidden1:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/fi_movewhirl_g1.png);}
+
+.hidden2{background:url(/stigmas/img/gladiator/fi_bladeshock_g1.png);} /* Разрыв плоти */
+.hidden2:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/fi_bladeshock_g1.png);} /* Разрыв плоти */
+
+.hidden3{background:url(/stigmas/img/gladiator/fi_warflag_g1.png);} /* Призыв: Флаг войны */
+.hidden3:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/fi_warflag_g1.png);} /* Призыв: Флаг войны */
+
+
+.gold1{background:url(/stigmas/img/gladiator/live_fi_drainsword_g1.png);} /* Меч вампира */
+.gold1:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_drainsword_g1.png);} /* Меч вампира */
+
+.gold2{background:url(/stigmas/img/gladiator/live_fi_jumpattack_g1.png);} /* Удар с воздуха */
+.gold2:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_jumpattack_g1.png);} /* Удар с воздуха */
+
+
+.blue1{background:url(/stigmas/img/gladiator/live_fi_kneecrash_g1.png);} /* Порез ног */
+.blue1:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_kneecrash_g1.png);} /* Порез ног */
+
+.blue2{background:url(/stigmas/img/gladiator/live_fi_technicalcounter_g1.png);} /* Мастер контратаки */
+.blue2:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_technicalcounter_g1.png);} /* Мастер контратаки */
+
+.blue3{background:url(/stigmas/img/gladiator/live_fi_chargingshock_g1.png);} /* Уничтожающий удар */
+.blue3:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_chargingshock_g1.png);} /* Уничтожающий удар */
+
+.blue4{background:url(/stigmas/img/gladiator/live_fi_burserklance_g1.png);} /* Затаптывание */
+.blue4:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_burserklance_g1.png);} /* Затаптывание */
+
+.blue5{background:url(/stigmas/img/gladiator/live_fi_sharpnesshit_g1.png);} /* Колющий удар */
+.blue5:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_sharpnesshit_g1.png);} /* Колющий удар */
+
+.blue6{background:url(/stigmas/img/gladiator/live_fi_whirldrain_g1.png);} /* Иссушающая волна */
+.blue6:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_whirldrain_g1.png);} /* Иссушающая волна */
+
+
+.green1{background:url(/stigmas/img/gladiator/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
+.green1:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
+
+.green2{background:url(/stigmas/img/gladiator/cbt_fi_anklegrab_g1.png);} /* Захват ног */
+.green2:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_fi_anklegrab_g1.png);} /* Захват ног */
+
+.green3{background:url(/stigmas/img/gladiator/fi_magicalbarrier_g1.png);} /* Защита маг. энергией */
+.green3:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/fi_magicalbarrier_g1.png);} /* Защита маг. энергией */
+
+.green4{background:url(/stigmas/img/gladiator/cbt_fi_cripplingcut_g1.png);} /* Нисходящий удар */
+.green4:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_fi_cripplingcut_g1.png);} /* Нисходящий удар */
+
+.green5{background:url(/stigmas/img/gladiator/live_fi_stigma_draincut_g1.png);} /* Выпить крови */
+.green5:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_stigma_draincut_g1.png);} /* Выпить крови */
+
+.green6{background:url(/stigmas/img/gladiator/live_fi_ragespirit_g1.png);} /* Бесстрашие */
+.green6:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/live_fi_ragespirit_g1.png);} /* Бесстрашие */
+
+.green7{background:url(/stigmas/img/gladiator/cbt_fi_heavyimpact_g1.png);} /* Волна землетрясения */
+.green7:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_fi_heavyimpact_g1.png);} /* Волна землетрясения */
+
+.green8{background:url(/stigmas/img/gladiator/cbt_fi_howling_g1.png);} /* Угрожающий рев */
+.green8:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_fi_howling_g1.png);} /* Угрожающий рев */
+
+.green9{background:url(/stigmas/img/gladiator/cbt_fi_lockdownimpact_g1.png);} /* Изоляция */
+.green9:hover{background:url(/stigmas/img/border_slot.png), url(/stigmas/img/gladiator/cbt_fi_lockdownimpact_g1.png);} /* Изоляция */
+
+#right_stigma {
+background:
+	url(/stigmas/img/icons/new/gladiator.png) 50% 10% no-repeat,
+	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+}
