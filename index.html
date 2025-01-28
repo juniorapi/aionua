@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #0f1624;
+      --card-bg: #1e2a47;
+      --card-hover-bg: #253354;
+      --primary-text: #ffffff;
+      --secondary-text: #9db0d0;
+      --accent-color: #00d4ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      font-family: 'Exo 2', sans-serif;
+      color: var(--primary-text);
+      padding: 10px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+      background-color: var(--card-hover-bg);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin: 5px 0;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary-text);
+      background: linear-gradient(135deg, #00d4ff, #007acc);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+      transition: transform 0.4s ease-out;
+      transform: translateX(-100%);
+      z-index: 1;
+    }
+
+    .card a:hover::before {
+      transform: translateX(100%);
+    }
+
+    .card a:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #007acc, #005f99);
+      box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
+    }
+
+    .card a:active {
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+      .card h2 {
+        font-size: 1.2rem;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .card a {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 5px;
+      }
+
+      .card {
+        padding: 10px;
+      }
+
+      .card h2 {
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        font-size: 0.8rem;
+      }
+
+      .card a {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Розклад інстансів</h2>
+      <p>Дізнайтесь, коли і де проходять найцікавіші події!</p>
+      <a href="/euroaion/" target="_blank" rel="noopener noreferrer">EuroAion</a>
+     <!-- <a href="/aionempire/" target="_blank" rel="noopener noreferrer">AionEmpire</a>-->
+      <a href="/aiondestiny/" target="_blank" rel="noopener noreferrer">AionDestiny</a>
+    </div>
+    <div class="card">
+      <h2>Корисне</h2>
+      <p>Калькулятор чар, стігми v4.5 і v4.8.</p>
+	  <a href="/craft/" target="_blank" rel="noopener noreferrer">Крафт аксесуарів</a>
+      <a href="/aion-4.6-enchantment-calculator/" target="_blank" rel="noopener noreferrer">Калькулятор чар</a>
+      <a href="/stigma/" target="_blank" rel="noopener noreferrer">Стігми 4.6</a>
+      <a href="/stigmas/" target="_blank" rel="noopener noreferrer">Стігми 4.8</a>
+	  <a href="/essencetapping/" target="_blank" rel="noopener noreferrer">Енергокінез (Асми)</a>
+	  <a href="/aethertapping/" target="_blank" rel="noopener noreferrer">Ефірокінез (Асми)</a>
+    </div>
+    <div class="card">
+      <h2>Для стрімерів</h2>
+      <p>Інтерактивні лічильники для ваших трансляцій.</p>
+      <a href="/tempering-solution-counter/" target="_blank" rel="noopener noreferrer">Solution</a>
+      <a href="/ice-hammer-counter/" target="_blank" rel="noopener noreferrer">Hammer</a>
+    </div>
+  </div>
+</body>
+</html>
