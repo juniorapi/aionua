@@ -1,5 +1,5 @@
 body {
-	background: url('https://github.com/juniorapi/aionua/blob/main/stigma/img/backgroungtmp.jpg?raw=true') no-repeat center center fixed;
+	background: url('/aionua/stigma/img/backgroungtmp.jpg') no-repeat center center fixed;
 	background-size: cover;
 
 	font-family: Calibri, Times New Roman;
@@ -58,7 +58,7 @@ body {
 	position: absolute;
 	left: 410px;
 	top: 5px;
-	background: no-repeat url(/stigma/img/classbckgr3.png);
+	background: no-repeat url(/aionua/stigma/img/classbckgr3.png);
 	width:123px;
 	height:87px;
 	z-index: 30;
@@ -80,7 +80,7 @@ body {
 	width:326px;
 	height:256px;
 	z-index: 10;
-	background:url(/stigma/img/sf.png);
+	background:url(/aionua/stigma/img/sf.png);
 }
 
 #stigma_tree_wrapper {
@@ -103,7 +103,7 @@ body {
 	left:673px;
 	width:50px;
 	height:32px;
-	background-image:url(/stigma/img/races.png);
+	background-image:url(/aionua/stigma/img/races.png);
 	z-index: 15;
 	cursor:pointer;
 }
@@ -133,7 +133,7 @@ body {
 	position:absolute;
 	width:80px;
 	height:80px;
-	background:url(/stigma/img/stigmaslots.png);
+	background:url(/aionua/stigma/img/stigmaslots.png);
 }
 .stigma-icon {
 	position:absolute;
@@ -177,7 +177,7 @@ body {
 	height:52px;
 	float: left;
 	padding:1px;
-	background:no-repeat url(/stigma/img/borders.png);
+	background:no-repeat url(/aionua/stigma/img/borders.png);
 }
 
 .stigma-padding {
@@ -235,7 +235,7 @@ body {
 	height:40px;
 	top:-1px;
 	left:-1px;
-	background:no-repeat url(/stigma/img/item_hover.png);
+	background:no-repeat url(/aionua/stigma/img/item_hover.png);
 	display:none;
 }
 
@@ -257,7 +257,7 @@ body {
 	position: absolute;
 	left: 29px;
 	top: -2px;
-	background: url(/stigma/img/close.png);
+	background: url(/aionua/stigma/img/close.png);
 	width: 22px;
 	height: 22px;
 }
@@ -281,7 +281,7 @@ body {
 	width:140px;
 	height:140px;
 	position:absolute;
-	background: no-repeat url(/stigma/img/border.png);
+	background: no-repeat url(/aionua/stigma/img/border.png);
 	z-index: 2;
 }
 #border_top_left {top:-25px;left:-25px;}
@@ -294,7 +294,7 @@ body {
 	height: 50px;
 	left:115px;
 	right:115px;
-	background: repeat-x url(/stigma/img/border_h.png);
+	background: repeat-x url(/aionua/stigma/img/border_h.png);
 	z-index:2;
 }
 #border_top{top:-25px;left:115px;}
@@ -305,7 +305,7 @@ body {
 	width:50px;
 	top:115px;
 	bottom:115px;
-	background: repeat-y url(/stigma/img/border_v.png);
+	background: repeat-y url(/aionua/stigma/img/border_v.png);
 	z-index:2;
 }
 #border_left{left:-25px;}
@@ -325,7 +325,7 @@ body {
 	width:32px;
 	height:32px;
 	float: left;
-	background-image: url(/stigma/img/classes.png);
+	background-image: url(/aionua/stigma/img/classes.png);
 }
 .class-picker-label {
 	width:105px;
@@ -351,7 +351,7 @@ body {
 
 .select-hidden .class-picker-row {
 	width: 152px; 
-	background: url(/stigma/img/classsmall.png);
+	background: url(/aionua/stigma/img/classsmall.png);
 }
 
 .select-hidden .class-picker-row:hover {
@@ -422,7 +422,7 @@ body {
 	margin-top:28px;
 	top:-7px;
 	right:-15px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	z-index:25;
 }
 
@@ -433,7 +433,7 @@ body {
 	height:100%;
 	bottom:0px;
 	right:-15px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	background-position: -64px 0px;
 	z-index:22;
 }
@@ -445,7 +445,7 @@ body {
 	margin-top:25px;
 	top:-7px;
 	right:-15px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	background-position: 0px -15px;
 	z-index:25;
 }
@@ -456,7 +456,7 @@ body {
 	height:100%;
 	bottom:27px;
 	right:-15px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	background-position: -64px 0px;
 	z-index:22;
 }
@@ -468,7 +468,7 @@ body {
 	margin-top:27px;
 	top:-11px;
 	left:-21px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	background-position: -24px 0px;
 	z-index:25;
 }
@@ -480,7 +480,7 @@ body {
 	margin-top:27px;
 	top:-11px;
 	left:-33px;
-	background:url(/stigma/img/arrows.png);
+	background:url(/aionua/stigma/img/arrows.png);
 	background-position: -24px -19px;
 	z-index:25;
 }
@@ -546,7 +546,7 @@ a:link, a:visited {
 	width: 154px;
 	height: 35px;
 	position:absolute;
-	background:url(/stigma/img/bottom_link.png);
+	background:url(/aionua/stigma/img/bottom_link.png);
 	top:600px;
 }
 
@@ -573,7 +573,7 @@ a:link, a:visited {
 	height:102px;
 	opacity:0.6;
 	filter: alpha(opacity=60);
-	background: url(/stigma/img/4.5.png);
+	background: url(/aionua/stigma/img/4.5.png);
 }
 
 #cost_wrapper {
