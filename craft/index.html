@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор крафту</title>
+    <link rel="stylesheet" href="style.css">
+	
+</head>
+
+
+<body>
+    <div class="calculator">
+        <img src="images/icon_item_ring_m01.png" alt="Кільце" width="40" height="40" class="calculator-icon">
+        <label for="quantity1_ring">Кількість:</label>
+        <input type="number" id="quantity1_ring" value="1" min="1">
+        
+        <label for="type1_ring">Тип:</label>
+        <select id="type1_ring">
+            <option value="magic">Дарритовое кольцо специалиста</option>
+            <option value="physical">Опаловое кольцо специалиста</option>
+        </select>
+
+        <div class="ingredients">
+            <h2>Необхідні матеріали:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Матеріал</th>
+                        <th>Кількість</th>
+                    </tr>
+                </thead>
+                <tbody id="materials-list_ring"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="calculator">
+        <img src="images/icon_item_earring_m01.png" alt="Сережка" width="40" height="40" class="calculator-icon">
+        <label for="quantity1_earring">Кількість:</label>
+        <input type="number" id="quantity1_earring" value="1" min="1">
+        
+        <label for="type1_earring">Тип:</label>
+        <select id="type1_earring">
+            <option value="magic">Дарритовая серьга специалиста</option>
+            <option value="physical">Опаловая серьга специалиста</option>
+        </select>
+
+        <div class="ingredients">
+            <h2>Необхідні матеріали:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Матеріал</th>
+                        <th>Кількість</th>
+                    </tr>
+                </thead>
+                <tbody id="materials-list_earring"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="calculator">
+        <img src="images/icon_item_necklace_m01.png" alt="Намисто" width="40" height="40" class="calculator-icon">
+        <label for="quantity1_necklace">Кількість:</label>
+        <input type="number" id="quantity1_necklace" value="1" min="1">
+        
+        <label for="type1_necklace">Тип:</label>
+        <select id="type1_necklace">
+            <option value="magic">Дарритовое ожерелье специалиста</option>
+            <option value="physical">Опаловое ожерелье специалиста</option>
+        </select>
+
+        <div class="ingredients">
+            <h2>Необхідні матеріали:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Матеріал</th>
+                        <th>Кількість</th>
+                    </tr>
+                </thead>
+                <tbody id="materials-list_necklace"></tbody>
+            </table>
+        </div>
+    </div>
+        <div class="calculator">
+        <img src="images/icon_item_belt_m01.png" alt="Пояс" width="40" height="40" class="calculator-icon">
+        <label for="quantity1_belt">Кількість:</label>
+        <input type="number" id="quantity1_belt" value="1" min="1">
+        
+        <label for="type1_belt">Тип:</label>
+        <select id="type1_belt">
+            <option value="magic">Каталиумовый пояс специалиста</option>
+            <option value="physical">Каталиумовый ремень специалиста</option>
+        </select>
+
+        <div class="ingredients">
+            <h2>Необхідні матеріали:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Матеріал</th>
+                        <th>Кількість</th>
+                    </tr>
+                </thead>
+                <tbody id="materials-list_belt"></tbody>
+            </table>
+        </div>
+    </div>
+ 
+        <div class="gathering">
+            <label for="race-select">Оберіть расу:</label>
+            <select id="race-select">
+                <option value="elyos">Елійці</option>
+                <option value="asmodian">Асмодіани</option>
+            </select>
+
+            <table class="popup-table">
+                <tr><td class="popup-name" data-popup="Nolan">Даррит</td></tr>
+				<tr><td class="popup-name" data-popup="Opal">Опал</td></tr>
+                <tr><td class="popup-name" data-popup="Ceramium">Серамиум</td></tr>
+                <tr><td class="popup-name" data-popup="Aether">Древний эфир</td></tr>
+				<tr><td class="popup-name" data-popup="Ponica">Стебель фоники</td></tr>
+            </table>
+        </div>
+    </div>
+	
+	<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <h3 id="popup-title">Заголовок попапу</h3>
+        <textarea id="popup-textarea" readonly rows="10" style="width: 100%; resize: none;"></textarea>
+        <button id="copy-btn" class="copy-button">Копіювати</button>
+    </div>
+	</div>
+
+
+	<div id="notification-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
