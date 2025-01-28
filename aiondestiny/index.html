@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AionDestiny розклад</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 5px;
+        }
+
+        h1 {
+            color: #53afcc;
+            text-align: center;
+            font-size: 1.9rem;
+            margin-bottom: 0;
+        }
+
+        #current-time {
+            font-size: 1.2rem;
+            color: #bbb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        th:first-child, td:first-child {
+            width: 120px; /* обмежуємо ширину першої колонки */
+            white-space: nowrap; /* не дозволяємо переносити текст на новий рядок */
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        td {
+            background-color: #1f1f1f;
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        td.empty {
+            background-color: #444;
+            color: #777;
+        }
+
+        td:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+
+        .highlight {
+            background-color: #272727; /* М'якший блакитний */
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
+        }
+
+        .schedule-table td br {
+            display: block;
+            margin: 5px 0;
+        }
+		.text-red {
+    color: #ff4d4d; /* Червоний колір тексту */
+		}
+    </style>
+</head>
+<body>
+    <h1>Розклад AionDestiny</h1>
+    <div id="current-time"></div>
+   
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Інстанс</th>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
+                <th>Нд</th>
+            </tr>
+        </thead>
+        <tbody>
+		<tr>
+    <td class="text-red"><b>Рунаторіум</b></td>
+    <td>16:00-17:00<br>21:00-22:00</td>
+    <td>16:00-17:00<br>21:00-22:00</td>
+    <td>16:00-17:00<br>21:00-22:00</td>
+    <td>16:00-17:00<br>21:00-22:00</td>
+    <td>16:00-17:00<br>21:00-22:00<br>x2<br></td>
+    <td>13:00-14:00<br>16:00-17:00<br>x2</td>
+    <td>13:00-14:00<br>16:00-17:00<br>x2</td>
+</tr>
+
+            <tr>
+                <td>Дерадикон</td>
+                <td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				<td>23:00-01:00<br>11:00-13:00<br>19:00-21:00</td>
+				
+            </tr>
+            <tr>
+                <td>Міст Йормунґанда</td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00</td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00</td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00</td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00</td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00<br>x2</td></td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00<br>x2</td></td>
+                <td>23:00-01:00<br>11:00-13:00<br>18:00-20:00<br>x2</td></td>
+            </tr>
+            <tr>
+                <td>Поле битви Камара</td>
+                <td>18:00-19:00<br>22:00-23:00</td>
+                <td>18:00-19:00<br>22:00-23:00</td>
+                <td>18:00-19:00<br>22:00-23:00</td>
+				<td>18:00-19:00<br>22:00-23:00</td>
+                <td>18:00-19:00<br>22:00-23:00<br>x2</td>
+                <td>18:00-19:00<br>22:00-23:00<br>x2</td>
+                <td>18:00-19:00<br>22:00-23:00<br>x2</td>
+				
+            </tr>
+            <tr>
+                <td>Неприступна твердиня</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+				<td></td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+            </tr>
+            <tr>
+                <td>Тіамаранта</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+                <td>12:00-13:00<br>17:00-18:00</td>
+            </tr>
+            <tr>
+                <td>Кротан/Ткісас/Ра-Мірен</td>
+                <td></td>
+				<td></td>
+                <td>20:00-21:00</td>
+                <td></td>
+                <td></td>
+                <td>20:00-21:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Сілус/Базен/Парадес</td>
+                <td></td>
+                <td>19:00-20:00</td>
+                <td></td>
+                <td>20:00-21:00</td>
+                <td></td>
+                <td></td>
+                <td>14:00-15:00</td>
+            </tr>
+			 <tr>
+                <td>Інга/Келька</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>19:00-20:00</td>
+                <td></td>
+                <td>14:00-15:00</td>
+                <td></td>
+            </tr>
+						<tr>
+                <td>Сірка</td>
+                <td></td>
+                <td></td>
+                <td>14:00-15:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+			<tr>
+                <td>Астерія/Ру</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>14:00-15:00</td>
+                <td></td>
+                <td></td>
+            </tr>
+			<tr>
+                <td>Західна/Східна Сіель</td>
+                <td>14:00-15:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>19:00-20:00</td>
+                <td></td>
+				<td></td>
+            </tr>
+			<tr>
+                <td>Фортеця Святості (РРХ)</td>
+                <td></td>
+                <td></td>
+                <td>19:00-20:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+				<td>19:00-20:00</td>
+            </tr>
+            <tr>
+                <td class="text-red"><b>Арена Слави</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+				<td></td>
+                <td>11:00-13:00<br>19:00-21:00</td>
+                <td>11:00-13:00<br>19:00-21:00</td>
+             </tr>
+            <tr>
+                <td>Арени Хаосу/Доблесті/Покровительства</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+                <td>11:00-13:00<br>17:00-01:00</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+   <script>
+        // Підсвічування поточного дня
+        const currentDate = new Date(); // отримуємо поточну дату
+        const currentDay = currentDate.getDay(); // отримуємо день тижня (0 - Нд, 1 - Пн, ..., 6 - Сб)
+
+        const highlightIndex = currentDay === 0 ? 6 : currentDay - 1;
+
+        const cells = document.querySelectorAll('.schedule-table td');
+        cells.forEach((cell, index) => {
+            if (index % 8 === highlightIndex + 1) {
+                cell.classList.add('highlight'); // підсвічуємо відповідний день
+            }
+        });
+
+        // Виведення поточного часу в київському часі
+        function formatTime(date) {
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                timeZone: 'Europe/Kiev'
+            };
+            return new Intl.DateTimeFormat('uk-UA', options).format(date);
+        }
+
+        function updateTime() {
+            const timeElement = document.getElementById('current-time');
+            const now = new Date();
+            timeElement.textContent = formatTime(now); // Виводимо поточний час
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+    
+</body>
+</html>
