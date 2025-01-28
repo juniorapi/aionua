@@ -1,56 +1,76 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #2c2c2c; /* Темний фон */
-  color: #f4f4f4; /* Світлий текст */
-  margin: 20px;
-}
+  body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 5px;
+        }
 
-h1 {
-  color: #53afcc; /* Світло-блакитний заголовок */
-}
+        h1 {
+            color: #53afcc;
+            text-align: center;
+            font-size: 1.9rem;
+            margin-bottom: 0;
+        }
 
-#current-time {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #53afcc; /* Блакитний для часу */
-}
+        #current-time {
+            font-size: 1.2rem;
+            color: #bbb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #444;
+        }
 
-.schedule-table th, .schedule-table td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #444; /* Темніші межі */
-}
+        th, td {
+            padding: 9px;
+            text-align: center;
+            border: 1px solid #444;
+        }
 
-.schedule-table th {
-  background-color: #333; /* Темний фон заголовків */
-  color: #fff; /* Білий текст */
-}
+        th:first-child, td:first-child {
+            width: 120px; /* обмежуємо ширину першої колонки */
+            white-space: nowrap; /* не дозволяємо переносити текст на новий рядок */
+        }
 
-.schedule-table td {
-  background-color: #3a3a3a; /* Темно-сірий фон для комірок */
-  color: #e0e0e0; /* Світло-сірий текст */
-}
+        th {
+            background-color: #333;
+            color: #fff;
+            font-size: 1.1rem;
+        }
 
-.schedule-table td:empty {
-  background-color: #444; /* Темніший фон для порожніх комірок */
-}
+        td {
+            background-color: #1f1f1f;
+            font-size: 1rem;
+            color: #ddd;
+        }
 
-.schedule-table td:hover {
-  background-color: #505050; /* Світліший фон при наведенні */
-}
+        td.empty {
+            background-color: #444;
+            color: #777;
+        }
 
-.highlight {
-  background-color: #53afcc; /* Виділення поточного дня */
-  color: white;
-  font-weight: bold;
-}
+        td:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
 
-.schedule-table td br {
-  display: block;
-}
+        .highlight {
+            background-color: #272727; /* М'якший блакитний */
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
+        }
+
+        .schedule-table td br {
+            display: block;
+            margin: 5px 0;
+        }
+		.text-red {
+    color: #ff4d4d; /* Червоний колір тексту */
+		}
