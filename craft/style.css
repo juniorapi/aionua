@@ -1,0 +1,312 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d2d3e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.calculator {
+    background-color: #3e3e5e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+
+.calculator h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffdf70;
+}
+
+.calculator label {
+    display: block;
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+.calculator input,
+.calculator select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.calculator input:focus,
+.calculator select:focus {
+    border-color: #ffdf70;
+    outline: none;
+}
+
+.ingredients h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffdf70;
+}
+
+.ingredients table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    table-layout: fixed;
+}
+
+.ingredients th,
+.ingredients td {
+    border: 1px solid #555;
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calculator-icon {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 100%;
+    height: auto;
+}
+
+.gathering {
+    background-color: #3e3e5e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+
+
+.gathering h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #f4a261;
+}
+
+.gathering table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    background-color: #2e2e3e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gathering th {
+    background-color: #4e4e6b;
+    color: #ffdf70;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.gathering td {
+    border: 1px solid #555;
+    padding: 8px 12px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.gathering td input {
+    width: 90%;
+    padding: 6px;
+    margin: 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    font-size: 0.85rem;
+}
+
+.gathering td input:focus {
+    border-color: #ffdf70;
+    outline: none;
+}
+
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.popup-table {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.popup-name {
+    background-color: #4e4e6b;
+    color: #ffdf70;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.popup-name:hover {
+    background-color: #ffdf70;
+    color: #2d2d3e;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup-content {
+    background-color: #2e2e3e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+    font-size: 0.8rem; /* Зменшення шрифту */
+}
+
+.close-btn {
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.popup-overlay {
+    display: none;  /* Сховати попап за замовчуванням */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);  /* Затінений фон */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    width: 80%;  /* Ширина 80% від ширини екрана */
+    max-width: 1200px;  /* Максимальна ширина, якщо екран занадто великий */
+    background: #3e3e5e;  /* Той самий темний фон, як у калькуляторі */
+    color: #f0f0f0;  /* Світлий текст, як на основному сайті */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-popup {
+    background-color: #ffdf70;  /* Колір кнопки, як у заголовках */
+    color: #2d2d3e;  /* Темний текст, як на основному фоні */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.close-popup:hover {
+    background-color: #f4a261;  /* Легке затемнення при наведенні */
+    color: #2d2d3e;  /* Текст залишиться темним */
+}
+#popup-textarea {
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.copy-button {
+    background-color: #ffdf70;
+    color: #2d2d3e;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.copy-button:hover {
+    background-color: #f4a261;
+    color: #2d2d3e;
+}
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    background-color: #3e3e5e;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInOut 4s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
