@@ -1,70 +1,70 @@
 @charset "utf-8";
 
-.hidden1{background:url(/stigmas/img/templar/kn_godpunishment_g1.png);} /* Меч вампира */
-.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/kn_godpunishment_g1.png);}
+.hidden1{background:url(/aionua/stigmas/img/templar/kn_godpunishment_g1.png);} /* Меч вампира */
+.hidden1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/kn_godpunishment_g1.png);}
 
-.hidden2{background-image:url(/stigmas/img/templar/kn_skillreflector_g1.png);} /* Зеркальный щит */
-.hidden2:hover{background-image:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/kn_skillreflector_g1.png);}
+.hidden2{background-image:url(/aionua/stigmas/img/templar/kn_skillreflector_g1.png);} /* Зеркальный щит */
+.hidden2:hover{background-image:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/kn_skillreflector_g1.png);}
 
-.hidden3{background-image:url(/stigmas/img/templar/kn_standingshield_g1.png);} /* Каменная кожа */
-.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/kn_standingshield_g1.png);} /* Каменная кожа */
+.hidden3{background-image:url(/aionua/stigmas/img/templar/kn_standingshield_g1.png);} /* Каменная кожа */
+.hidden3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/kn_standingshield_g1.png);} /* Каменная кожа */
 
-.gold1{background:url(/stigmas/img/templar/live_kn_destructshield_g1.png);} /* Щит сокрушения */
-.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_destructshield_g1.png);}
+.gold1{background:url(/aionua/stigmas/img/templar/live_kn_destructshield_g1.png);} /* Щит сокрушения */
+.gold1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_destructshield_g1.png);}
 
-.gold2{background-image:url(/stigmas/img/templar/live_kn_invinsibleprotect_g1.png);} /* Защита богов */
-.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_invinsibleprotect_g1.png);} /* Защита богов */
+.gold2{background-image:url(/aionua/stigmas/img/templar/live_kn_invinsibleprotect_g1.png);} /* Защита богов */
+.gold2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_invinsibleprotect_g1.png);} /* Защита богов */
 
-.blue1{background-image:url(/stigmas/img/templar/live_kn_brainstorm_g1.png);} /* Разрушение сознания */
-.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_brainstorm_g1.png);} /* Разрушение сознания */
+.blue1{background-image:url(/aionua/stigmas/img/templar/live_kn_brainstorm_g1.png);} /* Разрушение сознания */
+.blue1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_brainstorm_g1.png);} /* Разрушение сознания */
 
-.blue2{background-image:url(/stigmas/img/templar/live_kn_sentinel_g1.png);} /* Доспехи покровительства */
-.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_sentinel_g1.png);} /* Доспехи покровительства */
+.blue2{background-image:url(/aionua/stigmas/img/templar/live_kn_sentinel_g1.png);} /* Доспехи покровительства */
+.blue2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_sentinel_g1.png);} /* Доспехи покровительства */
 
-.blue3{background-image:url(/stigmas/img/templar/live_kn_recover_g1.png);} /* Реанимация */
-.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_recover_g1.png);} /* Реанимация */
+.blue3{background-image:url(/aionua/stigmas/img/templar/live_kn_recover_g1.png);} /* Реанимация */
+.blue3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_recover_g1.png);} /* Реанимация */
 
-.blue4{background-image:url(/stigmas/img/templar/live_kn_powersink_g1.png);} /* Разрушительный магический удар  */
-.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_powersink_g1.png);} /* Разрушительный магический удар  */
+.blue4{background-image:url(/aionua/stigmas/img/templar/live_kn_powersink_g1.png);} /* Разрушительный магический удар  */
+.blue4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_powersink_g1.png);} /* Разрушительный магический удар  */
 
-.blue5{background-image:url(/stigmas/img/templar/live_kn_invinsibleshield_g1.png);} /* Прочный щит */
-.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_invinsibleshield_g1.png);} /* Прочный щит */
+.blue5{background-image:url(/aionua/stigmas/img/templar/live_kn_invinsibleshield_g1.png);} /* Прочный щит */
+.blue5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_invinsibleshield_g1.png);} /* Прочный щит */
 
-.blue6{background-image:url(/stigmas/img/templar/live_kn_fortitudewave_g1.png);} /* Волна оков */
-.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_fortitudewave_g1.png);} /* Волна оков */
+.blue6{background-image:url(/aionua/stigmas/img/templar/live_kn_fortitudewave_g1.png);} /* Волна оков */
+.blue6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_fortitudewave_g1.png);} /* Волна оков */
 
 
-.green1{background-image:url(/stigmas/img/templar/live_kn_highprovoke_g1.png);} /* Вызов гнева */
-.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_highprovoke_g1.png);} /* Вызов гнева */
+.green1{background-image:url(/aionua/stigmas/img/templar/live_kn_highprovoke_g1.png);} /* Вызов гнева */
+.green1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_highprovoke_g1.png);} /* Вызов гнева */
 
-.green2{background-image:url(/stigmas/img/templar/live_kn_stigma_resistarmor_g1.png);} /* Защитный блок */
-.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_stigma_resistarmor_g1.png);} /* Защитный блок */
+.green2{background-image:url(/aionua/stigmas/img/templar/live_kn_stigma_resistarmor_g1.png);} /* Защитный блок */
+.green2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_stigma_resistarmor_g1.png);} /* Защитный блок */
 
-.green3{background-image:url(/stigmas/img/templar/cbt_kn_divineslash_g1.png);} /* Наказание */
-.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/cbt_kn_divineslash_g1.png);} /* Наказание */
+.green3{background-image:url(/aionua/stigmas/img/templar/cbt_kn_divineslash_g1.png);} /* Наказание */
+.green3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/cbt_kn_divineslash_g1.png);} /* Наказание */
 
-.green4{background-image:url(/stigmas/img/templar/kn_executionalstrike_g1.png);} /* Устраняющий удар */
-.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/kn_executionalstrike_g1.png);} /* Устраняющий удар */
+.green4{background-image:url(/aionua/stigmas/img/templar/kn_executionalstrike_g1.png);} /* Устраняющий удар */
+.green4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/kn_executionalstrike_g1.png);} /* Устраняющий удар */
 
-.green5{background-image:url(/stigmas/img/templar/cbt_kn_divinepower_g1.png);} /* Возмущение */
-.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/cbt_kn_divinepower_g1.png);} /* Возмущение */
+.green5{background-image:url(/aionua/stigmas/img/templar/cbt_kn_divinepower_g1.png);} /* Возмущение */
+.green5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/cbt_kn_divinepower_g1.png);} /* Возмущение */
 
-.green6{background-image:url(/stigmas/img/templar/live_kn_reflectshield_g1.png);} /* Отражающая защита */
-.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_reflectshield_g1.png);} /* Отражающая защита */
+.green6{background-image:url(/aionua/stigmas/img/templar/live_kn_reflectshield_g1.png);} /* Отражающая защита */
+.green6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_reflectshield_g1.png);} /* Отражающая защита */
 
-.green7{background-image:url(/stigmas/img/templar/cbt_kn_holywrath_g1.png);} /* Охранный щит */
-.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/cbt_kn_holywrath_g1.png);} /* Охранный щит */
+.green7{background-image:url(/aionua/stigmas/img/templar/cbt_kn_holywrath_g1.png);} /* Охранный щит */
+.green7:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/cbt_kn_holywrath_g1.png);} /* Охранный щит */
 
-.green8{background-image:url(/stigmas/img/templar/live_kn_thunderblade_g1.png);} /* Раскат грома */
-.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/live_kn_thunderblade_g1.png);} /* Раскат грома */
+.green8{background-image:url(/aionua/stigmas/img/templar/live_kn_thunderblade_g1.png);} /* Раскат грома */
+.green8:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/live_kn_thunderblade_g1.png);} /* Раскат грома */
 
-.green9{background-image:url(/stigmas/img/templar/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
-.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/templar/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
+.green9{background-image:url(/aionua/stigmas/img/templar/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
+.green9:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/templar/cbt_wa_gatecrush_g1.png);} /* Уничтожение ворот */
 
 #right_stigma {
 background:
-	url(/stigmas/img/icons/new/templar.png) 50% 10% no-repeat,
-	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
-	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
-	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+	url(/aionua/stigmas/img/icons/new/templar.png) 50% 10% no-repeat,
+	url(/aionua/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/aionua/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/aionua/stigmas/img/bg_center.gif) 0 0 repeat-y;
 }

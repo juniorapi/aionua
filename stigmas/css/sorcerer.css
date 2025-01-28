@@ -1,73 +1,73 @@
 @charset "utf-8";
 
 
-.hidden1{background:url(/stigmas/img/sorcerer/70c66e37a74f9706dba67fae0b2ac2fa_40.png);} /* Ветер сна */
-.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/70c66e37a74f9706dba67fae0b2ac2fa_40.png);} /* Ветер сна */
+.hidden1{background:url(/aionua/stigmas/img/sorcerer/70c66e37a74f9706dba67fae0b2ac2fa_40.png);} /* Ветер сна */
+.hidden1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/70c66e37a74f9706dba67fae0b2ac2fa_40.png);} /* Ветер сна */
 
-.hidden2{background:url(/stigmas/img/sorcerer/73ee816f344532e7f3309352764ab4a8_40.png);} /* Дар огня */
-.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/73ee816f344532e7f3309352764ab4a8_40.png);} /* Дар огня */
+.hidden2{background:url(/aionua/stigmas/img/sorcerer/73ee816f344532e7f3309352764ab4a8_40.png);} /* Дар огня */
+.hidden2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/73ee816f344532e7f3309352764ab4a8_40.png);} /* Дар огня */
 
-.hidden3{background:url(/stigmas/img/sorcerer/66ddcf24a2495a15d8c4aaf540b0118e_18.png);} /* Храмовый барьер */
-.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/66ddcf24a2495a15d8c4aaf540b0118e_18.png);} /* Храмовый барьер */
-
-
-.gold1{background:url(/stigmas/img/sorcerer/live_wi_icyshield_g1.png);} /* Ледяные доспехи */
-.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_icyshield_g1.png);} /* Ледяные доспехи */
-
-.gold2{background:url(/stigmas/img/sorcerer/live_wi_zeropoint_g1.png);} /* Ледяной удар */
-.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_zeropoint_g1.png);} /* Ледяной удар */
+.hidden3{background:url(/aionua/stigmas/img/sorcerer/66ddcf24a2495a15d8c4aaf540b0118e_18.png);} /* Храмовый барьер */
+.hidden3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/66ddcf24a2495a15d8c4aaf540b0118e_18.png);} /* Храмовый барьер */
 
 
-.blue1{background:url(/stigmas/img/sorcerer/live_wi_sleepingstorm_g1.png);} /* Шторм сна */
-.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_sleepingstorm_g1.png);} /* Шторм сна */
+.gold1{background:url(/aionua/stigmas/img/sorcerer/live_wi_icyshield_g1.png);} /* Ледяные доспехи */
+.gold1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_icyshield_g1.png);} /* Ледяные доспехи */
 
-.blue2{background:url(/stigmas/img/sorcerer/live_wi_windcutter_g1.png);} /* Лезвие ветра */
-.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_windcutter_g1.png);} /* Лезвие ветра */
-
-.blue3{background:url(/stigmas/img/sorcerer/live_wi_illusionstorm_g1.png);} /* Ураган иллюзий */
-.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_illusionstorm_g1.png);} /* Ураган иллюзий */
-
-.blue4{background:url(/stigmas/img/sorcerer/live_wi_flamestrike_g1.png);} /* Ярость огня */
-.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_flamestrike_g1.png);} /* Ярость огня */
-
-.blue5{background:url(/stigmas/img/sorcerer/live_wi_summontornado_g1.png);} /* Торнадо */
-.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_summontornado_g1.png);} /* Торнадо */
-
-.blue6{background:url(/stigmas/img/sorcerer/live_wi_rockfall_g1.png);} /* Призыв скалы */
-.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_rockfall_g1.png);} /* Призыв скалы */
+.gold2{background:url(/aionua/stigmas/img/sorcerer/live_wi_zeropoint_g1.png);} /* Ледяной удар */
+.gold2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_zeropoint_g1.png);} /* Ледяной удар */
 
 
-.green1{background:url(/stigmas/img/sorcerer/cbt_wi_countermagic_g1.png);} /* Проклятие слабости */
-.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/cbt_wi_countermagic_g1.png);} /* Проклятие слабости */
+.blue1{background:url(/aionua/stigmas/img/sorcerer/live_wi_sleepingstorm_g1.png);} /* Шторм сна */
+.blue1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_sleepingstorm_g1.png);} /* Шторм сна */
 
-.green2{background:url(/stigmas/img/sorcerer/live_wi_hpmpexchange_g1.png);} /* Обмен жизненной силой */
-.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_hpmpexchange_g1.png);} /* Обмен жизненной силой */
+.blue2{background:url(/aionua/stigmas/img/sorcerer/live_wi_windcutter_g1.png);} /* Лезвие ветра */
+.blue2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_windcutter_g1.png);} /* Лезвие ветра */
 
-.green3{background:url(/stigmas/img/sorcerer/36651b7e92d955b83186c21b70cdfd6b_16.png);} /* Ледяной столп */
-.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/36651b7e92d955b83186c21b70cdfd6b_16.png);} /* Ледяной столп */
+.blue3{background:url(/aionua/stigmas/img/sorcerer/live_wi_illusionstorm_g1.png);} /* Ураган иллюзий */
+.blue3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_illusionstorm_g1.png);} /* Ураган иллюзий */
 
-.green4{background:url(/stigmas/img/sorcerer/live_wi_cyclonestrike_g1.png);} /* Штормовой удар */
-.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_cyclonestrike_g1.png);} /* Штормовой удар */
+.blue4{background:url(/aionua/stigmas/img/sorcerer/live_wi_flamestrike_g1.png);} /* Ярость огня */
+.blue4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_flamestrike_g1.png);} /* Ярость огня */
 
-.green5{background:url(/stigmas/img/sorcerer/live_wi_elementalseal_g1.png);} /* Стихийный барьер */
-.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_elementalseal_g1.png);} /* Стихийный барьер */
+.blue5{background:url(/aionua/stigmas/img/sorcerer/live_wi_summontornado_g1.png);} /* Торнадо */
+.blue5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_summontornado_g1.png);} /* Торнадо */
 
-.green6{background:url(/stigmas/img/sorcerer/live_wi_stigma_icelance_g1.png);} /* Ледяной гарпун */
-.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_stigma_icelance_g1.png);} /* Ледяной гарпун */
+.blue6{background:url(/aionua/stigmas/img/sorcerer/live_wi_rockfall_g1.png);} /* Призыв скалы */
+.blue6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_rockfall_g1.png);} /* Призыв скалы */
 
-.green7{background:url(/stigmas/img/sorcerer/cbt_wi_dark_icyveins_g1.png);} /* Дар скорости */
-.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/cbt_wi_dark_icyveins_g1.png);} /* Дар скорости */
 
-.green8{background:url(/stigmas/img/sorcerer/live_wi_hibernation_g1.png);} /* Ледяные оковы */
-.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_hibernation_g1.png);} /* Ледяные оковы */
+.green1{background:url(/aionua/stigmas/img/sorcerer/cbt_wi_countermagic_g1.png);} /* Проклятие слабости */
+.green1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/cbt_wi_countermagic_g1.png);} /* Проклятие слабости */
 
-.green9{background:url(/stigmas/img/sorcerer/live_wi_stormshock_g1.png);} /* Падение молнии */
-.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/sorcerer/live_wi_stormshock_g1.png);} /* Падение молнии */
+.green2{background:url(/aionua/stigmas/img/sorcerer/live_wi_hpmpexchange_g1.png);} /* Обмен жизненной силой */
+.green2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_hpmpexchange_g1.png);} /* Обмен жизненной силой */
+
+.green3{background:url(/aionua/stigmas/img/sorcerer/36651b7e92d955b83186c21b70cdfd6b_16.png);} /* Ледяной столп */
+.green3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/36651b7e92d955b83186c21b70cdfd6b_16.png);} /* Ледяной столп */
+
+.green4{background:url(/aionua/stigmas/img/sorcerer/live_wi_cyclonestrike_g1.png);} /* Штормовой удар */
+.green4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_cyclonestrike_g1.png);} /* Штормовой удар */
+
+.green5{background:url(/aionua/stigmas/img/sorcerer/live_wi_elementalseal_g1.png);} /* Стихийный барьер */
+.green5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_elementalseal_g1.png);} /* Стихийный барьер */
+
+.green6{background:url(/aionua/stigmas/img/sorcerer/live_wi_stigma_icelance_g1.png);} /* Ледяной гарпун */
+.green6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_stigma_icelance_g1.png);} /* Ледяной гарпун */
+
+.green7{background:url(/aionua/stigmas/img/sorcerer/cbt_wi_dark_icyveins_g1.png);} /* Дар скорости */
+.green7:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/cbt_wi_dark_icyveins_g1.png);} /* Дар скорости */
+
+.green8{background:url(/aionua/stigmas/img/sorcerer/live_wi_hibernation_g1.png);} /* Ледяные оковы */
+.green8:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_hibernation_g1.png);} /* Ледяные оковы */
+
+.green9{background:url(/aionua/stigmas/img/sorcerer/live_wi_stormshock_g1.png);} /* Падение молнии */
+.green9:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/sorcerer/live_wi_stormshock_g1.png);} /* Падение молнии */
 
 #right_stigma {
 background:
-	url(/stigmas/img/icons/new/sorcerer.png) 50% 10% no-repeat,
-	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
-	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
-	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+	url(/aionua/stigmas/img/icons/new/sorcerer.png) 50% 10% no-repeat,
+	url(/aionua/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/aionua/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/aionua/stigmas/img/bg_center.gif) 0 0 repeat-y;
 }

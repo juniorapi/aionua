@@ -22,7 +22,7 @@ input:hover, input:focus, input:active {outline: none;}
 }
 @font-face {
 	font-family: RomicCyr;
-	src: url(/stigmas/fonts/romiccyr.ttf)format('truetype');
+	src: url(/aionua/stigmas/fonts/romiccyr.ttf)format('truetype');
 }
 ::-webkit-scrollbar {
 	height: 5px;
@@ -56,7 +56,7 @@ input:hover, input:focus, input:active {outline: none;}
 body {
 	background-attachment: fixed;
 	background-color: #312919;
-	background-image: url(/stigmas/img/backgroungtmp.jpg);
+	background-image: url(/aionua/stigmas/img/backgroungtmp.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
@@ -119,8 +119,8 @@ hr {
 	width: 379px;
 }
 
-.left_stigma_bg1 {background: url(/stigmas/img/bg.jpg);}
-.left_stigma_bg2 {background: url(/stigmas/img/bg.jpg) 0 313px;}
+.left_stigma_bg1 {background: url(/aionua/stigmas/img/bg.jpg);}
+.left_stigma_bg2 {background: url(/aionua/stigmas/img/bg.jpg) 0 313px;}
 
 
 .list {
@@ -130,7 +130,7 @@ hr {
 	width: 40px;
 }
 .hover {
-	background-image: url(/stigmas/img/border_slot.png);
+	background-image: url(/aionua/stigmas/img/border_slot.png);
 	display: block;
 	height: 40px;
 	left: 23px;
@@ -139,7 +139,7 @@ hr {
 	z-index: 2;
 }
 #right_stigma {
-	background: url(/stigmas/img/bg_before.gif)no-repeat,url(/stigmas/img/bg_after.gif)0 100% no-repeat,url(/stigmas/img/bg_center.gif)repeat-y,0 0;
+	background: url(/aionua/stigmas/img/bg_before.gif)no-repeat,url(/aionua/stigmas/img/bg_after.gif)0 100% no-repeat,url(/aionua/stigmas/img/bg_center.gif)repeat-y,0 0;
 	float: right;
 	margin-bottom: 40px;
 	min-height: 295px;
@@ -183,10 +183,10 @@ hr {
 	padding-top: 5px;
 }
 #stigma_info .plus {
-	background-image: url(/stigmas/img/plus.png);
+	background-image: url(/aionua/stigmas/img/plus.png);
 }
 #stigma_info .result {
-	background-image: url(/stigmas/img/result.png);
+	background-image: url(/aionua/stigmas/img/result.png);
 }
 #stigma_info img {
 	display: block;
@@ -223,10 +223,10 @@ section#wrap_gold1 {
 	width: 85px;
 }
 section#wrap_gold1.default {
-	background: url(/stigmas/img/gold_slots.png) 0 78px;
+	background: url(/aionua/stigmas/img/gold_slots.png) 0 78px;
 }
 section#wrap_gold1.current,section#wrap_gold1:hover {
-	background: url(/stigmas/img/gold_slots.png);
+	background: url(/aionua/stigmas/img/gold_slots.png);
 }
 section#wrap_gold1 #gold1 {
 	left: 17px;
@@ -241,10 +241,10 @@ section#wrap_blue1 {
 	width: 85px;
 }
 section#wrap_blue1.default {
-	background: url(/stigmas/img/blue_slots.png)0 78px;
+	background: url(/aionua/stigmas/img/blue_slots.png)0 78px;
 }
 section#wrap_blue1.current,section#wrap_blue1:hover {
-	background: url(/stigmas/img/blue_slots.png);
+	background: url(/aionua/stigmas/img/blue_slots.png);
 }
 section#wrap_blue1 #blue1 {
 	left: 17px;
@@ -259,10 +259,10 @@ section#wrap_blue2 {
 	width: 85px;
 }
 section#wrap_blue2.default {
-	background: url(/stigmas/img/blue_slots.png)0 78px;
+	background: url(/aionua/stigmas/img/blue_slots.png)0 78px;
 }
 section#wrap_blue2.current,section#wrap_blue2:hover {
-	background: url(/stigmas/img/blue_slots.png);
+	background: url(/aionua/stigmas/img/blue_slots.png);
 }
 section#wrap_blue2 #blue2 {
 	left: 17px;
@@ -277,10 +277,10 @@ section#wrap_green1 {
 	width: 85px;
 }
 section#wrap_green1.default {
-	background: url(/stigmas/img/green_slots.png)0 78px;
+	background: url(/aionua/stigmas/img/green_slots.png)0 78px;
 }
 section#wrap_green1.current,section#wrap_green1:hover {
-	background: url(/stigmas/img/green_slots.png);
+	background: url(/aionua/stigmas/img/green_slots.png);
 }
 section#wrap_green1 #green1 {
 	left: 17px;
@@ -295,10 +295,10 @@ section#wrap_green2 {
 	width: 85px;
 }
 section#wrap_green2.default {
-	background: url(/stigmas/img/green_slots.png)0 78px;
+	background: url(/aionua/stigmas/img/green_slots.png)0 78px;
 }
 section#wrap_green2.current,section#wrap_green2:hover {
-	background: url(/stigmas/img/green_slots.png);
+	background: url(/aionua/stigmas/img/green_slots.png);
 }
 section#wrap_green2 #green2 {
 	left: 17px;
@@ -318,10 +318,10 @@ section#wrap_green3 {
 	width: 150px;
 }
 section#wrap_green3.default {
-	background: url(/stigmas/img/green_slots.png)0 78px;
+	background: url(/aionua/stigmas/img/green_slots.png)0 78px;
 }
 section#wrap_green3.current,section#wrap_green3:hover {
-	background: url(/stigmas/img/green_slots.png);
+	background: url(/aionua/stigmas/img/green_slots.png);
 }
 #default_build,#footer,#link_build {
 	background-color: #2B241C;

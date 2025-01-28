@@ -1,71 +1,71 @@
 @charset "utf-8";
 
-.hidden1{background:url(/stigmas/img/ranger/30657b32f9dbf60285c238cf1c60db60_36.png);} /* Уход в тень */
-.hidden1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/30657b32f9dbf60285c238cf1c60db60_36.png);} /* Уход в тень */
+.hidden1{background:url(/aionua/stigmas/img/ranger/30657b32f9dbf60285c238cf1c60db60_36.png);} /* Уход в тень */
+.hidden1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/30657b32f9dbf60285c238cf1c60db60_36.png);} /* Уход в тень */
 
-.hidden2{background:url(/stigmas/img/ranger/79586940d3c87351aa5000f813b0c676_06.png);} /* Стрела проникновения */
-.hidden2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/79586940d3c87351aa5000f813b0c676_06.png);} /* Стрела проникновения */
+.hidden2{background:url(/aionua/stigmas/img/ranger/79586940d3c87351aa5000f813b0c676_06.png);} /* Стрела проникновения */
+.hidden2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/79586940d3c87351aa5000f813b0c676_06.png);} /* Стрела проникновения */
 
-.hidden3{background:url(/stigmas/img/ranger/d1d031efd8d0c8cb311f71294d5a2c7b_61.png);} /* Ловушка противостояния */
-.hidden3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/d1d031efd8d0c8cb311f71294d5a2c7b_61.png);} /* Ловушка противостояния */
-
-
-.gold1{background:url(/stigmas/img/ranger/live_ra_lightningshot_g1.png);} /* Молниеносная стрела */
-.gold1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_lightningshot_g1.png);} /* Молниеносная стрела */
-
-.gold2{background:url(/stigmas/img/ranger/live_ra_painarrow_g1.png);} /* Стела страданий */
-.gold2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_painarrow_g1.png);} /* Стела страданий */
-
-.blue1{background:url(/stigmas/img/ranger/live_ra_huntermind_g1.png);} /* Уловка охотника */
-.blue1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_huntermind_g1.png);} /* Уловка охотника */
-
-.blue2{background:url(/stigmas/img/ranger/live_ra_shadowarrow_g1.png);} /* Стрела яростного ветра */
-.blue2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_shadowarrow_g1.png);} /* Стрела яростного ветра */
-
-.blue3{background:url(/stigmas/img/ranger/live_ra_trackermind_g1.png);} /* Усиление стрел */
-.blue3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_trackermind_g1.png);} /* Усиление стрел */
-
-.blue4{background:url(/stigmas/img/ranger/live_ra_explosionarrow_g1.png);} /* Разрывная стрела */
-.blue4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_explosionarrow_g1.png);} /* Разрывная стрела */
-
-.blue5{background:url(/stigmas/img/ranger/live_ra_massexplosionarrow_g1.png);} /* Стрела ярости */
-.blue5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_massexplosionarrow_g1.png);} /* Стрела ярости */
-
-.blue6{background:url(/stigmas/img/ranger/live_ra_movingshot_g1.png);} /* Стрела ветра */
-.blue6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_movingshot_g1.png);} /* Стрела ветра */
+.hidden3{background:url(/aionua/stigmas/img/ranger/d1d031efd8d0c8cb311f71294d5a2c7b_61.png);} /* Ловушка противостояния */
+.hidden3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/d1d031efd8d0c8cb311f71294d5a2c7b_61.png);} /* Ловушка противостояния */
 
 
-.green1{background:url(/stigmas/img/ranger/ra_sealingarrow_g1.png);} /* Сковывающий выстрел */
-.green1:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/ra_sealingarrow_g1.png);} /* Сковывающий выстрел */
+.gold1{background:url(/aionua/stigmas/img/ranger/live_ra_lightningshot_g1.png);} /* Молниеносная стрела */
+.gold1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_lightningshot_g1.png);} /* Молниеносная стрела */
 
-.green2{background:url(/stigmas/img/ranger/live_ra_light_throwingtrap_g1.png);} /* Ловушка замедления */
-.green2:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_light_throwingtrap_g1.png);} /* Ловушка замедления */
+.gold2{background:url(/aionua/stigmas/img/ranger/live_ra_painarrow_g1.png);} /* Стела страданий */
+.gold2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_painarrow_g1.png);} /* Стела страданий */
 
-.green3{background:url(/stigmas/img/ranger/cbt_ra_spoutarrow_g1.png);} /* Ливень стрел */
-.green3:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/cbt_ra_spoutarrow_g1.png);} /* Ливень стрел */
+.blue1{background:url(/aionua/stigmas/img/ranger/live_ra_huntermind_g1.png);} /* Уловка охотника */
+.blue1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_huntermind_g1.png);} /* Уловка охотника */
 
-.green4{background:url(/stigmas/img/ranger/cbt_ra_light_fairyflare_g1.png);} /* Ловушка ясновидения */
-.green4:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/cbt_ra_light_fairyflare_g1.png);} /* Ловушка ясновидения */
+.blue2{background:url(/aionua/stigmas/img/ranger/live_ra_shadowarrow_g1.png);} /* Стрела яростного ветра */
+.blue2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_shadowarrow_g1.png);} /* Стрела яростного ветра */
 
-.green5{background:url(/stigmas/img/ranger/live_ra_enchantbow_g1.png);} /* Благословенная стрела */
-.green5:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_enchantbow_g1.png);} /* Благословенная стрела */
+.blue3{background:url(/aionua/stigmas/img/ranger/live_ra_trackermind_g1.png);} /* Усиление стрел */
+.blue3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_trackermind_g1.png);} /* Усиление стрел */
 
-.green6{background:url(/stigmas/img/ranger/cbt_ra_resistmind_g1.png);} /* Решительное сопротивление */
-.green6:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/cbt_ra_resistmind_g1.png);} /* Решительное сопротивление */
+.blue4{background:url(/aionua/stigmas/img/ranger/live_ra_explosionarrow_g1.png);} /* Разрывная стрела */
+.blue4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_explosionarrow_g1.png);} /* Разрывная стрела */
 
-.green7{background:url(/stigmas/img/ranger/live_ra_light_blazingtrap_g1.png);} /* Неистовая ловушка */
-.green7:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_light_blazingtrap_g1.png);} /* Неистовая ловушка */
+.blue5{background:url(/aionua/stigmas/img/ranger/live_ra_massexplosionarrow_g1.png);} /* Стрела ярости */
+.blue5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_massexplosionarrow_g1.png);} /* Стрела ярости */
 
-.green8{background:url(/stigmas/img/ranger/live_ra_snakebitetrap_g1.png);} /* Ловушка злого духа */
-.green8:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/live_ra_snakebitetrap_g1.png);} /* Ловушка злого духа */
+.blue6{background:url(/aionua/stigmas/img/ranger/live_ra_movingshot_g1.png);} /* Стрела ветра */
+.blue6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_movingshot_g1.png);} /* Стрела ветра */
 
-.green9{background:url(/stigmas/img/ranger/cbt_sc_trueshotmind_g1.png);} /* Яростный взгляд */
-.green9:hover{background:url(/stigmas/img/border_slot.png),url(/stigmas/img/ranger/cbt_sc_trueshotmind_g1.png);} /* Яростный взгляд */
+
+.green1{background:url(/aionua/stigmas/img/ranger/ra_sealingarrow_g1.png);} /* Сковывающий выстрел */
+.green1:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/ra_sealingarrow_g1.png);} /* Сковывающий выстрел */
+
+.green2{background:url(/aionua/stigmas/img/ranger/live_ra_light_throwingtrap_g1.png);} /* Ловушка замедления */
+.green2:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_light_throwingtrap_g1.png);} /* Ловушка замедления */
+
+.green3{background:url(/aionua/stigmas/img/ranger/cbt_ra_spoutarrow_g1.png);} /* Ливень стрел */
+.green3:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/cbt_ra_spoutarrow_g1.png);} /* Ливень стрел */
+
+.green4{background:url(/aionua/stigmas/img/ranger/cbt_ra_light_fairyflare_g1.png);} /* Ловушка ясновидения */
+.green4:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/cbt_ra_light_fairyflare_g1.png);} /* Ловушка ясновидения */
+
+.green5{background:url(/aionua/stigmas/img/ranger/live_ra_enchantbow_g1.png);} /* Благословенная стрела */
+.green5:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_enchantbow_g1.png);} /* Благословенная стрела */
+
+.green6{background:url(/aionua/stigmas/img/ranger/cbt_ra_resistmind_g1.png);} /* Решительное сопротивление */
+.green6:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/cbt_ra_resistmind_g1.png);} /* Решительное сопротивление */
+
+.green7{background:url(/aionua/stigmas/img/ranger/live_ra_light_blazingtrap_g1.png);} /* Неистовая ловушка */
+.green7:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_light_blazingtrap_g1.png);} /* Неистовая ловушка */
+
+.green8{background:url(/aionua/stigmas/img/ranger/live_ra_snakebitetrap_g1.png);} /* Ловушка злого духа */
+.green8:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/live_ra_snakebitetrap_g1.png);} /* Ловушка злого духа */
+
+.green9{background:url(/aionua/stigmas/img/ranger/cbt_sc_trueshotmind_g1.png);} /* Яростный взгляд */
+.green9:hover{background:url(/aionua/stigmas/img/border_slot.png),url(/aionua/stigmas/img/ranger/cbt_sc_trueshotmind_g1.png);} /* Яростный взгляд */
 
 #right_stigma {
 background:
-	url(/stigmas/img/icons/new/ranger.png) 50% 10% no-repeat,
-	url(/stigmas/img/bg_before.gif) 0 0 no-repeat,
-	url(/stigmas/img/bg_after.gif) 0 100% no-repeat,
-	url(/stigmas/img/bg_center.gif) 0 0 repeat-y;
+	url(/aionua/stigmas/img/icons/new/ranger.png) 50% 10% no-repeat,
+	url(/aionua/stigmas/img/bg_before.gif) 0 0 no-repeat,
+	url(/aionua/stigmas/img/bg_after.gif) 0 100% no-repeat,
+	url(/aionua/stigmas/img/bg_center.gif) 0 0 repeat-y;
 }
