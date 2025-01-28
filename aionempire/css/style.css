@@ -1,0 +1,76 @@
+  body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 5px;
+        }
+
+        h1 {
+            color: #53afcc;
+            text-align: center;
+            font-size: 1.9rem;
+            margin-bottom: 0;
+        }
+
+        #current-time {
+            font-size: 1.2rem;
+            color: #bbb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 9px;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        th:first-child, td:first-child {
+            width: 120px; /* обмежуємо ширину першої колонки */
+            white-space: nowrap; /* не дозволяємо переносити текст на новий рядок */
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        td {
+            background-color: #1f1f1f;
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        td.empty {
+            background-color: #444;
+            color: #777;
+        }
+
+        td:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+
+        .highlight {
+            background-color: #272727; /* М'якший блакитний */
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
+        }
+
+        .schedule-table td br {
+            display: block;
+            margin: 5px 0;
+        }
+		.text-red {
+    color: #ff4d4d; /* Червоний колір тексту */
+		}
