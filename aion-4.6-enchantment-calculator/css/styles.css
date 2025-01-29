@@ -1,5 +1,5 @@
 :root {
-  --main-theme-900: #171717;
+  --main-theme-900: #2C2C3D;
   --main-theme-800: #262626;
   --main-theme-700: #3f3f46;
   --main-theme-600: #52525b;
@@ -202,7 +202,7 @@ label[for="rbtnMythical"] {
 	text-align: center;
 }
 #default_build,#footer,#link_build {
-	background-color: #2D2D3E;
+	background-color: #27221B;
 }
 #footer {
 	border-top: 1px solid #201808;
