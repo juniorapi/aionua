@@ -135,6 +135,7 @@ textarea {
   bottom: 20px;
   right: 20px; /* Закріплюємо справа */
   background-color: #4CAF50;
+  font-size: 0.9rem;
   color: white;
   padding: 10px;
   border-radius: 5px;
