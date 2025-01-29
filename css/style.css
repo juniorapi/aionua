@@ -1,7 +1,7 @@
 :root {
   --background-color: #2B2B3B; /* Новий темний фон для сайту */
   --card-bg: #3E3E5E; /* Колір фону карток */
-  --card-hover-bg: #50507A; /* Світліший відтінок для ефекту при наведенні */
+  --card-hover-bg: #FFD700; /* Жовтий відтінок для ефекту при наведенні картки */
   --primary-text: #ffffff; /* Білий колір для тексту */
   --secondary-text: #b0b0d9; /* Світло-сірий для додаткового тексту */
   --accent-color: #B0B0D9; /* Легкий блакитний для акцентів */
@@ -41,13 +41,13 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   text-align: center;
   padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
-  background-color: var(--card-hover-bg);
+  background-color: var(--card-hover-bg); /* Змінено на жовтий колір */
 }
 
 .card h2 {
