@@ -1,90 +1,119 @@
 :root {
-  --background-color: #2B2B3B; /* Новий темний фон для сайту */
-  --card-bg: #3E3E5E; /* Колір фону карток */
-  --card-hover-bg: #50507A; /* Світліший відтінок для ефекту при наведенні */
-  --primary-text: #ffffff; /* Білий колір для тексту */
-  --secondary-text: #b0b0d9; /* Світло-сірий для додаткового тексту */
-  --accent-color: #B0B0D9; /* Легкий блакитний для акцентів */
-  --button-bg: #3a4e5a; /* Приглушений блакитний для кнопок */
-  --button-hover-bg: #2e3c47; /* Темніший блакитний для кнопок при наведенні */
-  --button-shadow: rgba(0, 0, 0, 0.3); /* Тінь для кнопок */
+    --background-color: #2B2B3B;
+    --card-bg: #3E3E5E;
+    --card-hover-bg: #50507A;
+    --primary-text: #ffffff;
+    --secondary-text: #b0b0d9;
+    --accent-color: #B0B0D9;
+    --button-bg: #3a4e5a;
+    --button-hover-bg: #2e3c47;
+    --button-shadow: rgba(0, 0, 0, 0.3);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: var(--background-color); /* Задній фон сайту */
-  font-family: 'Exo 2', sans-serif;
-  color: var(--primary-text);
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background-color);
+    font-family: 'Exo 2', sans-serif;
+    color: var(--primary-text);
+    /* Центрування по вертикалі та горизонталі */
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  width: 100%;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* Центрування по горизонталі */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .card {
-  background-color: var(--card-bg); /* Колір фону карток */
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
-  background-color: var(--card-hover-bg);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
+    background-color: var(--card-hover-bg);
 }
 
 .card h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--accent-color); /* Легкий блакитний для заголовків */
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    text-align: center;
 }
 
 .card p {
-  font-size: 1rem;
-  color: var(--secondary-text);
-  margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .card a {
-  display: block;
-  margin: 5px 0;
-  padding: 12px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--primary-text);
-  background: var(--button-bg); /* Використовуємо приглушений блакитний */
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-text);
+    background: var(--button-bg);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
 .card a:hover {
-  transform: scale(1.05);
-  background: var(--button-hover-bg); /* Темніший відтінок при наведенні */
-  box-shadow: 0 6px 18px var(--button-shadow); /* М'яка тінь для ефекту */
+    transform: scale(1.05);
+    background: var(--button-hover-bg);
+    box-shadow: 0 6px 18px var(--button-shadow);
 }
 
 @media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
+    main {
+        grid-template-columns: 1fr;
+    }
 }
