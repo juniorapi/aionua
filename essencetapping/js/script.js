@@ -7828,7 +7828,7 @@ function copyText() {
     // Через 3 секунди ховаємо повідомлення
     setTimeout(() => {
         copyMessage.classList.remove('show');
-    }, 4000);
+    }, 2000);
 }
 
 // Додаємо обробник події на кнопку копіювання
