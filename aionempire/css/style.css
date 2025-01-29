@@ -1,6 +1,6 @@
-  body {
+ body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #222;
+            background-color: #2B2B3B;
             color: #fff;
             margin: 0;
             padding: 5px;
@@ -24,13 +24,13 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            border: 1px solid #444;
+            border: 1px solid #484861;
         }
 
         th, td {
-            padding: 9px;
+            padding: 5px;
             text-align: center;
-            border: 1px solid #444;
+            border: 1px solid #484861;
         }
 
         th:first-child, td:first-child {
@@ -39,29 +39,29 @@
         }
 
         th {
-            background-color: #333;
+            background-color: #50507A;
             color: #fff;
             font-size: 1.1rem;
         }
 
         td {
-            background-color: #1f1f1f;
+            background-color: #2B2B3B;
             font-size: 1rem;
             color: #ddd;
         }
 
         td.empty {
-            background-color: #444;
+            background-color: #2B2B3B;
             color: #777;
         }
 
         td:hover {
-            background-color: #444;
+            background-color: #555562;
             cursor: pointer;
         }
 
         .highlight {
-            background-color: #272727; /* М'якший блакитний */
+            background-color: #3f3f4d; /* М'якший блакитний */
             color: white;
             font-weight: bold;
             text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
