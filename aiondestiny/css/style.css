@@ -24,13 +24,13 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            border: 1px solid #444;
+            border: 1px solid #484861;
         }
 
         th, td {
             padding: 5px;
             text-align: center;
-            border: 1px solid #444;
+            border: 1px solid #484861;
         }
 
         th:first-child, td:first-child {
@@ -56,12 +56,12 @@
         }
 
         td:hover {
-            background-color: #40404e;
+            background-color: #555562;
             cursor: pointer;
         }
 
         .highlight {
-            background-color: #555562; /* М'якший блакитний */
+            background-color: #3f3f4d; /* М'якший блакитний */
             color: white;
             font-weight: bold;
             text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
