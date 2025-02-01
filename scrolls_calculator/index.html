@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафт свитків</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <img src="images/icon_item_scroll_speed_atk_01.png" alt="scroll_speed_atk" width="40" height="40" class="calculator-icon">
+            <label for="quantity1_ring">Кількість крафтів:</label>
+            <input type="number" id="quantity1_ring" value="1" min="1">
+            <label for="type1_ring">Тип:</label>
+            <select id="type1_ring">
+                <option value="magic">Свиток отваги III</option>
+                <option value="physical">Свиток отваги III [2]</option>
+            </select>
+
+            <div class="ingredients">
+                <h2>Необхідні матеріали:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Матеріал</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materials-list_ring"></tbody>
+                </table>
+            </div>
+            <div class="output">
+                <h2>Кількість на виході:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="output-list_ring"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <img src="images/icon_item_scroll_speed_casting_01.png" alt="scroll_speed_casting" width="40" height="40" class="calculator-icon">
+            <label for="quantity1_earring">Кількість крафтів:</label>
+            <input type="number" id="quantity1_earring" value="1" min="1">
+            <label for="type1_earring">Тип:</label>
+            <select id="type1_earring">
+                <option value="magic">Свиток перерождения III</option>
+                <option value="physical">Свиток перерождения III [2]</option>
+            </select>
+
+            <div class="ingredients">
+                <h2>Необхідні матеріали:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Матеріал</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materials-list_earring"></tbody>
+                </table>
+            </div>
+            <div class="output">
+                <h2>Кількість на виході:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="output-list_earring"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <img src="images/icon_item_scroll_speed_run_01.png" alt="scroll_speed_run" width="40" height="40" class="calculator-icon">
+            <label for="quantity1_necklace">Кількість крафтів:</label>
+            <input type="number" id="quantity1_necklace" value="1" min="1">
+            <label for="type1_necklace">Тип:</label>
+            <select id="type1_necklace">
+                <option value="magic">Свиток ускорения III</option>
+                <option value="physical">Свиток ускорения III [2]</option>
+            </select>
+
+            <div class="ingredients">
+                <h2>Необхідні матеріали:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Матеріал</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materials-list_necklace"></tbody>
+                </table>
+            </div>
+            <div class="output">
+                <h2>Кількість на виході:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="output-list_necklace"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <img src="images/icon_item_scroll_speed_fly_01.png" alt="scroll_speed_fly" width="40" height="40" class="calculator-icon">
+            <label for="quantity1_belt">Кількість крафтів:</label>
+            <input type="number" id="quantity1_belt" value="1" min="1">
+            <label for="type1_belt">Тип:</label>
+            <select id="type1_belt">
+                <option value="magic">Свиток яростного ветра</option>
+                <option value="physical">Свиток яростного ветра III [2]</option>
+            </select>
+
+            <div class="ingredients">
+                <h2>Необхідні матеріали:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Матеріал</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materials-list_belt"></tbody>
+                </table>
+            </div>
+            <div class="output">
+                <h2>Кількість на виході:</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Кількість</th>
+                        </tr>
+                    </thead>
+                    <tbody id="output-list_belt"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
