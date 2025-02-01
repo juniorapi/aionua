@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d2d3e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.calculator {
+    background-color: #3e3e5e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+
+.calculator h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffdf70;
+}
+
+.calculator label {
+    display: block;
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+.calculator input,
+.calculator select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.calculator input:focus,
+.calculator select:focus {
+    border-color: #ffdf70;
+    outline: none;
+}
+
+.ingredients h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffdf70;
+}
+
+.ingredients table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    table-layout: fixed;
+}
+
+.ingredients th,
+.ingredients td {
+    border: 1px solid #555;
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calculator-icon {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 100%;
+    height: auto;
+}
+
+.gathering {
+    background-color: #3e3e5e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+
+
+.gathering h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #f4a261;
+}
+
+.gathering table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    background-color: #2e2e3e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gathering th {
+    background-color: #4e4e6b;
+    color: #ffdf70;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.gathering td {
+    border: 1px solid #555;
+    padding: 8px 12px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.gathering td input {
+    width: 90%;
+    padding: 6px;
+    margin: 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    font-size: 0.85rem;
+}
+
+.gathering td input:focus {
+    border-color: #ffdf70;
+    outline: none;
+}
+
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.output {
+    margin-top: 20px; /* Add some spacing between ingredient and output tables */
+}
+
+.output h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffdf70;
+}
+
+.output table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    table-layout: fixed;
+}
+
+.output th,
+.output td {
+    border: 1px solid #555;
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
