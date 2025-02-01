@@ -44,6 +44,15 @@ const materialsData = {
             
         ]
     },
+	critical: {
+        magic: [
+            { material: "Магический эфир", quantity: 1 },
+            { material: "Элитный стихийный порошок", quantity: 5 },
+            { material: "Макиновая бумага", quantity: 5 },
+           
+        ],
+        
+    },
     belt: {
         magic: [
             { material: "Эфир", quantity: 1 },
@@ -75,6 +84,8 @@ const materialIcons = {
 	"Свиток перерождения III": "images/icon_item_scroll_speed_casting_01.png",
 	"Свиток ускорения III": "images/icon_item_scroll_speed_run_01.png",
 	"Свиток яростного ветра": "images/icon_item_scroll_speed_fly_01.png",
+	"Элитный стихийный порошок": "images/icon_item_dust01f.png",
+	"Свиток ф/м крит IV/V": "images/icon_item_scroll_critical_mag_01.png",
 	
 	};
 
@@ -106,7 +117,6 @@ function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
         tableBody.appendChild(row);
     });
 
-    // Output table
     const outputList = document.getElementById(`output-list_${calculatorId}`);
     outputList.innerHTML = '';
 
@@ -115,6 +125,7 @@ function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
         earring: { name: "Свиток перерождения III", quantity: 5 },
         necklace: { name: "Свиток ускорения III", quantity: 5 },
         belt: { name: "Свиток яростного ветра", quantity: 5 },
+        critical: { name: "Свиток ф/м крит IV/V", quantity: 5 },
     };
 
     const outputData = outputItem[calculatorId];
@@ -142,13 +153,12 @@ function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
     }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const quantityInputRing = document.getElementById('quantity1_ring');
     const quantityInputEarring = document.getElementById('quantity1_earring');
     const quantityInputNecklace = document.getElementById('quantity1_necklace');
     const quantityInputBelt = document.getElementById('quantity1_belt');
+    const quantityInputCritical = document.getElementById('quantity1_critical');
 
     function updateMaterials(calculatorId, quantityInput, resetQuantity = false) {
         let quantity = parseInt(quantityInput.value, 10);
@@ -171,12 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateMaterials('earring', quantityInputEarring);
     updateMaterials('necklace', quantityInputNecklace);
     updateMaterials('belt', quantityInputBelt);
+    updateMaterials('critical', quantityInputCritical);
 
     const calculators = [
         { id: 'ring', input: quantityInputRing },
         { id: 'earring', input: quantityInputEarring },
         { id: 'necklace', input: quantityInputNecklace },
-        { id: 'belt', input: quantityInputBelt }
+        { id: 'belt', input: quantityInputBelt },
+        { id: 'critical', input: quantityInputCritical }
     ];
 
     calculators.forEach(calc => {
