@@ -8,10 +8,9 @@
 </head>
 <body>
     <div class="calculator-container">
-        
         <div class="calculator">
             <div class="calculator-header">
-                <h2>Древні кристали</h2>
+                <h2>Калькулятор кристалів</h2>
                 <button id="reset-crystal" class="reset-button">Скинути</button>
             </div>
             <div class="calculator-content">
@@ -25,6 +24,7 @@
                         <option value="white" data-icon="images/icon_item_ws_combineskill_ar_r_60a.png">Древний белый кристалл</option>
                         <option value="yellow" data-icon="images/icon_item_ha_combineskill_ta_r_60a.png">Древний желтый кристалл</option>
                         <option value="green" data-icon="images/icon_item_as_combineskill_ha_r_60a.png">Древний зеленый кристалл</option>
+                        <option value="idium" data-icon="images/icon_item_co_combineskill_all_r_60a.png">Идиумовый кристалл времени</option>
                     </select>
                 </div>
                 <div class="input-group">
@@ -54,46 +54,6 @@
                             </tr>
                         </thead>
                         <tbody id="output-list"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Идиумовый кристалл</h2>
-                <button id="reset-idium" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <img src="images/icon_item_co_combineskill_all_r_60a.png" alt="idium_crystal" width="40" height="40" class="calculator-icon">
-                <div class="input-group">
-                    <label for="quantity-idium">Кількість крафтів:</label>
-                    <input type="number" id="quantity-idium" value="1" min="1" max="100">
-                </div>
-                
-                <div class="ingredients">
-                    <h3>Необходимые материалы:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-idium"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-idium"></tbody>
                     </table>
                 </div>
             </div>
