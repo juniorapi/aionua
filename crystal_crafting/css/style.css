@@ -9,11 +9,9 @@ body {
 }
 
 .calculator-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
+    max-width: 500px; 
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .calculator {
@@ -21,6 +19,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .calculator-header {
@@ -42,19 +41,29 @@ body {
     padding: 20px;
 }
 
+.calculator-icon {
+    display: block;
+    margin: 0 auto 15px;
+    width: 40px;
+    height: 40px;
+}
+
 .input-group {
     margin-bottom: 15px;
+    display: flex;         
+    align-items: center;  
+    gap: 10px;            
 }
 
 .input-group label {
-    display: block;
-    margin-bottom: 5px;
     color: #d1d1d1;
+    min-width: 120px;
+    flex-shrink: 0;      
 }
+
 
 .input-group input,
 .input-group select {
-    width: 100%;
     padding: 8px;
     border: 1px solid #555;
     border-radius: 4px;
@@ -63,22 +72,27 @@ body {
     font-size: 0.9rem;
 }
 
+.input-group select {
+    flex-grow: 1;        
+}
+
+.input-group input[type="number"] {
+    width: 80px;       
+}
+
 .input-group input:focus,
 .input-group select:focus {
     border-color: #ffdf70;
     outline: none;
 }
 
-.calculator-icon {
-    display: block;
-    margin: 0 auto 15px;
-}
-
-.ingredients, .output {
+.ingredients, 
+.output {
     margin-top: 20px;
 }
 
-.ingredients h3, .output h3 {
+.ingredients h3, 
+.output h3 {
     color: #ffdf70;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -107,6 +121,8 @@ th {
 td img {
     vertical-align: middle;
     margin-right: 8px;
+    width: 16px;
+    height: 16px;
 }
 
 .reset-button {
@@ -124,27 +140,17 @@ td img {
     background-color: #8e5e5e;
 }
 
-.total-materials {
-    grid-column: 1 / -1;
-}
-
-/* Анимации */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-.calculator {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Адаптивность для маленьких экранов */
 @media (max-width: 768px) {
     .calculator-container {
-        grid-template-columns: 1fr;
+        padding: 0 10px;
     }
     
-    .calculator {
-        margin-bottom: 20px;
+    th, td {
+        padding: 6px 8px;
     }
 }
