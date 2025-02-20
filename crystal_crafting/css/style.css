@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d2d3e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calculator {
+    background-color: #3e3e5e;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.calculator-header {
+    background-color: #4e4e6e;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+
+.calculator-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #ffdf70;
+}
+
+.calculator-content {
+    padding: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #d1d1d1;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2e2e3e;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #ffdf70;
+    outline: none;
+}
+
+.calculator-icon {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.ingredients, .output {
+    margin-top: 20px;
+}
+
+.ingredients h3, .output h3 {
+    color: #ffdf70;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: #2e2e3e;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #555;
+}
+
+th {
+    background-color: #4e4e6e;
+    color: #ffdf70;
+}
+
+td img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.reset-button {
+    background-color: #6e4e4e;
+    color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.reset-button:hover {
+    background-color: #8e5e5e;
+}
+
+.total-materials {
+    grid-column: 1 / -1;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.calculator {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator {
+        margin-bottom: 20px;
+    }
+}
