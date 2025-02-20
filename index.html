@@ -1,85 +1,104 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <title>Крафт кристалів</title>
     <link rel="stylesheet" href="css/style.css">
- </head>
-
+</head>
 <body>
-    <div class="container">
+    <div class="calculator-container">
         
-        <header>
-            <h1>Aion</h1>
-            <p>Інформація про сервери та корисні інструменти</p>
-        </header>
+        <div class="calculator">
+            <div class="calculator-header">
+                <h2>Древні кристали</h2>
+                <button id="reset-crystal" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="crystal-icon-container">
+                    <img src="images/icon_item_ta_combineskill_ws_r_60a.png" alt="crystal" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="crystal-type">Тип кристалу:</label>
+                    <select id="crystal-type">
+                        <option value="red" data-icon="images/icon_item_ta_combineskill_ws_r_60a.png">Древний красный кристалл</option>
+                        <option value="white" data-icon="images/icon_item_ws_combineskill_ar_r_60a.png">Древний белый кристалл</option>
+                        <option value="yellow" data-icon="images/icon_item_ha_combineskill_ta_r_60a.png">Древний желтый кристалл</option>
+                        <option value="green" data-icon="images/icon_item_as_combineskill_ha_r_60a.png">Древний зеленый кристалл</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity">Кількість крафтів:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="100">
+                </div>
+                
+                <div class="ingredients">
+                    <h3>Необхідні матеріали:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list"></tbody>
+                    </table>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
         
-        <main>
-            
-            <section class="card">
-                <h2>Розклад інстансів</h2>
-                <p>Дізнайтесь, коли і де проходять найцікавіші події</p>
-                <div class="links">
-                    <a href="/aionua/euroaion/" target="_blank">EuroAion</a>
-                    <a href="/aionua/aiondestiny/" target="_blank">AionDestiny</a>
+        <div class="calculator">
+            <div class="calculator-header">
+                <h2>Идиумовый кристалл</h2>
+                <button id="reset-idium" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <img src="images/icon_item_co_combineskill_all_r_60a.png" alt="idium_crystal" width="40" height="40" class="calculator-icon">
+                <div class="input-group">
+                    <label for="quantity-idium">Кількість крафтів:</label>
+                    <input type="number" id="quantity-idium" value="1" min="1" max="100">
                 </div>
-            </section>
-
-            
-            <section class="card">
-                <h2>Ресурси та крафт</h2>
-                <p>Координати для збору ресурсів та калькулятори для крафту</p>
-                <div class="links">
-                    <div class="craft-dropdown">
-                        <button>Крафт</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/craft/" target="_blank">Крафт біжутерії</a>
-                            <a href="/aionua/crystal_crafting/" target="_blank">Крафт кристалів</a>
-                            <a href="/aionua/scrolls_calculator/" target="_blank">Крафт свитків</a>
-                            <a href="/aionua/potion_calculator/" target="_blank">Крафт зілля</a>
-                        </div>
-                    </div>
-                    <div class="craft-dropdown">
-                        <button>Збір ресурсів</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/essencetapping/" target="_blank">Енергокінез</a>
-                            <a href="/aionua/aethertapping/" target="_blank">Ефірокінез</a>
-                        </div>
-                    </div>
+                
+                <div class="ingredients">
+                    <h3>Необходимые материалы:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list-idium"></tbody>
+                    </table>
                 </div>
-            </section>
-
-            
-            <section class="card">
-                <h2>Калькулятори стігм, чар</h2>
-                <p>Дізнайтесь, які стігми найкраще підходять для вашого класу та стилю гри в Aion</p>
-                <div class="links">
-                    <a href="/aionua/aion-4.6-enchantment-calculator/" target="_blank">Калькулятор чар</a>
-                    <div class="craft-dropdown">
-                        <button>Стігми</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/stigma/" target="_blank">Калькулятор Aion 4.6</a>
-                            <a href="/aionua/stigmas/" target="_blank">Калькулятор Aion 4.8</a>
-                        </div>
-                    </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list-idium"></tbody>
+                    </table>
                 </div>
-            </section>
-
-            
-            <section class="card">
-                <h2>Для стрімерів</h2>
-                <p>Інтерактивні лічильники для ваших трансляцій.</p>
-                <div class="links">
-                    <a href="/aionua/tempering-solution-counter/" target="_blank">Solution</a>
-                    <a href="/aionua/ice-hammer-counter/" target="_blank">Hammer</a>
-                </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
