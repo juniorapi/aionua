@@ -33,7 +33,7 @@ th, td {
   border: 1px solid #484861;
 }
 
-/* Перша колонка – назва інстансу */
+
 .schedule-label {
   width: 120px;
   white-space: nowrap;
@@ -61,7 +61,7 @@ td:hover {
   cursor: pointer;
 }
 
-/* Підсвічування активної клітинки */
+
 .highlight {
   background-color: #353547;
   color: white;
