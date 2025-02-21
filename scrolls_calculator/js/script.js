@@ -1,19 +1,14 @@
-// script.js
 const materialsData = {
     ring: {
         magic: [
             { material: "Эфир", quantity: 1 },
             { material: "Рубиновый порошок", quantity: 5 },
             { material: "Асватовая бумага", quantity: 5 },
-            
-			
         ],
         physical: [
             { material: "Магический эфир", quantity: 1 },
             { material: "Турмалиновый порошок", quantity: 4 },
             { material: "Макиновая бумага", quantity: 5 },
-			
-			
         ]
     },
     earring: {
@@ -21,13 +16,11 @@ const materialsData = {
             { material: "Эфир", quantity: 1 },
             { material: "Сапфировый порошок", quantity: 5 },
             { material: "Асватовая бумага", quantity: 5 },
-           
         ],
         physical: [
             { material: "Магический эфир", quantity: 1 },
             { material: "Порошок из бирюзы", quantity: 4 },
             { material: "Макиновая бумага", quantity: 5 },
-            
         ]
     },
     necklace: {
@@ -35,59 +28,52 @@ const materialsData = {
             { material: "Эфир", quantity: 1 },
             { material: "Алмазный порошок", quantity: 5 },
             { material: "Асватовая бумага", quantity: 5 },
-           
         ],
         physical: [
             { material: "Магический эфир", quantity: 1 },
             { material: "Кельфаратовый порошок", quantity: 4 },
             { material: "Макиновая бумага", quantity: 5 },
-            
         ]
     },
-	critical: {
+    critical: {
         magic: [
             { material: "Магический эфир", quantity: 1 },
             { material: "Элитный стихийный порошок", quantity: 5 },
             { material: "Макиновая бумага", quantity: 5 },
-           
         ],
-        
     },
     belt: {
         magic: [
             { material: "Эфир", quantity: 1 },
             { material: "Сапфировый порошок", quantity: 5 },
             { material: "Асватовая бумага", quantity: 5 },
-			
-			
         ],
         physical: [
-			{ material: "Магический эфир", quantity: 1 },
+            { material: "Магический эфир", quantity: 1 },
             { material: "Порошок из бирюзы", quantity: 4 },
-			{ material: "Макиновая бумага", quantity: 5 },
-           
+            { material: "Макиновая бумага", quantity: 5 },
         ],
     }
 };
+
 const materialIcons = {
     "Эфир": "images/icon_item_od01.png",
     "Магический эфир": "images/icon_item_od05.png",
-	"Асватовая бумага": "images/icon_item_paper01.png",
-	"Макиновая бумага": "images/icon_item_paper01.png",
-	"Рубиновый порошок": "images/icon_item_gempoder02.png",
-	"Турмалиновый порошок": "images/icon_item_gempoder02.png",
-	"Сапфировый порошок": "images/icon_item_gempoder01.png",
-	"Порошок из бирюзы": "images/icon_item_gempoder01.png",
-	"Кельфаратовый порошок": "images/icon_item_gempoder03.png",
-	"Алмазный порошок": "images/icon_item_gempoder03.png",
-	"Свиток отваги III": "images/icon_item_scroll_speed_atk_01.png",
-	"Свиток перерождения III": "images/icon_item_scroll_speed_casting_01.png",
-	"Свиток ускорения III": "images/icon_item_scroll_speed_run_01.png",
-	"Свиток яростного ветра": "images/icon_item_scroll_speed_fly_01.png",
-	"Элитный стихийный порошок": "images/icon_item_dust01f.png",
-	"Свиток ф/м крит IV/V": "images/icon_item_scroll_critical_mag_01.png",
-	
-	};
+    "Асватовая бумага": "images/icon_item_paper01.png",
+    "Макиновая бумага": "images/icon_item_paper01.png",
+    "Рубиновый порошок": "images/icon_item_gempoder02.png",
+    "Турмалиновый порошок": "images/icon_item_gempoder02.png",
+    "Сапфировый порошок": "images/icon_item_gempoder01.png",
+    "Порошок из бирюзы": "images/icon_item_gempoder01.png",
+    "Кельфаратовый порошок": "images/icon_item_gempoder03.png",
+    "Алмазный порошок": "images/icon_item_gempoder03.png",
+    "Свиток отваги III": "images/icon_item_scroll_speed_atk_01.png",
+    "Свиток перерождения III": "images/icon_item_scroll_speed_casting_01.png",
+    "Свиток ускорения III": "images/icon_item_scroll_speed_run_01.png",
+    "Свиток яростного ветра": "images/icon_item_scroll_speed_fly_01.png",
+    "Элитный стихийный порошок": "images/icon_item_dust01f.png",
+    "Свиток ф/м крит IV/V": "images/icon_item_scroll_critical_mag_01.png",
+};
 
 function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
     let materialsList = materialsData[calculatorId][type];
@@ -102,8 +88,8 @@ function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
         const icon = document.createElement('img');
         icon.src = materialIcons[material.material] || "images/default_icon.png";
         icon.alt = material.material;
-        icon.style.width = "16px";
-        icon.style.height = "16px";
+        icon.style.width = "30px";
+        icon.style.height = "30px";
         icon.style.marginRight = "5px";
         icon.style.verticalAlign = "middle";
 
@@ -138,8 +124,8 @@ function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
         const icon = document.createElement('img');
         icon.src = materialIcons[outputData.name] || "images/default_icon.png";
         icon.alt = outputData.name;
-        icon.style.width = "16px";
-        icon.style.height = "16px";
+        icon.style.width = "30px";
+        icon.style.height = "30px";
         icon.style.marginRight = "5px";
         icon.style.verticalAlign = "middle";
 
@@ -177,12 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fillMaterials(calculatorId, type, quantity);
     }
 
-    updateMaterials('ring', quantityInputRing);
-    updateMaterials('earring', quantityInputEarring);
-    updateMaterials('necklace', quantityInputNecklace);
-    updateMaterials('belt', quantityInputBelt);
-    updateMaterials('critical', quantityInputCritical);
-
     const calculators = [
         { id: 'ring', input: quantityInputRing },
         { id: 'earring', input: quantityInputEarring },
@@ -191,13 +171,41 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'critical', input: quantityInputCritical }
     ];
 
+   
     calculators.forEach(calc => {
-        calc.input.addEventListener('input', function () {
+        updateMaterials(calc.id, calc.input);
+
+       
+        calc.input.addEventListener('input', function() {
             updateMaterials(calc.id, this);
         });
 
-        document.getElementById(`type1_${calc.id}`).addEventListener('change', function () {
-            updateMaterials(calc.id, calc.input, true);
-        });
+       
+        const typeSelect = document.getElementById(`type1_${calc.id}`);
+        if (typeSelect) {
+            typeSelect.addEventListener('change', function() {
+                updateMaterials(calc.id, calc.input, true);
+            });
+        }
+
+       
+        const resetButton = document.querySelector(`.calculator:has(#quantity1_${calc.id}) .reset-button`);
+        if (resetButton) {
+            resetButton.addEventListener('click', function() {
+                const quantityInput = document.getElementById(`quantity1_${calc.id}`);
+                const typeSelect = document.getElementById(`type1_${calc.id}`);
+                
+               
+                quantityInput.value = 1;
+                
+               
+                if (typeSelect) {
+                    typeSelect.selectedIndex = 0;
+                }
+                
+               
+                updateMaterials(calc.id, quantityInput, true);
+            });
+        }
     });
 });
