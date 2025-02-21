@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #2d2d3e;
+    background-color: #1A1A2E;
     color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -194,7 +194,7 @@ body {
     border-radius: 8px;
     width: 300px;
     text-align: left;
-    font-size: 0.8rem; /* Зменшення шрифту */
+    font-size: 0.8rem; 
 }
 
 .close-btn {
@@ -206,31 +206,31 @@ body {
     cursor: pointer;
 }
 .popup-overlay {
-    display: none;  /* Сховати попап за замовчуванням */
+    display: none;  
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);  /* Затінений фон */
+    background: rgba(0, 0, 0, 0.7); 
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
 .popup-content {
-    width: 80%;  /* Ширина 80% від ширини екрана */
-    max-width: 1200px;  /* Максимальна ширина, якщо екран занадто великий */
-    background: #3e3e5e;  /* Той самий темний фон, як у калькуляторі */
-    color: #f0f0f0;  /* Світлий текст, як на основному сайті */
+    width: 80%;  
+    max-width: 1200px;  
+    background: #3e3e5e; 
+    color: #f0f0f0; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .close-popup {
-    background-color: #ffdf70;  /* Колір кнопки, як у заголовках */
-    color: #2d2d3e;  /* Темний текст, як на основному фоні */
+    background-color: #ffdf70;  
+    color: #2d2d3e; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -239,8 +239,8 @@ body {
 }
 
 .close-popup:hover {
-    background-color: #f4a261;  /* Легке затемнення при наведенні */
-    color: #2d2d3e;  /* Текст залишиться темним */
+    background-color: #f4a261; 
+    color: #2d2d3e;  
 }
 #popup-textarea {
     font-family: inherit;
@@ -281,7 +281,7 @@ body {
 }
 
 .notification {
-    background-color: #4CAF50;
+    background-color: #3e3e5e;
     color: #f0f0f0;
     padding: 10px 20px;
     border-radius: 8px;
