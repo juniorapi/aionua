@@ -238,7 +238,7 @@ const RESOURCE_CRAFTING_DATA = {
         
     }
 };
-// Base Calculator class
+
 class BaseCalculator {
     constructor(config) {
         this.config = config;
@@ -273,6 +273,8 @@ class BaseCalculator {
     }
 
     updateCalculator() {
+		
+
         const type = this.type.value;
         const quantity = parseInt(this.quantity.value) || 1;
         const data = this.config.craftingData.types[type];
@@ -320,7 +322,7 @@ class BaseCalculator {
     }
 }
 
-// Configuration objects
+
 const calculatorConfigs = {
     crystal: {
         typeId: 'crystal-type',
@@ -351,7 +353,7 @@ const calculatorConfigs = {
     }
 };
 
-// Initialize calculators
+
 document.addEventListener('DOMContentLoaded', () => {
     const calculators = {
         crystal: new BaseCalculator(calculatorConfigs.crystal),
