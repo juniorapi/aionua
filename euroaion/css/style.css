@@ -34,8 +34,8 @@ body {
         }
 
         th:first-child, td:first-child {
-            width: 120px; /* обмежуємо ширину першої колонки */
-            white-space: nowrap; /* не дозволяємо переносити текст на новий рядок */
+            width: 120px; 
+            white-space: nowrap; 
         }
 
         th {
@@ -61,10 +61,10 @@ body {
         }
 
         .highlight {
-            background-color: #353547; /* М'якший блакитний */
+            background-color: #353547; 
             color: white;
             font-weight: bold;
-            text-shadow: 0 0 5px #A2D7E8; /* Легке підсвічування тексту */
+            text-shadow: 0 0 5px #A2D7E8; 
         }
 
         .schedule-table td br {
@@ -72,5 +72,5 @@ body {
             margin: 5px 0;
         }
 		.text-red {
-    color: #ff4d4d; /* Червоний колір тексту */
+    color: #ff4d4d;
 		}
