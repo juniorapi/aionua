@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крафт кристалів та предметів</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="calculator-container">
+      
         <div class="calculator">
             <div class="calculator-header">
                 <h2>Кристали</h2>
@@ -17,15 +16,14 @@
             </div>
             <div class="calculator-content">
                 <div id="crystal-icon-container">
-                    <img src="images/icon_item_ta_combineskill_ws_r_60a.png" alt="crystal" width="40" height="40"
-                        class="calculator-icon">
+                    <img src="images/icon_item_ta_combineskill_ws_r_60a.png" alt="crystal" width="40" height="40" class="calculator-icon">
                 </div>
                 <div class="input-group">
                     <label for="crystal-type">Тип кристалу:</label>
                     <select id="crystal-type">
-						<option value="white" data-icon="images/icon_item_ws_combineskill_ar_r_60a.png">Древний белый кристалл</option>
-						<option value="yellow" data-icon="images/icon_item_ha_combineskill_ta_r_60a.png">Древний желтый кристалл</option>
-						<option value="green" data-icon="images/icon_item_as_combineskill_ha_r_60a.png">Древний зеленый кристалл</option>
+                        <option value="white" data-icon="images/icon_item_ws_combineskill_ar_r_60a.png">Древний белый кристалл</option>
+                        <option value="yellow" data-icon="images/icon_item_ha_combineskill_ta_r_60a.png">Древний желтый кристалл</option>
+                        <option value="green" data-icon="images/icon_item_as_combineskill_ha_r_60a.png">Древний зеленый кристалл</option>
                         <option value="red" data-icon="images/icon_item_ta_combineskill_ws_r_60a.png">Древний красный кристалл</option>
                         <option value="blue" data-icon="images/icon_item_al_combineskill_as_r_60a.png">Древний синий кристалл</option>
                         <option value="idium" data-icon="images/icon_item_co_combineskill_all_r_60a.png">Идиумовый кристалл времени</option>
@@ -35,7 +33,6 @@
                     <label for="quantity">Кількість крафтів:</label>
                     <input type="number" id="quantity" value="1" min="1" max="100">
                 </div>
-
                 <div class="ingredients">
                     <h3>Необхідні матеріали:</h3>
                     <table>
@@ -62,9 +59,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="calculator-container">
+       
         <div class="calculator">
             <div class="calculator-header">
                 <h2>Стрижні та бруси</h2>
@@ -72,27 +68,21 @@
             </div>
             <div class="calculator-content">
                 <div id="item-icon-container">
-                    <img src="images/icon_item_etc_bm_jewel_i4_60b.png" alt="item" width="40" height="40"
-                        class="calculator-icon">
+                    <img src="images/icon_item_etc_bm_jewel_i4_60b.png" alt="item" width="40" height="40" class="calculator-icon">
                 </div>
                 <div class="input-group">
                     <label for="item-type">Тип предмета:</label>
                     <select id="item-type">
-                        <option value="rod" data-icon="images/icon_item_etc_bm_jewel_i4_60b.png">Гибкий обработанный
-                            стержень</option>
-                        <option value="rod2" data-icon="images/icon_item_ws_we_long_parts_n_e_65a.png">Обработанный
-                            каталиумовый стержень</option>
-                        <option value="bar" data-icon="images/icon_item_ha_we_long_parts_n_e_60a.png">Гибкий
-                            обработанный брус</option>
-                        <option value="bar2" data-icon="images/icon_item_ha_we_long_parts_n_e_65a.png">Обработанный
-                            каталиумовый брус</option>
+                        <option value="rod" data-icon="images/icon_item_etc_bm_jewel_i4_60b.png">Гибкий обработанный стержень</option>
+                        <option value="rod2" data-icon="images/icon_item_ws_we_long_parts_n_e_65a.png">Обработанный каталиумовый стержень</option>
+                        <option value="bar" data-icon="images/icon_item_ha_we_long_parts_n_e_60a.png">Гибкий обработанный брус</option>
+                        <option value="bar2" data-icon="images/icon_item_ha_we_long_parts_n_e_65a.png">Обработанный каталиумовый брус</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label for="quantity-item">Кількість крафтів:</label>
                     <input type="number" id="quantity-item" value="1" min="1" max="100">
                 </div>
-
                 <div class="ingredients">
                     <h3>Необхідні матеріали:</h3>
                     <table>
@@ -119,9 +109,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="calculator-container">
+       
         <div class="calculator">
             <div class="calculator-header">
                 <h2>Божественне каміння</h2>
@@ -129,28 +118,25 @@
             </div>
             <div class="calculator-content">
                 <div id="resource-icon-container">
-                    <img src="images/icon_item_holystone_unique_fire_demage.png" alt="resource" width="40" height="40"
-                        class="calculator-icon">
+                    <img src="images/icon_item_holystone_unique_fire_demage.png" alt="resource" width="40" height="40" class="calculator-icon">
                 </div>
                 <div class="input-group">
                     <label for="resource-type">Тип ресурсу:</label>
                     <select id="resource-type">
                         <option value="godstone" data-icon="images/icon_item_holystone_unique_fire_demage.png">Контратака эксперта (10%)</option>
                         <option value="godstone3" data-icon="images/icon_item_holystone_unique_water_demage.png">Эгоизм эксперта (10%)</option>
-						<option value="godstone2" data-icon="images/icon_item_holystone_unique_earth_demage.png">Справедливость эксперта (10%)</option>
-						<option value="godstone4" data-icon="images/icon_item_holystone_unique_air_demage.png">Отзывчивость эксперта (10%)</option>
-						<option value="godstone5" data-icon="images/icon_item_holystone_unique_fire_demage.png">Ярость эксперта (1%)</option>
-						<option value="godstone6" data-icon="images/icon_item_holystone_unique_water_demage.png">Сожаление эксперта (1%)</option>
-						<option value="godstone7" data-icon="images/icon_item_holystone_unique_earth_demage.png">Разум эксперта (1%)</option>
-						<option value="godstone8" data-icon="images/icon_item_holystone_unique_air_demage.png">Клятва эксперта (1%)</option>
+                        <option value="godstone2" data-icon="images/icon_item_holystone_unique_earth_demage.png">Справедливость эксперта (10%)</option>
+                        <option value="godstone4" data-icon="images/icon_item_holystone_unique_air_demage.png">Отзывчивость эксперта (10%)</option>
+                        <option value="godstone5" data-icon="images/icon_item_holystone_unique_fire_demage.png">Ярость эксперта (1%)</option>
+                        <option value="godstone6" data-icon="images/icon_item_holystone_unique_water_demage.png">Сожаление эксперта (1%)</option>
+                        <option value="godstone7" data-icon="images/icon_item_holystone_unique_earth_demage.png">Разум эксперта (1%)</option>
+                        <option value="godstone8" data-icon="images/icon_item_holystone_unique_air_demage.png">Клятва эксперта (1%)</option>
                     </select>
                 </div>
-
                 <div class="input-group">
                     <label for="quantity-resource">Кількість крафтів:</label>
                     <input type="number" id="quantity-resource" value="1" min="1" max="100">
                 </div>
-
                 <div class="ingredients">
                     <h3>Необхідні матеріали:</h3>
                     <table>
@@ -181,5 +167,4 @@
 
     <script src="js/script.js"></script>
 </body>
-
 </html>
