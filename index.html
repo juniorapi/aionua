@@ -1,85 +1,93 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
- </head>
-
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
 <body>
     <div class="container">
-        
         <header>
-            <h1>Aion</h1>
-            <p>Інформація про сервери та корисні інструменти</p>
+            <h1 class="title">Aion</h1>
+            <p class="subtitle">Інструменти та калькулятори для гри</p>
         </header>
 
-        
-        <main>
-            
-            <section class="card">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Пошук інструментів...">
+        </div>
+
+        <div class="grid">
+            <div class="card" data-keywords="розклад інстанси евроайон aiondestiny">
                 <h2>Розклад інстансів</h2>
                 <p>Дізнайтесь, коли і де проходять найцікавіші події</p>
                 <div class="links">
-                    <a href="/aionua/euroaion/" target="_blank">EuroAion</a>
-                    <a href="/aionua/aiondestiny/" target="_blank">AionDestiny</a>
+                    <a href="/aionua/euroaion/" class="link">
+                        EuroAion
+                        <span class="badge">Оновлено</span>
+                    </a>
+                    <a href="/aionua/aiondestiny/" class="link">AionDestiny</a>
                 </div>
-            </section>
+            </div>
 
-            
-            <section class="card">
+            <div class="card" data-keywords="крафт ресурси кристали біжутерія свитки зілля">
                 <h2>Ресурси та крафт</h2>
-                <p>Координати для збору ресурсів та калькулятори для крафту</p>
+                <p>Все необхідне для крафту в одному місці</p>
                 <div class="links">
-                    <div class="craft-dropdown">
-                        <button>Крафт</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/craft/" target="_blank">Крафт біжутерії</a>
-                            <a href="/aionua/crystal_crafting/" target="_blank">Крафт кристалів</a>
-                            <a href="/aionua/scrolls_calculator/" target="_blank">Крафт свитків</a>
-                            <a href="/aionua/potion_calculator/" target="_blank">Крафт зілля</a>
-                        </div>
-                    </div>
-                    <div class="craft-dropdown">
-                        <button>Збір ресурсів</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/essencetapping/" target="_blank">Енергокінез</a>
-                            <a href="/aionua/aethertapping/" target="_blank">Ефірокінез</a>
-                        </div>
-                    </div>
+                    <a href="/aionua/crystal_crafting/" class="link">
+                        Кристали, стрижні, бруси, божики
+                        <span class="badge">Нове</span>
+                    </a>
+                    <a href="/aionua/craft/" class="link">Крафт біжутерії</a>
+                    <a href="/aionua/scrolls_calculator/" class="link">Крафт свитків</a>
+                    <a href="/aionua/potion_calculator/" class="link">Крафт зілля</a>
+                    <a href="/aionua/essencetapping/" class="link">Енергокінез</a>
+                    <a href="/aionua/aethertapping/" class="link">Ефірокінез</a>
                 </div>
-            </section>
+            </div>
 
-            
-            <section class="card">
+            <div class="card" data-keywords="калькулятор стігми чари">
                 <h2>Калькулятори стігм, чар</h2>
-                <p>Дізнайтесь, які стігми найкраще підходять для вашого класу та стилю гри в Aion</p>
+                <p>Оптимізуйте свого персонажа</p>
                 <div class="links">
-                    <a href="/aionua/aion-4.6-enchantment-calculator/" target="_blank">Калькулятор чар</a>
-                    <div class="craft-dropdown">
-                        <button>Стігми</button>
-                        <div class="craft-dropdown-content">
-                            <a href="/aionua/stigma/" target="_blank">Калькулятор Aion 4.6</a>
-                            <a href="/aionua/stigmas/" target="_blank">Калькулятор Aion 4.8</a>
-                        </div>
-                    </div>
+                    <a href="/aionua/aion-4.6-enchantment-calculator/" class="link">
+                        Калькулятор чар
+                        <span class="badge">Популярне</span>
+                    </a>
+                    <a href="/aionua/stigma/" class="link">Стігми 4.6</a>
+                    <a href="/aionua/stigmas/" class="link">Стігми 4.8</a>
                 </div>
-            </section>
+            </div>
 
-            
-            <section class="card">
+            <div class="card" data-keywords="стрімери solution hammer counter">
                 <h2>Для стрімерів</h2>
-                <p>Інтерактивні лічильники для ваших трансляцій.</p>
+                <p>Корисні інструменти для ваших трансляцій</p>
                 <div class="links">
-                    <a href="/aionua/tempering-solution-counter/" target="_blank">Solution</a>
-                    <a href="/aionua/ice-hammer-counter/" target="_blank">Hammer</a>
+                    <a href="/aionua/tempering-solution-counter/" class="link">Solution Counter</a>
+                    <a href="/aionua/ice-hammer-counter/" class="link">Hammer Counter</a>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
-</body>
 
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const content = card.textContent.toLowerCase();
+                
+                if (searchTerm === '' || keywords.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
