@@ -1,4 +1,3 @@
-// script.js
 const materialsData = {
     ring: {
         magic: [
@@ -257,10 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('popup');
     const closeBtn = document.getElementById('close-btn');
     
-    // Вибір раси
+    
     const raceSelect = document.getElementById('race-select');
     
-    // Відкриваємо попап при натисканні на назву
+    
     document.querySelectorAll('.popup-name').forEach(function(element) {
         element.addEventListener('click', function() {
             const popupId = element.getAttribute('data-popup');
@@ -268,14 +267,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Функція для відкриття попапу
+   
     function openPopup(id) {
     const popupTitle = document.getElementById('popup-title');
-    const popupTextarea = document.getElementById('popup-textarea'); // Отримуємо <textarea>
+    const popupTextarea = document.getElementById('popup-textarea');
 
-    const selectedRace = raceSelect.value; // Отримуємо вибрану расу
+    const selectedRace = raceSelect.value; 
 
-        // Визначаємо вміст для кожного тесту з урахуванням раси
+       
         switch (id) {
             case 'Nolan':
                 popupTitle.textContent = 'Даррит';
@@ -319,15 +318,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
 
-        popup.style.display = 'flex'; // Відкриваємо попап
+        popup.style.display = 'flex'; 
     }
 
-    // Закриваємо попап
+    
     closeBtn.addEventListener('click', function() {
         popup.style.display = 'none';
     });
 
-    // Закриваємо попап при кліку поза ним
+   
     window.addEventListener('click', function(event) {
         if (event.target === popup) {
             popup.style.display = 'none';
@@ -339,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupTextarea = document.getElementById('popup-textarea');
     const notificationContainer = document.getElementById('notification-container');
 
-    // Функція для створення сповіщення
+   
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.className = 'notification';
@@ -347,15 +346,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         notificationContainer.appendChild(notification);
 
-        // Видалення сповіщення після завершення анімації
+        
         setTimeout(() => {
             notification.remove();
-        }, 4000); // Час має відповідати тривалості анімації (4 секунди)
+        }, 4000); 
     }
 
-    // Обробник для копіювання тексту
+   
     copyBtn.addEventListener('click', function () {
-        popupTextarea.select(); // Виділяємо текст у <textarea>
+        popupTextarea.select(); 
         navigator.clipboard.writeText(popupTextarea.value)
             .then(() => {
                 showNotification('Текст успішно скопійовано!');
@@ -366,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 copyBtn.addEventListener('click', function () {
-    popupTextarea.select(); // Виділяємо текст у <textarea>
+    popupTextarea.select(); 
     navigator.clipboard.writeText(popupTextarea.value)
         .then(() => {
             console.log('Текст успішно скопійовано!');
