@@ -302,8 +302,8 @@ class BaseCalculator {
         const icon = document.createElement('img');
         icon.src = material.icon;
         icon.alt = material.name;
-        icon.width = 40;
-        icon.height = 40;
+        icon.width = 42;
+        icon.height = 42;
         nameCell.appendChild(icon);
         nameCell.appendChild(document.createTextNode(material.name));
 
