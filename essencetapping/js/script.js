@@ -7780,21 +7780,21 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 };
 
-   // Генерація кнопок залежно від вибору раси
+   
     raceSelector.addEventListener("change", function () {
         const selectedRace = raceSelector.value;
         generateButtons(ingredientsData[selectedRace]);
     });
 
     function generateButtons(ingredients) {
-        buttonsContainer.innerHTML = '';  // Очищення попередніх кнопок
+        buttonsContainer.innerHTML = '';  
 
         ingredients.forEach(ingredient => {
             const button = document.createElement("button");
 
-            // Форматування тексту кнопки
+          
             button.textContent = `ур.${ingredient.level}  ${ingredient.name}`;
-			button.title = `Локація: ${ingredient.region}`; // Текст, що з'явиться при наведенні на кнопку
+			button.title = `Локація: ${ingredient.region}`; 
 
             button.addEventListener("click", function () {
                 coordinatesTextarea.value = ingredient.coords.join('\n');
@@ -7803,33 +7803,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ініціалізація кнопок для початкової раси
+ 
     generateButtons(ingredientsData['elyos']);
 });
 
 
-// Отримуємо елементи з DOM
+
 const copyButton = document.getElementById('copyButton');
 const coordinatesTextarea = document.getElementById('coordinatesTextarea');
 const copyMessage = document.getElementById('copyMessage');
 
-// Функція для копіювання тексту з textarea
-function copyText() {
-    // Вибір тексту в textarea
-    coordinatesTextarea.select();
-    coordinatesTextarea.setSelectionRange(0, 99999); // Для мобільних пристроїв
 
-    // Копіюємо текст в буфер обміну
+function copyText() {
+  
+    coordinatesTextarea.select();
+    coordinatesTextarea.setSelectionRange(0, 99999); 
+
+ 
     document.execCommand('copy');
 
-    // Показуємо повідомлення
+
     copyMessage.classList.add('show');
 
-    // Через 3 секунди ховаємо повідомлення
+
     setTimeout(() => {
         copyMessage.classList.remove('show');
     }, 2000);
 }
 
-// Додаємо обробник події на кнопку копіювання
 copyButton.addEventListener('click', copyText);
