@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-   
+   document.querySelector('.back-button').addEventListener('click', () => {
+    window.history.back();
+});
+
     document.querySelectorAll('.schedule-time').forEach(function(cell) {
         const originalHTML = cell.innerHTML;
         const lines = originalHTML.split(/<br\s*\/?>/);
