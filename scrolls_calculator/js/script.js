@@ -167,6 +167,10 @@ function updateMaterials(calculatorId, quantityInput) {
     fillMaterials(calculatorId, type, quantity);
 }
 
+document.querySelector('.back-button').addEventListener('click', () => {
+    window.history.back();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const calculators = ['ring', 'earring', 'necklace', 'belt', 'critical'];
 
