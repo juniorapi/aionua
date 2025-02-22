@@ -483,6 +483,9 @@ const copyButton = document.getElementById('copyButton');
 const coordinatesTextarea = document.getElementById('coordinatesTextarea');
 const copyMessage = document.getElementById('copyMessage');
 
+document.querySelector('.back-button').addEventListener('click', () => {
+    window.history.back();
+});
 
 function copyText() {
  
