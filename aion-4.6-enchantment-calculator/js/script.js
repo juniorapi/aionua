@@ -41,10 +41,6 @@ for (const radioButton of itemTypeRadios) {
   });
 }
 
-document.querySelector('.back-button').addEventListener('click', () => {
-    window.history.back();
-});
-
 function generateTable() {
   table.innerHTML = "";
 
