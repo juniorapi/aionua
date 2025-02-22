@@ -75,137 +75,128 @@ const materialIcons = {
     "Свиток ф/м крит IV/V": "images/icon_item_scroll_critical_mag_01.png",
 };
 
+const outputItems = {
+    ring: { name: "Свиток отваги III", quantity: 5 },
+    earring: { name: "Свиток перерождения III", quantity: 5 },
+    necklace: { name: "Свиток ускорения III", quantity: 5 },
+    belt: { name: "Свиток яростного ветра", quantity: 5 },
+    critical: { name: "Свиток ф/м крит IV/V", quantity: 5 },
+};
+
+function formatNumber(number) {
+    return number.toLocaleString('ua-UA');
+}
+
+function createTableRow(material, quantity, isOutput = false) {
+    const row = document.createElement('tr');
+    const itemCell = document.createElement('td');
+    const quantityCell = document.createElement('td');
+
+    const icon = document.createElement('img');
+    icon.src = materialIcons[material] || "images/default_icon.png";
+    icon.alt = material;
+    icon.style.width = "30px";
+    icon.style.height = "30px";
+    icon.style.marginRight = "5px";
+    icon.style.verticalAlign = "middle";
+
+    itemCell.appendChild(icon);
+    itemCell.appendChild(document.createTextNode(material));
+    quantityCell.textContent = formatNumber(quantity);
+
+    row.appendChild(itemCell);
+    row.appendChild(quantityCell);
+    
+    return row;
+}
+
 function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
-    let materialsList = materialsData[calculatorId][type];
+    const materialsList = materialsData[calculatorId]?.[type];
+    if (!materialsList) return;
+
     const tableBody = document.getElementById(`materials-list_${calculatorId}`);
+    const outputList = document.getElementById(`output-list_${calculatorId}`);
+    
+    if (!tableBody || !outputList) return;
+
     tableBody.innerHTML = '';
+    outputList.innerHTML = '';
 
     materialsList.forEach(material => {
-        const row = document.createElement('tr');
-        const materialCell = document.createElement('td');
-        const quantityCell = document.createElement('td');
-
-        const icon = document.createElement('img');
-        icon.src = materialIcons[material.material] || "images/default_icon.png";
-        icon.alt = material.material;
-        icon.style.width = "30px";
-        icon.style.height = "30px";
-        icon.style.marginRight = "5px";
-        icon.style.verticalAlign = "middle";
-
-        materialCell.appendChild(icon);
-        materialCell.appendChild(document.createTextNode(material.material));
-
-        quantityCell.textContent = material.quantity * quantity;
-
-        row.appendChild(materialCell);
-        row.appendChild(quantityCell);
+        const row = createTableRow(material.material, material.quantity * quantity);
         tableBody.appendChild(row);
     });
 
-    const outputList = document.getElementById(`output-list_${calculatorId}`);
-    outputList.innerHTML = '';
-
-    const outputItem = {
-        ring: { name: "Свиток отваги III", quantity: 5 },
-        earring: { name: "Свиток перерождения III", quantity: 5 },
-        necklace: { name: "Свиток ускорения III", quantity: 5 },
-        belt: { name: "Свиток яростного ветра", quantity: 5 },
-        critical: { name: "Свиток ф/м крит IV/V", quantity: 5 },
-    };
-
-    const outputData = outputItem[calculatorId];
-
+    const outputData = outputItems[calculatorId];
     if (outputData) {
-        const row = document.createElement('tr');
-        const itemCell = document.createElement('td');
-        const quantityCell = document.createElement('td');
-
-        const icon = document.createElement('img');
-        icon.src = materialIcons[outputData.name] || "images/default_icon.png";
-        icon.alt = outputData.name;
-        icon.style.width = "30px";
-        icon.style.height = "30px";
-        icon.style.marginRight = "5px";
-        icon.style.verticalAlign = "middle";
-
-        itemCell.appendChild(icon);
-        itemCell.appendChild(document.createTextNode(outputData.name));
-        quantityCell.textContent = outputData.quantity * quantity;
-
-        row.appendChild(itemCell);
-        row.appendChild(quantityCell);
+        const row = createTableRow(outputData.name, outputData.quantity * quantity, true);
         outputList.appendChild(row);
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const quantityInputRing = document.getElementById('quantity1_ring');
-    const quantityInputEarring = document.getElementById('quantity1_earring');
-    const quantityInputNecklace = document.getElementById('quantity1_necklace');
-    const quantityInputBelt = document.getElementById('quantity1_belt');
-    const quantityInputCritical = document.getElementById('quantity1_critical');
-
-    function updateMaterials(calculatorId, quantityInput, resetQuantity = false) {
-        let quantity = parseInt(quantityInput.value, 10);
-        if (isNaN(quantity) || quantity < 1) {
-            quantity = 1;
-            quantityInput.value = 1;
-        }
-
-        if (resetQuantity) {
-            quantity = 1;
-            quantityInput.value = 1;
-        }
-
-        const typeSelect = document.getElementById(`type1_${calculatorId}`);
-        const type = typeSelect.value;
-        fillMaterials(calculatorId, type, quantity);
+function validateQuantityInput(input) {
+    let value = parseInt(input.value, 10);
+    
+    if (isNaN(value) || value < 1) {
+        value = 1;
+    } else if (value > 99999) {
+        value = 99999;
     }
+    
+    input.value = value;
+    return value;
+}
 
-    const calculators = [
-        { id: 'ring', input: quantityInputRing },
-        { id: 'earring', input: quantityInputEarring },
-        { id: 'necklace', input: quantityInputNecklace },
-        { id: 'belt', input: quantityInputBelt },
-        { id: 'critical', input: quantityInputCritical }
-    ];
+function resetCalculator(calculatorId) {
+    const quantityInput = document.getElementById(`quantity1_${calculatorId}`);
+    const typeSelect = document.getElementById(`type1_${calculatorId}`);
+    
+    if (quantityInput && typeSelect) {
+        quantityInput.value = 1;
+        typeSelect.selectedIndex = 0;
+        fillMaterials(calculatorId, typeSelect.value, 1);
+    }
+}
 
-   
-    calculators.forEach(calc => {
-        updateMaterials(calc.id, calc.input);
+function updateMaterials(calculatorId, quantityInput) {
+    let quantity = validateQuantityInput(quantityInput);
+    const typeSelect = document.getElementById(`type1_${calculatorId}`);
+    if (!typeSelect) return;
 
-       
-        calc.input.addEventListener('input', function() {
-            updateMaterials(calc.id, this);
+    const type = typeSelect.value;
+    fillMaterials(calculatorId, type, quantity);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const calculators = ['ring', 'earring', 'necklace', 'belt', 'critical'];
+
+    calculators.forEach(calculatorId => {
+        const quantityInput = document.getElementById(`quantity1_${calculatorId}`);
+        const typeSelect = document.getElementById(`type1_${calculatorId}`);
+        const resetButton = document.querySelector(`.calculator:has(#quantity1_${calculatorId}) .reset-button`);
+
+        if (!quantityInput || !typeSelect) return;
+
+        updateMaterials(calculatorId, quantityInput);
+
+        quantityInput.addEventListener('input', () => updateMaterials(calculatorId, quantityInput));
+        
+        quantityInput.addEventListener('blur', () => {
+            validateQuantityInput(quantityInput);
         });
 
-       
-        const typeSelect = document.getElementById(`type1_${calc.id}`);
-        if (typeSelect) {
-            typeSelect.addEventListener('change', function() {
-                updateMaterials(calc.id, calc.input, true);
+        typeSelect.addEventListener('change', () => {
+            updateMaterials(calculatorId, quantityInput);
+        });
+
+        if (resetButton) {
+            resetButton.addEventListener('click', () => {
+                resetCalculator(calculatorId);
             });
         }
 
-       
-        const resetButton = document.querySelector(`.calculator:has(#quantity1_${calc.id}) .reset-button`);
-        if (resetButton) {
-            resetButton.addEventListener('click', function() {
-                const quantityInput = document.getElementById(`quantity1_${calc.id}`);
-                const typeSelect = document.getElementById(`type1_${calc.id}`);
-                
-               
-                quantityInput.value = 1;
-                
-               
-                if (typeSelect) {
-                    typeSelect.selectedIndex = 0;
-                }
-                
-               
-                updateMaterials(calc.id, quantityInput, true);
-            });
+        if (calculatorId === 'critical') {
+            typeSelect.disabled = true;
         }
     });
 });
