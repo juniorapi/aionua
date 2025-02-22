@@ -1,4 +1,3 @@
-// script.js
 const materialsData = {
     ring: {
         magic: [
