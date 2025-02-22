@@ -1,5 +1,5 @@
 :root {
-  --main-theme-900: #2C2C3D;
+  --main-theme-900: #1A1A2E;
   --main-theme-800: #3E3E5E;
   --main-theme-700: #3f3f46;
   --main-theme-600: #52525b;
@@ -44,7 +44,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 92vh; /* Висота браузера */
+  height: 92vh;
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -225,9 +225,9 @@ label[for="rbtnMythical"] {
 	text-decoration: underline;
 }
 #footer a[href*="ihatesun"] {
-    color: #F59E0B; /* Цвет ссылки для ihatesun */
+    color: #F59E0B;
 }
 
 #footer a[href*="Aion-4.6-Enchantment-Calculator"] {
-    color: #F59E0B; /* Цвет ссылки для GitHub Pages */
+    color: #F59E0B;
 }
