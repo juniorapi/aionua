@@ -154,12 +154,14 @@ th, td {
 
 td:first-child,
 th:first-child {
-    padding-left: 14px; 
+    padding-left: 14px;
+    text-align: left;
 }
 
 td:last-child,
 th:last-child {
-    padding-right: 14px; 
+    padding-right: 14px;
+    text-align: center;
 }
 
 th {
