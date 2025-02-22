@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #2d2d3e;
+    background-color: #1A1A2E;
     color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -155,7 +155,7 @@ body {
     gap: 30px;
 }
 .output {
-    margin-top: 20px; /* Add some spacing between ingredient and output tables */
+    margin-top: 20px;
 }
 
 .output h2 {
@@ -180,4 +180,3 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
