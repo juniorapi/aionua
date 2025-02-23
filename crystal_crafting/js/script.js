@@ -255,13 +255,26 @@ class BaseCalculator {
         this.outputList = document.getElementById(this.config.outputListId);
         this.resetButton = document.getElementById(this.config.resetButtonId);
     }
-
-    setupEventListeners() {
+        setupEventListeners() {
         this.type.addEventListener('change', () => this.updateCalculator());
+        
+        this.quantity.addEventListener('focus', (e) => {
+            if (e.target.value === '1') {
+                e.target.value = '';
+            }
+        });
+
+        this.quantity.addEventListener('blur', (e) => {
+            if (e.target.value === '') {
+                e.target.value = '1';
+                this.updateCalculator();
+            }
+        });
+
         this.quantity.addEventListener('input', () => this.validateAndUpdate());
         this.resetButton.addEventListener('click', () => this.resetCalculator());
     }
-
+	
     validateAndUpdate() {
         let value = parseInt(this.quantity.value);
         if (isNaN(value) || value < 1) {
