@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафт свитків, зілля</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<button class="back-button">
+    <span class="back-icon">←</span>
+    
+</button>
+    <div class="calculator-container">
+        
+        <div class="calculator">
+            <div class="calculator-header">
+                <h2>Крафт свитків</h2>
+                <button id="reset-scroll" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="scroll-icon-container">
+                    <img src="images" alt="scroll" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="scroll-type">Тип свитків:</label>
+                    <select id="scroll-type">
+                        <option value="courage" data-icon="images/icon_item_scroll_speed_atk_01.png">Свиток отваги III</option>
+                        <option value="courage2" data-icon="images/icon_item_scroll_speed_atk_01.png">Свиток отваги III [2]</option>
+                        <option value="rebirth" data-icon="images/icon_item_scroll_speed_casting_01.png">Свиток перерождения III</option>
+                        <option value="rebirth2" data-icon="images/icon_item_scroll_speed_casting_01.png">Свиток перерождения III [2]</option>
+                        <option value="acceleration" data-icon="images/icon_item_scroll_speed_run_01.png">Свиток ускорения III</option>
+                        <option value="acceleration2" data-icon="images/icon_item_scroll_speed_run_01.png">Свиток ускорения III [2]</option>
+                        <option value="wind" data-icon="images/icon_item_scroll_speed_fly_01.png">Свиток яростного ветра</option>
+                        <option value="wind2" data-icon="images/icon_item_scroll_speed_fly_01.png">Свиток яростного ветра III [2]</option>
+                        <option value="critical" data-icon="images/icon_item_scroll_critical_phy_mag.png">Свиток ф/м крит IV/V</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-scroll">Кількість крафтів:</label>
+                    <input type="number" id="quantity-scroll" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list-scroll"></tbody>
+                    </table>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list-scroll"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="calculator">
+            <div class="calculator-header">
+                <h2>Крафт зілля</h2>
+                <button id="reset-potion" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="potion-icon-container">
+                    <img src="images" alt="potion" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="potion-type">Тип зілля:</label>
+                    <select id="potion-type">
+                        <option value="cure" data-icon="images/icon_item_potion_cure01a.png">Сильное зелье исцеления</option>
+                        <option value="recovery_potion" data-icon="images/icon_item_potion_hpmp02_5.png">Зелье восстановления VI</option>
+                        <option value="recovery_serum" data-icon="images/icon_item_potion_hpmp03_5.png">Редкое зелье восстановления VI</option>
+                        <option value="fine_life_potion" data-icon="images/icon_item_potion_hp02_5.png">Зелье жизни VI</option>
+						<option value="fine_mana_potion" data-icon="images/icon_item_potion_mp02_5.png">Зелье маны VI</option>
+						<option value="fine_life_serum" data-icon="images/icon_item_potion_hp03_5.png">Редкое зелье жизни VI</option>
+						<option value="fine_mana_serum" data-icon="images/icon_item_potion_mp03_5.png">Редкое зелье маны VI</option>
+						<option value="fine_wind_serum" data-icon="images/icon_item_potion_cure04d.png">Редкое зелье ветра V</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-potion">Кількість крафтів:</label>
+                    <input type="number" id="quantity-potion" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list-potion"></tbody>
+                    </table>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list-potion"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="calculator">
+		
+            <div class="calculator-header">
+                <h2>Крафт їжі та коктейлю</h2>
+                <button id="reset-food" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="food-icon-container">
+                    <img src="images" alt="food" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="food-type">Тип їжі:</label>
+                    <select id="food-type">
+                        <option value="food" data-icon="images/icon_item_dish25.png">Полезные пельмени с тифабом</option>
+                        <option value="food1" data-icon="images/icon_item_dish30.png">Полезный жареный тифаб</option>
+                        <option value="food2" data-icon="images/icon_item_dish10.png">Полезные суши с налимом</option>
+                        <option value="food3" data-icon="images/icon_item_dish20.png">Салат императора ужасных драконов</option>
+                        <option value="food4" data-icon="images/icon_item_dish11.png">Мясо императора ужасных драконов в кляре</option>
+                        <option value="jelly" data-icon="images/icon_item_jelly01.png">Эфирное желе с кано</option>
+                        <option value="cocktail" data-icon="images/icon_item_drink01.png">Коктейль из серина</option>
+						<option value="cocktail2" data-icon="images/icon_item_drink_hpmp02.png">Сок чико</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-food">Кількість крафтів:</label>
+                    <input type="number" id="quantity-food" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list-food"></tbody>
+                    </table>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list-food"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+		<div class="calculator">
+            <div class="calculator-header">
+                <h2>Стихійні матеріали</h2>
+                <button id="reset-powders" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="powders-icon-container">
+                    <img src="images" alt="powders" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="powders-type">Тип матеріалу:</label>
+                    <select id="powders-type">
+                        <option value="powders1" data-icon="images/icon_item_gempoder03.png">Алмазный порошок</option>
+                        <option value="powders2" data-icon="images/icon_item_gempoder03.png">Кельфаратовый порошок</option>
+                        <option value="powders3" data-icon="images/icon_item_gempoder01.png">Порошок из бирюзы</option>
+						<option value="powders4" data-icon="images/icon_item_gempoder02.png">Рубиновый порошок</option>
+						<option value="powders5" data-icon="images/icon_item_gempoder01.png">Сапфировый порошок</option>
+						<option value="powders6" data-icon="images/icon_item_gempoder02.png">Турмалиновый порошок</option>
+						<option value="powders7" data-icon="images/icon_item_dust01e.png">Сильный стихийный порошок</option>
+						<option value="powders8" data-icon="images/icon_item_dust01f.png">Элитный стихийный порошок</option>
+						<option value="water9" data-icon="images/icon_item_elementalwater01f.png">Элитная стихийная вода</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-powders">Кількість крафтів:</label>
+                    <input type="number" id="quantity-powders" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Матеріал</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materials-list-powders"></tbody>
+                    </table>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-list-powders"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
