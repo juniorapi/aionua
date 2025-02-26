@@ -80,7 +80,8 @@ const SCROLL_CRAFTING_DATA = {
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
-        critical: {
+		
+	    critical: {
             name: "Свиток ф/м крит IV/V",
             icon: "images/icon_item_scroll_critical_phy_mag.png",
             outputQuantity: 5,
@@ -88,7 +89,50 @@ const SCROLL_CRAFTING_DATA = {
                 { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
                 { id: 'shard', name: "Элитный стихийный порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
-            ]
+            ]	
+        },
+		
+	    regist_wind: {
+            name: "Свиток воздуха V",
+            icon: "images/icon_item_scroll_regist_wind_01.png",
+            outputQuantity: 5,
+            materials: [
+                { id: 'shard', name: "Кельфаратовый порошок", quantity: 5, icon: "images/icon_item_gempoder03.png" },
+                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
+            ]	
+        },
+		
+	   regist_water: {
+            name: "Свиток воды V",
+            icon: "images/icon_item_scroll_regist_water_01.png",
+            outputQuantity: 5,
+            materials: [
+                { id: 'shard', name: "Порошок из бирюзы", quantity: 5, icon: "images/icon_item_gempoder01.png" },
+                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
+            ]	
+        },
+		
+	    regist_fire: {
+            name: "Свиток огня V",
+            icon: "images/icon_item_scroll_regist_fire_01.png",
+            outputQuantity: 5,
+            materials: [
+                { id: 'shard', name: "Турмалиновый порошок", quantity: 5, icon: "images/icon_item_gempoder02.png" },
+                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
+            ]	
+        },
+        regist_earth: {
+            name: "Свиток земли V",
+            icon: "images/icon_item_scroll_regist_earth_01.png",
+            outputQuantity: 5,
+            materials: [
+                { id: 'shard', name: "Элитный стихийный порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
+                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
+            ]	
         }
     }
 };
