@@ -1,3 +1,47 @@
+const ITEM_DESCRIPTIONS = {
+    "courage": "Швидк. атаки +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм переродження.",
+    "courage2": "Швидк. атаки +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм переродження.",
+    "rebirth": "Швидк. магії +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм відваги.",
+    "rebirth2": "Швидк. магії +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм відваги.",
+    "acceleration": "Швидк. руху +30%. Час дії: 5хв.",
+    "acceleration2": "Швидк. руху +30%. Час дії: 5хв.",
+	"wind": "Швидк. польоту +30%. Час дії: 5хв.",
+	"wind2": "Швидк. польоту +30%. Час дії: 5хв.",
+	"critical": "Ф. крит. +120/М. крит. +40. Час дії: 5 хв. Неможливо використовувати разом зі свитком критичного удару іншого типу.",
+	"regist_wind": "Захист від повітря +100. Час дії: 10хв.",
+	"regist_water": "Захист від води +100. Час дії: 10хв.",
+	"regist_fire": "Захист від вогню +100. Час дії: 10хв.",
+	"regist_earth": "Захист від землі +100. Час дії: 10хв.",
+
+    "cure": "Знімає негативні ефекти.",
+    "recovery_potion": "Відновлює по 212 HP і 183 MP кожні 2с. Час дії: 20с.",
+    "recovery_serum": "Відновлює 1940 HP і 1680 MP.",
+    "fine_life_potion": "Відновлює по 212 HP кожні 2с. Час дії: 20с.",
+	"fine_mana_potion": "Відновлює по 183 MP кожні 2с. Час дії: 20с.",
+	"fine_life_serum": "Відновлює 1940 HP.",
+	"fine_mana_serum": "Відновлює 1680 MP.",
+	"fine_wind_serum": "Збільшує час польоту на 60 сек.",
+   
+    "food": "Ф. крит. +60. Точність +60. Ухилення +30. Час польоту +15 сек. Час дії: 30хв.",
+    "food1": "Фізична атака +12. Точн. магії +60. HP +240. Час польоту +15 сек. Час дії: 30 хв.",
+    "food2": "Сила магії +60. Точн. магії +60. HP +240. Час польоту +15 сек. Час дії: 30 хв.",
+	"food3": "Ухилення +30. Захист від стихій +60. Маг. захист +60. Час польоту +15 сек. Час дії: 30 хв.",
+    "food4": "HP +240. Захист від стихій +60. MP +240. Час польоту +15 сек. Час дії: 30 хв.",
+    "jelly": "Відновлює 4000 DP.",
+    "cocktail": "Швидкість відновл. HP +12. Швидкість відновл. MP +18. Час дії: 30 хв.",
+    "cocktail2": "Швидкість відновл. HP +14. Швидкість відновл. MP +21. Час дії: 30м. Через отруту Каспара може заболіти живіт, але ймовірність отруєння дуже мала.",
+   
+    "powders1": "Порошок, отриманий з необробленого алмаза.",
+	"powders2": "Порошок, отриманий з необробленого кельфарату.",
+	"powders3": "Порошок, отриманий з необробленої бірюзи.",
+	"powders4": "Порошок, отриманий з необробленого рубіна.",
+	"powders5": "Порошок, отриманий з необробленого сапфіра.",
+	"powders6": "Порошок, отриманий з необробленого турмаліну.",
+	"powders7": "Порошок, який отримують з сильного стихійного каменю.",
+	"powders8": "Порошок, який отримують з елітного стихійного каменю.",
+	"water9": "Магічна вода з елітного стихійного каменю.",
+	
+};
 const SCROLL_CRAFTING_DATA = { 
     types: {
         courage: {
@@ -61,7 +105,7 @@ const SCROLL_CRAFTING_DATA = {
             ]	
         },
         wind: {
-            name: "Свиток яростного ветра",
+            name: "Свиток яростного ветра III",
             icon: "images/icon_item_scroll_speed_fly_01.png",
             outputQuantity: 5,
             materials: [
@@ -71,7 +115,7 @@ const SCROLL_CRAFTING_DATA = {
             ]	
         },
 	    wind2: {
-            name: "Свиток яростного ветра",
+            name: "Свиток яростного ветра III",
             icon: "images/icon_item_scroll_speed_fly_01.png",
             outputQuantity: 5,
             materials: [
@@ -408,6 +452,167 @@ const FOOD_CRAFTING_DATA = {
         
     }
 };
+
+
+
+function showCraftingResultTooltip(event, typeId) {
+   
+    const description = ITEM_DESCRIPTIONS[typeId] || "Немає опису для цього предмета";
+   
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+  
+    let itemName = "";
+
+    if (SCROLL_CRAFTING_DATA.types[typeId]) {
+        itemName = SCROLL_CRAFTING_DATA.types[typeId].name;
+    } else if (POTION_CRAFTING_DATA.types[typeId]) {
+        itemName = POTION_CRAFTING_DATA.types[typeId].name;
+    } else if (POWDERS_CRAFTING_DATA.types[typeId]) {
+        itemName = POWDERS_CRAFTING_DATA.types[typeId].name;
+	} else if (FOOD_CRAFTING_DATA.types[typeId]) {
+        itemName = FOOD_CRAFTING_DATA.types[typeId].name;
+    }
+  
+    tooltip.innerHTML = `
+        <div style="font-weight: bold; color: #ffd700; margin-bottom: 6px;">${itemName}</div>
+        <div>${description}</div>
+    `;
+  
+    tooltip.style.backgroundColor = "#2a2a3e";
+    tooltip.style.border = "1px solid #4a4a5e";
+    tooltip.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+    tooltip.style.padding = "10px 12px";
+    tooltip.style.borderRadius = "6px";
+    tooltip.style.fontSize = "0.85rem";
+    tooltip.style.color = "#f0f0f0";
+    tooltip.style.maxWidth = "300px";
+    tooltip.style.zIndex = "1000";
+    tooltip.style.position = "fixed";
+  
+    tooltip.style.top = (event.clientY + 15) + "px";
+    tooltip.style.left = (event.clientX + 15) + "px";
+ 
+    document.body.appendChild(tooltip);
+ 
+    event.currentTarget.tooltip = tooltip;
+
+    event.currentTarget.addEventListener('mousemove', updateTooltipPosition);
+}
+
+function updateTooltipPosition(event) {
+    if (event.currentTarget.tooltip) {
+        event.currentTarget.tooltip.style.top = (event.clientY + 15) + "px";
+        event.currentTarget.tooltip.style.left = (event.clientX + 15) + "px";
+
+        const tooltipRect = event.currentTarget.tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        if (tooltipRect.right > viewportWidth) {
+            event.currentTarget.tooltip.style.left = (viewportWidth - tooltipRect.width - 10) + "px";
+        }
+        
+        if (tooltipRect.bottom > viewportHeight) {
+            event.currentTarget.tooltip.style.top = (viewportHeight - tooltipRect.height - 10) + "px";
+        }
+    }
+}
+
+function hideCraftingResultTooltip(event) {
+    if (event.currentTarget.tooltip) {
+
+        event.currentTarget.removeEventListener('mousemove', updateTooltipPosition);
+
+        event.currentTarget.tooltip.remove();
+        event.currentTarget.tooltip = null;
+    }
+}
+
+function setupCraftingResultTooltips() {
+
+    const outputTables = [
+        { tableId: 'output-list-scroll', typeId: 'scroll-type' },
+        { tableId: 'output-list-potion', typeId: 'potion-type' },
+        { tableId: 'output-list-food', typeId: 'food-type' },
+		{ tableId: 'output-list-powders', typeId: 'powders-type' }
+    ];
+
+    outputTables.forEach(({ tableId, typeId }) => {
+        const table = document.getElementById(tableId);
+        const typeSelect = document.getElementById(typeId);
+        
+        if (table && typeSelect) {
+         
+            const observer = new MutationObserver(() => {
+      
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+               
+                    if (!row.hasResultTooltipListeners) {
+                        row.hasResultTooltipListeners = true;
+            
+                        row.addEventListener('mouseenter', (e) => {
+                            showCraftingResultTooltip(e, typeSelect.value);
+                        });
+                 
+                        row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                   
+                        row.style.cursor = 'help';
+                        row.style.transition = 'background-color 0.2s ease';
+               
+                        row.addEventListener('mouseenter', () => {
+                            row.style.backgroundColor = '#4D4D5F';
+                        });
+                        
+                        row.addEventListener('mouseleave', () => {
+                            row.style.backgroundColor = '';
+                        });
+                    }
+                });
+            });
+   
+            observer.observe(table, { childList: true, subtree: true });
+ 
+            const rows = table.querySelectorAll('tr');
+            rows.forEach(row => {
+                if (!row.hasResultTooltipListeners) {
+                    row.hasResultTooltipListeners = true;
+                    
+                    row.addEventListener('mouseenter', (e) => {
+                        showCraftingResultTooltip(e, typeSelect.value);
+                    });
+                    
+                    row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                    
+                    row.style.cursor = 'help';
+                    row.style.transition = 'background-color 0.2s ease';
+                    
+                    row.addEventListener('mouseenter', () => {
+                        row.style.backgroundColor = '#4D4D5F';
+                    });
+                    
+                    row.addEventListener('mouseleave', () => {
+                        row.style.backgroundColor = '';
+                    });
+                }
+            });
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setupCraftingResultTooltips();
+
+    const originalUpdateCalculator = BaseCalculator.prototype.updateCalculator;
+    
+    BaseCalculator.prototype.updateCalculator = function() {
+        originalUpdateCalculator.call(this);
+  
+        setupCraftingResultTooltips();
+    };
+});
 
 class BaseCalculator {
     constructor(config) {
