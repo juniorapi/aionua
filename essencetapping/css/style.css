@@ -48,7 +48,7 @@ h1 {
 .race-selector select {
   padding: 6px;
   font-size: 16px;
-  background-color: #3E3E5E;
+  background-color: #3A3A4E;
   color: #f0f0f0;
   border-radius: 8px;
   border: none;
@@ -62,7 +62,7 @@ h1 {
 }
 
 button {
-  background-color: #4E4E6B;
+  background-color: #3A3A4E;
   color: #FFFFFF;
   padding: 4px 4px;
   font-size: 12px;
@@ -74,7 +74,7 @@ button {
 }
 
 button:hover {
-  background-color: #FFDF70;
+  background-color: #FFD700;
   color: #000000;
 }
 
@@ -92,7 +92,7 @@ textarea {
   height: 300px;
   border: 1px solid #ccc;
   padding: 10px;
-  background-color: #3E3E5E;
+  background-color: #3A3A4E;
   color: #f0f0f0;
   border-radius: 8px;
   font-family: 'Courier New', Courier, monospace;
@@ -106,7 +106,7 @@ textarea {
   margin: 10px auto;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #FFDF70;
+  background-color: #FFD700;
   color: black;
   border: none;
   border-radius: 5px;
@@ -115,23 +115,23 @@ textarea {
 }
 
 #copyButton:hover {
-  background-color: #F4A261;
+  background-color: #F1C90B;
 }
 
 #copyMessage {
   position: fixed;
   bottom: 20px;
-  right: 20px; 
-  background-color: #4CAF50;
+  right: 20px;
+  background-color: #3E3E5E;
   font-size: 0.9rem;
-  color: white;
+  color: #F1C90B;
   padding: 10px 20px;
   border-radius: 5px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s, visibility 0.5s;
-  max-width: 300px; 
-  word-wrap: break-word; 
+  max-width: 300px;
+  word-wrap: break-word;
 }
 
 #copyMessage.show {
