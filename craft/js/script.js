@@ -1,256 +1,525 @@
-const materialsData = {
-    ring: {
-        magic: [
-            { material: "Священный камень украшений II", quantity: 9 },
-            { material: "Священный камень украшений III", quantity: 9 },
-            { material: "Священный камень украшений IV", quantity: 5 },
-            { material: "Древний эфир", quantity: 9 },
-            { material: "Древний эфир II", quantity: 9 },
-            { material: "Древний эфир III", quantity: 5 },
-            { material: "Обычный даррит", quantity: 3 },
-            { material: "Хороший даррит", quantity: 2 },
-            { material: "Обычный серамиум", quantity: 12 },
-            { material: "Хороший серамиум", quantity: 6 },
-            { material: "Священный нож ручной работы", quantity: 39 },
-            { material: "Древний блестящий кристалл", quantity: 8 },
-            { material: "Вечность воды", quantity: 4 },
-            { material: "Дарритовое украшение", quantity: 1 },
-			{ material: "Частица воды", quantity: 1 },
-			
-        ],
-        physical: [
-            { material: "Священный камень украшений II", quantity: 9 },
-            { material: "Священный камень украшений III", quantity: 9 },
-            { material: "Священный камень украшений IV", quantity: 5 },
-			{ material: "Древний эфир", quantity: 9 },
-            { material: "Древний эфир II", quantity: 9 },
-            { material: "Древний эфир III", quantity: 5 },
-			{ material: "Обычный опал", quantity: 3 },
-            { material: "Хороший опал", quantity: 2 },
-            { material: "Обычный серамиум", quantity: 12 },
-            { material: "Хороший серамиум", quantity: 6 },
-			{ material: "Священный нож ручной работы", quantity: 39 },
-			{ material: "Древний блестящий кристалл", quantity: 5 },
-			{ material: "Вечность воды", quantity: 4 },
-            { material: "Опаловое украшение", quantity: 1 },
-			{ material: "Частица воды", quantity: 1 },
-			
-        ]
-    },
-    earring: {
-        magic: [
-            { material: "Священный камень украшений II", quantity: 13 },
-            { material: "Священный камень украшений III", quantity: 13 },
-            { material: "Священный камень украшений IV", quantity: 7 },
-            { material: "Древний эфир", quantity: 13 },
-            { material: "Древний эфир II", quantity: 13 },
-            { material: "Древний эфир III", quantity: 7 },
-            { material: "Обычный даррит", quantity: 5 },
-            { material: "Хороший даррит", quantity: 3 },
-            { material: "Обычный серамиум", quantity: 15 },
-            { material: "Хороший серамиум", quantity: 8 },
-            { material: "Священный нож ручной работы", quantity: 61 },
-            { material: "Древний блестящий кристалл", quantity: 12 },
-            { material: "Вечность воды", quantity: 6 },
-            { material: "Дарритовое украшение", quantity: 2 },
-			{ material: "Частица воды", quantity: 2 },
-        ],
-        physical: [
-            { material: "Священный камень украшений II", quantity: 13 },
-            { material: "Священный камень украшений III", quantity: 13 },
-            { material: "Священный камень украшений IV", quantity: 7 },
-            { material: "Древний эфир", quantity: 13 },
-            { material: "Древний эфир II", quantity: 13 },
-            { material: "Древний эфир III", quantity: 7 },
-            { material: "Обычный опал", quantity: 5 },
-            { material: "Хороший опал", quantity: 3 },
-            { material: "Обычный серамиум", quantity: 15 },
-            { material: "Хороший серамиум", quantity: 8 },
-            { material: "Священный нож ручной работы", quantity: 61 },
-            { material: "Древний блестящий кристалл", quantity: 12 },
-            { material: "Вечность воды", quantity: 6 },
-            { material: "Опаловое украшение", quantity: 2 },
-			{ material: "Частица воды", quantity: 2 },
-        ]
-    },
-    necklace: {
-        magic: [
-           { material: "Священный камень украшений II", quantity: 19 },
-            { material: "Священный камень украшений III", quantity: 19 },
-            { material: "Священный камень украшений IV", quantity: 10 },
-            { material: "Древний эфир", quantity: 19 },
-            { material: "Древний эфир II", quantity: 19 },
-            { material: "Древний эфир III", quantity: 10 },
-            { material: "Обычный даррит", quantity: 8 },
-            { material: "Хороший даррит", quantity: 5 },
-            { material: "Обычный серамиум", quantity: 20 },
-            { material: "Хороший серамиум", quantity: 11 },
-            { material: "Священный нож ручной работы", quantity: 83 },
-            { material: "Древний блестящий кристалл", quantity: 16 },
-            { material: "Вечность воды", quantity: 8 },
-            { material: "Дарритовое украшение", quantity: 3 },
-			{ material: "Частица воды", quantity: 3 },
-        ],
-        physical: [
-            { material: "Священный камень украшений II", quantity: 19 },
-            { material: "Священный камень украшений III", quantity: 19 },
-            { material: "Священный камень украшений IV", quantity: 10 },
-            { material: "Древний эфир", quantity: 19 },
-            { material: "Древний эфир II", quantity: 19 },
-            { material: "Древний эфир III", quantity: 10 },
-            { material: "Обычный опал", quantity: 8 },
-            { material: "Хороший опал", quantity: 5 },
-            { material: "Обычный серамиум", quantity: 20 },
-            { material: "Хороший серамиум", quantity: 11 },
-            { material: "Священный нож ручной работы", quantity: 83 },
-            { material: "Древний блестящий кристалл", quantity: 16 },
-            { material: "Вечность воды", quantity: 8 },
-            { material: "Опаловое украшение", quantity: 3 },
-			{ material: "Частица воды", quantity: 3 },
-        ]
-    },
-    belt: {
-        magic: [
-            { material: "Священный камень украшений II", quantity: 9 },
-            { material: "Священный камень украшений III", quantity: 9 },
-            { material: "Священный камень украшений IV", quantity: 5 },
-			{ material: "Древний эфир", quantity: 9 },
-            { material: "Древний эфир II", quantity: 9 },
-            { material: "Древний эфир III", quantity: 5 },
-			{ material: "Обычный стебель фоники", quantity: 19 },
-            { material: "Хороший стебель фоники", quantity: 10 },
-            { material: "Священный клубок ниток", quantity: 40 },
-			{ material: "Древний блестящий кристалл", quantity: 8 },
-			{ material: "Вечность воды", quantity: 4 },
-			{ material: "Фониковая ткань", quantity: 1 },
-			{ material: "Частица ветра", quantity: 1 },
-			
-        ],
-        physical: [
-			{ material: "Священный камень украшений II", quantity: 9 },
-            { material: "Священный камень украшений III", quantity: 9 },
-            { material: "Священный камень украшений IV", quantity: 5 },
-			{ material: "Древний эфир", quantity: 9 },
-            { material: "Древний эфир II", quantity: 9 },
-            { material: "Древний эфир III", quantity: 5 },
-			{ material: "Простая священная недубленая кожа", quantity: 19 },
-            { material: "Хорошая священная недубленая кожа", quantity: 10 },
-            { material: "Священный кожаный шнур", quantity: 40 },
-			{ material: "Древний блестящий кристалл", quantity: 8 },
-			{ material: "Вечность воды", quantity: 4 },
-			{ material: "Священная кожа", quantity: 1 },
-			{ material: "Частица ветра", quantity: 1 },
-        ]
+const ITEM_DESCRIPTIONS = {
+    "ring": "Точн. маг. 10 Защита от физ. урона 20 Маг. сопр. 123 Уклонение 15 Парир. 12 Отмена магии 60 Блок щитом 12 HP +236 Время полета +16 Точн. маг. +29 Отмена магии +30 Блок ф. крит. +24 Сила магии +40 М. крит. +11",
+ 
+};
+const JEWELRY_CRAFTING_DATA = { 
+    types: {
+        ring: {
+            name: "Дарритовое кольцо специалиста",
+            icon: "images/icon_item_ring_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Обычный даррит", quantity: 3, icon: "images/icon_item_jewelry_r_60s.png" },
+				{ id: 'darite2', name: "Хороший даррит", quantity: 2, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]
+        },
+        ring2: {
+            name: "Опаловое кольцо специалиста",
+            icon: "images/icon_item_ring_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Обычный опал", quantity: 3, icon: "images/icon_item_jewelry_r_60a.png" },
+				{ id: 'opal2', name: "Хороший опал", quantity: 2, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Опаловое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]
+        },
+        earring: {
+            name: "Дарритовая серьга специалиста",
+            icon: "images/icon_item_earring_m01.png",
+            outputQuantity: 1,
+            materials: [
+			    { id: 'flux2', name: "Священный камень украшений II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Обычный даррит", quantity: 5, icon: "images/icon_item_jewelry_r_60s.png" },
+				{ id: 'darite2', name: "Хороший даррит", quantity: 3, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]
+        },
+        earring2: {
+            name: "Опаловая серьга специалиста",
+            icon: "images/icon_item_earring_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Обычный опал", quantity: 5, icon: "images/icon_item_jewelry_r_60a.png" },
+				{ id: 'opal2', name: "Хороший опал", quantity: 3, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Опаловое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]
+		},
+        necklace: {
+            name: "Дарритовое ожерелье специалиста",
+            icon: "images/icon_item_necklace_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Обычный даррит", quantity: 8, icon: "images/icon_item_jewelry_r_60s.png" },
+				{ id: 'darite2', name: "Хороший даррит", quantity: 5, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]	
+        },
+        necklace2: {
+            name: "Опаловое ожерелье специалиста",
+            icon: "images/icon_item_necklace_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Обычный опал", quantity: 8, icon: "images/icon_item_jewelry_r_60a.png" },
+				{ id: 'opal2', name: "Хороший опал", quantity: 5, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'ceranium', name: "Обычный серамиум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'knife', name: "Священный нож ручной работы", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'jewellery', name: "Опаловое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'waterfragment', name: "Частица воды", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+            ]	
+        },
+        belt: {
+            name: "Каталиумовый пояс специалиста",
+            icon: "images/icon_item_belt_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Обычный стебель фоники", quantity: 19, icon: "images/icon_item_plant_r_60a.png" },
+				{ id: 'opal2', name: "Хороший стебель фоники", quantity: 10, icon: "images/icon_item_plant_l_60a.png" },
+				{ id: 'thread', name: "Священный клубок ниток", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60b.png" },
+			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'ponicaweaving', name: "Фониковая ткань", quantity: 1, icon: "images/icon_item_ta_rb_parts_n_r_60a.png" },
+				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+            ]	
+        },
+	    belt2: {
+            name: "Каталиумовый ремень специалиста",
+            icon: "images/icon_item_belt_m01.png",
+            outputQuantity: 1,
+            materials: [
+                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Простая священная недубленая кожа", quantity: 19, icon: "images/icon_item_rawhide01e_r.png" },
+				{ id: 'opal2', name: "Хорошая священная недубленая кожа", quantity: 10, icon: "images/icon_item_rawhide01f_r.png" },
+				{ id: 'thread', name: "Священный кожаный шнур", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60a.png" },
+			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'ponicaweaving', name: "Священная кожа", quantity: 1, icon: "images/icon_item_ta_rt_parts_n_r_60a.png" },
+				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+            ]	
+        },
     }
 };
-const materialIcons = {
-    "Священный камень украшений II": "images/icon_item_crystalball01e.png",
-    "Священный камень украшений III": "images/icon_item_crystalball01e_r.png",
-	"Священный камень украшений IV": "images/icon_item_crystalball01e_l.png",
-	"Древний эфир": "images/icon_item_od_all_c_60a.png",
-	"Древний эфир II": "images/icon_item_od_all_r_60a.png",
-	"Древний эфир III": "images/icon_item_od_all_l_60a.png",
-	"Обычный даррит": "images/icon_item_jewelry_r_60s.png",
-	"Хороший даррит": "images/icon_item_jewelry_l_60s.png",
-	"Обычный серамиум": "images/icon_item_noblemetal_r_60a.png",
-	"Хороший серамиум": "images/icon_item_noblemetal_l_60a.png",
-	"Священный нож ручной работы": "images/icon_item_ha_shopcmaterial_c_60b.png",
-	"Древний блестящий кристалл": "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png",
-	"Вечность воды": "images/icon_item_ac_material_id_s_pve_m_60a.png",
-	"Дарритовое украшение": "images/icon_item_ha_ac_parts_n_r_60s.png",
-	"Частица воды": "images/icon_item_ac_material_id_s_n_e_60a.png",
-	"Обычный опал": "images/icon_item_jewelry_r_60a.png",
-	"Хороший опал": "images/icon_item_jewelry_l_60a.png",
-	"Опаловое украшение": "images/icon_item_ha_ac_parts_n_r_60a.png",
-	"Обычный стебель фоники": "images/icon_item_plant_r_60a.png",
-	"Хороший стебель фоники": "images/icon_item_plant_l_60a.png",
-	"Священный клубок ниток": "images/icon_item_ta_shopcmaterial_c_60b.png",
-	"Фониковая ткань": "images/icon_item_ta_rb_parts_n_r_60a.png",
-	"Простая священная недубленая кожа": "images/icon_item_rawhide01e_r.png",
-	"Хорошая священная недубленая кожа": "images/icon_item_rawhide01f_r.png",
-	"Частица ветра": "images/icon_item_ar_material_id_s_n_e_60a.png",
-	"Священный кожаный шнур": "images/icon_item_ta_shopcmaterial_c_60a.png",
-	"Священная кожа": "images/icon_item_ta_rt_parts_n_r_60a.png",
-	};
+const MATERIAL_CRAFTING_DATA = { 
+    types: {
+        daritejewellery: {
+            name: "Дарритовое украшение",
+            icon: "images/icon_item_ha_ac_parts_n_r_60s.png",
+            outputQuantity: 10,
+            materials: [
+                { id: 'holypreciousmetalacid', name: "Священный драгоценный сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
+                { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
+				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
+                { id: 'darite', name: "Даррит", quantity: 25, icon: "images/icon_item_jewelry_c_60s.png" },
+				{ id: 'steppeessence', name: "Энергия лугов", quantity: 4, icon: "images/icon_item_ldf5a_b_material_60_r_60a.png" },
+				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
+            ]
+        },
+        opaljewellery: {
+            name: "Опаловое украшение",
+            icon: "images/icon_item_ha_ac_parts_n_r_60a.png",
+            outputQuantity: 10,
+            materials: [
+                { id: 'holypreciousmetalacid', name: "Священный драгоценный сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
+                { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
+				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
+                { id: 'opal', name: "Опал", quantity: 25, icon: "images/icon_item_jewelry_c_60a.png" },
+				{ id: 'mysteriousessence', name: "Загадочная энергия", quantity: 4, icon: "images/icon_item_ldf5b_c_material_60_r_60a.png" },
+				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
+            ]
+        },
+        holyleather: {
+            name: "Священная кожа",
+            icon: "images/icon_item_ta_rt_parts_n_r_60a.png",
+            outputQuantity: 10,
+            materials: [
+			    { id: 'holyleatherhardener', name: "Священный кожаный усилитель", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60a.png" },
+                { id: 'idieleather', name: "Идиевая кожа", quantity: 20, icon: "images/icon_item_v16_n_lt_shopmaterial_c_60a.png" },
+                { id: 'holyrawhide', name: "Священная недубленая кожа", quantity: 50, icon: "images/icon_item_rawhide01f.png" },
+				{ id: 'plateauessence', name: "Энергия равнин", quantity: 1, icon: "images/icon_item_ldf5b_a_material_60_r_60a.png" },
+				{ id: 'essenceofambition', name: "Энергия честолюбия", quantity: 1, icon: "images/icon_item_ldf5under_d_material_60_r_60a.png" }
+            ]
+        },
+        ponicaweaving: {
+            name: "Фониковая ткань",
+            icon: "images/icon_item_ta_rb_parts_n_r_60a.png",
+            outputQuantity: 10,
+            materials: [
+                { id: 'hardener', name: "Священный усилитель волокон", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60b.png" },
+                { id: 'idastextile', name: "Идиевая ткань", quantity: 20, icon: "images/icon_item_v18_n_rb_shopmaterial_c_60a.png" },
+                { id: 'ponicafibre', name: "Стебель фоники", quantity: 50, icon: "images/icon_item_plant_c_60a.png" },
+				{ id: 'woodsessence', name: "Энергия лесов", quantity: 1, icon: "images/icon_item_ldf5b_b_material_60_r_60a.png" },
+				{ id: 'essenceofregret', name: "Энергия раскаяния", quantity: 1, icon: "images/icon_item_ldf5under_f_material_60_r_60a.png" }
+		]
+        },
+        
+    }
+};
 
-function fillMaterials(calculatorId, type = 'magic', quantity = 1) {
-    let materialsList = materialsData[calculatorId][type];
-    const tableBody = document.getElementById(`materials-list_${calculatorId}`);
-    tableBody.innerHTML = '';
 
-    materialsList.forEach(material => {
-        const row = document.createElement('tr');
-        const materialCell = document.createElement('td');
-        const quantityCell = document.createElement('td');
+function showCraftingResultTooltip(event, typeId) {
+   
+    const description = ITEM_DESCRIPTIONS[typeId] || "Немає опису для цього предмета";
+   
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+  
+    let itemName = "";
 
-        const icon = document.createElement('img');
-        icon.src = materialIcons[material.material] || "images/default_icon.png";
-        icon.alt = material.material;
-        icon.style.width = "16px";
-        icon.style.height = "16px";
-        icon.style.marginRight = "5px";
-        icon.style.verticalAlign = "middle";
+    if (JEWELRY_CRAFTING_DATA.types[typeId]) {
+        itemName = JEWELRY_CRAFTING_DATA.types[typeId].name;
+    } else if (MATERIAL_CRAFTING_DATA.types[typeId]) {
+        itemName = MATERIAL_CRAFTING_DATA.types[typeId].name;
+    } else if (POWDERS_CRAFTING_DATA.types[typeId]) {
+        itemName = POWDERS_CRAFTING_DATA.types[typeId].name;
+	} else if (FOOD_CRAFTING_DATA.types[typeId]) {
+        itemName = FOOD_CRAFTING_DATA.types[typeId].name;
+    }
+  
+    tooltip.innerHTML = `
+        <div style="font-weight: bold; color: #ffd700; margin-bottom: 6px;">${itemName}</div>
+        <div>${description}</div>
+    `;
+  
+    tooltip.style.backgroundColor = "#2a2a3e";
+    tooltip.style.border = "1px solid #4a4a5e";
+    tooltip.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+    tooltip.style.padding = "10px 12px";
+    tooltip.style.borderRadius = "6px";
+    tooltip.style.fontSize = "0.85rem";
+    tooltip.style.color = "#f0f0f0";
+    tooltip.style.maxWidth = "300px";
+    tooltip.style.zIndex = "1000";
+    tooltip.style.position = "fixed";
+  
+    tooltip.style.top = (event.clientY + 15) + "px";
+    tooltip.style.left = (event.clientX + 15) + "px";
+ 
+    document.body.appendChild(tooltip);
+ 
+    event.currentTarget.tooltip = tooltip;
 
-        materialCell.appendChild(icon);
-        materialCell.appendChild(document.createTextNode(material.material));
-
-        quantityCell.textContent = material.quantity * quantity;
-
-        row.appendChild(materialCell);
-        row.appendChild(quantityCell);
-        tableBody.appendChild(row);
-    });
-
-    const table = tableBody.closest('table');
-    const calculator = table.closest('.calculator');
-    calculator.style.minWidth = (table.offsetWidth + 40) + 'px';
+    event.currentTarget.addEventListener('mousemove', updateTooltipPosition);
 }
 
+function updateTooltipPosition(event) {
+    if (event.currentTarget.tooltip) {
+        event.currentTarget.tooltip.style.top = (event.clientY + 15) + "px";
+        event.currentTarget.tooltip.style.left = (event.clientX + 15) + "px";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const quantityInputRing = document.getElementById('quantity1_ring');
-    const quantityInputEarring = document.getElementById('quantity1_earring');
-    const quantityInputNecklace = document.getElementById('quantity1_necklace');
-    const quantityInputBelt = document.getElementById('quantity1_belt');
-
-    function updateMaterials(calculatorId, quantityInput, resetQuantity = false) {
-        let quantity = parseInt(quantityInput.value, 10);
-        if (isNaN(quantity) || quantity < 1) {
-            quantity = 1;
-            quantityInput.value = 1;
+        const tooltipRect = event.currentTarget.tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        if (tooltipRect.right > viewportWidth) {
+            event.currentTarget.tooltip.style.left = (viewportWidth - tooltipRect.width - 10) + "px";
         }
-
-        if (resetQuantity) {
-            quantity = 1;
-            quantityInput.value = 1;
+        
+        if (tooltipRect.bottom > viewportHeight) {
+            event.currentTarget.tooltip.style.top = (viewportHeight - tooltipRect.height - 10) + "px";
         }
-
-        const typeSelect = document.getElementById(`type1_${calculatorId}`);
-        const type = typeSelect.value;
-        fillMaterials(calculatorId, type, quantity);
     }
+}
 
-    updateMaterials('ring', quantityInputRing);
-    updateMaterials('earring', quantityInputEarring);
-    updateMaterials('necklace', quantityInputNecklace);
-    updateMaterials('belt', quantityInputBelt);
+function hideCraftingResultTooltip(event) {
+    if (event.currentTarget.tooltip) {
 
-    const calculators = [
-        { id: 'ring', input: quantityInputRing },
-        { id: 'earring', input: quantityInputEarring },
-        { id: 'necklace', input: quantityInputNecklace },
-        { id: 'belt', input: quantityInputBelt }
+        event.currentTarget.removeEventListener('mousemove', updateTooltipPosition);
+
+        event.currentTarget.tooltip.remove();
+        event.currentTarget.tooltip = null;
+    }
+}
+
+function setupCraftingResultTooltips() {
+
+    const outputTables = [
+        { tableId: 'output-list-jewelry', typeId: 'jewelry-type' },
+		{ tableId: 'output-list-craftmaterials', typeId: 'craftmaterials-type' }
+       
     ];
 
-    calculators.forEach(calc => {
-        calc.input.addEventListener('input', function () {
-            updateMaterials(calc.id, this);
+    outputTables.forEach(({ tableId, typeId }) => {
+        const table = document.getElementById(tableId);
+        const typeSelect = document.getElementById(typeId);
+        
+        if (table && typeSelect) {
+         
+            const observer = new MutationObserver(() => {
+      
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+               
+                    if (!row.hasResultTooltipListeners) {
+                        row.hasResultTooltipListeners = true;
+            
+                        row.addEventListener('mouseenter', (e) => {
+                            showCraftingResultTooltip(e, typeSelect.value);
+                        });
+                 
+                        row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                   
+                        row.style.cursor = 'help';
+                        row.style.transition = 'background-color 0.2s ease';
+               
+                        row.addEventListener('mouseenter', () => {
+                            row.style.backgroundColor = '#4D4D5F';
+                        });
+                        
+                        row.addEventListener('mouseleave', () => {
+                            row.style.backgroundColor = '';
+                        });
+                    }
+                });
+            });
+   
+            observer.observe(table, { childList: true, subtree: true });
+ 
+            const rows = table.querySelectorAll('tr');
+            rows.forEach(row => {
+                if (!row.hasResultTooltipListeners) {
+                    row.hasResultTooltipListeners = true;
+                    
+                    row.addEventListener('mouseenter', (e) => {
+                        showCraftingResultTooltip(e, typeSelect.value);
+                    });
+                    
+                    row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                    
+                    row.style.cursor = 'help';
+                    row.style.transition = 'background-color 0.2s ease';
+                    
+                    row.addEventListener('mouseenter', () => {
+                        row.style.backgroundColor = '#4D4D5F';
+                    });
+                    
+                    row.addEventListener('mouseleave', () => {
+                        row.style.backgroundColor = '';
+                    });
+                }
+            });
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setupCraftingResultTooltips();
+
+    const originalUpdateCalculator = BaseCalculator.prototype.updateCalculator;
+    
+    BaseCalculator.prototype.updateCalculator = function() {
+        originalUpdateCalculator.call(this);
+  
+        setupCraftingResultTooltips();
+    };
+});
+
+class BaseCalculator {
+    constructor(config) {
+        this.config = config;
+        this.initializeElements();
+        this.setupEventListeners();
+        this.updateCalculator();
+    }
+
+    formatNumber(number) {
+        return number.toLocaleString('ua-UA');
+    }
+
+    initializeElements() {
+        this.type = document.getElementById(this.config.typeId);
+        this.quantity = document.getElementById(this.config.quantityId);
+        this.icon = document.querySelector(this.config.iconSelector);
+        this.materialsList = document.getElementById(this.config.materialsListId);
+        this.outputList = document.getElementById(this.config.outputListId);
+        this.resetButton = document.getElementById(this.config.resetButtonId);
+    }
+
+    setupEventListeners() {
+        this.type.addEventListener('change', () => this.updateCalculator());
+        
+        this.quantity.addEventListener('focus', (e) => {
+            if (e.target.value === '1') {
+                e.target.value = '';
+            }
         });
 
-        document.getElementById(`type1_${calc.id}`).addEventListener('change', function () {
-            updateMaterials(calc.id, calc.input, true);
+        this.quantity.addEventListener('blur', (e) => {
+            if (e.target.value === '') {
+                e.target.value = '1';
+                this.updateCalculator();
+            }
         });
-    });
+
+        this.quantity.addEventListener('input', () => this.validateAndUpdate());
+        this.resetButton.addEventListener('click', () => this.resetCalculator());
+    }
+
+validateAndUpdate() {
+    let value = parseInt(this.quantity.value) || 1;
+    value = Math.min(Math.max(value, 1), 99999);
+    this.quantity.value = value;
+    this.updateCalculator();
+}
+    updateCalculator() {
+        const type = this.type.value;
+        const quantity = parseInt(this.quantity.value.replace(/\s+/g, '')) || 1;
+        const data = this.config.craftingData.types[type];
+
+        this.icon.src = data.icon;
+        this.icon.alt = data.name;
+
+        this.materialsList.innerHTML = '';
+        data.materials.forEach(material => {
+            this.materialsList.appendChild(this.createMaterialRow(material, quantity));
+        });
+
+        this.outputList.innerHTML = '';
+        this.outputList.appendChild(this.createMaterialRow({
+            name: data.name,
+            quantity: data.outputQuantity,
+            icon: data.icon
+        }, quantity));
+    }
+
+
+createMaterialRow(material, quantity) {
+    const row = document.createElement('tr');
+    
+    const nameCell = document.createElement('td');
+    const icon = document.createElement('img');
+    icon.src = material.icon;
+    icon.alt = material.name;
+    icon.width = 24; 
+    icon.height = 24;
+    nameCell.appendChild(icon);
+    nameCell.appendChild(document.createTextNode(material.name));
+
+    const quantityCell = document.createElement('td');
+    quantityCell.textContent = this.formatNumber(material.quantity * quantity);
+
+    row.appendChild(nameCell);
+    row.appendChild(quantityCell);
+    return row;
+}
+
+    resetCalculator() {
+        this.quantity.value = '1';
+        this.type.selectedIndex = 0;
+        this.updateCalculator();
+    }
+}
+
+const calculatorConfigs = {
+    jewelry: {
+        typeId: 'jewelry-type',
+        quantityId: 'quantity-jewelry',
+        iconSelector: '#jewelry-icon-container img',
+        materialsListId: 'materials-list-jewelry',
+        outputListId: 'output-list-jewelry',
+        resetButtonId: 'reset-jewelry',
+        craftingData: JEWELRY_CRAFTING_DATA
+    },
+	craftmaterials: {
+        typeId: 'craftmaterials-type',
+        quantityId: 'quantity-craftmaterials',
+        iconSelector: '#craftmaterials-icon-container img',
+        materialsListId: 'materials-list-craftmaterials',
+        outputListId: 'output-list-craftmaterials',
+        resetButtonId: 'reset-craftmaterials',
+        craftingData: MATERIAL_CRAFTING_DATA
+    }
+};
+
+document.querySelector('.back-button').addEventListener('click', () => {
+    window.history.back();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const calculators = {
+        jewelry: new BaseCalculator(calculatorConfigs.jewelry),
+		craftmaterials: new BaseCalculator(calculatorConfigs.craftmaterials),
+      
+    };
 });
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('popup');
@@ -337,33 +606,67 @@ document.addEventListener('DOMContentLoaded', function () {
     const copyBtn = document.getElementById('copy-btn');
     const popupTextarea = document.getElementById('popup-textarea');
     const notificationContainer = document.getElementById('notification-container');
-
-   
+    
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.className = 'notification';
         notification.textContent = message;
-
         notificationContainer.appendChild(notification);
-
         
         setTimeout(() => {
             notification.remove();
-        }, 4000); 
+        }, 4000);
     }
-
-   
+    
     copyBtn.addEventListener('click', function () {
-        popupTextarea.select(); 
-        navigator.clipboard.writeText(popupTextarea.value)
-            .then(() => {
+        // Make sure these elements exist before trying to use them
+        if (!popupTextarea || !notificationContainer) {
+            console.error('Required elements not found');
+            return;
+        }
+        
+        // Select the text
+        popupTextarea.select();
+        popupTextarea.setSelectionRange(0, 99999); // For mobile devices
+        
+        try {
+            // Use only the execCommand method since it works on your other page
+            const successful = document.execCommand('copy');
+            if (successful) {
                 showNotification('Текст успішно скопійовано!');
-            })
-            .catch(err => {
-                showNotification('Помилка під час копіювання: ' + err);
-            });
+            } else {
+                showNotification('Помилка під час копіювання');
+            }
+        } catch (err) {
+            console.error('Copy failed:', err);
+            showNotification('Помилка під час копіювання: ' + err);
+        }
     });
 });
+
+const copyButton = document.getElementById('copyButton');
+const coordinatesTextarea = document.getElementById('coordinatesTextarea');
+const copyMessage = document.getElementById('copyMessage');
+
+function copyText() {
+  
+    coordinatesTextarea.select();
+    coordinatesTextarea.setSelectionRange(0, 99999); 
+
+ 
+    document.execCommand('copy');
+
+
+    copyMessage.classList.add('show');
+
+
+    setTimeout(() => {
+        copyMessage.classList.remove('show');
+    }, 2000);
+}
+
+copyButton.addEventListener('click', copyText);
+
 copyBtn.addEventListener('click', function () {
     popupTextarea.select(); 
     navigator.clipboard.writeText(popupTextarea.value)
