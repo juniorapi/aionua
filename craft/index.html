@@ -5,123 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крафт біжутерії</title>
     <link rel="stylesheet" href="css/style.css">
-	
 </head>
-
-
 <body>
-    <div class="calculator">
-        <img src="images/icon_item_ring_m01.png" alt="Кільце" width="40" height="40" class="calculator-icon">
-        <label for="quantity1_ring">Кількість:</label>
-        <input type="number" id="quantity1_ring" value="1" min="1">
-        
-        <label for="type1_ring">Тип:</label>
-        <select id="type1_ring">
-            <option value="magic">Дарритовое кольцо специалиста</option>
-            <option value="physical">Опаловое кольцо специалиста</option>
-        </select>
-
-        <div class="ingredients">
-            <h2>Необхідні матеріали:</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Матеріал</th>
-                        <th>К-сть</th>
-                    </tr>
-                </thead>
-                <tbody id="materials-list_ring"></tbody>
-            </table>
-        </div>
-    </div>
-    <div class="calculator">
-        <img src="images/icon_item_earring_m01.png" alt="Сережка" width="40" height="40" class="calculator-icon">
-        <label for="quantity1_earring">Кількість:</label>
-        <input type="number" id="quantity1_earring" value="1" min="1">
-        
-        <label for="type1_earring">Тип:</label>
-        <select id="type1_earring">
-            <option value="magic">Дарритовая серьга специалиста</option>
-            <option value="physical">Опаловая серьга специалиста</option>
-        </select>
-
-        <div class="ingredients">
-            <h2>Необхідні матеріали:</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Матеріал</th>
-                        <th>К-сть</th>
-                    </tr>
-                </thead>
-                <tbody id="materials-list_earring"></tbody>
-            </table>
-        </div>
-    </div>
-    <div class="calculator">
-        <img src="images/icon_item_necklace_m01.png" alt="Намисто" width="40" height="40" class="calculator-icon">
-        <label for="quantity1_necklace">Кількість:</label>
-        <input type="number" id="quantity1_necklace" value="1" min="1">
-        
-        <label for="type1_necklace">Тип:</label>
-        <select id="type1_necklace">
-            <option value="magic">Дарритовое ожерелье специалиста</option>
-            <option value="physical">Опаловое ожерелье специалиста</option>
-        </select>
-
-        <div class="ingredients">
-            <h2>Необхідні матеріали:</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Матеріал</th>
-                        <th>К-сть</th>
-                    </tr>
-                </thead>
-                <tbody id="materials-list_necklace"></tbody>
-            </table>
-        </div>
-    </div>
+<button class="back-button">
+    <span class="back-icon">←</span>
+</button>
+    <div class="calculator-container">
         <div class="calculator">
-        <img src="images/icon_item_belt_m01.png" alt="Пояс" width="40" height="40" class="calculator-icon">
-        <label for="quantity1_belt">Кількість:</label>
-        <input type="number" id="quantity1_belt" value="1" min="1">
-        
-        <label for="type1_belt">Тип:</label>
-        <select id="type1_belt">
-            <option value="magic">Каталиумовый пояс специалиста</option>
-            <option value="physical">Каталиумовый ремень специалиста</option>
-        </select>
-
-        <div class="ingredients">
-            <h2>Необхідні матеріали:</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Матеріал</th>
-                        <th>К-сть</th>
-                    </tr>
-                </thead>
-                <tbody id="materials-list_belt"></tbody>
-            </table>
+            <div class="calculator-header">
+                <h2>Крафт біжутерії</h2>
+                <button id="reset-jewelry" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="jewelry-icon-container">
+                    <img src="images" alt="jewelry" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="jewelry-type">Тип біжутерії:</label>
+                    <select id="jewelry-type">
+                        <option value="ring" data-icon="images/icon_item_ring_m01.png">Дарритовое кольцо специалиста</option>
+                        <option value="ring2" data-icon="images/icon_item_ring_m01.png">Опаловое кольцо специалиста</option>
+                        <option value="earring" data-icon="images/icon_item_earring_m01.png">Дарритовая серьга специалиста</option>
+                        <option value="earring2" data-icon="images/icon_item_earring_m01.png">Опаловая серьга специалиста</option>
+                        <option value="necklace" data-icon="images/icon_item_necklace_m01.png">Дарритовое ожерелье специалиста</option>
+                        <option value="necklace2" data-icon="images/icon_item_necklace_m01.png">Опаловое ожерелье специалиста</option>
+                        <option value="belt" data-icon="images/icon_item_belt_m01.png">Каталиумовый пояс специалиста</option>
+                        <option value="belt2" data-icon="images/icon_item_belt_m01.png">Каталиумовый ремень специалиста</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-jewelry">Кількість крафтів:</label>
+                    <input type="number" id="quantity-jewelry" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Матеріал</th>
+                                    <th>Кількість</th>
+                                </tr>
+                            </thead>
+                            <tbody id="materials-list-jewelry"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Предмет</th>
+                                    <th>Кількість</th>
+                                </tr>
+                            </thead>
+                            <tbody id="output-list-jewelry"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="calculator">
+            <div class="calculator-header">
+                <h2>Крафт матеріалу</h2>
+                <button id="reset-craftmaterials" class="reset-button">Скинути</button>
+            </div>
+            <div class="calculator-content">
+                <div id="craftmaterials-icon-container">
+                    <img src="images" alt="craftmaterials" width="40" height="40" class="calculator-icon">
+                </div>
+                <div class="input-group">
+                    <label for="craftmaterials-type">Тип матеріалу:</label>
+                    <select id="craftmaterials-type">
+                        <option value="daritejewellery" data-icon="images/icon_item_ha_ac_parts_n_r_60s.png">Дарритовое украшение</option>
+                        <option value="opaljewellery" data-icon="images/icon_item_ha_ac_parts_n_r_60a.png">Опаловое украшение</option>
+                        <option value="holyleather" data-icon="images/icon_item_ta_rt_parts_n_r_60a.png">Священная кожа</option>
+                        <option value="ponicaweaving" data-icon="images/icon_item_ta_rb_parts_n_r_60a.png">Фониковая ткань</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantity-craftmaterials">Кількість крафтів:</label>
+                    <input type="number" id="quantity-craftmaterials" value="1" min="1" max="100">
+                </div>
+                <div class="ingredients">
+                    <h3>Необхідні матеріали</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Матеріал</th>
+                                    <th>Кількість</th>
+                                </tr>
+                            </thead>
+                            <tbody id="materials-list-craftmaterials"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="output">
+                    <h3>Результат крафту</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Предмет</th>
+                                    <th>Кількість</th>
+                                </tr>
+                            </thead>
+                            <tbody id="output-list-craftmaterials"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
- 
-        <div class="gathering">
+        <div class="calculator race-selector">
+   
+    <div class="calculator-content">
+        <div class="input-group">
             <label for="race-select">Оберіть расу:</label>
             <select id="race-select">
                 <option value="elyos">Елійці</option>
                 <option value="asmodian">Асмодіани</option>
             </select>
-
-            <table class="popup-table">
-                <tr><td class="popup-name" data-popup="Nolan">Даррит</td></tr>
-				<tr><td class="popup-name" data-popup="Opal">Опал</td></tr>
-                <tr><td class="popup-name" data-popup="Ceramium">Серамиум</td></tr>
-                <tr><td class="popup-name" data-popup="Aether">Древний эфир</td></tr>
-				<tr><td class="popup-name" data-popup="Ponica">Стебель фоники</td></tr>
-            </table>
         </div>
+        
+        <div class="materials-section">
+            <h3>Матеріали</h3>
+            <div class="table-container">
+                <table id="materials-table">
+                    <tbody>
+                        <tr><td class="popup-name" data-popup="Nolan">Даррит</td></tr>
+                        <tr><td class="popup-name" data-popup="Opal">Опал</td></tr>
+                        <tr><td class="popup-name" data-popup="Ceramium">Серамиум</td></tr>
+                        <tr><td class="popup-name" data-popup="Aether">Древний эфир</td></tr>
+                        <tr><td class="popup-name" data-popup="Ponica">Стебель фоники</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
     </div>
 	
 	<div class="popup" id="popup">
