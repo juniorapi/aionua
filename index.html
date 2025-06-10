@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BDBL7DSC46');
+</script>
+</head>
+<body>
+    <div class="container">
+        <!-- Онлайн віджети -->
+        <div class="online-section">
+           
+
+            <!-- EuroAion widget -->
+            <div class="aion-online-widget" id="euroAionWidget">
+                <div class="aion-title">EuroAion Online</div>
+                <div class="total-online" id="euroTotalOnline">0</div>
+                <div class="online-label">гравців онлайн</div>
+                
+                <div class="factions">
+                    <div class="faction elyos">
+                        <div class="faction-name">Elyos</div>
+                        <div class="faction-count" id="euroElyosCount">0%</div>
+                    </div>
+                    <div class="faction asmo">
+                        <div class="faction-name">Asmodians</div>
+                        <div class="faction-count" id="euroAsmoCount">0%</div>
+                    </div>
+                </div>
+                
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span id="euroLastUpdate">Завантаження...</span>
+                </div>
+            </div>
+			
+			 <!-- AionDestiny widget -->
+            <div class="aion-online-widget" id="aionDestinyWidget">
+                <div class="aion-title">AionDestiny Online</div>
+                <div class="total-online" id="destinyTotalOnline">0</div>
+                <div class="online-label">гравців онлайн</div>
+                
+                <div class="factions">
+                    <div class="faction elyos">
+                        <div class="faction-name">Elyos</div>
+                        <div class="faction-count" id="destinyElyosCount">0</div>
+                    </div>
+                    <div class="faction asmo">
+                        <div class="faction-name">Asmodians</div>
+                        <div class="faction-count" id="destinyAsmoCount">0</div>
+                    </div>
+                </div>
+                
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span id="destinyLastUpdate">Завантаження...</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="grid">
+            <div class="card" data-keywords="розклад інстанси евроайон aiondestiny">
+                <h2>Розклад інстансів</h2>
+                <p>Дізнайтесь, коли і де проходять найцікавіші події</p>
+                <div class="links">
+                    <a href="/euroaion/" class="link">
+                        EuroAion
+                        <span class="badge">Оновлено</span>
+                    </a>
+                    <a href="/aiondestiny/" class="link">AionDestiny</a>
+                </div>
+            </div>
+
+            <div class="card" data-keywords="крафт ресурси кристали біжутерія свитки зілля">
+                <h2>Ресурси та крафт</h2>
+                <p>Все необхідне для крафту в одному місці</p>
+                <div class="links">
+                    <a href="/crystal_crafting/" class="link">Кристали, стрижні, бруси, божики  <span class="badge"  style="color: #FFD711;">Нове</span></a>                    
+                    <a href="/craft/" class="link">Крафт біжутерії  <span class="badge">Оновлено</span></a>
+                    <a href="/spc/" class="link">Крафт сувоїв, зілля, їжі <span class="badge"  style="color: #FFD711;">Нове</span></a>
+                    <a href="/essencetapping/" class="link">Енергокінез</a>
+                    <a href="/aethertapping/" class="link">Ефірокінез</a>
+                </div>
+            </div>
+
+            <div class="card" data-keywords="калькулятор стігми чари">
+                <h2>Калькулятори стігм, чар</h2>
+                <p>Оптимізуйте свого персонажа</p>
+                <div class="links">
+                    <a href="/aion-4.6-enchantment-calculator/" class="link">
+                        Калькулятор чар
+                        <span class="badge">Популярне</span>
+                    </a>
+                    <a href="/stigma/" class="link">Стігми 4.6</a>
+                    <a href="/stigmas/" class="link">Стігми 4.8</a>
+                </div>
+            </div>
+
+            <div class="card" data-keywords="стрімери solution hammer counter">
+                <h2>Для стрімерів</h2>
+                <p>Корисні інструменти для ваших трансляцій</p>
+                <div class="links">
+                    <a href="/tempering-solution-counter/" class="link">Solution Counter</a>
+                    <a href="/ice-hammer-counter/" class="link">Hammer Counter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        // Онлайн віджети функціонал
+        class AionServersWidget {
+            constructor() {
+                // ЗАМІНІТЬ ЦЕ НА ВАШ ЗАДЕПЛОЄНИЙ URL
+                this.apiUrl = 'https://pal-tno1.onrender.com/api/online';
+                
+                // AionDestiny елементи
+                this.destinyWidget = document.getElementById('aionDestinyWidget');
+                this.destinyTotalElement = document.getElementById('destinyTotalOnline');
+                this.destinyElyosElement = document.getElementById('destinyElyosCount');
+                this.destinyAsmoElement = document.getElementById('destinyAsmoCount');
+                this.destinyStatusElement = document.getElementById('destinyLastUpdate');
+                
+                // EuroAion елементи
+                this.euroWidget = document.getElementById('euroAionWidget');
+                this.euroTotalElement = document.getElementById('euroTotalOnline');
+                this.euroElyosElement = document.getElementById('euroElyosCount');
+                this.euroAsmoElement = document.getElementById('euroAsmoCount');
+                this.euroStatusElement = document.getElementById('euroLastUpdate');
+                
+                this.init();
+            }
+
+            async init() {
+                this.showLoading();
+                await this.updateData();
+                
+                // Оновлювати кожні 30 секунд
+                setInterval(() => this.updateData(), 30000);
+            }
+
+            showLoading() {
+                this.destinyWidget.classList.add('loading');
+                this.euroWidget.classList.add('loading');
+                this.destinyStatusElement.textContent = 'Завантаження...';
+                this.euroStatusElement.textContent = 'Завантаження...';
+            }
+
+            hideLoading() {
+                this.destinyWidget.classList.remove('loading');
+                this.euroWidget.classList.remove('loading');
+            }
+
+            async updateData() {
+                try {
+                    const response = await fetch(this.apiUrl);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Оновлюємо дані AionDestiny
+                    if (data.aiondestiny) {
+                        this.destinyTotalElement.textContent = data.aiondestiny.total_online || 0;
+                        this.destinyElyosElement.textContent = data.aiondestiny.online_ely || 0;
+                        this.destinyAsmoElement.textContent = data.aiondestiny.online_asmo || 0;
+                        
+                        if (data.aiondestiny.last_update) {
+                            this.destinyStatusElement.textContent = `Оновлено: ${data.aiondestiny.last_update}`;
+                        } else {
+                            this.destinyStatusElement.textContent = 'Дані недоступні';
+                        }
+                    }
+                    
+                    // Оновлюємо дані EuroAion
+                    if (data.euroaion) {
+                        this.euroTotalElement.textContent = data.euroaion.total_online || 0;
+                        this.euroElyosElement.textContent = `${data.euroaion.elyos_percentage || 0}%`;
+                        this.euroAsmoElement.textContent = `${data.euroaion.asmodians_percentage || 0}%`;
+                        
+                        if (data.euroaion.last_update) {
+                            this.euroStatusElement.textContent = `Оновлено: ${data.euroaion.last_update}`;
+                        } else {
+                            this.euroStatusElement.textContent = 'Дані недоступні';
+                        }
+                    }
+                    
+                    this.hideLoading();
+                    
+                } catch (error) {
+                    console.error('Помилка завантаження онлайн даних:', error);
+                    this.destinyStatusElement.textContent = 'Помилка завантаження';
+                    this.euroStatusElement.textContent = 'Помилка завантаження';
+                    this.hideLoading();
+                    
+                    // Спробувати ще раз через 10 секунд
+                    setTimeout(() => this.updateData(), 10000);
+                }
+            }
+        }
+
+        // Запускаємо все після завантаження DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            new AionServersWidget();
+        });
+    </script>
+</body>
+</html>
