@@ -1,0 +1,336 @@
+ :root {
+            --background-color: #1A1A2E;
+            --card-bg: rgba(62, 62, 94, 0.7);
+            --accent: #8A8AFF;
+            --text: #ffffff;
+            --hover: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--background-color);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #8A8AFF, #FF8AE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+        }
+
+        /* Онлайн віджети стилі */
+        .online-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .aion-online-widget {
+            background: linear-gradient(135deg, var(--card-bg), rgba(102, 126, 234, 0.4));
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 320px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            flex: 0 1 300px;
+        }
+
+        .aion-online-widget:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .aion-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent), #FF8AE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .total-online {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0.8rem 0;
+            text-shadow: 0 0 20px rgba(138, 138, 255, 0.5);
+        }
+
+        .online-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .factions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+            gap: 1rem;
+        }
+
+        .faction {
+            text-align: center;
+            flex: 1;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faction-name {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .faction-count {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .elyos .faction-count {
+            color: #87CEEB;
+            text-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
+        }
+
+        .asmo .faction-count {
+            color: #FF6B6B;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .status {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            box-shadow: 0 0 8px #4CAF50;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            opacity: 0.7;
+        }
+
+        .loading .total-online {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .links {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link:hover::before {
+            opacity: 0.2;
+        }
+
+        .link:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .badge {
+            background: rgba(138, 138, 255, 0.2);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+
+            .online-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .aion-online-widget {
+                max-width: 280px;
+                padding: 1.2rem;
+            }
+
+            .total-online {
+                font-size: 2.2rem;
+            }
+
+            .factions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .faction {
+                padding: 0.6rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card, .aion-online-widget {
+            animation: fadeIn 0.5s ease forwards;
+        }
