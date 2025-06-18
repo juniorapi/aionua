@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Локалізація AionDestiny</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BDBL7DSC46');
+</script>
+    <style>
+        :root {
+            --background-color: #1A1A2E;
+            --card-bg: rgba(62, 62, 94, 0.7);
+            --accent: #8A8AFF;
+            --text: #ffffff;
+            --hover: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--background-color);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .download-container {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .download-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .download-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .download-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--accent), #FF8AE2);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 10px 30px rgba(138, 138, 255, 0.3),
+                0 0 0 0 rgba(138, 138, 255, 0.4);
+            overflow: hidden;
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .download-button:hover::before {
+            left: 100%;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(138, 138, 255, 0.4),
+                0 0 0 8px rgba(138, 138, 255, 0.1);
+        }
+
+        .download-button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .download-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .download-button:hover .download-icon {
+            transform: translateY(2px);
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(2px); }
+            40% { transform: translateY(-2px); }
+            60% { transform: translateY(0px); }
+        }
+
+        .download-info {
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .download-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            gap: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .detail-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 1rem;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #FF8AE2);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .downloading .progress-bar {
+            opacity: 1;
+        }
+
+        .downloading .download-button {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .download-button {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .download-details {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <div class="download-title">Локалізація AionDestiny</div>
+        <div class="download-subtitle">Переклад не повний</div>
+        
+        <a href="https://drive.google.com/file/d/1NAhj1MiWMqC4jLhZvS3XspmcyJsxEQvX/view?usp=drive_link" 
+           class="download-button" 
+           id="downloadBtn"
+           target="_blank">
+            <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4V12.17L15.59 10.59C16.37 9.81 17.63 9.81 18.41 10.59C19.19 11.37 19.19 12.63 18.41 13.41L13.41 18.41C12.63 19.19 11.37 19.19 10.59 18.41L5.59 13.41C4.81 12.63 4.81 11.37 5.59 10.59C6.37 9.81 7.63 9.81 8.41 10.59L10 12.17V4C10 2.9 10.9 2 12 2M19 18V20H5V18H3V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V18H19Z"/>
+            </svg>
+            <span id="downloadText">Завантажити з Google Drive</span>
+        </a>
+
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="download-details">
+            <div class="detail-item">
+                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
+                </svg>
+                Розмір: 83.6 МБ
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"/>
+                </svg>
+                Оновлено: 18.06.2025
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9,12A3,3 0 0,0 12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                </svg>
+                Безпечно
+            </div>
+        </div>
+
+        <div class="download-info">
+            Завантаження з Google Drive • Швидкий доступ
+        </div>
+        
+        <div class="github-info" style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: rgba(255, 255, 255, 0.8);">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                </svg>
+                <strong>Google Drive</strong>
+            </div>
+            <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);">
+                Надійне збереження файлів від Google
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            // Не перериваємо дефолтну поведінку - файл буде завантажуватися
+            const text = document.getElementById('downloadText');
+            const originalText = text.textContent;
+            
+            // Зміна тексту для підтвердження
+            text.textContent = 'Завантаження...';
+            
+            // Повертаємо текст через 3 секунди
+            setTimeout(() => {
+                text.textContent = originalText;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
