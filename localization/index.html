@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Локалізація AionDestiny</title>
+    <title>Локалізація та розширення</title>
+    <meta name="description" content="Завантажте українську локалізацію та розширення для браузера">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BDBL7DSC46');
+    </script>
     <style>
         :root {
             --background-color: #1A1A2E;
             --card-bg: rgba(62, 62, 94, 0.7);
             --accent: #8A8AFF;
+            --accent-secondary: #FF8AE2;
+            --chrome-color: #4285F4;
+            --opera-color: #FF1B2D;
             --text: #ffffff;
             --hover: rgba(255, 255, 255, 0.1);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -32,11 +41,13 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            margin: 0;
         }
 
         .download-container {
             text-align: center;
             max-width: 500px;
+            width: 100%;
         }
 
         .download-title {
@@ -50,6 +61,23 @@
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
             font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .downloads-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: left;
+            padding-left: 0.5rem;
         }
 
         .download-button {
@@ -57,21 +85,38 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            padding: 1.5rem 3rem;
-            background: linear-gradient(135deg, var(--accent), #FF8AE2);
+            padding: 1.2rem 2.5rem;
             border: none;
-            border-radius: 16px;
+            border-radius: var(--border-radius);
             color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
+            font-family: inherit;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: var(--transition);
+            overflow: hidden;
+            max-width: 320px;
+            min-width: 280px;
+            width: 100%;
+            justify-content: center;
+            margin: 0 auto;
+            will-change: transform;
+            white-space: nowrap;
+        }
+
+        .download-button.localization {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             box-shadow: 
                 0 10px 30px rgba(138, 138, 255, 0.3),
                 0 0 0 0 rgba(138, 138, 255, 0.4);
-            overflow: hidden;
+        }
+
+        .download-button.extension {
+            background: linear-gradient(135deg, var(--chrome-color), var(--opera-color));
+            box-shadow: 
+                0 10px 30px rgba(66, 133, 244, 0.3),
+                0 0 0 0 rgba(66, 133, 244, 0.4);
         }
 
         .download-button::before {
@@ -91,19 +136,34 @@
 
         .download-button:hover {
             transform: translateY(-3px) scale(1.02);
+        }
+
+        .download-button.localization:hover {
             box-shadow: 
                 0 15px 40px rgba(138, 138, 255, 0.4),
                 0 0 0 8px rgba(138, 138, 255, 0.1);
+        }
+
+        .download-button.extension:hover {
+            box-shadow: 
+                0 15px 40px rgba(66, 133, 244, 0.4),
+                0 0 0 8px rgba(66, 133, 244, 0.1);
         }
 
         .download-button:active {
             transform: translateY(-1px) scale(0.98);
         }
 
+        .download-button:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         .download-icon {
             width: 24px;
             height: 24px;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .download-button:hover .download-icon {
@@ -118,16 +178,18 @@
         }
 
         .download-info {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .download-details {
             display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-            gap: 2rem;
+            justify-content: center;
+            margin-top: 0.8rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .detail-item {
@@ -142,40 +204,39 @@
             width: 16px;
             height: 16px;
             opacity: 0.7;
+            flex-shrink: 0;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 1rem;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .browser-icons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), #FF8AE2);
-            width: 0%;
-            border-radius: 2px;
-            transition: width 0.3s ease;
+        .browser-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
-        .downloading .progress-bar {
-            opacity: 1;
-        }
-
-        .downloading .download-button {
-            pointer-events: none;
-            opacity: 0.8;
-        }
-
+        /* Покращена адаптивність */
         @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .download-container {
+                max-width: 350px;
+            }
+            
+            .download-title {
+                font-size: 1.75rem;
+            }
+            
             .download-button {
-                padding: 1.2rem 2rem;
-                font-size: 1.1rem;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                max-width: 280px;
             }
 
             .download-details {
@@ -183,54 +244,161 @@
                 gap: 0.5rem;
                 align-items: center;
             }
+
+            .downloads-section {
+                gap: 1rem;
+            }
         }
+
+        @media (max-width: 480px) {
+            .download-title {
+                font-size: 1.5rem;
+            }
+            
+            .download-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Покращення доступності */
+        @media (prefers-reduced-motion: reduce) {
+            .download-button,
+            .download-icon,
+            .download-button::before {
+                transition: none;
+            }
+            
+            .download-button:hover .download-icon {
+                animation: none;
+                transform: none;
+            }
+        }
+
+        /* Темна тема для пристроїв з підтримкою */
+        @media (prefers-color-scheme: light) {
+            /* Зберігаємо темну тему як основну */
+        }
+				.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    background-color: #3a3a4e;
+    color: #ffd700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background-color: #4a4a5e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
     </style>
 </head>
+<button class="back-button">
+    <span class="back-icon">←</span>
+    
+</button>
 <body>
     <div class="download-container">
-        <div class="download-title">Локалізація AionDestiny</div>
-        <div class="download-subtitle">Переклад не повний</div>
+        <div class="downloads-section">
+            <div>
+                <div class="section-title">📦 Файли локалізації</div>
+                <a href="https://drive.google.com/file/d/1NAhj1MiWMqC4jLhZvS3XspmcyJsxEQvX/view?usp=drive_link" 
+                   class="download-button localization" 
+                   id="downloadBtn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Завантажити файли локалізації AionDestiny">
+                    <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C13.1 2 14 2.9 14 4V12.17L15.59 10.59C16.37 9.81 17.63 9.81 18.41 10.59C19.19 11.37 19.19 12.63 18.41 13.41L13.41 18.41C12.63 19.19 11.37 19.19 10.59 18.41L5.59 13.41C4.81 12.63 4.81 11.37 5.59 10.59C6.37 9.81 7.63 9.81 8.41 10.59L10 12.17V4C10 2.9 10.9 2 12 2M19 18V20H5V18H3V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V18H19Z"/>
+                    </svg>
+                    <span id="downloadText">Завантажити локалізацію</span>
+                </a>
+
+                <div class="download-details">
+                    <div class="detail-item">
+                        <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
+                        </svg>
+                        192.6 МБ
+                    </div>
+                    <div class="detail-item">
+                        <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"/>
+                        </svg>
+                        Оновлено: 25.06.2025
+                    </div>
+                    <div class="detail-item">
+                        <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9,12A3,3 0 0,0 12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                        </svg>
+                        Безпечно
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="section-title">🧩 Розширення для браузера</div>
+                <a href="https://drive.google.com/file/d/1QsPX-TwjF9n31otltpU9AUJhA6AzDPvP/view?usp=drive_link" 
+                   class="download-button extension" 
+                   id="extensionBtn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Завантажити розширення для браузера з трекером ачівок">
+                    <div class="browser-icons">
+                        <svg class="browser-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12.001,2.085c-5.478,0-9.916,4.438-9.916,9.916c0,5.476,4.438,9.914,9.916,9.914c5.476,0,9.914-4.438,9.914-9.914C21.915,6.523,17.477,2.085,12.001,2.085z M15.989,14.046c-0.367,0.636-1.177,0.854-1.813,0.488l-2.123-1.226c-0.15-0.087-0.246-0.246-0.246-0.421v-4.734c0-0.265,0.214-0.479,0.479-0.479h1.439c0.265,0,0.479,0.214,0.479,0.479v3.632l1.631,0.942C15.471,12.961,15.69,13.771,15.989,14.046z"/>
+                        </svg>
+                        <svg class="browser-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M8.051,5.238c-0.708,0-1.282,0.574-1.282,1.282s0.574,1.282,1.282,1.282s1.282-0.574,1.282-1.282S8.759,5.238,8.051,5.238z M18,4.25H6C4.346,4.25,3,5.596,3,7.25v9.5C3,18.404,4.346,19.75,6,19.75h12c1.654,0,3-1.346,3-3v-9.5C21,5.596,19.654,4.25,18,4.25z M19.5,16.75c0,0.827-0.673,1.5-1.5,1.5H6c-0.827,0-1.5-0.673-1.5-1.5v-9.5c0-0.827,0.673-1.5,1.5-1.5h12c0.827,0,1.5,0.673,1.5,1.5V16.75z"/>
+                        </svg>
+                    </div>
+                    <span id="extensionText">Завантажити розширення</span>
+                </a>
+
+                <div class="download-details">
+                    <div class="detail-item">
+                        <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/>
+                        </svg>
+                        Chrome & Opera
+                    </div>
+                    <div class="detail-item">
+                        <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+                        </svg>
+                        Трекер ачівок
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <a href="https://drive.google.com/file/d/1NAhj1MiWMqC4jLhZvS3XspmcyJsxEQvX/view?usp=drive_link" 
-           class="download-button" 
-           id="downloadBtn"
-           target="_blank">
-            <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C13.1 2 14 2.9 14 4V12.17L15.59 10.59C16.37 9.81 17.63 9.81 18.41 10.59C19.19 11.37 19.19 12.63 18.41 13.41L13.41 18.41C12.63 19.19 11.37 19.19 10.59 18.41L5.59 13.41C4.81 12.63 4.81 11.37 5.59 10.59C6.37 9.81 7.63 9.81 8.41 10.59L10 12.17V4C10 2.9 10.9 2 12 2M19 18V20H5V18H3V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V18H19Z"/>
-            </svg>
-            <span id="downloadText">Завантажити з Google Drive</span>
-        </a>
-
-        <div class="progress-bar" id="progressBar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-
-        <div class="download-details">
-            <div class="detail-item">
-                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
-                </svg>
-                Розмір: 83.6 МБ
-            </div>
-            <div class="detail-item">
-                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"/>
-                </svg>
-                Оновлено: 19.06.2025
-            </div>
-            <div class="detail-item">
-                <svg class="detail-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9,12A3,3 0 0,0 12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
-                </svg>
-                Безпечно
-            </div>
-        </div>
-
         <div class="download-info">
             Завантаження з Google Drive • Швидкий доступ
-        </div>
-        
-        <div class="github-info" style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+        </div> <div class="github-info" style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: rgba(255, 255, 255, 0.8);">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
@@ -244,19 +412,38 @@
     </div>
 
     <script>
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            // Не перериваємо дефолтну поведінку - файл буде завантажуватися
-            const text = document.getElementById('downloadText');
-            const originalText = text.textContent;
+        // Оптимізовані обробники подій
+        function handleDownloadClick(buttonId, textId, delay = 3000) {
+            const button = document.getElementById(buttonId);
+            const textElement = document.getElementById(textId);
             
-            // Зміна тексту для підтвердження
-            text.textContent = 'Завантаження...';
+            if (!button || !textElement) return;
             
-            // Повертаємо текст через 3 секунди
-            setTimeout(() => {
-                text.textContent = originalText;
-            }, 3000);
+            button.addEventListener('click', function(e) {
+                const originalText = textElement.textContent;
+                textElement.textContent = 'Завантаження...';
+                
+                setTimeout(() => {
+                    textElement.textContent = originalText;
+                }, delay);
+            });
+        }
+
+        // Ініціалізація після завантаження DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            handleDownloadClick('downloadBtn', 'downloadText', 3000);
+            handleDownloadClick('extensionBtn', 'extensionText', 2000);
         });
+
+        // Оптимізація для touch-пристроїв
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+		
+		document.querySelector('.back-button').addEventListener('click', () => {
+		window.history.back();
+});
+
     </script>
 </body>
 </html>
