@@ -287,3 +287,56 @@ td.with-image {
     font-size: 1.2rem;
     line-height: 1;
 }
+
+optgroup {
+    font-weight: bold;
+    color: #ffd700;
+    background-color: #3a3a4e;
+    font-size: 0.9rem;
+    padding: 4px 0;
+}
+
+optgroup option {
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #252535;
+    padding-left: 16px;
+}
+
+.separator-option {
+    background-color: #3a3a4e !important;
+    color: #ffd700 !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.85rem;
+    pointer-events: none;
+    cursor: default;
+} @media (max-width: 768px) {
+            .calculator {
+                margin-top: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .input-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .input-row .name {
+                order: 2;
+            }
+
+            .input-row img {
+                order: 1;
+                align-self: center;
+            }
+
+            .input-row input,
+            .input-row .result {
+                order: 3;
+                align-self: center;
+            }
+        }
