@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер ефірів</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-BDBL7DSC46');
+	</script>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">
+        <span class="back-icon">←</span>
+        Назад
+    </button>
+
+    <div class="calculator">
+        <div class="calculator-header">
+            <h2>Конвертер</h2>
+            <button class="reset-button" onclick="resetCalculator()">Скинути</button>
+        </div>
+        <div class="calculator-content">
+            
+            
+            <div class="input-row">
+                <img src="images/icon_item_od05_u.png" alt="Сияющий магический эфир">
+                <div class="name">Сияющий магический эфир</div>
+                <input type="number" id="ether1" value="0" min="0" max="9999" onchange="calculateTotal()">
+                <div class="result" id="result1">0</div>
+            </div>
+
+            <div class="input-row">
+                <img src="images/icon_item_od05_l.png" alt="Чистый магический эфир">
+                <div class="name">Чистый магический эфир</div>
+                <input type="number" id="ether2" value="0" min="0" max="9999" onchange="calculateTotal()">
+                <div class="result" id="result2">0</div>
+            </div>
+
+            <div class="input-row">
+                <img src="images/icon_item_od05_r.png" alt="Очищенный магический эфир">
+                <div class="name">Очищенный магический эфир</div>
+                <input type="number" id="ether3" value="0" min="0" max="9999" onchange="calculateTotal()">
+                <div class="result" id="result3">0</div>
+            </div>
+
+            <div class="input-row">
+                <img src="images/icon_item_od05.png" alt="Магический эфир">
+                <div class="name">Магический эфир</div>
+                <input type="number" id="ether4" value="0" min="0" max="9999" onchange="calculateTotal()">
+                <div class="result" id="result4">0</div>
+            </div>
+
+            <div class="total-section">
+                <div class="total-label">Загальна кількість магічного ефіру:</div>
+                <div class="total-value" id="totalResult">0</div>
+            </div>
+        </div>
+    </div>
+	
+	
+    <script src="js/script.js"></script>
+</body>
+</html>
