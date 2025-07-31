@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крафт сувоїв, зілля, їжі</title>
     <link rel="stylesheet" href="css/style.css">
-<!-- Google tag (gtag.js) -->
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -190,7 +190,7 @@
         </div>
 		<div class="calculator">
             <div class="calculator-header">
-                <h2>Стихійні матеріали</h2>
+                <h2>Перекрафт/Перетворення матеріалів</h2>
                 <button id="reset-powders" class="reset-button">Скинути</button>
             </div>
             <div class="calculator-content">
@@ -199,17 +199,38 @@
                 </div>
                 <div class="input-group">
                     <label for="powders-type">Тип матеріалу:</label>
-                    <select id="powders-type">
-                        <option value="powders1" data-icon="images/icon_item_gempoder03.png">Алмазный порошок</option>
-                        <option value="powders2" data-icon="images/icon_item_gempoder03.png">Кельфаратовый порошок</option>
-                        <option value="powders3" data-icon="images/icon_item_gempoder01.png">Порошок из бирюзы</option>
-						<option value="powders4" data-icon="images/icon_item_gempoder02.png">Рубиновый порошок</option>
-						<option value="powders5" data-icon="images/icon_item_gempoder01.png">Сапфировый порошок</option>
-						<option value="powders6" data-icon="images/icon_item_gempoder02.png">Турмалиновый порошок</option>
-						<option value="powders7" data-icon="images/icon_item_dust01e.png">Сильный стихийный порошок</option>
-						<option value="powders8" data-icon="images/icon_item_dust01f.png">Элитный стихийный порошок</option>
-						<option value="water9" data-icon="images/icon_item_elementalwater01f.png">Элитная стихийная вода</option>
-                    </select>
+<select id="powders-type">
+    <optgroup label="Перекрафт матеріалів">
+        <option value="powders1" data-icon="images/icon_item_gempoder03.png">Алмазный порошок</option>
+        <option value="powders2" data-icon="images/icon_item_gempoder03.png">Кельфаратовый порошок</option>
+        <option value="powders3" data-icon="images/icon_item_gempoder01.png">Порошок из бирюзы</option>
+        <option value="powders4" data-icon="images/icon_item_gempoder02.png">Рубиновый порошок</option>
+        <option value="powders5" data-icon="images/icon_item_gempoder01.png">Сапфировый порошок</option>
+        <option value="powders6" data-icon="images/icon_item_gempoder02.png">Турмалиновый порошок</option>
+        <option value="powders7" data-icon="images/icon_item_dust01e.png">Сильный стихийный порошок</option>
+        <option value="powders8" data-icon="images/icon_item_dust01f.png">Элитный стихийный порошок</option>
+        <option value="water9" data-icon="images/icon_item_elementalwater01f.png">Элитная стихийная вода</option>
+    </optgroup>
+    <optgroup label="Перетворення матеріалів">
+        <option value="convert1" data-icon="images/icon_item_herb09.png">Аир</option>
+        <option value="convert2" data-icon="images/icon_item_vegetable09.png">Джирака</option>
+        <option value="convert3" data-icon="images/icon_item_vegetable04.png">Кано</option>
+        <option value="convert4" data-icon="images/icon_item_herb07.png">Люпин</option>
+        <option value="convert5" data-icon="images/icon_item_fruit02.png">Мензе</option>
+        <option value="convert6" data-icon="images/icon_item_fish05.png">Налим</option>
+        <option value="convert7" data-icon="images/icon_item_gemstone01e.png">Огромный неграненый кельфарат</option>
+        <option value="convert8" data-icon="images/icon_item_gemstone01c.png">Огромный неграненый турмалин</option>
+        <option value="convert9" data-icon="images/icon_item_vegetable08.png">Рабено</option>
+        <option value="convert10" data-icon="images/icon_item_herb05.png">Рико</option>
+        <option value="convert11" data-icon="images/icon_item_herb02_r.png">Свежая фолиата</option>
+        <option value="convert12" data-icon="images/icon_item_herb05_r.png">Свежий рико</option>
+        <option value="convert13" data-icon="images/icon_item_fish04.png">Сибас</option>
+        <option value="convert14" data-icon="images/icon_item_elementalstone02c.png">Сильный стихийный камень</option>
+        <option value="convert15" data-icon="images/icon_item_seefood02.png">Тифаб</option>
+        <option value="convert16" data-icon="images/icon_item_herb02.png">Фолиата</option>
+        <option value="convert17" data-icon="images/icon_item_elementalstone02e.png">Элитный стихийный камень</option>
+    </optgroup>
+</select>
                 </div>
                 <div class="input-group">
                     <label for="quantity-powders">Кількість крафтів:</label>
