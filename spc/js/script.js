@@ -445,7 +445,15 @@ const POWDERS_CRAFTING_DATA = {
 			{ id: 'material1', name: "Очищенный магический эфир", quantity: 1, icon: "images/icon_item_od05_r.png" }
 		]
 	},
-	convert13: {
+		convert13: {
+		name: "Серин",
+		icon: "images/icon_item_fruit07.png",
+		outputQuantity: 3,
+		materials: [
+			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+		]
+	},	
+	convert14: {
 		name: "Сибас",
 		icon: "images/icon_item_fish04.png",
 		outputQuantity: 3,
@@ -453,7 +461,7 @@ const POWDERS_CRAFTING_DATA = {
 			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
-	convert14: {
+	convert15: {
 		name: "Сильный стихийный камень",
 		icon: "images/icon_item_elementalstone02c.png",
 		outputQuantity: 2,
@@ -461,7 +469,7 @@ const POWDERS_CRAFTING_DATA = {
 			{ id: 'material1', name: "Осколок эфира", quantity: 1, icon: "images/icon_item_od02.png" }
 		]
 	},
-	convert15: {
+	convert16: {
 		name: "Тифаб",
 		icon: "images/icon_item_seefood02.png",
 		outputQuantity: 3,
@@ -469,7 +477,7 @@ const POWDERS_CRAFTING_DATA = {
 			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
-	convert16: {
+	convert17: {
 		name: "Фолиата",
 		icon: "images/icon_item_herb02.png",
 		outputQuantity: 3,
@@ -477,7 +485,7 @@ const POWDERS_CRAFTING_DATA = {
 			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
-	convert17: {
+	convert18: {
 		name: "Элитный стихийный камень",
 		icon: "images/icon_item_elementalstone02e.png",
 		outputQuantity: 2,
