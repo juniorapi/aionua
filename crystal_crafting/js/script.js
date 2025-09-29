@@ -1,3 +1,29 @@
+const ITEM_DESCRIPTIONS = {
+    
+    "red": "Кравецька справа",
+    "white": "Збройова справа",
+    "yellow": "Ювелірна справа",
+    "green": "Ковальська справа",
+    "blue": "Алхімія",
+    "idium": "Кулінарія",
+
+    
+    "rod": "Збройова справа",
+    "rod2": "Збройова справа",
+    "bar": "Ювелірна справа",
+    "bar2": "Ювелірна справа",
+
+    
+    "godstone": "Ковальська справа",
+    "godstone2": "Ковальська справа",
+    "godstone3": "Ковальська справа",
+    "godstone4": "Ковальська справа",
+    "godstone5": "Кравецька справа",
+    "godstone6": "Кравецька справа",
+    "godstone7": "Кравецька справа",
+    "godstone8": "Кравецька справа"
+};
+
 const CRAFTING_DATA = { 
     types: {
         red: {
@@ -239,6 +265,142 @@ const RESOURCE_CRAFTING_DATA = {
     }
 };
 
+function showCraftingResultTooltip(event, typeId) {
+    const description = ITEM_DESCRIPTIONS[typeId] || "Немає опису для цього предмета";
+   
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+  
+    let itemName = "";
+
+    if (CRAFTING_DATA.types[typeId]) {
+        itemName = CRAFTING_DATA.types[typeId].name;
+    } else if (ITEM_CRAFTING_DATA.types[typeId]) {
+        itemName = ITEM_CRAFTING_DATA.types[typeId].name;
+    } else if (RESOURCE_CRAFTING_DATA.types[typeId]) {
+        itemName = RESOURCE_CRAFTING_DATA.types[typeId].name;
+    }
+  
+    tooltip.innerHTML = `
+        <div style="font-weight: bold; color: #ffd700; margin-bottom: 6px;">${itemName}</div>
+        <div>${description}</div>
+    `;
+  
+    tooltip.style.backgroundColor = "#2a2a3e";
+    tooltip.style.border = "1px solid #4a4a5e";
+    tooltip.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+    tooltip.style.padding = "10px 12px";
+    tooltip.style.borderRadius = "6px";
+    tooltip.style.fontSize = "0.85rem";
+    tooltip.style.color = "#f0f0f0";
+    tooltip.style.maxWidth = "300px";
+    tooltip.style.zIndex = "1000";
+    tooltip.style.position = "fixed";
+  
+    tooltip.style.top = (event.clientY + 15) + "px";
+    tooltip.style.left = (event.clientX + 15) + "px";
+ 
+    document.body.appendChild(tooltip);
+ 
+    event.currentTarget.tooltip = tooltip;
+
+    event.currentTarget.addEventListener('mousemove', updateTooltipPosition);
+}
+
+function updateTooltipPosition(event) {
+    if (event.currentTarget.tooltip) {
+        event.currentTarget.tooltip.style.top = (event.clientY + 15) + "px";
+        event.currentTarget.tooltip.style.left = (event.clientX + 15) + "px";
+
+        const tooltipRect = event.currentTarget.tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        if (tooltipRect.right > viewportWidth) {
+            event.currentTarget.tooltip.style.left = (viewportWidth - tooltipRect.width - 10) + "px";
+        }
+        
+        if (tooltipRect.bottom > viewportHeight) {
+            event.currentTarget.tooltip.style.top = (viewportHeight - tooltipRect.height - 10) + "px";
+        }
+    }
+}
+
+function hideCraftingResultTooltip(event) {
+    if (event.currentTarget.tooltip) {
+        event.currentTarget.removeEventListener('mousemove', updateTooltipPosition);
+        event.currentTarget.tooltip.remove();
+        event.currentTarget.tooltip = null;
+    }
+}
+
+function setupCraftingResultTooltips() {
+    const outputTables = [
+        { tableId: 'output-list', typeId: 'crystal-type' },
+        { tableId: 'output-list-item', typeId: 'item-type' },
+        { tableId: 'output-list-resource', typeId: 'resource-type' }
+    ];
+
+    outputTables.forEach(({ tableId, typeId }) => {
+        const table = document.getElementById(tableId);
+        const typeSelect = document.getElementById(typeId);
+        
+        if (table && typeSelect) {
+            const observer = new MutationObserver(() => {
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    if (!row.hasResultTooltipListeners) {
+                        row.hasResultTooltipListeners = true;
+                        
+                        row.addEventListener('mouseenter', (e) => {
+                            showCraftingResultTooltip(e, typeSelect.value);
+                        });
+                        
+                        row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                        
+                        row.style.cursor = 'help';
+                        row.style.transition = 'background-color 0.2s ease';
+                        
+                        row.addEventListener('mouseenter', () => {
+                            row.style.backgroundColor = '#4D4D5F';
+                        });
+                        
+                        row.addEventListener('mouseleave', () => {
+                            row.style.backgroundColor = '';
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(table, { childList: true, subtree: true });
+            
+            const rows = table.querySelectorAll('tr');
+            rows.forEach(row => {
+                if (!row.hasResultTooltipListeners) {
+                    row.hasResultTooltipListeners = true;
+                    
+                    row.addEventListener('mouseenter', (e) => {
+                        showCraftingResultTooltip(e, typeSelect.value);
+                    });
+                    
+                    row.addEventListener('mouseleave', hideCraftingResultTooltip);
+                    
+                    row.style.cursor = 'help';
+                    row.style.transition = 'background-color 0.2s ease';
+                    
+                    row.addEventListener('mouseenter', () => {
+                        row.style.backgroundColor = '#4D4D5F';
+                    });
+                    
+                    row.addEventListener('mouseleave', () => {
+                        row.style.backgroundColor = '';
+                    });
+                }
+            });
+        }
+    });
+}
+
 class BaseCalculator {
     constructor(config) {
         this.config = config;
@@ -255,7 +417,8 @@ class BaseCalculator {
         this.outputList = document.getElementById(this.config.outputListId);
         this.resetButton = document.getElementById(this.config.resetButtonId);
     }
-        setupEventListeners() {
+
+    setupEventListeners() {
         this.type.addEventListener('change', () => this.updateCalculator());
         
         this.quantity.addEventListener('focus', (e) => {
@@ -370,10 +533,25 @@ document.querySelector('.back-button').addEventListener('click', () => {
     window.history.back();
 });
 
+document.querySelector('.back-button').addEventListener('click', () => {
+    window.history.back();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const calculators = {
         crystal: new BaseCalculator(calculatorConfigs.crystal),
         item: new BaseCalculator(calculatorConfigs.item),
         resource: new BaseCalculator(calculatorConfigs.resource)
+    };
+    
+    
+    setupCraftingResultTooltips();
+    
+    
+    const originalUpdateCalculator = BaseCalculator.prototype.updateCalculator;
+    
+    BaseCalculator.prototype.updateCalculator = function() {
+        originalUpdateCalculator.call(this);
+        setupCraftingResultTooltips();
     };
 });
