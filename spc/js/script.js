@@ -39,6 +39,7 @@ const ITEM_DESCRIPTIONS = {
 	"powders6": "Порошок, отриманий з необробленого турмаліну.",
 	"powders7": "Порошок, який отримують з сильного стихійного каменю.",
 	"powders8": "Порошок, який отримують з елітного стихійного каменю.",
+	"powders9": "Порошок, який отримують з елітного стихійного каменю.",
 	"water9": "Магічна вода з елітного стихійного каменю.",
 	
 };
@@ -337,6 +338,14 @@ const POWDERS_CRAFTING_DATA = {
             outputQuantity: 2, 
             materials: [
                 { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
+            ]
+        },
+		powders9: {
+            name: "Элитный стихийный порошок",
+            icon: "images/icon_item_dust01f.png",
+            outputQuantity: 20, 
+            materials: [
+                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
             ]
         },
 		water9: {
