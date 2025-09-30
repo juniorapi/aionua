@@ -533,9 +533,6 @@ document.querySelector('.back-button').addEventListener('click', () => {
     window.history.back();
 });
 
-document.querySelector('.back-button').addEventListener('click', () => {
-    window.history.back();
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     const calculators = {
