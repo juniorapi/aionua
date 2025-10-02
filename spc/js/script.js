@@ -41,7 +41,7 @@ const ITEM_DESCRIPTIONS = {
 	"powders8": "Порошок, який отримують з елітного стихійного каменю.",
 	"powders9": "Порошок, який отримують з елітного стихійного каменю.",
 	"water9": "Магічна вода з елітного стихійного каменю.",
-	
+	"water10": "Магічна вода з елітного стихійного каменю.",
 };
 const SCROLL_CRAFTING_DATA = { 
     types: {
@@ -354,6 +354,14 @@ const POWDERS_CRAFTING_DATA = {
             outputQuantity: 5, 
             materials: [
                 { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
+			]
+        },
+		water10: {
+            name: "Элитная стихийная вода",
+            icon: "images/icon_item_elementalwater01f.png",
+            outputQuantity: 50, 
+            materials: [
+                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
 				
             ]
         },
