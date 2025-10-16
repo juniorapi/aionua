@@ -18,11 +18,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Онлайн віджети -->
+        
         <div class="online-section">
            
-
-            <!-- EuroAion widget -->
+            
             <div class="aion-online-widget" id="euroAionWidget">
                 <div class="aion-title">EuroAion Online</div>
                 <div class="total-online" id="euroTotalOnline">0</div>
@@ -45,7 +44,7 @@
                 </div>
             </div>
 			
-			 <!-- AionDestiny widget -->
+            
             <div class="aion-online-widget" id="aionDestinyWidget">
                 <div class="aion-title">AionDestiny Online</div>
                 <div class="total-online" id="destinyTotalOnline">0</div>
@@ -117,22 +116,42 @@
     </div>
 
     <script>
+        
+        function convertToLocalTime(serverTimeString) {
+            if (!serverTimeString) return null;
+            
+            
+            const [time, date] = serverTimeString.split(' ');
+            const [hours, minutes, seconds] = time.split(':');
+            const [day, month, year] = date.split('.');
+            
+            
+            const serverDate = new Date(Date.UTC(year, month - 1, day, hours, minutes, seconds));
+            
+            
+            const localHours = String(serverDate.getHours()).padStart(2, '0');
+            const localMinutes = String(serverDate.getMinutes()).padStart(2, '0');
+            const localSeconds = String(serverDate.getSeconds()).padStart(2, '0');
+            const localDay = String(serverDate.getDate()).padStart(2, '0');
+            const localMonth = String(serverDate.getMonth() + 1).padStart(2, '0');
+            const localYear = serverDate.getFullYear();
+            
+            return `${localHours}:${localMinutes}:${localSeconds} ${localDay}.${localMonth}.${localYear}`;
+        }
 
-
-        // Онлайн віджети функціонал
+        
         class AionServersWidget {
             constructor() {
-                
                 this.apiUrl = 'https://dashboardonline-production.up.railway.app/api/online';
                 
-                // AionDestiny елементи
+                
                 this.destinyWidget = document.getElementById('aionDestinyWidget');
                 this.destinyTotalElement = document.getElementById('destinyTotalOnline');
                 this.destinyElyosElement = document.getElementById('destinyElyosCount');
                 this.destinyAsmoElement = document.getElementById('destinyAsmoCount');
                 this.destinyStatusElement = document.getElementById('destinyLastUpdate');
                 
-                // EuroAion елементи
+                
                 this.euroWidget = document.getElementById('euroAionWidget');
                 this.euroTotalElement = document.getElementById('euroTotalOnline');
                 this.euroElyosElement = document.getElementById('euroElyosCount');
@@ -146,7 +165,7 @@
                 this.showLoading();
                 await this.updateData();
                 
-                // Оновлювати кожні 30 секунд
+                
                 setInterval(() => this.updateData(), 30000);
             }
 
@@ -172,27 +191,31 @@
                     
                     const data = await response.json();
                     
-                    // Оновлюємо дані AionDestiny
+                   
                     if (data.aiondestiny) {
                         this.destinyTotalElement.textContent = data.aiondestiny.total_online || 0;
                         this.destinyElyosElement.textContent = data.aiondestiny.online_ely || 0;
                         this.destinyAsmoElement.textContent = data.aiondestiny.online_asmo || 0;
                         
+                        
                         if (data.aiondestiny.last_update) {
-                            this.destinyStatusElement.textContent = `Оновлено: ${data.aiondestiny.last_update}`;
+                            const localTime = convertToLocalTime(data.aiondestiny.last_update);
+                            this.destinyStatusElement.textContent = localTime ? `Оновлено: ${localTime}` : 'Дані недоступні';
                         } else {
                             this.destinyStatusElement.textContent = 'Дані недоступні';
                         }
                     }
                     
-                    // Оновлюємо дані EuroAion
+                   
                     if (data.euroaion) {
                         this.euroTotalElement.textContent = data.euroaion.total_online || 0;
                         this.euroElyosElement.textContent = `${data.euroaion.elyos_percentage || 0}%`;
                         this.euroAsmoElement.textContent = `${data.euroaion.asmodians_percentage || 0}%`;
                         
+                        
                         if (data.euroaion.last_update) {
-                            this.euroStatusElement.textContent = `Оновлено: ${data.euroaion.last_update}`;
+                            const localTime = convertToLocalTime(data.euroaion.last_update);
+                            this.euroStatusElement.textContent = localTime ? `Оновлено: ${localTime}` : 'Дані недоступні';
                         } else {
                             this.euroStatusElement.textContent = 'Дані недоступні';
                         }
@@ -206,13 +229,13 @@
                     this.euroStatusElement.textContent = 'Помилка завантаження';
                     this.hideLoading();
                     
-                    // Спробувати ще раз через 10 секунд
+                    
                     setTimeout(() => this.updateData(), 10000);
                 }
             }
         }
 
-        // Запускаємо все після завантаження DOM
+        
         document.addEventListener('DOMContentLoaded', () => {
             new AionServersWidget();
         });
