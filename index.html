@@ -110,7 +110,7 @@
 <script>
 async function loadOnline() {
     try {
-        const resp = await fetch('https://juniorapi.github.io/aion_online/data.json?t=' + Date.now());
+        const resp = await fetch('/aionua/data.json?t=' + Date.now());
         const d = await resp.json();
 
         const updated = new Date(d.updated_at).toLocaleString('uk-UA', {
