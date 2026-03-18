@@ -18,7 +18,49 @@
 </head>
 <body>
     <div class="container">
- 
+
+        <div class="online-section">
+            <div class="aion-online-widget loading" id="widget-destiny">
+                <div class="aion-title">💻 AionDestiny</div>
+                <div class="total-online" id="destiny-total">—</div>
+                <div class="online-label">гравців онлайн</div>
+                <div class="factions">
+                    <div class="faction asmo">
+                        <div class="faction-name">Asmodians</div>
+                        <div class="faction-count" id="destiny-asmo">—</div>
+                    </div>
+                    <div class="faction elyos">
+                        <div class="faction-name">Elyos</div>
+                        <div class="faction-count" id="destiny-ely">—</div>
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="status-dot"></div>
+                    <span id="destiny-updated">оновлення...</span>
+                </div>
+            </div>
+
+            <div class="aion-online-widget loading" id="widget-euro">
+                <div class="aion-title">🌐 EuroAion</div>
+                <div class="total-online" id="euro-total">—</div>
+                <div class="online-label">гравців онлайн</div>
+                <div class="factions">
+                    <div class="faction asmo">
+                        <div class="faction-name">Asmodians</div>
+                        <div class="faction-count" id="euro-asmo">—</div>
+                    </div>
+                    <div class="faction elyos">
+                        <div class="faction-name">Elyos</div>
+                        <div class="faction-count" id="euro-ely">—</div>
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="status-dot"></div>
+                    <span id="euro-updated">оновлення...</span>
+                </div>
+            </div>
+        </div>
+
         <div class="grid">
             <div class="card" data-keywords="розклад інстанси евроайон aiondestiny">
                 <h2>Розклад інстансів</h2>
@@ -64,5 +106,36 @@
             </div>
         </div>
     </div>
- </body>
+
+<script>
+async function loadOnline() {
+    try {
+        const resp = await fetch('https://juniorapi.github.io/aion_online/data.json?t=' + Date.now());
+        const d = await resp.json();
+
+        const updated = new Date(d.updated_at).toLocaleString('uk-UA', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+
+        document.getElementById('destiny-total').textContent = d.destiny.total;
+        document.getElementById('destiny-asmo').textContent  = d.destiny.dark;
+        document.getElementById('destiny-ely').textContent   = d.destiny.light;
+        document.getElementById('destiny-updated').textContent = updated;
+        document.getElementById('widget-destiny').classList.remove('loading');
+
+        document.getElementById('euro-total').textContent = d.euro.total;
+        document.getElementById('euro-asmo').textContent  = d.euro.asmo_pct + '%';
+        document.getElementById('euro-ely').textContent   = d.euro.elyos_pct + '%';
+        document.getElementById('euro-updated').textContent = updated;
+        document.getElementById('widget-euro').classList.remove('loading');
+    } catch (e) {
+        console.error('Online fetch error:', e);
+    }
+}
+
+loadOnline();
+setInterval(loadOnline, 5 * 60 * 1000);
+</script>
+</body>
 </html>
