@@ -3,113 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aion</title>
+    <title>Aion UA — Твій путівник по світу Aion</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-BDBL7DSC46');
 </script>
 </head>
 <body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <div class="container">
 
-        <div class="online-bar">
-            <div class="online-bar-item">
-                <div class="status-dot"></div>
-                <span class="bar-server">AionDestiny</span>
-                <span class="bar-total" id="destiny-total">—</span>
-                <span class="bar-factions">(<span class="bar-asmo" id="destiny-asmo">—</span> / <span class="bar-ely" id="destiny-ely">—</span>)</span>
+        <header>
+            <div class="header-badge">MMORPG Hub</div>
+            <h1 class="title">Aion <span class="title-accent">UA</span></h1>
+            <p class="subtitle">Твій путівник по світу Aion</p>
+        </header>
+
+        <!-- Online servers section -->
+        <section class="online-section">
+            <!-- AionDestiny -->
+            <div class="server-card" id="destiny-card">
+                <div class="server-card-header">
+                    <div class="server-indicator">
+                        <div class="status-dot"></div>
+                        <span class="server-name">AionDestiny</span>
+                    </div>
+                    <span class="server-tag">4.6</span>
+                </div>
+                <div class="server-total" id="destiny-total">—</div>
+                <div class="server-total-label">гравців онлайн</div>
+                <div class="faction-bar-wrap">
+                    <div class="faction-bar">
+                        <div class="faction-bar-asmo" id="destiny-bar-asmo" style="width:50%"></div>
+                        <div class="faction-bar-ely" id="destiny-bar-ely" style="width:50%"></div>
+                    </div>
+                </div>
+                <div class="faction-stats">
+                    <div class="faction-stat asmo">
+                        <span class="faction-icon">🔴</span>
+                        <span class="faction-label">Asmodians</span>
+                        <span class="faction-value" id="destiny-asmo">—</span>
+                    </div>
+                    <div class="faction-stat ely">
+                        <span class="faction-icon">🔵</span>
+                        <span class="faction-label">Elyos</span>
+                        <span class="faction-value" id="destiny-ely">—</span>
+                    </div>
+                </div>
+                <div class="server-updated">
+                    <span class="updated-icon">⟳</span>
+                    <span id="destiny-updated">оновлення...</span>
+                </div>
             </div>
-            <div class="online-bar-sep">•</div>
-            <div class="online-bar-item">
-                <div class="status-dot"></div>
-                <span class="bar-server">EuroAion</span>
-                <span class="bar-total" id="euro-total">—</span>
-                <span class="bar-factions">(<span class="bar-asmo" id="euro-asmo">—</span> / <span class="bar-ely" id="euro-ely">—</span>)</span>
+
+            <!-- EuroAion -->
+            <div class="server-card" id="euro-card">
+                <div class="server-card-header">
+                    <div class="server-indicator">
+                        <div class="status-dot"></div>
+                        <span class="server-name">EuroAion</span>
+                    </div>
+                    <span class="server-tag">4.8</span>
+                </div>
+                <div class="server-total" id="euro-total">—</div>
+                <div class="server-total-label">гравців онлайн</div>
+                <div class="faction-bar-wrap">
+                    <div class="faction-bar">
+                        <div class="faction-bar-asmo" id="euro-bar-asmo" style="width:50%"></div>
+                        <div class="faction-bar-ely" id="euro-bar-ely" style="width:50%"></div>
+                    </div>
+                </div>
+                <div class="faction-stats">
+                    <div class="faction-stat asmo">
+                        <span class="faction-icon">🔴</span>
+                        <span class="faction-label">Asmodians</span>
+                        <span class="faction-value" id="euro-asmo">—</span>
+                    </div>
+                    <div class="faction-stat ely">
+                        <span class="faction-icon">🔵</span>
+                        <span class="faction-label">Elyos</span>
+                        <span class="faction-value" id="euro-ely">—</span>
+                    </div>
+                </div>
+                <div class="server-updated">
+                    <span class="updated-icon">⟳</span>
+                    <span id="euro-updated">оновлення...</span>
+                </div>
             </div>
-            <div class="online-bar-sep">•</div>
-            <div class="bar-updated" id="bar-updated">оновлення...</div>
+        </section>
+
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-icon">⌕</div>
+            <input
+                type="text"
+                class="search-input"
+                id="search"
+                placeholder="Пошук по сайту..."
+                autocomplete="off"
+            >
         </div>
 
-        <div class="grid">
+        <!-- Tools grid -->
+        <div class="grid" id="grid">
+
             <div class="card" data-keywords="розклад інстанси евроайон aiondestiny">
-                <h2>Розклад інстансів</h2>
-                <p>Дізнайтесь, коли і де проходять найцікавіші події</p>
+                <div class="card-icon">📅</div>
+                <h2 class="card-title">Розклад інстансів</h2>
+                <p class="card-desc">Дізнайтесь, коли і де проходять найцікавіші події</p>
                 <div class="links">
-                    <a href="/aionua/euroaion/" class="link">EuroAion<span class="badge">Оновлено</span></a>
-                    <a href="/aionua/aiondestiny/" class="link">AionDestiny</a>
+                    <a href="/aionua/euroaion/" class="link">
+                        <span class="link-arrow">›</span>
+                        EuroAion
+                        <span class="badge badge-updated">Оновлено</span>
+                    </a>
+                    <a href="/aionua/aiondestiny/" class="link">
+                        <span class="link-arrow">›</span>
+                        AionDestiny
+                    </a>
                 </div>
             </div>
 
             <div class="card" data-keywords="крафт ресурси кристали біжутерія свитки зілля">
-                <h2>Ресурси та крафт</h2>
-                <p>Все необхідне для крафту в одному місці</p>
+                <div class="card-icon">⚒️</div>
+                <h2 class="card-title">Ресурси та крафт</h2>
+                <p class="card-desc">Все необхідне для крафту в одному місці</p>
                 <div class="links">
-                    <a href="/aionua/crystal_crafting/" class="link">Кристали, стрижні, бруси, божики <!--<span class="badge"  style="color: #FFD711;">Нове</span>--></a>                    
-                    <a href="/aionua/craft/" class="link">Крафт біжутерії  <span class="badge">Оновлено</span></a>					
-                    <a href="/aionua/spc/" class="link">Крафт сувоїв, зілля, їжі <!--<span class="badge"  style="color: #FFD711;">Нове</span>--></a>
-                    <a href="/aionua/essencetapping/" class="link">Енергокінез</a>
-                    <a href="/aionua/aethertapping/" class="link">Ефірокінез</a>
+                    <a href="/aionua/crystal_crafting/" class="link">
+                        <span class="link-arrow">›</span>
+                        Кристали, стрижні, бруси, божики
+                    </a>
+                    <a href="/aionua/craft/" class="link">
+                        <span class="link-arrow">›</span>
+                        Крафт біжутерії
+                        <span class="badge badge-updated">Оновлено</span>
+                    </a>
+                    <a href="/aionua/spc/" class="link">
+                        <span class="link-arrow">›</span>
+                        Крафт сувоїв, зілля, їжі
+                    </a>
+                    <a href="/aionua/essencetapping/" class="link">
+                        <span class="link-arrow">›</span>
+                        Енергокінез
+                    </a>
+                    <a href="/aionua/aethertapping/" class="link">
+                        <span class="link-arrow">›</span>
+                        Ефірокінез
+                    </a>
                 </div>
             </div>
 
-            <div class="card" data-keywords="калькулятор стігми чари">
-                <h2>Калькулятори стігм, чар, конвертор</h2>
-                <p>Оптимізуйте свого персонажа</p>
+            <div class="card" data-keywords="калькулятор стігми чари конвертор ефір">
+                <div class="card-icon">🧮</div>
+                <h2 class="card-title">Калькулятори та конвертор</h2>
+                <p class="card-desc">Оптимізуйте свого персонажа</p>
                 <div class="links">
-                    <a href="/aionua/aion-4.6-enchantment-calculator/" class="link">Калькулятор чар <span class="badge">Популярне</span></a>
-                    <a href="/aionua/stigma/" class="link">Стігми 4.6</a>
-                    <a href="/aionua/stigmas/" class="link">Стігми 4.8</a>
-		    <a href="/aionua/efir/" class="link">Конвертор ефіру  <span class="badge"  style="color: #FFD711;">Нове</span></a>
+                    <a href="/aionua/aion-4.6-enchantment-calculator/" class="link">
+                        <span class="link-arrow">›</span>
+                        Калькулятор чар
+                        <span class="badge badge-popular">Популярне</span>
+                    </a>
+                    <a href="/aionua/stigma/" class="link">
+                        <span class="link-arrow">›</span>
+                        Стігми 4.6
+                    </a>
+                    <a href="/aionua/stigmas/" class="link">
+                        <span class="link-arrow">›</span>
+                        Стігми 4.8
+                    </a>
+                    <a href="/aionua/efir/" class="link">
+                        <span class="link-arrow">›</span>
+                        Конвертор ефіру
+                        <span class="badge badge-new">Нове</span>
+                    </a>
                 </div>
             </div>
 
-		<div class="card" data-keywords="стрімери solution hammer counter">
-               	 <h2>СтрімБокс</h2>
-               	 <p>Віджети, лічильники, локалізація для гравців</p>
-               	 <div class="links">
-                    <a href="/aionua/tempering-solution-counter/" class="link">Solution Counter</a>
-                    <a href="/aionua/ice-hammer-counter/" class="link">Hammer Counter</a>
-		    <a href="/aionua/localization/" class="link">Локалізація + Розширення</a>
-					 
+            <div class="card" data-keywords="стрімери solution hammer counter локалізація розширення">
+                <div class="card-icon">🎙️</div>
+                <h2 class="card-title">СтрімБокс</h2>
+                <p class="card-desc">Віджети, лічильники, локалізація для гравців</p>
+                <div class="links">
+                    <a href="/aionua/tempering-solution-counter/" class="link">
+                        <span class="link-arrow">›</span>
+                        Solution Counter
+                    </a>
+                    <a href="/aionua/ice-hammer-counter/" class="link">
+                        <span class="link-arrow">›</span>
+                        Hammer Counter
+                    </a>
+                    <a href="/aionua/localization/" class="link">
+                        <span class="link-arrow">›</span>
+                        Локалізація + Розширення
+                    </a>
                 </div>
             </div>
+
         </div>
+
+        <footer class="footer">
+            <p>Aion UA · Зроблено з ❤️ для спільноти</p>
+        </footer>
+
     </div>
 
 <script>
-async function loadOnline() {
+// ── AionDestiny — live API ──────────────────────────────────────────────────
+async function loadDestiny() {
+    try {
+        const resp = await fetch('https://aiondestiny.net/api/online');
+        const d = await resp.json();
+
+        const total = d.total ?? 0;
+        const asmo  = d.dark  ?? 0;
+        const ely   = d.light ?? 0;
+        const asmoPct = total > 0 ? Math.round(asmo / total * 100) : 50;
+        const elyPct  = 100 - asmoPct;
+
+        document.getElementById('destiny-total').textContent = total.toLocaleString('uk-UA');
+        document.getElementById('destiny-asmo').textContent  = asmo.toLocaleString('uk-UA');
+        document.getElementById('destiny-ely').textContent   = ely.toLocaleString('uk-UA');
+        document.getElementById('destiny-bar-asmo').style.width = asmoPct + '%';
+        document.getElementById('destiny-bar-ely').style.width  = elyPct  + '%';
+
+        const now = new Date().toLocaleString('uk-UA', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+        document.getElementById('destiny-updated').textContent = now;
+    } catch (e) {
+        console.error('AionDestiny fetch error:', e);
+        document.getElementById('destiny-updated').textContent = 'помилка з\'єднання';
+    }
+}
+
+// ── EuroAion — GitHub Actions data.json ────────────────────────────────────
+async function loadEuro() {
     try {
         const resp = await fetch('/aionua/data.json?t=' + Date.now());
         const d = await resp.json();
+
+        const total   = d.euro?.total    ?? '—';
+        const asmoPct = d.euro?.asmo_pct ?? 50;
+        const elyPct  = d.euro?.elyos_pct ?? 50;
+
+        document.getElementById('euro-total').textContent = Number(total).toLocaleString('uk-UA');
+        document.getElementById('euro-asmo').textContent  = asmoPct + '%';
+        document.getElementById('euro-ely').textContent   = elyPct  + '%';
+        document.getElementById('euro-bar-asmo').style.width = asmoPct + '%';
+        document.getElementById('euro-bar-ely').style.width  = elyPct  + '%';
 
         const updated = new Date(d.updated_at).toLocaleString('uk-UA', {
             day: '2-digit', month: '2-digit', year: 'numeric',
             hour: '2-digit', minute: '2-digit'
         });
-
-        document.getElementById('destiny-total').textContent = d.destiny.total;
-        document.getElementById('destiny-asmo').textContent  = 'Asm: ' + d.destiny.dark;
-        document.getElementById('destiny-ely').textContent   = 'Ely: ' + d.destiny.light;
-
-        document.getElementById('euro-total').textContent = d.euro.total;
-        document.getElementById('euro-asmo').textContent  = 'Asm: ' + d.euro.asmo_pct + '%';
-        document.getElementById('euro-ely').textContent   = 'Ely: ' + d.euro.elyos_pct + '%';
-
-        document.getElementById('bar-updated').textContent = updated;
+        document.getElementById('euro-updated').textContent = updated;
     } catch (e) {
-        console.error('Online fetch error:', e);
+        console.error('EuroAion fetch error:', e);
+        document.getElementById('euro-updated').textContent = 'помилка з\'єднання';
     }
 }
 
-loadOnline();
-setInterval(loadOnline, 5 * 60 * 1000);
+loadDestiny();
+loadEuro();
+setInterval(loadDestiny, 60 * 1000);
+setInterval(loadEuro,    5 * 60 * 1000);
+
+// ── Search ──────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('#grid .card').forEach(card => {
+        const keywords = (card.dataset.keywords || '').toLowerCase();
+        const text     = card.textContent.toLowerCase();
+        card.classList.toggle('hidden', q !== '' && !keywords.includes(q) && !text.includes(q));
+    });
+});
 </script>
 </body>
 </html>
