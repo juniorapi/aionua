@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -I -X GET \"https://aiondestiny.net/api/online\" -H \"Origin: https://juniorapi.github.io\" | grep -i \"access-control\\\\|cors\\\\|content-type\\\\|HTTP\")",
+      "Bash(curl -s -I -L \"https://aiondestiny.net/api/online\" -H \"Origin: https://juniorapi.github.io\" 2>&1 | head -30)",
+      "Bash(cp /tmp/index_old.html \"C:/Users/Junior/Documents/GitHub/aionua/index.html\" && cp /tmp/style_old.css \"C:/Users/Junior/Documents/GitHub/aionua/css/style.css\" && echo done)"
+    ]
+  }
+}
