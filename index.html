@@ -19,46 +19,22 @@
 <body>
     <div class="container">
 
-        <div class="online-section">
-            <div class="aion-online-widget loading" id="widget-destiny">
-                <div class="aion-title">💻 AionDestiny</div>
-                <div class="total-online" id="destiny-total">—</div>
-                <div class="online-label">гравців онлайн</div>
-                <div class="factions">
-                    <div class="faction asmo">
-                        <div class="faction-name">Asmodians</div>
-                        <div class="faction-count" id="destiny-asmo">—</div>
-                    </div>
-                    <div class="faction elyos">
-                        <div class="faction-name">Elyos</div>
-                        <div class="faction-count" id="destiny-ely">—</div>
-                    </div>
-                </div>
-                <div class="status">
-                    <div class="status-dot"></div>
-                    <span id="destiny-updated">оновлення...</span>
-                </div>
+        <div class="online-bar">
+            <div class="online-bar-item">
+                <div class="status-dot"></div>
+                <span class="bar-server">AionDestiny</span>
+                <span class="bar-total" id="destiny-total">—</span>
+                <span class="bar-factions">(<span class="bar-asmo" id="destiny-asmo">—</span> / <span class="bar-ely" id="destiny-ely">—</span>)</span>
             </div>
-
-            <div class="aion-online-widget loading" id="widget-euro">
-                <div class="aion-title">🌐 EuroAion</div>
-                <div class="total-online" id="euro-total">—</div>
-                <div class="online-label">гравців онлайн</div>
-                <div class="factions">
-                    <div class="faction asmo">
-                        <div class="faction-name">Asmodians</div>
-                        <div class="faction-count" id="euro-asmo">—</div>
-                    </div>
-                    <div class="faction elyos">
-                        <div class="faction-name">Elyos</div>
-                        <div class="faction-count" id="euro-ely">—</div>
-                    </div>
-                </div>
-                <div class="status">
-                    <div class="status-dot"></div>
-                    <span id="euro-updated">оновлення...</span>
-                </div>
+            <div class="online-bar-sep">•</div>
+            <div class="online-bar-item">
+                <div class="status-dot"></div>
+                <span class="bar-server">EuroAion</span>
+                <span class="bar-total" id="euro-total">—</span>
+                <span class="bar-factions">(<span class="bar-asmo" id="euro-asmo">—</span> / <span class="bar-ely" id="euro-ely">—</span>)</span>
             </div>
+            <div class="online-bar-sep">•</div>
+            <div class="bar-updated" id="bar-updated">оновлення...</div>
         </div>
 
         <div class="grid">
@@ -119,16 +95,14 @@ async function loadOnline() {
         });
 
         document.getElementById('destiny-total').textContent = d.destiny.total;
-        document.getElementById('destiny-asmo').textContent  = d.destiny.dark;
-        document.getElementById('destiny-ely').textContent   = d.destiny.light;
-        document.getElementById('destiny-updated').textContent = updated;
-        document.getElementById('widget-destiny').classList.remove('loading');
+        document.getElementById('destiny-asmo').textContent  = 'Asm: ' + d.destiny.dark;
+        document.getElementById('destiny-ely').textContent   = 'Ely: ' + d.destiny.light;
 
         document.getElementById('euro-total').textContent = d.euro.total;
-        document.getElementById('euro-asmo').textContent  = d.euro.asmo_pct + '%';
-        document.getElementById('euro-ely').textContent   = d.euro.elyos_pct + '%';
-        document.getElementById('euro-updated').textContent = updated;
-        document.getElementById('widget-euro').classList.remove('loading');
+        document.getElementById('euro-asmo').textContent  = 'Asm: ' + d.euro.asmo_pct + '%';
+        document.getElementById('euro-ely').textContent   = 'Ely: ' + d.euro.elyos_pct + '%';
+
+        document.getElementById('bar-updated').textContent = updated;
     } catch (e) {
         console.error('Online fetch error:', e);
     }

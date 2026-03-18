@@ -46,7 +46,49 @@
             font-size: 1.2rem;
         }
 
-        /* Онлайн віджети стилі */
+        /* Компактна онлайн полоска */
+        .online-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(62, 62, 94, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+        .online-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
+        }
+        .bar-server { font-weight: 600; color: rgba(255, 255, 255, 0.9); }
+        .bar-total {
+            font-size: 1.05rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8A8AFF, #FF8AE2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bar-factions { font-size: 0.82rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.15rem; }
+        .bar-asmo { color: #FF6B6B; font-weight: 600; }
+        .bar-ely  { color: #87CEEB; font-weight: 600; }
+        .online-bar-sep { color: rgba(255,255,255,0.2); user-select: none; }
+        .bar-updated { margin-left: auto; font-size: 0.75rem; color: rgba(255,255,255,0.35); white-space: nowrap; }
+        @media (max-width: 600px) {
+            .online-bar-sep { display: none; }
+            .online-bar-item { flex-basis: 100%; }
+            .bar-updated { margin-left: 0; flex-basis: 100%; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 0.3rem; }
+        }
+
+        /* Онлайн віджети стилі (старі) */
         .online-section {
             display: flex;
             justify-content: center;
