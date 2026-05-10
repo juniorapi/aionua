@@ -27,9 +27,9 @@ try:
     resp = scraper.get('https://euroaion.com/en-US', timeout=15)
     html = resp.text
 
-    online_match    = re.search(r"Status:\s*ONLINE\s*(\d+)", html)
-    elyos_match     = re.search(r"Elyos:\s*(\d+)%", html)
-    asmodians_match = re.search(r"Asmodians:\s*(\d+)%", html)
+    online_match    = re.search(r"<strong>ONLINE</strong>\s*(\d+)", html)
+    elyos_match     = re.search(r"status-race--elyos\b.*?(\d+)%", html, re.DOTALL)
+    asmodians_match = re.search(r"status-race--asmo\b.*?(\d+)%", html, re.DOTALL)
 
     data['euro'] = {
         'total':      int(online_match.group(1))    if online_match    else 0,
