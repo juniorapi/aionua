@@ -353,10 +353,8 @@ h1 {
 }
 
 .event-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 5px;
-    padding: 10px 10px 10px 12px;
+    display: block;
+    padding: 8px 10px 8px 12px;
     background: rgba(7, 7, 15, 0.55);
     border-radius: 8px;
     border-left: 3px solid var(--ev-color, var(--border-strong));
@@ -366,24 +364,6 @@ h1 {
 .event-item:hover {
     background: rgba(20, 20, 37, 0.85);
     transform: translateX(2px);
-}
-
-.event-item__icon {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    background: rgba(20, 20, 37, 0.7);
-    border-radius: 6px;
-    border: 1px solid var(--border-subtle);
-}
-
-.event-item__body {
-    flex: 1;
-    min-width: 0;
 }
 
 .event-item__name {
