@@ -17,16 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
    
     rows.forEach(row => {
-       
         const cells = row.querySelectorAll('td');
-        
-       
         const dayIndex = currentDay === 0 ? 7 : currentDay;
-        
-       
         if (cells[dayIndex]) {
             cells[dayIndex].classList.add('highlight');
         }
+
+        row.querySelectorAll('td.schedule-time').forEach(cell => {
+            if (cell.textContent.trim()) {
+                cell.classList.add('has-event');
+            }
+        });
     });
 
    document.querySelector('.back-button').addEventListener('click', () => {

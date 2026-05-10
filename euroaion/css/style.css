@@ -74,6 +74,32 @@ body {
 		.text-red {
     color: #ff4d4d;
 		}
+
+        /* Event row color variables */
+        tr.ev-deradikon  { --ev-color: #f59e0b; }
+        tr.ev-runatorium { --ev-color: #ef4444; }
+        tr.ev-iormund    { --ev-color: #8b5cf6; }
+        tr.ev-kamara     { --ev-color: #3b82f6; }
+        tr.ev-fortress   { --ev-color: #14b8a6; }
+        tr.ev-tiamara    { --ev-color: #ec4899; }
+        tr.ev-krotan     { --ev-color: #22c55e; }
+        tr.ev-silus      { --ev-color: #16a34a; }
+        tr.ev-kelka      { --ev-color: #eab308; }
+        tr.ev-inga       { --ev-color: #06b6d4; }
+        tr.ev-sirka      { --ev-color: #6366f1; }
+        tr.ev-siel       { --ev-color: #818cf8; }
+        tr.ev-holy       { --ev-color: #fbbf24; }
+        tr.ev-glory      { --ev-color: #f97316; }
+        tr.ev-arenas     { --ev-color: #94a3b8; }
+
+        tr[class*="ev-"] td.schedule-label {
+            border-left: 4px solid var(--ev-color);
+            padding-left: 10px;
+        }
+
+        tr[class*="ev-"] td.schedule-time.has-event {
+            border-left: 3px solid var(--ev-color);
+        }
 		.back-button {
     position: fixed;
     top: 20px;
