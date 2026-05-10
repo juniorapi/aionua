@@ -185,17 +185,22 @@ h1 {
 
 #current-time {
     margin-top: 16px;
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
     padding: 8px 18px;
     border: 1px solid var(--border-subtle);
     border-radius: 6px;
     background: rgba(20, 20, 37, 0.6);
-    color: var(--cyan);
     font-size: 0.95rem;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
     backdrop-filter: blur(8px);
 }
+
+.time-local  { color: var(--text-secondary); }
+.time-server { color: var(--cyan); font-weight: 500; }
 
 /* ---- Main / week grid ---- */
 .schedule-main {

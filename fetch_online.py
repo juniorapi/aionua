@@ -47,3 +47,21 @@ with open('data.json', 'w') as f:
     json.dump(data, f)
 
 print(f"Saved: {data}")
+
+# --- EuroAion Schedule ---
+try:
+    import re as _re
+    resp2 = scraper.get('https://euroaion.com/en-US/Tools/Schedule', timeout=15)
+    match = _re.search(
+        r'<script[^>]+id=["\']schedule-data["\'][^>]*>(.*?)</script>',
+        resp2.text, _re.DOTALL
+    )
+    if match:
+        schedule = json.loads(match.group(1))
+        with open('euroaion/schedule.json', 'w', encoding='utf-8') as f:
+            json.dump(schedule, f, ensure_ascii=False)
+        print(f"Schedule saved: {len(schedule.get('events', []))} events")
+    else:
+        print("Schedule: script tag not found")
+except Exception as e:
+    print(f"Schedule error: {e}")
