@@ -5,193 +5,373 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EuroAion розклад</title>
     <link rel="stylesheet" href="css/style.css">
-	<script src="https://momentjs.com/downloads/moment.min.js"></script>
-	<script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BDBL7DSC46');
+    </script>
 </head>
-<button class="back-button">
-    <span class="back-icon">←</span>
-    
-</button>
 <body>
-    <h1>Розклад EuroAion</h1>
-    <div id="current-time"></div>
-   
-    <table class="schedule-table">
-        <thead>
-            <tr>
-                <th>Інстанс</th>
-                <th>Пн</th>
-                <th>Вт</th>
-                <th>Ср</th>
-                <th>Чт</th>
-                <th>Пт</th>
-                <th>Сб</th>
-                <th>Нд</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="ev-deradikon">
-                <td class="schedule-label">Дерадикон</td>
-                <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-				<td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
-            </tr>
-			 <tr class="ev-runatorium">
-                <td class="schedule-label text-red"><b>Рунаторіум</b></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time"></td>
-            </tr>
-            <tr class="ev-iormund">
-                <td class="schedule-label">Міст Йормунґанда</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
-            </tr>
-            <tr class="ev-kamara">
-                <td class="schedule-label">Поле битви Камара</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-				<td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-                <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
-            </tr>
-            <tr class="ev-fortress">
-                <td class="schedule-label">Неприступна твердиня</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-				<td class="schedule-time">12:00-14:00<br>16:00-18:00</td>
-                <td class="schedule-time">12:00-14:00<br>16:00-18:00</td>
-                <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>16:00-18:00<br></td>
-            </tr>
-            <tr class="ev-tiamara">
-                <td class="schedule-label">Тіамаранта</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-                <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
-            </tr>
-            <tr class="ev-krotan">
-                <td class="schedule-label">Кротан/Ткісас/Ра-Мірен</td>
-                <td class="schedule-time"></td>
-				<td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-            </tr>
-            <tr class="ev-silus">
-                <td class="schedule-label">Сілус/Базен/Парадес</td>
-                <td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">22:00-23:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">22:00-23:00</td>
-            </tr>
-			 <tr class="ev-kelka">
-                <td class="schedule-label">Келька</td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-            </tr>
-			<tr class="ev-inga">
-                <td class="schedule-label">Інга</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">20:00-21:00</td>
-                <td class="schedule-time">20:00-21:00</td>
-            </tr>
-			<tr class="ev-sirka">
-                <td class="schedule-label">Сірка/Астерія/Ру</td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time">16:00-17:00</td>
-            </tr>
-			<tr class="ev-siel">
-                <td class="schedule-label">Західна/Східна Сіель</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time">16:00-17:00</td>
-                <td class="schedule-time">16:00-17:00</td>
-				<td class="schedule-time">16:00-17:00</td>
-            </tr>
-			<tr class="ev-holy">
-                <td class="schedule-label">Фортеця Святості (РРХ)</td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time">23:00-00:00</td>
-				<td class="schedule-time"></td>
-            </tr>
-            <tr class="ev-glory">
-                <td class="schedule-label text-red"><b>Арена Слави</b></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-                <td class="schedule-time"></td>
-				<td class="schedule-time"></td>
-                <td class="schedule-time">12:00-13:00<br>20:00-22:00</td>
-                <td class="schedule-time">12:00-13:00<br>20:00-22:00</td>
-             </tr>
-            <tr class="ev-arenas">
-                <td class="schedule-label">Арени Хаосу/Доблесті/Покровительства</td>
-                <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-                <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-                <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-                <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-                <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-                <td class="schedule-time">12:00-02:00</td>
-                <td class="schedule-time">12:00-02:00</td>
-            </tr>
-            
-        </tbody>
-    </table>
-<script src="js/script.js"></script>    
+    <div class="aurora"></div>
+    <div class="stars"></div>
+
+    <button class="back-button" aria-label="Повернутись назад">
+        <span class="back-icon">←</span>
+        <span class="back-text">Назад</span>
+    </button>
+
+    <header class="page-header">
+        <div class="header-mark">
+            <span class="mark-rune">⟁</span>
+            <span class="mark-line"></span>
+            <span class="mark-rune">⟁</span>
+        </div>
+        <h1>Розклад EuroAion</h1>
+        <div class="header-subtitle">Хроніка битв та інстансів сервера</div>
+        <div id="current-time"></div>
+    </header>
+
+    <main class="schedule-main">
+        <!-- Card-based week grid (visible) -->
+        <section class="week-grid" aria-label="Розклад подій по днях тижня">
+            <article class="day-card" data-day="1">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Пн</span>
+                        <span class="day-card__full">Понеділок</span>
+                    </div>
+                    <span class="day-card__badge">День 1</span>
+                </header>
+                <ul class="day-events" data-day-index="1"></ul>
+            </article>
+
+            <article class="day-card" data-day="2">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Вт</span>
+                        <span class="day-card__full">Вівторок</span>
+                    </div>
+                    <span class="day-card__badge">День 2</span>
+                </header>
+                <ul class="day-events" data-day-index="2"></ul>
+            </article>
+
+            <article class="day-card" data-day="3">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Ср</span>
+                        <span class="day-card__full">Середа</span>
+                    </div>
+                    <span class="day-card__badge">День 3</span>
+                </header>
+                <ul class="day-events" data-day-index="3"></ul>
+            </article>
+
+            <article class="day-card" data-day="4">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Чт</span>
+                        <span class="day-card__full">Четвер</span>
+                    </div>
+                    <span class="day-card__badge">День 4</span>
+                </header>
+                <ul class="day-events" data-day-index="4"></ul>
+            </article>
+
+            <article class="day-card" data-day="5">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Пт</span>
+                        <span class="day-card__full">П'ятниця</span>
+                    </div>
+                    <span class="day-card__badge">День 5</span>
+                </header>
+                <ul class="day-events" data-day-index="5"></ul>
+            </article>
+
+            <article class="day-card" data-day="6">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Сб</span>
+                        <span class="day-card__full">Субота</span>
+                    </div>
+                    <span class="day-card__badge">День 6</span>
+                </header>
+                <ul class="day-events" data-day-index="6"></ul>
+            </article>
+
+            <article class="day-card" data-day="7">
+                <header class="day-card__header">
+                    <div class="day-card__name">
+                        <span class="day-card__short">Нд</span>
+                        <span class="day-card__full">Неділя</span>
+                    </div>
+                    <span class="day-card__badge">День 7</span>
+                </header>
+                <ul class="day-events" data-day-index="7"></ul>
+            </article>
+        </section>
+
+        <!-- Source-of-truth schedule table (kept for JS logic, hidden visually) -->
+        <table class="schedule-table" aria-hidden="true">
+            <thead>
+                <tr>
+                    <th>Інстанс</th>
+                    <th>Пн</th>
+                    <th>Вт</th>
+                    <th>Ср</th>
+                    <th>Чт</th>
+                    <th>Пт</th>
+                    <th>Сб</th>
+                    <th>Нд</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="ev-deradikon" data-icon="⚔️">
+                    <td class="schedule-label">Дерадикон</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                    <td class="schedule-time">00:00-01:00<br>12:00-14:00<br>21:00-22:00<br>23:00-00:00</td>
+                </tr>
+                <tr class="ev-runatorium" data-icon="🔮">
+                    <td class="schedule-label text-red"><b>Рунаторіум</b></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time"></td>
+                </tr>
+                <tr class="ev-iormund" data-icon="🌊">
+                    <td class="schedule-label">Міст Йормунґанда</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>19:00-21:00</td>
+                </tr>
+                <tr class="ev-kamara" data-icon="🛡️">
+                    <td class="schedule-label">Поле битви Камара</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                    <td class="schedule-time">18:00-20:00<br>21:00-22:00</td>
+                </tr>
+                <tr class="ev-fortress" data-icon="🏰">
+                    <td class="schedule-label">Неприступна твердиня</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-14:00<br>16:00-18:00</td>
+                    <td class="schedule-time">12:00-14:00<br>16:00-18:00</td>
+                    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>16:00-18:00<br></td>
+                </tr>
+                <tr class="ev-tiamara" data-icon="💧">
+                    <td class="schedule-label">Тіамаранта</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                    <td class="schedule-time">14:00-15:00<br>18:00-19:00</td>
+                </tr>
+                <tr class="ev-krotan" data-icon="⚡">
+                    <td class="schedule-label">Кротан/Ткісас/Ра-Мірен</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                </tr>
+                <tr class="ev-silus" data-icon="⚡">
+                    <td class="schedule-label">Сілус/Базен/Парадес</td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">22:00-23:00</td>
+                </tr>
+                <tr class="ev-kelka" data-icon="🗡️">
+                    <td class="schedule-label">Келька</td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                </tr>
+                <tr class="ev-inga" data-icon="🗡️">
+                    <td class="schedule-label">Інга</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">20:00-21:00</td>
+                    <td class="schedule-time">20:00-21:00</td>
+                </tr>
+                <tr class="ev-sirka" data-icon="🏯">
+                    <td class="schedule-label">Сірка/Астерія/Ру</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                </tr>
+                <tr class="ev-siel" data-icon="🏯">
+                    <td class="schedule-label">Західна/Східна Сіель</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                    <td class="schedule-time">16:00-17:00</td>
+                </tr>
+                <tr class="ev-holy" data-icon="✨">
+                    <td class="schedule-label">Фортеця Святості (РРХ)</td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">23:00-00:00</td>
+                    <td class="schedule-time"></td>
+                </tr>
+                <tr class="ev-glory" data-icon="🏆">
+                    <td class="schedule-label text-red"><b>Арена Слави</b></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time"></td>
+                    <td class="schedule-time">12:00-13:00<br>20:00-22:00</td>
+                    <td class="schedule-time">12:00-13:00<br>20:00-22:00</td>
+                </tr>
+                <tr class="ev-arenas" data-icon="⚔️">
+                    <td class="schedule-label">Арени Хаосу/Доблесті/Покровительства</td>
+                    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
+                    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
+                    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
+                    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
+                    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
+                    <td class="schedule-time">12:00-02:00</td>
+                    <td class="schedule-time">12:00-02:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer class="page-footer">
+        <span class="footer-rune">✦</span>
+        <span class="footer-text">Час перерахований у твоєму локальному поясі</span>
+        <span class="footer-rune">✦</span>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Build cards from the (hidden) schedule table after JS converted timezones
+        document.addEventListener('DOMContentLoaded', function () {
+            // Run after script.js has finished its DOMContentLoaded work
+            setTimeout(buildDayCards, 0);
+        });
+
+        function buildDayCards() {
+            const dayLists = document.querySelectorAll('.day-events');
+            const rows = document.querySelectorAll('.schedule-table tbody tr');
+
+            dayLists.forEach(list => {
+                const dayIdx = parseInt(list.getAttribute('data-day-index'), 10);
+                const fragment = document.createDocumentFragment();
+
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    const cell = cells[dayIdx];
+                    if (!cell) return;
+                    const txt = cell.textContent.trim();
+                    if (!txt) return;
+
+                    const labelCell = row.querySelector('.schedule-label');
+                    const labelText = labelCell ? labelCell.textContent.trim() : '';
+                    const isAccent = labelCell && labelCell.classList.contains('text-red');
+                    const evClass = Array.from(row.classList).find(c => c.startsWith('ev-')) || '';
+                    const icon = row.getAttribute('data-icon') || '◈';
+
+                    const li = document.createElement('li');
+                    li.className = 'event-item ' + evClass + (isAccent ? ' event-item--accent' : '');
+
+                    const iconEl = document.createElement('span');
+                    iconEl.className = 'event-item__icon';
+                    iconEl.textContent = icon;
+
+                    const body = document.createElement('div');
+                    body.className = 'event-item__body';
+
+                    const name = document.createElement('div');
+                    name.className = 'event-item__name';
+                    name.textContent = labelText;
+                    body.appendChild(name);
+
+                    const times = document.createElement('div');
+                    times.className = 'event-item__times';
+                    cell.innerHTML.split(/<br\s*\/?>/i).forEach(slot => {
+                        const t = slot.replace(/<[^>]*>/g, '').trim();
+                        if (!t) return;
+                        const span = document.createElement('span');
+                        span.className = 'event-item__slot';
+                        span.textContent = t;
+                        times.appendChild(span);
+                    });
+                    body.appendChild(times);
+
+                    li.appendChild(iconEl);
+                    li.appendChild(body);
+                    fragment.appendChild(li);
+                });
+
+                if (!fragment.childNodes.length) {
+                    const empty = document.createElement('li');
+                    empty.className = 'event-item event-item--empty';
+                    empty.textContent = 'Тиша. Жодних подій цього дня.';
+                    fragment.appendChild(empty);
+                }
+
+                list.appendChild(fragment);
+            });
+
+            // Mark today's card
+            const today = (typeof moment !== 'undefined') ? moment().day() : new Date().getDay();
+            const todayIdx = today === 0 ? 7 : today;
+            const todayCard = document.querySelector('.day-card[data-day="' + todayIdx + '"]');
+            if (todayCard) {
+                todayCard.classList.add('day-card--today');
+                todayCard.setAttribute('aria-current', 'date');
+            }
+        }
+    </script>
 </body>
 </html>
