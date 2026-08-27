@@ -15,6 +15,7 @@ const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
+  ".png": "image/png",
 };
 
 function launchBrowser() {
@@ -29,6 +30,11 @@ function launchBrowser() {
 
 test("localization page presents three direct client downloads", async () => {
   const htmlSource = await readFile(path.join(root, "localization", "index.html"), "utf8");
+  const datesSource = await readFile(path.join(root, "localization", "dates.js"), "utf8");
+  const configuredDates = Object.fromEntries(
+    [...datesSource.matchAll(/(destiny|origin|riftshade):\s*"([^"]+)"/g)]
+      .map(([, client, date]) => [client, date]),
+  );
   assert.match(htmlSource, /Destiny 4\.6/);
   assert.match(htmlSource, /Origin 4\.6/);
   assert.match(htmlSource, /Riftshade 4\.8/);
@@ -70,12 +76,23 @@ test("localization page presents three direct client downloads", async () => {
     assert.equal(await page.getByRole("heading", { name: "Оберіть свій сервер" }).count(), 1);
     assert.equal(await page.locator(".download-card").count(), 3);
     assert.deepEqual(
+      await page.locator(".server-mark img").evaluateAll((images) => images.map((logo) => ({
+        file: new URL(logo.src).pathname.split("/").at(-1),
+        loaded: logo.complete && logo.naturalWidth > 0,
+      }))),
+      [
+        { file: "destiny-logo.png", loaded: true },
+        { file: "origin-logo.png", loaded: true },
+        { file: "riftshade-logo.png", loaded: true },
+      ],
+    );
+    assert.deepEqual(
       await page.locator(".download-card h3").allInnerTexts(),
       ["Destiny 4.6", "Origin 4.6", "Riftshade 4.8"],
     );
     assert.deepEqual(
       await page.locator("[data-date]").allInnerTexts(),
-      ["23.08.2026", "26.08.2026", "26.08.2026"],
+      [configuredDates.destiny, configuredDates.origin, configuredDates.riftshade],
     );
     assert.deepEqual(
       await page.locator("[data-download]").evaluateAll((links) => links.map((link) => ({

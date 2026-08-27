@@ -182,13 +182,18 @@ h2, h3, p { overflow-wrap: anywhere; }
   width: 44px;
   height: 44px;
   place-items: center;
+  overflow: hidden;
   border: 1px solid #5a5a6e;
   border-radius: 7px;
-  background: linear-gradient(145deg, rgba(255, 215, 0, 0.22), transparent 55%), var(--surface-deep);
-  color: var(--gold);
+  background: #141421;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
-  font-size: 1rem;
-  font-weight: 800;
+}
+
+.server-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-heading p {
