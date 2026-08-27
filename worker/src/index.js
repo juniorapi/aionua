@@ -39,7 +39,19 @@ const EURO_ASMO_RE = /status-race--asmo\b[\s\S]*?(\d+)%/;
 /** Survives between requests on the same isolate, so the Cache API is never the only guard. */
 let memoryCache = null;
 
-const nowSeconds = () => Math.floor(Date.now() / 1000);
+/**
+ * Age of a cached payload in seconds, read from the data itself.
+ * Timing it from when this isolate stored the copy would restart the clock on
+ * every edge-cache hit, letting a body live well past TTL_SECONDS.
+ */
+function bodyAge(body) {
+  try {
+    const updatedAt = Date.parse(JSON.parse(body).updated_at);
+    return Number.isFinite(updatedAt) ? Math.max(0, Math.round((Date.now() - updatedAt) / 1000)) : Infinity;
+  } catch {
+    return Infinity;
+  }
+}
 
 async function fetchUpstream(url, accept) {
   const response = await fetch(url, {
@@ -166,8 +178,8 @@ export default {
       return new Response('Method Not Allowed', { status: 405, headers: corsHeaders(request) });
     }
 
-    const age = memoryCache ? nowSeconds() - memoryCache.storedAt : Infinity;
-    if (memoryCache && age < TTL_SECONDS) {
+    const age = memoryCache ? bodyAge(memoryCache.body) : Infinity;
+    if (age < TTL_SECONDS) {
       return jsonResponse(request, memoryCache.body, { age });
     }
 
@@ -177,8 +189,11 @@ export default {
     const cached = await cache.match(cacheKey);
     if (cached) {
       const body = await cached.text();
-      memoryCache = { body, storedAt: nowSeconds() };
-      return jsonResponse(request, body, { age: 0 });
+      const cachedAge = bodyAge(body);
+      if (cachedAge < TTL_SECONDS) {
+        memoryCache = { body };
+        return jsonResponse(request, body, { age: cachedAge });
+      }
     }
 
     let data;
@@ -204,7 +219,7 @@ export default {
     }
 
     const body = JSON.stringify(data);
-    memoryCache = { body, storedAt: nowSeconds() };
+    memoryCache = { body };
     ctx.waitUntil(
       cache.put(
         cacheKey,
