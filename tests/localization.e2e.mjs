@@ -29,8 +29,11 @@ function launchBrowser() {
 
 test("localization page presents three direct client downloads", async () => {
   const htmlSource = await readFile(path.join(root, "localization", "index.html"), "utf8");
-  assert.doesNotMatch(htmlSource, /\b4\.[68]\b/);
+  assert.match(htmlSource, /Destiny 4\.6/);
+  assert.match(htmlSource, /Origin 4\.6/);
+  assert.match(htmlSource, /Riftshade 4\.8/);
   assert.doesNotMatch(htmlSource, /\b\d{2}\.\d{2}\.\d{4}\b/);
+  assert.match(htmlSource, /<script src="dates\.js"><\/script>/);
 
   const server = createServer(async (request, response) => {
     try {

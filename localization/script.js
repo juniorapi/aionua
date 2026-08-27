@@ -1,27 +1,13 @@
 const backButton = document.querySelector(".back-button");
 
-for (const [client, release] of Object.entries(window.AION_VERSIONS ?? {})) {
+for (const [client, configuredDate] of Object.entries(window.AION_UPDATE_DATES ?? {})) {
   const card = document.querySelector(`[data-client="${client}"]`);
-  const version = String(release?.version ?? "").trim();
-  const date = String(release?.date ?? "").trim();
+  const date = String(configuredDate).trim();
 
-  if (!card || !version) continue;
-
-  for (const element of card.querySelectorAll("[data-version]")) {
-    element.textContent = version;
-  }
+  if (!card || !date) continue;
 
   const dateElement = card.querySelector("[data-date]");
   if (dateElement) dateElement.textContent = date;
-
-  const downloadButton = card.querySelector("[data-download]");
-  const clientName = card.dataset.clientName;
-  if (downloadButton && clientName) {
-    downloadButton.setAttribute(
-      "aria-label",
-      `Завантажити українську локалізацію для ${clientName} ${version}`,
-    );
-  }
 }
 
 backButton?.addEventListener("click", () => {
