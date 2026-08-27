@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aion</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=origin-online">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
@@ -25,6 +25,12 @@
                 <span class="bar-server">AionDestiny</span>
                 <span class="bar-total" id="destiny-total">—</span>
                 <span class="bar-factions">(<span class="bar-asmo" id="destiny-asmo">—</span> / <span class="bar-ely" id="destiny-ely">—</span>)</span>
+            </div>
+            <div class="online-bar-sep">•</div>
+            <div class="online-bar-item">
+                <div class="status-dot is-loading" id="origin-status-dot"></div>
+                <span class="bar-server">Origin Aion</span>
+                <span class="bar-total" id="origin-total">—</span>
             </div>
             <div class="online-bar-sep">•</div>
             <div class="online-bar-item">
@@ -97,6 +103,12 @@ async function loadOnline() {
         document.getElementById('destiny-total').textContent = d.destiny.total;
         document.getElementById('destiny-asmo').textContent  = 'Asm: ' + d.destiny.dark;
         document.getElementById('destiny-ely').textContent   = 'Ely: ' + d.destiny.light;
+
+        const originOnline = Boolean(d.origin?.is_online);
+        const originDot = document.getElementById('origin-status-dot');
+        document.getElementById('origin-total').textContent = originOnline ? d.origin.total : 'офлайн';
+        originDot.classList.remove('is-loading');
+        originDot.classList.toggle('is-offline', !originOnline);
 
         document.getElementById('euro-total').textContent = d.euro.total;
         document.getElementById('euro-asmo').textContent  = 'Asm: ' + d.euro.asmo_pct + '%';

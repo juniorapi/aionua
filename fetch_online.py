@@ -20,6 +20,21 @@ except Exception as e:
     data['destiny'] = {'total': 0, 'light': 0, 'dark': 0}
     print(f"Destiny error: {e}")
 
+# --- Origin Aion ---
+try:
+    resp = requests.get('https://originaion.com/api/server-status', timeout=10)
+    resp.raise_for_status()
+    origin_status = resp.json()
+    player_count = origin_status.get('playerCount') or {}
+    data['origin'] = {
+        'total': int(player_count.get('total') or 0),
+        'is_online': bool(origin_status.get('isOnline')),
+    }
+    print(f"Origin: {data['origin']}")
+except Exception as e:
+    data['origin'] = {'total': 0, 'is_online': False}
+    print(f"Origin error: {e}")
+
 # --- EuroAion ---
 try:
     import cloudscraper

@@ -199,6 +199,17 @@
             animation: pulse-dot 2s infinite;
         }
 
+        .status-dot.is-loading {
+            background-color: #858598;
+            box-shadow: none;
+        }
+
+        .status-dot.is-offline {
+            background-color: #FF6B6B;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.8);
+            animation: none;
+        }
+
         @keyframes pulse-dot {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
