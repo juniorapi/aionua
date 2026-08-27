@@ -28,6 +28,9 @@ function launchBrowser() {
 }
 
 test("localization page presents three direct client downloads", async () => {
+  const htmlSource = await readFile(path.join(root, "localization", "index.html"), "utf8");
+  assert.doesNotMatch(htmlSource, /\b4\.[68]\b/);
+
   const server = createServer(async (request, response) => {
     try {
       const pathname = decodeURIComponent(new URL(request.url, "http://127.0.0.1").pathname);
@@ -58,7 +61,9 @@ test("localization page presents three direct client downloads", async () => {
     await page.goto(`http://127.0.0.1:${port}/localization/`, { waitUntil: "domcontentloaded" });
     await page.locator(".download-card").first().waitFor();
 
-    assert.equal(await page.locator("html").getAttribute("lang"), "ru");
+    assert.equal(await page.locator("html").getAttribute("lang"), "uk");
+    assert.equal(await page.locator("h1").innerText(), "Українська локалізація Aion");
+    assert.equal(await page.getByRole("heading", { name: "Оберіть свій сервер" }).count(), 1);
     assert.equal(await page.locator(".download-card").count(), 3);
     assert.deepEqual(
       await page.locator(".download-card h3").allInnerTexts(),

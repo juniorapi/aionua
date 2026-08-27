@@ -1,5 +1,25 @@
 const backButton = document.querySelector(".back-button");
 
+for (const [client, configuredVersion] of Object.entries(window.AION_VERSIONS ?? {})) {
+  const card = document.querySelector(`[data-client="${client}"]`);
+  const version = String(configuredVersion).trim();
+
+  if (!card || !version) continue;
+
+  for (const element of card.querySelectorAll("[data-version]")) {
+    element.textContent = version;
+  }
+
+  const downloadButton = card.querySelector("[data-download]");
+  const clientName = card.dataset.clientName;
+  if (downloadButton && clientName) {
+    downloadButton.setAttribute(
+      "aria-label",
+      `Завантажити українську локалізацію для ${clientName} ${version}`,
+    );
+  }
+}
+
 backButton?.addEventListener("click", () => {
   if (window.history.length > 1) {
     window.history.back();
@@ -15,7 +35,7 @@ for (const button of document.querySelectorAll("[data-download]")) {
 
     const originalLabel = label.textContent;
     button.classList.add("is-starting");
-    label.textContent = "Загрузка началась…";
+    label.textContent = "Завантаження почалося…";
 
     window.setTimeout(() => {
       button.classList.remove("is-starting");
