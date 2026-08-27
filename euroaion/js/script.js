@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const SERVER_OFFSET_HOURS = 2;
   const HOUR_MS = 60 * 60 * 1000;
   const DAY_MS = 24 * HOUR_MS;
+  const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Локальний час";
+  let serverOffsetHours = 2;
   const tbody = document.getElementById("schedule-body");
   const status = document.getElementById("schedule-status");
 
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hourCycle: "h23",
   });
   const serverClock = new Intl.DateTimeFormat("uk-UA", {
-    timeZone: "Etc/GMT-2",
+    timeZone: "UTC",
     weekday: "long",
     hour: "2-digit",
     minute: "2-digit",
@@ -69,21 +70,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateClocks() {
     const now = new Date();
+    const serverNow = new Date(now.getTime() + serverOffsetHours * HOUR_MS);
     document.getElementById("current-time").innerHTML =
       `<span>Ваш час: ${localClock.format(now)}</span>` +
-      `<span class="server-time">Сервер (UTC+2): ${serverClock.format(now)}</span>`;
+      `<span class="server-time">Сервер (${formatOffset(serverOffsetHours)}): ${serverClock.format(serverNow)}</span>`;
   }
 
-  function getServerWeekStart() {
+  function formatOffset(offsetHours) {
+    const totalMinutes = Math.round(offsetHours * 60);
+    const sign = totalMinutes >= 0 ? "+" : "−";
+    const absoluteMinutes = Math.abs(totalMinutes);
+    const hours = Math.floor(absoluteMinutes / 60);
+    const minutes = absoluteMinutes % 60;
+    return `UTC${sign}${hours}${minutes ? `:${String(minutes).padStart(2, "0")}` : ""}`;
+  }
+
+  function updateTimezoneNote() {
+    const localOffsetHours = -new Date().getTimezoneOffset() / 60;
+    document.getElementById("timezone-note").textContent =
+      `Вихідні дані: ${formatOffset(serverOffsetHours)}. ` +
+      `Показано за локальним часом комп'ютера: ${localTimeZone} (${formatOffset(localOffsetHours)}).`;
+  }
+
+  function getServerWeekStart(offsetHours) {
     const now = new Date();
-    const serverNow = new Date(now.getTime() + SERVER_OFFSET_HOURS * HOUR_MS);
+    const serverNow = new Date(now.getTime() + offsetHours * HOUR_MS);
     const daysSinceMonday = (serverNow.getUTCDay() + 6) % 7;
     const serverMidnightUtc = Date.UTC(
       serverNow.getUTCFullYear(),
       serverNow.getUTCMonth(),
       serverNow.getUTCDate(),
     );
-    return serverMidnightUtc - daysSinceMonday * DAY_MS - SERVER_OFFSET_HOURS * HOUR_MS;
+    return serverMidnightUtc - daysSinceMonday * DAY_MS - offsetHours * HOUR_MS;
   }
 
   function localDayIndex(date) {
@@ -108,8 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return names.map((name) => translations[name] || name).join(" / ");
   }
 
-  function groupEvents(events) {
-    const weekStart = getServerWeekStart();
+  function groupEvents(events, offsetHours) {
+    const weekStart = getServerWeekStart(offsetHours);
     const groups = new Map();
 
     events.forEach((event) => {
@@ -140,8 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error("EuroAion returned an empty schedule");
     }
 
+    const sourceOffset = Number(data.serverOffset);
+    if (Number.isFinite(sourceOffset) && sourceOffset >= -12 && sourceOffset <= 14) {
+      serverOffsetHours = sourceOffset;
+    }
+    updateClocks();
+    updateTimezoneNote();
+
     const fragment = document.createDocumentFragment();
-    groupEvents(data.events).forEach((event) => {
+    groupEvents(data.events, serverOffsetHours).forEach((event) => {
       const row = document.createElement("tr");
       if (/Рунаториум|Арена славы|Runatorium|Arena of Glory/i.test(event.originalName)) {
         row.classList.add("featured-event");
@@ -215,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateClocks();
+  updateTimezoneNote();
   window.setInterval(updateClocks, 1000);
   loadSchedule();
 });

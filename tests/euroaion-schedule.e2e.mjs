@@ -50,7 +50,11 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
 
   const browser = await launchBrowser();
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1000 },
+    timezoneId: "Europe/Kyiv",
+  });
+  const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => {
@@ -67,6 +71,14 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
     assert.equal(await page.getByRole("heading", { name: "Розклад EuroAion" }).count(), 1);
     assert.equal(await page.locator("#schedule-body tr").count(), 15);
     assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Джерела Тіамаранти");
+    assert.deepEqual(
+      await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
+      "15:00-16:00\n19:00-20:00",
+    );
+    assert.match(
+      await page.locator("#timezone-note").innerText(),
+      /Вихідні дані: UTC\+2.*Europe\/(?:Kyiv|Kiev) \(UTC\+3\)/,
+    );
     assert.equal(await page.getByText("Рунаторіум", { exact: true }).count(), 1);
     assert.equal(await page.getByText("Источники Тиамаранты", { exact: true }).count(), 0);
     assert.match(await page.locator("#schedule-status").innerText(), /^Оновлено .* · 18 записів$/);
@@ -103,7 +115,20 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
     assert.ok(dimensions.content <= dimensions.viewport, JSON.stringify(dimensions));
     assert.ok(dimensions.tableContent > dimensions.tableViewport, JSON.stringify(dimensions));
     await page.screenshot({ path: path.join(os.tmpdir(), "aionua-euroaion-mobile.png"), fullPage: true });
+
+    await page.route("**/euroaion/schedule.json?*", (route) => route.fulfill({
+      contentType: "application/json",
+      body: JSON.stringify({ ...schedule, serverOffset: 0 }),
+    }));
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => document.querySelectorAll("#schedule-body tr").length === 15);
+    assert.equal(
+      await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
+      "17:00-18:00\n21:00-22:00",
+    );
+    assert.match(await page.locator("#timezone-note").innerText(), /Вихідні дані: UTC\+0/);
   } finally {
+    await context.close();
     await browser.close();
     await new Promise((resolve) => server.close(resolve));
   }
