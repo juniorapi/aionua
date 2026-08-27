@@ -229,7 +229,7 @@ print(f"Saved: {data}")
 try:
     import cloudscraper as _cloudscraper
 
-    schedule_url = 'https://euroaion.com/ru-RU/Tools/Schedule'
+    schedule_url = 'https://euroaion.com/en-US/Tools/Schedule'
     schedule_scraper = _cloudscraper.create_scraper()
     resp2 = schedule_scraper.get(schedule_url, timeout=15)
     resp2.raise_for_status()

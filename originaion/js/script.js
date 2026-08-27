@@ -187,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label.scope = "row";
       label.className = "schedule-label";
       label.textContent = event.name;
+      label.title = `Офіційна назва: ${event.originalName}`;
       row.appendChild(label);
 
       event.days.forEach((slots) => {

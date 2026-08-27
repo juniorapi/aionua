@@ -30,7 +30,7 @@ function launchBrowser() {
 
 test("EuroAion page renders the official schedule in the AionDestiny table style", async () => {
   const schedule = JSON.parse(await readFile(path.join(root, "euroaion", "schedule.json"), "utf8"));
-  assert.equal(schedule.sourceUrl, "https://euroaion.com/ru-RU/Tools/Schedule");
+  assert.equal(schedule.sourceUrl, "https://euroaion.com/en-US/Tools/Schedule");
   assert.equal(schedule.events.length, 18);
 
   const server = createServer(async (request, response) => {
@@ -65,20 +65,26 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
   try {
     const port = server.address().port;
     await page.goto(`http://127.0.0.1:${port}/euroaion/`, { waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() => document.querySelectorAll("#schedule-body tr").length === 15);
+    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 26);
 
     assert.equal(await page.locator("html").getAttribute("lang"), "uk");
     assert.equal(await page.getByRole("heading", { name: "Розклад EuroAion" }).count(), 1);
-    assert.equal(await page.locator("#schedule-body tr").count(), 15);
-    assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Джерела Тіамаранти");
+    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 26);
+    assert.equal(await page.locator("#schedule-body .category-row").count(), 3);
+    assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Дерадикони");
+    assert.equal(
+      await page.locator("#schedule-body .schedule-label").first().getAttribute("title"),
+      "Офіційна назва: Dredgions",
+    );
     assert.deepEqual(
-      await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
-      "15:00-16:00\n19:00-20:00",
+      await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
+      "00:00-01:00\n01:00-02:00\n13:00-15:00\n22:00-23:00",
     );
     assert.match(await page.locator("#current-time").innerText(), /Сервер \(UTC\+2\)/);
     assert.equal(await page.getByText("Рунаторіум", { exact: true }).count(), 1);
-    assert.equal(await page.getByText("Источники Тиамаранты", { exact: true }).count(), 0);
-    assert.match(await page.locator("#schedule-status").innerText(), /^Оновлено .* · 18 записів$/);
+    assert.equal(await page.getByText("Сірчана фортеця", { exact: true }).count(), 1);
+    assert.equal(await page.getByText("Фортеці: Сірка, Астерія, Ру", { exact: true }).count(), 0);
+    assert.match(await page.locator("#schedule-status").innerText(), /^Оновлено .* · 26 подій$/);
     assert.ok(await page.locator(".schedule-table .highlight").count() > 1);
     assert.deepEqual(
       await page.evaluate(() => ({
@@ -94,8 +100,14 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
     );
     assert.deepEqual(errors, []);
 
+    await page.getByRole("button", { name: "Облоги" }).click();
+    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 17);
+    assert.equal(await page.locator("#schedule-body .category-row").count(), 1);
+    assert.equal(await page.getByRole("button", { name: "Облоги" }).getAttribute("aria-pressed"), "true");
+
     await page.screenshot({ path: path.join(os.tmpdir(), "aionua-euroaion-desktop.png"), fullPage: true });
 
+    await page.getByRole("button", { name: "Усі події" }).click();
     await page.setViewportSize({ width: 768, height: 900 });
     await page.screenshot({ path: path.join(os.tmpdir(), "aionua-euroaion-tablet.png"), fullPage: true });
 
@@ -118,10 +130,10 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
       body: JSON.stringify({ ...schedule, serverOffset: 0 }),
     }));
     await page.reload({ waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() => document.querySelectorAll("#schedule-body tr").length === 15);
+    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 26);
     assert.equal(
-      await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
-      "17:00-18:00\n21:00-22:00",
+      await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
+      "00:00-01:00\n02:00-03:00\n03:00-04:00\n15:00-17:00",
     );
     assert.match(await page.locator(".server-time").innerText(), /Сервер \(UTC\+0\)/);
   } finally {

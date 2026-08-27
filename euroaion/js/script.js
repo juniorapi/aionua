@@ -2,39 +2,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const HOUR_MS = 60 * 60 * 1000;
   const DAY_MS = 24 * HOUR_MS;
   let serverOffsetHours = 2;
+  let scheduleGroups = [];
+  let activeCategory = "all";
   const tbody = document.getElementById("schedule-body");
   const status = document.getElementById("schedule-status");
 
+  const categoryLabels = Object.freeze({
+    pvp: "PvP-інстанси",
+    arenas: "Арени",
+    siege: "Облоги",
+  });
+  const categoryOrder = Object.freeze(["pvp", "arenas", "siege"]);
+  const sourceNameExpansions = Object.freeze({
+    "Fortresses: Sulfur, Asteria, Roah": ["Sulfur Fortress", "Asteria Fortress", "Roah Fortress"],
+    "Fortresses: Siel's Eastern, Siel's Western": ["Siel's Eastern Fortress", "Siel's Western Fortress"],
+    "Fortresses: Vorgaltem Citadel, Temple of Scales": ["Vorgaltem Citadel", "Temple of Scales"],
+    "Fortresses: Altar of Avarice, Crimson Temple": ["Altar of Avarice", "Crimson Temple"],
+    "Fortresses: Sillus, Silona, Pradeth": ["Sillus Fortress", "Silona Fortress", "Pradeth Fortress"],
+    "Fortresses: Kysis, Miren, Krotan": ["Kysis Fortress", "Miren Fortress", "Krotan Fortress"],
+    "Arenas: Chaos, Discipline, Harmony": ["Arena of Chaos", "Arena of Discipline", "Arena of Harmony"],
+  });
   const translations = Object.freeze({
-    "Источники Тиамаранты": "Джерела Тіамаранти",
-    "Крепости: Серного дерева, Астерия, Ру": "Фортеці: Сірка, Астерія, Ру",
-    "Крепости: Восточная Сиэли, Западная Сиэли": "Фортеці: Східна Сіель, Західна Сіель",
-    "Крепости: Запечатанная башня, Храм древнего дракона": "Фортеці: Запечатана вежа, Храм стародавнього дракона",
-    "Крепости: Алтарь алчности, Храм красной земли": "Фортеці: Вівтар жадібності, Храм червоної землі",
-    "Крепости: Силлус, Базен, Парадес": "Фортеці: Сіллус, Базен, Парадес",
-    "Крепости: Ткисас, Ра-Мирэн, Кротан": "Фортеці: Ткісас, Ра-Мірен, Кротан",
-    "Крепость святости": "Фортеця Святості",
-    "Дерадиконы": "Дерадикони",
-    "Тоннель Йормунганда": "Тунель Йормунґанда",
-    "Рунаториум": "Рунаторіум",
-    "Поле битвы Камара": "Поле битви Камара",
-    "Неприступная твердыня": "Неприступна твердиня",
-    "Арены: Хаоса, Доблести, Покровительства": "Арени: Хаосу, Доблесті, Покровительства",
-    "Арена славы": "Арена Слави",
-    "Tiamaranta's Hearts": "Джерела Тіамаранти",
-    "Fortresses: Sulfur, Asteria, Roah": "Фортеці: Сірка, Астерія, Ру",
-    "Fortresses: Siel's Eastern, Siel's Western": "Фортеці: Східна Сіель, Західна Сіель",
-    "Fortresses: Vorgaltem Citadel, Temple of Scales": "Фортеці: Запечатана вежа, Храм стародавнього дракона",
-    "Fortresses: Altar of Avarice, Crimson Temple": "Фортеці: Вівтар жадібності, Храм червоної землі",
-    "Fortresses: Sillus, Silona, Pradeth": "Фортеці: Сіллус, Базен, Парадес",
-    "Fortresses: Kysis, Miren, Krotan": "Фортеці: Ткісас, Ра-Мірен, Кротан",
-    "Divine Fortress": "Фортеця Святості",
+    "Tiamaranta's Hearts": "Серця Тіамаранти",
+    "Sulfur Fortress": "Сірчана фортеця",
+    "Asteria Fortress": "Фортеця Астерія",
+    "Roah Fortress": "Фортеця Роа",
+    "Siel's Eastern Fortress": "Східна фортеця Сіеля",
+    "Siel's Western Fortress": "Західна фортеця Сіеля",
+    "Vorgaltem Citadel": "Цитадель Ворґальтема",
+    "Temple of Scales": "Храм Терезів",
+    "Altar of Avarice": "Вівтар Жадібності",
+    "Crimson Temple": "Багряний храм",
+    "Sillus Fortress": "Фортеця Сіллус",
+    "Silona Fortress": "Фортеця Сілона",
+    "Pradeth Fortress": "Фортеця Прадет",
+    "Kysis Fortress": "Фортеця Кісіс",
+    "Miren Fortress": "Фортеця Мірен",
+    "Krotan Fortress": "Фортеця Кротан",
+    "Divine Fortress": "Божественна фортеця",
     "Dredgions": "Дерадикони",
-    "Engulfed Ophidan Bridge": "Тунель Йормунґанда",
+    "Engulfed Ophidan Bridge": "Затоплений міст Офідана",
     "Runatorium": "Рунаторіум",
     "Kamar Battlefield": "Поле битви Камара",
-    "Iron Wall Warfront": "Неприступна твердиня",
-    "Arenas: Chaos, Discipline, Harmony": "Арени: Хаосу, Доблесті, Покровительства",
+    "Iron Wall Warfront": "Передова Залізної стіни",
+    "Arena of Chaos": "Арена Хаосу",
+    "Arena of Discipline": "Арена Дисципліни",
+    "Arena of Harmony": "Арена Гармонії",
     "Arena of Glory": "Арена Слави",
   });
 
@@ -114,8 +127,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  function translateNames(names) {
-    return names.map((name) => translations[name] || name).join(" / ");
+  function categoryFor(sourceCategory) {
+    if (sourceCategory === "arena") return "arenas";
+    if (sourceCategory === "siege" || sourceCategory === "fortress") return "siege";
+    return "pvp";
+  }
+
+  function expandNames(names) {
+    return names.flatMap((name) => sourceNameExpansions[name] || [name]);
   }
 
   function groupEvents(events, offsetHours) {
@@ -124,42 +143,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     events.forEach((event) => {
       if (!Array.isArray(event.names) || !Array.isArray(event.days) || !Array.isArray(event.times)) return;
-      const key = event.names.join("\u0000");
-      if (!groups.has(key)) {
-        groups.set(key, {
-          name: translateNames(event.names),
-          originalName: event.names.join(" "),
-          days: Array.from({ length: 7 }, () => new Set()),
-        });
-      }
+      const category = categoryFor(event.cat);
+      expandNames(event.names).forEach((sourceName) => {
+        const key = `${category}\u0000${sourceName}`;
+        if (!groups.has(key)) {
+          groups.set(key, {
+            category,
+            name: translations[sourceName] || sourceName,
+            originalName: sourceName,
+            days: Array.from({ length: 7 }, () => new Set()),
+          });
+        }
 
-      const group = groups.get(key);
-      event.days.forEach((sourceDay) => {
-        event.times.forEach((slot) => {
-          const converted = convertSlot(weekStart, Number(sourceDay), slot);
-          if (converted) group.days[converted.day].add(converted.text);
+        const group = groups.get(key);
+        event.days.forEach((sourceDay) => {
+          event.times.forEach((slot) => {
+            const converted = convertSlot(weekStart, Number(sourceDay), slot);
+            if (converted) group.days[converted.day].add(converted.text);
+          });
         });
       });
     });
 
-    return [...groups.values()];
+    return [...groups.values()].sort((left, right) => {
+      const categoryDifference = categoryOrder.indexOf(left.category) - categoryOrder.indexOf(right.category);
+      return categoryDifference || left.name.localeCompare(right.name, "uk");
+    });
   }
 
-  function renderSchedule(data) {
-    if (!data || !Array.isArray(data.events) || data.events.length === 0) {
-      throw new Error("EuroAion returned an empty schedule");
-    }
+  function addCategoryRow(fragment, category) {
+    const row = document.createElement("tr");
+    row.className = "category-row";
+    const label = document.createElement("th");
+    label.colSpan = 8;
+    label.scope = "rowgroup";
+    label.textContent = categoryLabels[category];
+    row.appendChild(label);
+    fragment.appendChild(row);
+  }
 
-    const sourceOffset = Number(data.serverOffset);
-    if (Number.isFinite(sourceOffset) && sourceOffset >= -12 && sourceOffset <= 14) {
-      serverOffsetHours = sourceOffset;
-    }
-    updateClocks();
-
+  function renderRows() {
+    const visibleGroups = scheduleGroups.filter(
+      (group) => activeCategory === "all" || group.category === activeCategory,
+    );
     const fragment = document.createDocumentFragment();
-    groupEvents(data.events, serverOffsetHours).forEach((event) => {
+    let renderedCategory = null;
+
+    visibleGroups.forEach((event) => {
+      if (event.category !== renderedCategory) {
+        renderedCategory = event.category;
+        addCategoryRow(fragment, event.category);
+      }
+
       const row = document.createElement("tr");
-      if (/Рунаториум|Арена славы|Runatorium|Arena of Glory/i.test(event.originalName)) {
+      if (/Рунаторіум|Арена Слави|Передова Залізної стіни/i.test(event.name)) {
         row.classList.add("featured-event");
       }
 
@@ -167,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label.scope = "row";
       label.className = "schedule-label";
       label.textContent = event.name;
+      label.title = `Офіційна назва: ${event.originalName}`;
       row.appendChild(label);
 
       event.days.forEach((slots) => {
@@ -187,19 +225,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tbody.replaceChildren(fragment);
     highlightToday();
+  }
+
+  function renderSchedule(data) {
+    if (!data || !Array.isArray(data.events) || data.events.length === 0) {
+      throw new Error("EuroAion returned an empty schedule");
+    }
+
+    const sourceOffset = Number(data.serverOffset);
+    if (Number.isFinite(sourceOffset) && sourceOffset >= -12 && sourceOffset <= 14) {
+      serverOffsetHours = sourceOffset;
+    }
+    updateClocks();
+    scheduleGroups = groupEvents(data.events, serverOffsetHours);
+    if (scheduleGroups.length === 0) throw new Error("EuroAion schedule contains no valid events");
+    renderRows();
 
     const fetched = data.fetchedAt ? new Date(data.fetchedAt) : null;
     status.classList.remove("is-error");
     status.textContent = fetched && !Number.isNaN(fetched.getTime())
-      ? `Оновлено ${updatedAt.format(fetched)} · ${data.events.length} записів`
-      : `${data.events.length} актуальних записів`;
+      ? `Оновлено ${updatedAt.format(fetched)} · ${scheduleGroups.length} подій`
+      : `${scheduleGroups.length} актуальних подій`;
   }
 
   function highlightToday() {
+    document.querySelectorAll(".schedule-table .highlight").forEach((cell) => cell.classList.remove("highlight"));
     const today = localDayIndex(new Date());
     const column = today + 2;
     document.querySelector(`.schedule-table thead th:nth-child(${column})`)?.classList.add("highlight");
-    tbody.querySelectorAll("tr").forEach((row) => row.children[today + 1]?.classList.add("highlight"));
+    tbody.querySelectorAll("tr:not(.category-row)").forEach(
+      (row) => row.children[today + 1]?.classList.add("highlight"),
+    );
   }
 
   function renderError() {
@@ -228,6 +284,18 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".back-button").addEventListener("click", () => {
     if (window.history.length > 1) window.history.back();
     else window.location.href = "../";
+  });
+
+  document.querySelectorAll(".filter-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCategory = button.dataset.category;
+      document.querySelectorAll(".filter-button").forEach((candidate) => {
+        const isActive = candidate === button;
+        candidate.classList.toggle("is-active", isActive);
+        candidate.setAttribute("aria-pressed", String(isActive));
+      });
+      renderRows();
+    });
   });
 
   updateClocks();
