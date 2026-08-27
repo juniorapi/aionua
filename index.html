@@ -91,38 +91,73 @@
     </div>
 
 <script>
-async function loadOnline() {
-    try {
-        const resp = await fetch('/aionua/data.json?t=' + Date.now());
-        const d = await resp.json();
+// Воркер збирає онлайн наживо (код у worker/, деплой: npx wrangler deploy).
+// Якщо він недоступний, сторінка тихо відкочується на data.json.
+const ONLINE_ENDPOINT = 'https://aionua-online.borsay86.workers.dev/';
+const FALLBACK_ENDPOINT = '/aionua/data.json';
+const REFRESH_MS = 2 * 60 * 1000;
 
-        const updated = new Date(d.updated_at).toLocaleString('uk-UA', {
-            day: '2-digit', month: '2-digit', year: 'numeric',
-            hour: '2-digit', minute: '2-digit'
-        });
+function setText(id, value) {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+}
 
-        document.getElementById('destiny-total').textContent = d.destiny.total;
-        document.getElementById('destiny-asmo').textContent  = 'Asm: ' + d.destiny.dark;
-        document.getElementById('destiny-ely').textContent   = 'Ely: ' + d.destiny.light;
+// Воркер пропускає сервер, який не відповів, — тоді на екрані лишається попереднє значення.
+function render(d) {
+    if (d.destiny) {
+        setText('destiny-total', d.destiny.total);
+        setText('destiny-asmo', 'Asm: ' + d.destiny.dark);
+        setText('destiny-ely', 'Ely: ' + d.destiny.light);
+    }
 
-        const originOnline = Boolean(d.origin?.is_online);
+    if (d.origin) {
+        const originOnline = Boolean(d.origin.is_online);
         const originDot = document.getElementById('origin-status-dot');
-        document.getElementById('origin-total').textContent = originOnline ? d.origin.total : 'офлайн';
+        setText('origin-total', originOnline ? d.origin.total : 'офлайн');
         originDot.classList.remove('is-loading');
         originDot.classList.toggle('is-offline', !originOnline);
+    }
 
-        document.getElementById('euro-total').textContent = d.euro.total;
-        document.getElementById('euro-asmo').textContent  = 'Asm: ' + d.euro.asmo_pct + '%';
-        document.getElementById('euro-ely').textContent   = 'Ely: ' + d.euro.elyos_pct + '%';
+    if (d.euro) {
+        setText('euro-total', d.euro.total);
+        setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
+        setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
+    }
 
-        document.getElementById('bar-updated').textContent = updated;
+    if (d.updated_at) {
+        setText('bar-updated', new Date(d.updated_at).toLocaleString('uk-UA', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        }));
+    }
+}
+
+async function fetchJson(url) {
+    const separator = url.includes('?') ? '&' : '?';
+    const resp = await fetch(url + separator + 't=' + Date.now(), { cache: 'no-store' });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    return resp.json();
+}
+
+async function loadOnline() {
+    if (ONLINE_ENDPOINT) {
+        try {
+            render(await fetchJson(ONLINE_ENDPOINT));
+            return;
+        } catch (e) {
+            console.warn('Воркер недоступний, беремо data.json:', e);
+        }
+    }
+
+    try {
+        render(await fetchJson(FALLBACK_ENDPOINT));
     } catch (e) {
         console.error('Online fetch error:', e);
     }
 }
 
 loadOnline();
-setInterval(loadOnline, 5 * 60 * 1000);
+setInterval(loadOnline, REFRESH_MS);
 </script>
 </body>
 </html>

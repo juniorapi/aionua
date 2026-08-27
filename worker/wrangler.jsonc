@@ -1,0 +1,11 @@
+{
+  // Live online counters for aionua. Deploy from this folder:
+  //   npx wrangler login
+  //   npx wrangler deploy
+  "name": "aionua-online",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-27",
+  "observability": {
+    "enabled": true
+  }
+}
