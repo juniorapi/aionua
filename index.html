@@ -117,10 +117,15 @@ function render(d) {
 
         // З 27.08.2026 Origin не публікує кількість гравців: API віддає
         // playerCount: null, хоча isOnline лишається true. Нуль на місці числа
-        // читався б як «на сервері нікого», тому за відсутності лічильника
-        // показуємо стан. Натомість зʼявився розподіл рас — його й виводимо.
+        // читався б як «на сервері нікого», тому без лічильника число просто
+        // ховаємо — що сервер працює, показує індикатор. Натомість зʼявився
+        // розподіл рас, його й виводимо.
         const hasCount = Number.isFinite(d.origin.total);
-        setText('origin-total', !originOnline ? 'офлайн' : hasCount ? d.origin.total : 'онлайн');
+        const totalEl = document.getElementById('origin-total');
+        if (totalEl) {
+            totalEl.hidden = originOnline && !hasCount;
+            setText('origin-total', originOnline ? d.origin.total : 'офлайн');
+        }
 
         const asmo = Number(d.origin.asmo_pct) || 0;
         const ely = Number(d.origin.elyos_pct) || 0;
