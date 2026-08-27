@@ -169,13 +169,6 @@ h1 {
   text-align: center;
 }
 
-.schedule-note {
-  margin: 12px 8px 24px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  text-align: center;
-}
-
 .back-button {
   position: fixed;
   top: 20px;

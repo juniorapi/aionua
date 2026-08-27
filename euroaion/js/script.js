@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const HOUR_MS = 60 * 60 * 1000;
   const DAY_MS = 24 * HOUR_MS;
-  const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Локальний час";
   let serverOffsetHours = 2;
   const tbody = document.getElementById("schedule-body");
   const status = document.getElementById("schedule-status");
@@ -85,13 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return `UTC${sign}${hours}${minutes ? `:${String(minutes).padStart(2, "0")}` : ""}`;
   }
 
-  function updateTimezoneNote() {
-    const localOffsetHours = -new Date().getTimezoneOffset() / 60;
-    document.getElementById("timezone-note").textContent =
-      `Вихідні дані: ${formatOffset(serverOffsetHours)}. ` +
-      `Показано за локальним часом комп'ютера: ${localTimeZone} (${formatOffset(localOffsetHours)}).`;
-  }
-
   function getServerWeekStart(offsetHours) {
     const now = new Date();
     const serverNow = new Date(now.getTime() + offsetHours * HOUR_MS);
@@ -163,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
       serverOffsetHours = sourceOffset;
     }
     updateClocks();
-    updateTimezoneNote();
 
     const fragment = document.createDocumentFragment();
     groupEvents(data.events, serverOffsetHours).forEach((event) => {
@@ -240,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateClocks();
-  updateTimezoneNote();
   window.setInterval(updateClocks, 1000);
   loadSchedule();
 });

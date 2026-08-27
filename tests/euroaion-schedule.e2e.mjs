@@ -75,10 +75,7 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
       await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
       "15:00-16:00\n19:00-20:00",
     );
-    assert.match(
-      await page.locator("#timezone-note").innerText(),
-      /Вихідні дані: UTC\+2.*Europe\/(?:Kyiv|Kiev) \(UTC\+3\)/,
-    );
+    assert.match(await page.locator("#current-time").innerText(), /Сервер \(UTC\+2\)/);
     assert.equal(await page.getByText("Рунаторіум", { exact: true }).count(), 1);
     assert.equal(await page.getByText("Источники Тиамаранты", { exact: true }).count(), 0);
     assert.match(await page.locator("#schedule-status").innerText(), /^Оновлено .* · 18 записів$/);
@@ -126,7 +123,7 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
       await page.locator("#schedule-body tr").first().locator("td").first().innerText(),
       "17:00-18:00\n21:00-22:00",
     );
-    assert.match(await page.locator("#timezone-note").innerText(), /Вихідні дані: UTC\+0/);
+    assert.match(await page.locator(".server-time").innerText(), /Сервер \(UTC\+0\)/);
   } finally {
     await context.close();
     await browser.close();
