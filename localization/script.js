@@ -1,14 +1,18 @@
 const backButton = document.querySelector(".back-button");
 
-for (const [client, configuredVersion] of Object.entries(window.AION_VERSIONS ?? {})) {
+for (const [client, release] of Object.entries(window.AION_VERSIONS ?? {})) {
   const card = document.querySelector(`[data-client="${client}"]`);
-  const version = String(configuredVersion).trim();
+  const version = String(release?.version ?? "").trim();
+  const date = String(release?.date ?? "").trim();
 
   if (!card || !version) continue;
 
   for (const element of card.querySelectorAll("[data-version]")) {
     element.textContent = version;
   }
+
+  const dateElement = card.querySelector("[data-date]");
+  if (dateElement) dateElement.textContent = date;
 
   const downloadButton = card.querySelector("[data-download]");
   const clientName = card.dataset.clientName;

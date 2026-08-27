@@ -1,6 +1,6 @@
-// Змінюйте версії клієнтів лише в цьому файлі.
+// Змінюйте версії та дати оновлення лише в цьому файлі.
 window.AION_VERSIONS = {
-  destiny: "4.6",
-  origin: "4.6",
-  riftshade: "4.8",
+  destiny: { version: "4.6", date: "23.08.2026" },
+  origin: { version: "4.6", date: "26.08.2026" },
+  riftshade: { version: "4.8", date: "26.08.2026" },
 };

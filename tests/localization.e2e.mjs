@@ -30,6 +30,7 @@ function launchBrowser() {
 test("localization page presents three direct client downloads", async () => {
   const htmlSource = await readFile(path.join(root, "localization", "index.html"), "utf8");
   assert.doesNotMatch(htmlSource, /\b4\.[68]\b/);
+  assert.doesNotMatch(htmlSource, /\b\d{2}\.\d{2}\.\d{4}\b/);
 
   const server = createServer(async (request, response) => {
     try {
@@ -62,12 +63,16 @@ test("localization page presents three direct client downloads", async () => {
     await page.locator(".download-card").first().waitFor();
 
     assert.equal(await page.locator("html").getAttribute("lang"), "uk");
-    assert.equal(await page.locator("h1").innerText(), "Українська локалізація Aion");
+    assert.equal(await page.locator(".hero").count(), 0);
     assert.equal(await page.getByRole("heading", { name: "Оберіть свій сервер" }).count(), 1);
     assert.equal(await page.locator(".download-card").count(), 3);
     assert.deepEqual(
       await page.locator(".download-card h3").allInnerTexts(),
       ["Destiny 4.6", "Origin 4.6", "Riftshade 4.8"],
+    );
+    assert.deepEqual(
+      await page.locator("[data-date]").allInnerTexts(),
+      ["23.08.2026", "26.08.2026", "26.08.2026"],
     );
     assert.deepEqual(
       await page.locator("[data-download]").evaluateAll((links) => links.map((link) => ({
@@ -86,13 +91,13 @@ test("localization page presents three direct client downloads", async () => {
       await page.evaluate(() => ({
         body: getComputedStyle(document.body).backgroundColor,
         card: getComputedStyle(document.querySelector(".download-card")).backgroundColor,
-        title: getComputedStyle(document.querySelector("h1")).color,
+        accent: getComputedStyle(document.querySelector(".section-kicker")).color,
         button: getComputedStyle(document.querySelector(".download-button")).backgroundColor,
       })),
       {
         body: "rgb(26, 26, 46)",
         card: "rgb(42, 42, 62)",
-        title: "rgb(255, 215, 0)",
+        accent: "rgb(255, 215, 0)",
         button: "rgb(139, 95, 95)",
       },
     );
