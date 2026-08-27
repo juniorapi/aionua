@@ -31,6 +31,7 @@
                 <div class="status-dot is-loading" id="origin-status-dot"></div>
                 <span class="bar-server">Origin Aion</span>
                 <span class="bar-total" id="origin-total">—</span>
+                <span class="bar-factions" id="origin-factions" hidden>(<span class="bar-asmo" id="origin-asmo">—</span> / <span class="bar-ely" id="origin-ely">—</span>)</span>
             </div>
             <div class="online-bar-sep">•</div>
             <div class="online-bar-item">
@@ -113,7 +114,24 @@ function render(d) {
     if (d.origin) {
         const originOnline = Boolean(d.origin.is_online);
         const originDot = document.getElementById('origin-status-dot');
-        setText('origin-total', originOnline ? d.origin.total : 'офлайн');
+
+        // З 27.08.2026 Origin не публікує кількість гравців: API віддає
+        // playerCount: null, хоча isOnline лишається true. Нуль на місці числа
+        // читався б як «на сервері нікого», тому за відсутності лічильника
+        // показуємо стан. Натомість зʼявився розподіл рас — його й виводимо.
+        const hasCount = Number.isFinite(d.origin.total);
+        setText('origin-total', !originOnline ? 'офлайн' : hasCount ? d.origin.total : 'онлайн');
+
+        const asmo = Number(d.origin.asmo_pct) || 0;
+        const ely = Number(d.origin.elyos_pct) || 0;
+        const factions = document.getElementById('origin-factions');
+        if (factions) {
+            // 0/0 буває, коли сервер щойно піднявся, — краще не показувати нічого
+            factions.hidden = !originOnline || asmo + ely === 0;
+            setText('origin-asmo', 'Asm: ' + asmo + '%');
+            setText('origin-ely', 'Ely: ' + ely + '%');
+        }
+
         originDot.classList.remove('is-loading');
         originDot.classList.toggle('is-offline', !originOnline);
     }

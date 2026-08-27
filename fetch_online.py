@@ -187,14 +187,27 @@ try:
     resp = requests.get('https://originaion.com/api/server-status', timeout=10)
     resp.raise_for_status()
     origin_status = resp.json()
-    player_count = origin_status.get('playerCount') or {}
+
+    # З 27.08.2026 Origin віддає playerCount: null, лишаючи isOnline: true —
+    # кількість гравців сервер більше не розкриває. Нуль тут читався б як
+    # «нікого немає», тому відсутність числа зберігаємо як None, а сторінка
+    # показує стан. Поле міняло форму вже двічі, тож приймаємо і голе число,
+    # і давній обʼєкт {'total': N}.
+    raw_count = origin_status.get('playerCount')
+    if isinstance(raw_count, dict):
+        raw_count = raw_count.get('total')
+    total = int(raw_count) if isinstance(raw_count, (int, float)) else None
+
+    race = origin_status.get('racePercent') or {}
     data['origin'] = {
-        'total': int(player_count.get('total') or 0),
+        'total': total,
         'is_online': bool(origin_status.get('isOnline')),
+        'elyos_pct': int(race.get('elyosPercent') or 0),
+        'asmo_pct': int(race.get('asmodianPercent') or 0),
     }
     print(f"Origin: {data['origin']}")
 except Exception as e:
-    data['origin'] = {'total': 0, 'is_online': False}
+    data['origin'] = {'total': None, 'is_online': False, 'elyos_pct': 0, 'asmo_pct': 0}
     print(f"Origin error: {e}")
 
 # --- EuroAion ---

@@ -74,12 +74,31 @@ async function collectDestiny() {
   };
 }
 
+/**
+ * Origin stopped publishing its player count on 2026-08-27: the API still
+ * answers with isOnline: true but sends playerCount: null. Coercing that to 0
+ * put a false "0 online" on the page, which is worse than saying nothing, so
+ * an absent count stays null and the page renders it as a state, not a number.
+ *
+ * playerCount is read both as a bare number and as the old { total } object —
+ * the field has changed shape once already.
+ */
+function originPlayerCount(payload) {
+  const raw = payload?.playerCount;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? raw : null;
+  const total = Number(raw?.total);
+  return Number.isFinite(total) ? total : null;
+}
+
 async function collectOrigin() {
   const response = await fetchUpstream(ORIGIN_URL, 'application/json');
   const payload = await response.json();
+  const race = payload?.racePercent ?? {};
   return {
-    total: Number(payload?.playerCount?.total) || 0,
+    total: originPlayerCount(payload),
     is_online: Boolean(payload?.isOnline),
+    elyos_pct: Number(race.elyosPercent) || 0,
+    asmo_pct: Number(race.asmodianPercent) || 0,
   };
 }
 
