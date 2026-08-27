@@ -2,7 +2,8 @@ name: Fetch Aion Live Data
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    # Offset from the busiest start-of-hour window to reduce delayed or dropped runs.
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch:
 
 permissions:
