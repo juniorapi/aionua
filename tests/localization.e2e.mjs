@@ -90,6 +90,11 @@ test("localization page presents three direct client downloads", async () => {
       await page.locator(".download-card h3").allInnerTexts(),
       ["Destiny 4.6", "Origin 4.6", "Riftshade 4.8"],
     );
+    assert.equal(await page.locator('[data-client="riftshade"] .new-label').innerText(), "ОБТ");
+    assert.equal(
+      await page.locator('[data-client="riftshade"] .beta-note').innerText(),
+      "ТЕСТОВИЙ РЕЖИМ\nСервер і локалізатор ще тестуються.",
+    );
     assert.deepEqual(
       await page.locator("[data-date]").allInnerTexts(),
       [configuredDates.destiny, configuredDates.origin, configuredDates.riftshade],
