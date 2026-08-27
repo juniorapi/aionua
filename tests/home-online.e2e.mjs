@@ -69,6 +69,10 @@ test("home page displays Origin Aion online from collected data", async () => {
 
     assert.equal(await page.locator("#origin-total").innerText(), "525");
     assert.equal(await page.getByText("Origin Aion", { exact: true }).count(), 1);
+    assert.deepEqual(
+      await page.locator(".online-bar .bar-server").allInnerTexts(),
+      ["EuroAion", "Origin Aion", "AionDestiny"],
+    );
     assert.equal(await page.locator("#origin-status-dot").getAttribute("class"), "status-dot");
     assert.deepEqual(errors, []);
 

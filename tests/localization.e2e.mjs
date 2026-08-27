@@ -81,14 +81,14 @@ test("localization page presents three direct client downloads", async () => {
         loaded: logo.complete && logo.naturalWidth > 0,
       }))),
       [
-        { file: "destiny-logo.png", loaded: true },
         { file: "origin-logo.png", loaded: true },
         { file: "riftshade-logo.png", loaded: true },
+        { file: "destiny-logo.png", loaded: true },
       ],
     );
     assert.deepEqual(
       await page.locator(".download-card h3").allInnerTexts(),
-      ["Destiny 4.6", "Origin 4.6", "Riftshade 4.8"],
+      ["Origin 4.6", "Riftshade 4.8", "Destiny 4.6"],
     );
     assert.equal(await page.locator('[data-client="origin"] .new-label').innerText(), "НОВА ВЕРСІЯ");
     assert.equal(await page.locator('[data-client="riftshade"] .new-label').innerText(), "НОВА · ОБТ");
@@ -98,7 +98,7 @@ test("localization page presents three direct client downloads", async () => {
     );
     assert.deepEqual(
       await page.locator("[data-date]").allInnerTexts(),
-      [configuredDates.destiny, configuredDates.origin, configuredDates.riftshade],
+      [configuredDates.origin, configuredDates.riftshade, configuredDates.destiny],
     );
     assert.deepEqual(
       await page.locator("[data-download]").evaluateAll((links) => links.map((link) => ({
@@ -107,9 +107,9 @@ test("localization page presents three direct client downloads", async () => {
         download: link.getAttribute("download"),
       }))),
       [
-        { host: "drive.usercontent.google.com", id: "1NAhj1MiWMqC4jLhZvS3XspmcyJsxEQvX", download: "AionDestinyUA.exe" },
         { host: "drive.usercontent.google.com", id: "10LDqBtWoOKNo02OF6nUHEJW3f8kQtdXx", download: "AionOriginUA.exe" },
         { host: "drive.usercontent.google.com", id: "13tWArR66NZehw5ylG3sw045b-As13wXa", download: "AionRiftshadeUA.exe" },
+        { host: "drive.usercontent.google.com", id: "1NAhj1MiWMqC4jLhZvS3XspmcyJsxEQvX", download: "AionDestinyUA.exe" },
       ],
     );
 
