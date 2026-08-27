@@ -195,6 +195,14 @@ h1 {
   margin: 5px 0;
 }
 
+.schedule-note {
+  display: block;
+  margin-top: 5px;
+  color: #ff7a7a;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 .featured-event .schedule-label {
   color: #ff4d4d;
   font-weight: 700;

@@ -3,212 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Розклад PvP-подій, арен, облог і турнірів AionDestiny з автоматичним перерахунком часу.">
   <title>AionDestiny розклад</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../euroaion/css/style.css?v=destiny-categorized-schedule">
 
-<script src="https://momentjs.com/downloads/moment.min.js"></script>
-<script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
 </head>
-<button class="back-button">
-    <span class="back-icon">←</span>
-    
-</button>
 <body>
-  <h1>Розклад AionDestiny</h1>
-  <div id="current-time"></div>
-  
-  <table class="schedule-table">
-    <thead>
-      <tr>
-        <th>Інстанс</th>
-        <th>Пн</th>
-        <th>Вт</th>
-        <th>Ср</th>
-        <th>Чт</th>
-        <th>Пт</th>
-        <th>Сб</th>
-        <th>Нд</th>
-      </tr>
-    </thead>
-    <tbody>
-     <tr>
-    <td class="schedule-label">Дерадикон</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>20:00-22:00</td>
-</tr>
+  <button class="back-button" type="button" aria-label="Повернутися назад">
+    <span class="back-icon" aria-hidden="true">←</span>
+  </button>
 
-<tr>
-    <td class="schedule-label text-red"><b>Рунаторіум</b></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00<br>x2</td>
-    <td class="schedule-time"></td>
-</tr>
+  <main class="page-shell">
+    <h1>Розклад AionDestiny</h1>
+    <div id="current-time" aria-live="polite"></div>
 
-<tr>
-    <td class="schedule-label">Міст Йормунґанда</td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00<br>x2</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">00:00-02:00<br>12:00-14:00<br>19:00-21:00<br>x2</td>
-</tr>
+    <div class="schedule-meta">
+      <span id="schedule-status" role="status">Завантаження розкладу…</span>
+      <a href="https://aiondestiny.net/" target="_blank" rel="noopener noreferrer">Офіційний сайт</a>
+    </div>
 
-<tr>
-    <td class="schedule-label">Поле битви Камара</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00<br>x2</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00<br>x2</td>
-    <td class="schedule-time">19:00-20:00<br>23:00-00:00<br>x2</td>
-</tr>
+    <nav class="schedule-filters" aria-label="Категорії розкладу">
+      <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">Усі події</button>
+      <button class="filter-button" type="button" data-category="pvp" aria-pressed="false">PvP-інстанси</button>
+      <button class="filter-button" type="button" data-category="arenas" aria-pressed="false">Арени</button>
+      <button class="filter-button" type="button" data-category="siege" aria-pressed="false">Облоги</button>
+      <button class="filter-button" type="button" data-category="tournaments" aria-pressed="false">Турніри</button>
+    </nav>
 
-<tr>
-    <td class="schedule-label">Неприступна твердиня</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-</tr>
+    <div class="table-shell" tabindex="0" aria-label="Таблицю можна прокручувати горизонтально">
+      <table class="schedule-table">
+        <caption>Щотижневий розклад подій AionDestiny</caption>
+        <thead>
+          <tr>
+            <th scope="col">Подія</th>
+            <th scope="col">Пн</th>
+            <th scope="col">Вт</th>
+            <th scope="col">Ср</th>
+            <th scope="col">Чт</th>
+            <th scope="col">Пт</th>
+            <th scope="col">Сб</th>
+            <th scope="col">Нд</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body"></tbody>
+      </table>
+    </div>
+  </main>
 
-<tr>
-    <td class="schedule-label">Тіамаранта</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-    <td class="schedule-time">13:00-14:00<br>18:00-19:00</td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Кротан/Ткісас/Ра-Мірен</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">21:00-22:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">21:00-22:00</td>
-    <td class="schedule-time"></td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Сілус/Базен/Парадес</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">20:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">21:00-22:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">15:00-16:00</td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Інга/Келька</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">20:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">15:00-16:00</td>
-    <td class="schedule-time"></td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Сірка</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">15:00-16:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Астерія/Ру</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">15:00-16:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Західна/Східна Сіель</td>
-    <td class="schedule-time">15:00-16:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">20:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Фортеця Святості (РРХ)</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">20:00-21:00</td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">20:00-21:00</td>
-</tr>
-
-<tr>
-    <td class="schedule-label text-red"><b>Арена Слави</b></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time"></td>
-    <td class="schedule-time">12:00-14:00<br>20:00-22:00</td>
-    <td class="schedule-time">12:00-14:00<br>20:00-22:00</td>
-</tr>
-
-<tr>
-    <td class="schedule-label">Арени Хаосу/Доблесті/Покровительства</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-    <td class="schedule-time">12:00-14:00<br>18:00-02:00</td>
-</tr>
-
-    </tbody>
-  </table>
-
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=destiny-categorized-schedule"></script>
 </body>
 </html>
