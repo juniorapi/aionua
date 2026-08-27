@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Актуальний розклад подій Origin Aion з автоматичним перерахунком на місцевий час.">
+  <title>Origin Aion розклад</title>
+  <link rel="stylesheet" href="../euroaion/css/style.css?v=origin-schedule">
+  <link rel="stylesheet" href="css/style.css?v=origin-schedule">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
+</head>
+<body>
+  <button class="back-button" type="button" aria-label="Повернутися назад">
+    <span class="back-icon" aria-hidden="true">←</span>
+  </button>
+
+  <main class="page-shell">
+    <h1>Розклад Origin Aion</h1>
+    <div id="current-time" aria-live="polite"></div>
+
+    <div class="schedule-meta">
+      <span id="schedule-status" role="status">Завантаження актуального розкладу…</span>
+      <a href="https://originaion.com/schedule" target="_blank" rel="noopener noreferrer">Офіційне джерело</a>
+    </div>
+
+    <nav class="schedule-filters" aria-label="Категорії розкладу">
+      <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">Усі події</button>
+      <button class="filter-button" type="button" data-category="pvp" aria-pressed="false">PvP-інстанси</button>
+      <button class="filter-button" type="button" data-category="arenas" aria-pressed="false">Арени</button>
+      <button class="filter-button" type="button" data-category="siege" aria-pressed="false">Облоги</button>
+      <button class="filter-button" type="button" data-category="rifts" aria-pressed="false">Розломи</button>
+    </nav>
+
+    <div class="table-shell" tabindex="0" aria-label="Таблицю можна прокручувати горизонтально">
+      <table class="schedule-table">
+        <caption>Щотижневий розклад подій Origin Aion</caption>
+        <thead>
+          <tr>
+            <th scope="col">Подія</th>
+            <th scope="col">Пн</th>
+            <th scope="col">Вт</th>
+            <th scope="col">Ср</th>
+            <th scope="col">Чт</th>
+            <th scope="col">Пт</th>
+            <th scope="col">Сб</th>
+            <th scope="col">Нд</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/script.js?v=origin-schedule"></script>
+</body>
+</html>
