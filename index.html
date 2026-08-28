@@ -127,14 +127,19 @@ function render(d) {
             setText('origin-total', originOnline ? d.origin.total : 'офлайн');
         }
 
-        const asmo = Number(d.origin.asmo_pct) || 0;
-        const ely = Number(d.origin.elyos_pct) || 0;
+        // Коли лічильник доступний, показуємо розбивку в людях, як у Destiny;
+        // без нього лишаються відсотки — вони приходять і при playerCount: null.
+        const hasRaceCount = Number.isFinite(d.origin.asmo) && Number.isFinite(d.origin.elyos);
+        const asmo = hasRaceCount ? d.origin.asmo : (Number(d.origin.asmo_pct) || 0);
+        const ely = hasRaceCount ? d.origin.elyos : (Number(d.origin.elyos_pct) || 0);
+        const suffix = hasRaceCount ? '' : '%';
+
         const factions = document.getElementById('origin-factions');
         if (factions) {
             // 0/0 буває, коли сервер щойно піднявся, — краще не показувати нічого
             factions.hidden = !originOnline || asmo + ely === 0;
-            setText('origin-asmo', 'Asm: ' + asmo + '%');
-            setText('origin-ely', 'Ely: ' + ely + '%');
+            setText('origin-asmo', 'Asm: ' + asmo + suffix);
+            setText('origin-ely', 'Ely: ' + ely + suffix);
         }
 
         originDot.classList.remove('is-loading');

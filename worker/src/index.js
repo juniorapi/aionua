@@ -90,13 +90,26 @@ function originPlayerCount(payload) {
   return Number.isFinite(total) ? total : null;
 }
 
+/** Ціле число або null — щоб «немає даних» не перетворилося на нуль. */
+function intOrNull(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
 async function collectOrigin() {
   const response = await fetchUpstream(ORIGIN_URL, 'application/json');
   const payload = await response.json();
+  const count = payload?.playerCount ?? {};
   const race = payload?.racePercent ?? {};
+
+  // Коли лічильник доступний, він містить і розбивку по расах у людях —
+  // її показуємо так само, як у Destiny. Відсотки лишаються запасним
+  // варіантом: вони приходять навіть тоді, коли playerCount порожній.
   return {
     total: originPlayerCount(payload),
     is_online: Boolean(payload?.isOnline),
+    elyos: intOrNull(count.elyos),
+    asmo: intOrNull(count.asmodian),
     elyos_pct: Number(race.elyosPercent) || 0,
     asmo_pct: Number(race.asmodianPercent) || 0,
   };

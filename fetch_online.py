@@ -194,20 +194,30 @@ try:
     # показує стан. Поле міняло форму вже двічі, тож приймаємо і голе число,
     # і давній обʼєкт {'total': N}.
     raw_count = origin_status.get('playerCount')
+    count = raw_count if isinstance(raw_count, dict) else {}
     if isinstance(raw_count, dict):
         raw_count = raw_count.get('total')
-    total = int(raw_count) if isinstance(raw_count, (int, float)) else None
+
+    def _int_or_none(value):
+        return int(value) if isinstance(value, (int, float)) else None
 
     race = origin_status.get('racePercent') or {}
     data['origin'] = {
-        'total': total,
+        'total': _int_or_none(raw_count),
         'is_online': bool(origin_status.get('isOnline')),
+        # Разом із лічильником приходить розбивка по расах у людях; відсотки
+        # лишаються запасним варіантом, бо є навіть при playerCount: null.
+        'elyos': _int_or_none(count.get('elyos')),
+        'asmo': _int_or_none(count.get('asmodian')),
         'elyos_pct': int(race.get('elyosPercent') or 0),
         'asmo_pct': int(race.get('asmodianPercent') or 0),
     }
     print(f"Origin: {data['origin']}")
 except Exception as e:
-    data['origin'] = {'total': None, 'is_online': False, 'elyos_pct': 0, 'asmo_pct': 0}
+    data['origin'] = {
+        'total': None, 'is_online': False,
+        'elyos': None, 'asmo': None, 'elyos_pct': 0, 'asmo_pct': 0,
+    }
     print(f"Origin error: {e}")
 
 # --- EuroAion ---
