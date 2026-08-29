@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.2.0
+// @version      1.2.1
 // @description  Перекладає сайт aiondestiny.net українською (з прапором у перемикачі мов) і містить вбудований трекер досягнень
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -954,11 +954,15 @@
             }
         }
 
-        // Пункти випадного списку.
+        // Пункти випадного списку. «UA» тут може бути лише нашим перейменованим
+        // рядком, тож прапор гарантуємо і для нього: Vue при перемальовуванні
+        // часом повертає свій прапор, лишаючи наш підпис, — виходив російський
+        // прапор із написом UA.
         for (const span of selector.querySelectorAll('span')) {
-            if (span.textContent.trim() !== 'RU') continue;
+            const code = span.textContent.trim();
+            if (code !== 'RU' && code !== 'UA') continue;
 
-            span.textContent = 'UA';
+            if (code === 'RU') span.textContent = 'UA';
 
             const row = span.parentElement;
             ensureUaFlag(row?.querySelector('.iconBase') || row?.querySelector('svg')?.parentElement);
@@ -1055,7 +1059,7 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '1.2.0',
+        version: '1.2.1',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
