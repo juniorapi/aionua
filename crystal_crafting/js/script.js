@@ -31,8 +31,8 @@ const CRAFTING_DATA = {
             icon: "images/icon_item_ta_combineskill_ws_r_60a.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 40, icon: "images/icon_item_testtube01.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 40, icon: "images/icon_item_testtube01.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" }
             ]
         },
@@ -41,8 +41,8 @@ const CRAFTING_DATA = {
             icon: "images/icon_item_ws_combineskill_ar_r_60a.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 40, icon: "images/icon_item_testtube01.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 40, icon: "images/icon_item_testtube01.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" }
             ]
         },
@@ -51,8 +51,8 @@ const CRAFTING_DATA = {
             icon: "images/icon_item_ha_combineskill_ta_r_60a.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 40, icon: "images/icon_item_testtube01.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 40, icon: "images/icon_item_testtube01.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" }
             ]
         },
@@ -61,18 +61,18 @@ const CRAFTING_DATA = {
             icon: "images/icon_item_as_combineskill_ha_r_60a.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 40, icon: "images/icon_item_testtube01.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 40, icon: "images/icon_item_testtube01.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" }
             ]
 		},
         blue: {
-            name: "Древний синий кристалл",
+            name: "Давній синій кристал",
             icon: "images/icon_item_al_combineskill_as_r_60a.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 40, icon: "images/icon_item_testtube01.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 40, icon: "images/icon_item_testtube01.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 20, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" }
             ]	
         },
@@ -81,8 +81,8 @@ const CRAFTING_DATA = {
             icon: "images/icon_item_co_combineskill_all_r_60a.png",
             outputQuantity: 10,
             materials: [
-                { id: 'powder', name: "Порошок времени", quantity: 10, icon: "images/icon_item_co_shopmaterial_c_60a.png" },
-                { id: 'shard', name: "Осколок иделла", quantity: 10, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
+                { id: 'powder', name: "Порошок часу", quantity: 10, icon: "images/icon_item_co_shopmaterial_c_60a.png" },
+                { id: 'shard', name: "Осколок іделла", quantity: 10, icon: "images/icon_item_v5_n_cs_shopmaterial_c_60a.png" },
                 { id: 'ether', name: "Давній ефір", quantity: 10, icon: "images/icon_item_od_all_c_60a.png" },
                 { id: 'clemposil', name: "Клемпосиль", quantity: 10, icon: "images/icon_item_co_combineskill_material_r_60a.png" }
             ]
@@ -101,7 +101,7 @@ const ITEM_CRAFTING_DATA = {
 				{ id: 'whetstone', name: "Священний точильний камінь", quantity: 45, icon: "images/icon_item_ws_shopcmaterial_c_60a.png" },
 				{ id: 'aether', name: "Давній ефір III", quantity: 14, icon: "images/icon_item_od_all_l_60a.png" }, 
 				{ id: 'flux', name: "Священний камінь зброї IV", quantity: 14, icon: "images/icon_item_crystalball01c_l.png" }, 
-				{ id: 'catalium', name: "Хороший каталиум", quantity: 29, icon: "images/icon_item_metal_l_60a.png" }, 
+				{ id: 'catalium', name: "Добрий каталіум", quantity: 29, icon: "images/icon_item_metal_l_60a.png" }, 
                 { id: 'crystal', name: "Давній червоний кристал", quantity: 16, icon: "images/icon_item_ta_combineskill_ws_r_60a.png" }
             ]
         },
@@ -114,7 +114,7 @@ const ITEM_CRAFTING_DATA = {
 				{ id: 'whetstone', name: "Священний точильний камінь", quantity: 45, icon: "images/icon_item_ws_shopcmaterial_c_60a.png" },
 				{ id: 'aether', name: "Давній ефір III", quantity: 14, icon: "images/icon_item_od_all_l_60a.png" }, 
 				{ id: 'flux', name: "Священний камінь зброї IV", quantity: 14, icon: "images/icon_item_crystalball01c_l.png" }, 
-				{ id: 'catalium', name: "Хороший каталиум", quantity: 29, icon: "images/icon_item_metal_l_60a.png" }, 
+				{ id: 'catalium', name: "Добрий каталіум", quantity: 29, icon: "images/icon_item_metal_l_60a.png" }, 
                 { id: 'crystal', name: "Давній червоний кристал", quantity: 16, icon: "images/icon_item_ta_combineskill_ws_r_60a.png" }
             ]
         },
@@ -124,10 +124,10 @@ const ITEM_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'pakirabar', name: "Пахировий брус", quantity: 20, icon: "images/icon_item_ha_we_parts_n_r_60a.png" }, 
-				{ id: 'solysandpaper', name: "Священная наждачная бумага", quantity: 45, icon: "images/icon_item_ha_shopcmaterial_c_60a.png" },
+				{ id: 'solysandpaper', name: "Священна наждачна папір", quantity: 45, icon: "images/icon_item_ha_shopcmaterial_c_60a.png" },
 				{ id: 'aether', name: "Давній ефір III", quantity: 14, icon: "images/icon_item_od_all_l_60a.png" }, 
 				{ id: 'flux', name: "Священний камінь зброї IV", quantity: 14, icon: "images/icon_item_crystalball01c_l.png" }, 
-				{ id: 'pakirawood', name: "Хорошая пахира", quantity: 29, icon: "images/icon_item_tree_l_60a.png" }, 
+				{ id: 'pakirawood', name: "Добра пахіра", quantity: 29, icon: "images/icon_item_tree_l_60a.png" }, 
                 { id: 'greencrystal', name: "Давній зелений кристал", quantity: 16, icon: "images/icon_item_as_combineskill_ha_r_60a.png" }
             ]
         },
@@ -137,10 +137,10 @@ const ITEM_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'staff', name: "Сяючий каталіумовий посох досвідченого експерта", quantity: 1, icon: "images/weapon2.png" }, 
-				{ id: 'solysandpaper', name: "Священная наждачная бумага", quantity: 45, icon: "images/icon_item_ha_shopcmaterial_c_60a.png" },
+				{ id: 'solysandpaper', name: "Священна наждачна папір", quantity: 45, icon: "images/icon_item_ha_shopcmaterial_c_60a.png" },
 				{ id: 'aether', name: "Давній ефір III", quantity: 14, icon: "images/icon_item_od_all_l_60a.png" }, 
 				{ id: 'flux', name: "Священний камінь зброї IV", quantity: 14, icon: "images/icon_item_crystalball01c_l.png" }, 
-				{ id: 'pakirawood', name: "Хорошая пахира", quantity: 29, icon: "images/icon_item_tree_l_60a.png" }, 
+				{ id: 'pakirawood', name: "Добра пахіра", quantity: 29, icon: "images/icon_item_tree_l_60a.png" }, 
                 { id: 'greencrystal', name: "Давній зелений кристал", quantity: 16, icon: "images/icon_item_as_combineskill_ha_r_60a.png" }
             ]
         },
@@ -155,12 +155,12 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія льоду", quantity: 11, icon: "images/icon_item_ldf5a_e_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія помсти", quantity: 11, icon: "images/icon_item_ldf5under_a_material_60_r_60a.png" },
-				{ id: 'bluecrystal', name: "Древний синий кристалл", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
+				{ id: 'bluecrystal', name: "Давній синій кристал", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
             ]
         },
         godstone2: {
@@ -169,12 +169,12 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія льоду", quantity: 11, icon: "images/icon_item_ldf5a_e_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія помсти", quantity: 11, icon: "images/icon_item_ldf5under_a_material_60_r_60a.png" },
-				{ id: 'bluecrystal', name: "Древний синий кристалл", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
+				{ id: 'bluecrystal', name: "Давній синій кристал", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
             ]
         },
 		godstone3: {
@@ -183,12 +183,12 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія льоду", quantity: 11, icon: "images/icon_item_ldf5a_e_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія помсти", quantity: 11, icon: "images/icon_item_ldf5under_a_material_60_r_60a.png" },
-				{ id: 'bluecrystal', name: "Древний синий кристалл", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
+				{ id: 'bluecrystal', name: "Давній синій кристал", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
             ]
         },
 		godstone4: {
@@ -197,12 +197,12 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія льоду", quantity: 11, icon: "images/icon_item_ldf5a_e_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія помсти", quantity: 11, icon: "images/icon_item_ldf5under_a_material_60_r_60a.png" },
-				{ id: 'bluecrystal', name: "Древний синий кристалл", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
+				{ id: 'bluecrystal', name: "Давній синій кристал", quantity: 2, icon: "images/icon_item_al_combineskill_as_r_60a.png" }
             ]
         },
 		godstone5: {
@@ -211,9 +211,9 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія долин", quantity: 11, icon: "images/icon_item_ldf5b_f_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія відчаю", quantity: 11, icon: "images/icon_item_ldf5under_b_material_60_r_60a.png" },
 				{ id: 'bluecrystal', name: "Древній жовтий кристал", quantity: 2, icon: "images/icon_item_ha_combineskill_ta_r_60a.png" }
@@ -225,9 +225,9 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія долин", quantity: 11, icon: "images/icon_item_ldf5b_f_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія відчаю", quantity: 11, icon: "images/icon_item_ldf5under_b_material_60_r_60a.png" },
 				{ id: 'bluecrystal', name: "Древній жовтий кристал", quantity: 2, icon: "images/icon_item_ha_combineskill_ta_r_60a.png" }
@@ -239,9 +239,9 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія долин", quantity: 11, icon: "images/icon_item_ldf5b_f_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія відчаю", quantity: 11, icon: "images/icon_item_ldf5under_b_material_60_r_60a.png" },
 				{ id: 'bluecrystal', name: "Древній жовтий кристал", quantity: 2, icon: "images/icon_item_ha_combineskill_ta_r_60a.png" }
@@ -253,9 +253,9 @@ const RESOURCE_CRAFTING_DATA = {
             outputQuantity: 1, 
             materials: [
                 { id: 'idium', name: "Ідіумовий кристал часу", quantity: 20, icon: "images/icon_item_co_combineskill_all_r_60a.png" },
-				{ id: 'catalyst', name: "Катализатор древнего преобразования", quantity: 83, icon: "images/icon_item_testtube01.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
-				{ id: 'ancientfragment', name: "Древний обломок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
+				{ id: 'catalyst', name: "Каталізатор давнього перетворення", quantity: 83, icon: "images/icon_item_testtube01.png" },
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 10, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" },
+				{ id: 'ancientfragment', name: "Давній уламок", quantity: 10, icon: "images/icon_item_ldf5under_all_material_u_60a.png" },
 				{ id: 'essenceice', name: "Енергія долин", quantity: 11, icon: "images/icon_item_ldf5b_f_material_60_r_60a.png" },
                 { id: 'essencerevenge', name: " Енергія відчаю", quantity: 11, icon: "images/icon_item_ldf5under_b_material_60_r_60a.png" },
 				{ id: 'bluecrystal', name: "Древній жовтий кристал", quantity: 2, icon: "images/icon_item_ha_combineskill_ta_r_60a.png" }

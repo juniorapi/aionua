@@ -5,7 +5,7 @@ const ITEM_DESCRIPTIONS = {
 const JEWELRY_CRAFTING_DATA = { 
     types: {
         ring: {
-            name: "Дарритовое кольцо специалиста",
+            name: "Дарритове кільце спеціаліста",
             icon: "images/icon_item_ring_m01.png",
             outputQuantity: 1,
             materials: [
@@ -16,18 +16,18 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'darite', name: "Звичайний даррит", quantity: 3, icon: "images/icon_item_jewelry_r_60s.png" },
-				{ id: 'darite2', name: "Хороший даррит", quantity: 2, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'darite2', name: "Добрий даррит", quantity: 2, icon: "images/icon_item_jewelry_l_60s.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'jewellery', name: "Дарритова прикраса", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         ring2: {
-            name: "Опаловое кольцо специалиста",
+            name: "Опалове кільце спеціаліста",
             icon: "images/icon_item_ring_m01.png",
             outputQuantity: 1,
             materials: [
@@ -38,18 +38,18 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'opal', name: "Звичайний опал", quantity: 3, icon: "images/icon_item_jewelry_r_60a.png" },
-				{ id: 'opal2', name: "Хороший опал", quantity: 2, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'opal2', name: "Добрий опал", quantity: 2, icon: "images/icon_item_jewelry_l_60a.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Опаловое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'jewellery', name: "Опалова прикраса", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         earring: {
-            name: "Дарритовая серьга специалиста",
+            name: "Дарритова серйога спеціаліста",
             icon: "images/icon_item_earring_m01.png",
             outputQuantity: 1,
             materials: [
@@ -60,18 +60,18 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'darite', name: "Звичайний даррит", quantity: 5, icon: "images/icon_item_jewelry_r_60s.png" },
-				{ id: 'darite2', name: "Хороший даррит", quantity: 3, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'darite2', name: "Добрий даррит", quantity: 3, icon: "images/icon_item_jewelry_l_60s.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'jewellery', name: "Дарритова прикраса", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         earring2: {
-            name: "Опаловая серьга специалиста",
+            name: "Опалова серйога спеціаліста",
             icon: "images/icon_item_earring_m01.png",
             outputQuantity: 1,
             materials: [
@@ -82,18 +82,18 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'opal', name: "Звичайний опал", quantity: 5, icon: "images/icon_item_jewelry_r_60a.png" },
-				{ id: 'opal2', name: "Хороший опал", quantity: 3, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'opal2', name: "Добрий опал", quantity: 3, icon: "images/icon_item_jewelry_l_60a.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Опаловое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'jewellery', name: "Опалова прикраса", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
 		},
         necklace: {
-            name: "Дарритовое ожерелье специалиста",
+            name: "Дарритове намисто спеціаліста",
             icon: "images/icon_item_necklace_m01.png",
             outputQuantity: 1,
             materials: [
@@ -104,18 +104,18 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'darite', name: "Звичайний даррит", quantity: 8, icon: "images/icon_item_jewelry_r_60s.png" },
-				{ id: 'darite2', name: "Хороший даррит", quantity: 5, icon: "images/icon_item_jewelry_l_60s.png" },
+				{ id: 'darite2', name: "Добрий даррит", quantity: 5, icon: "images/icon_item_jewelry_l_60s.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
+				{ id: 'jewellery', name: "Дарритова прикраса", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]	
         },
         necklace2: {
-            name: "Опаловое ожерелье специалиста",
+            name: "Опалове намисто спеціаліста",
             icon: "images/icon_item_necklace_m01.png",
             outputQuantity: 1,
             materials: [
@@ -126,13 +126,13 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'opal', name: "Звичайний опал", quantity: 8, icon: "images/icon_item_jewelry_r_60a.png" },
-				{ id: 'opal2', name: "Хороший опал", quantity: 5, icon: "images/icon_item_jewelry_l_60a.png" },
+				{ id: 'opal2', name: "Добрий опал", quantity: 5, icon: "images/icon_item_jewelry_l_60a.png" },
 				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
-				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
+				{ id: 'ceranium2', name: "Добрий сераміум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
 				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
-				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+				{ id: 'crystal', name: "Давній блискучий кристал", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'jewellery', name: "Опаловое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
+				{ id: 'jewellery', name: "Опалова прикраса", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
 				{ id: 'waterfragment', name: "Частинка води", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]	
         },
@@ -148,12 +148,12 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'opal', name: "Звичайне стебло фоніки", quantity: 19, icon: "images/icon_item_plant_r_60a.png" },
-				{ id: 'opal2', name: "Хороший стебель фоники", quantity: 10, icon: "images/icon_item_plant_l_60a.png" },
+				{ id: 'opal2', name: "Добре стебло фоніки", quantity: 10, icon: "images/icon_item_plant_l_60a.png" },
 				{ id: 'thread', name: "Священний клубок ниток", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60b.png" },
-			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+			    { id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'ponicaweaving', name: "Фониковая ткань", quantity: 1, icon: "images/icon_item_ta_rb_parts_n_r_60a.png" },
-				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+				{ id: 'ponicaweaving', name: "Фонікова тканина", quantity: 1, icon: "images/icon_item_ta_rb_parts_n_r_60a.png" },
+				{ id: 'windfragment', name: "Частина вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
         },
 	    belt2: {
@@ -167,13 +167,13 @@ const JEWELRY_CRAFTING_DATA = {
 				{ id: 'ether', name: "Давній ефір", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
 				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
 				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'opal', name: "Простая священная недубленая кожа", quantity: 19, icon: "images/icon_item_rawhide01e_r.png" },
-				{ id: 'opal2', name: "Хорошая священная недубленая кожа", quantity: 10, icon: "images/icon_item_rawhide01f_r.png" },
+				{ id: 'opal', name: "Проста священна недублена шкіра", quantity: 19, icon: "images/icon_item_rawhide01e_r.png" },
+				{ id: 'opal2', name: "Добра священна недублена шкіра", quantity: 10, icon: "images/icon_item_rawhide01f_r.png" },
 				{ id: 'thread', name: "Священний шкіряний шнур", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60a.png" },
-			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
+			    { id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
-				{ id: 'ponicaweaving', name: "Священная кожа", quantity: 1, icon: "images/icon_item_ta_rt_parts_n_r_60a.png" },
-				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+				{ id: 'ponicaweaving', name: "Священна шкіра", quantity: 1, icon: "images/icon_item_ta_rt_parts_n_r_60a.png" },
+				{ id: 'windfragment', name: "Частина вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
         },
     }
@@ -181,51 +181,51 @@ const JEWELRY_CRAFTING_DATA = {
 const MATERIAL_CRAFTING_DATA = { 
     types: {
         daritejewellery: {
-            name: "Дарритовое украшение",
+            name: "Дарритова прикраса",
             icon: "images/icon_item_ha_ac_parts_n_r_60s.png",
             outputQuantity: 10,
             materials: [
                 { id: 'holypreciousmetalacid', name: "Священний дорогоцінний сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
-                { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
-				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
+                { id: 'idiumjewellery', name: "Ідіумове прикраса", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
+				{ id: 'ceranium', name: "Серіум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
                 { id: 'darite', name: "Даррит", quantity: 25, icon: "images/icon_item_jewelry_c_60s.png" },
 				{ id: 'steppeessence', name: "Енергія луків", quantity: 4, icon: "images/icon_item_ldf5a_b_material_60_r_60a.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
             ]
         },
         opaljewellery: {
-            name: "Опаловое украшение",
+            name: "Опалова прикраса",
             icon: "images/icon_item_ha_ac_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
                 { id: 'holypreciousmetalacid', name: "Священний дорогоцінний сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
-                { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
-				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
+                { id: 'idiumjewellery', name: "Ідіумове прикраса", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
+				{ id: 'ceranium', name: "Серіум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
                 { id: 'opal', name: "Опал", quantity: 25, icon: "images/icon_item_jewelry_c_60a.png" },
 				{ id: 'mysteriousessence', name: "Загадкова енергія", quantity: 4, icon: "images/icon_item_ldf5b_c_material_60_r_60a.png" },
-				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
+				{ id: 'ceraniumfragment', name: "Частинка серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
             ]
         },
         holyleather: {
-            name: "Священная кожа",
+            name: "Священна шкіра",
             icon: "images/icon_item_ta_rt_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
 			    { id: 'holyleatherhardener', name: "Священний шкіряний посилювач", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60a.png" },
-                { id: 'idieleather', name: "Идиевая кожа", quantity: 20, icon: "images/icon_item_v16_n_lt_shopmaterial_c_60a.png" },
-                { id: 'holyrawhide', name: "Священная недубленая кожа", quantity: 50, icon: "images/icon_item_rawhide01f.png" },
+                { id: 'idieleather', name: "Ідієва шкіра", quantity: 20, icon: "images/icon_item_v16_n_lt_shopmaterial_c_60a.png" },
+                { id: 'holyrawhide', name: "Священна недублена шкіра", quantity: 50, icon: "images/icon_item_rawhide01f.png" },
 				{ id: 'plateauessence', name: "Енергія рівнин", quantity: 1, icon: "images/icon_item_ldf5b_a_material_60_r_60a.png" },
 				{ id: 'essenceofambition', name: "Енергія честолюбства", quantity: 1, icon: "images/icon_item_ldf5under_d_material_60_r_60a.png" }
             ]
         },
         ponicaweaving: {
-            name: "Фониковая ткань",
+            name: "Фонікова тканина",
             icon: "images/icon_item_ta_rb_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
                 { id: 'hardener', name: "Священний посилювач волокон", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60b.png" },
-                { id: 'idastextile', name: "Идиевая ткань", quantity: 20, icon: "images/icon_item_v18_n_rb_shopmaterial_c_60a.png" },
-                { id: 'ponicafibre', name: "Стебель фоники", quantity: 50, icon: "images/icon_item_plant_c_60a.png" },
+                { id: 'idastextile', name: "Ідієва тканина", quantity: 20, icon: "images/icon_item_v18_n_rb_shopmaterial_c_60a.png" },
+                { id: 'ponicafibre', name: "Стебло фоніки", quantity: 50, icon: "images/icon_item_plant_c_60a.png" },
 				{ id: 'woodsessence', name: "Енергія лісів", quantity: 1, icon: "images/icon_item_ldf5b_b_material_60_r_60a.png" },
 				{ id: 'essenceofregret', name: "Енергія розкаяння", quantity: 1, icon: "images/icon_item_ldf5under_f_material_60_r_60a.png" }
 		]
@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 break;
             case 'Ceramium':
-                popupTitle.textContent = 'Серамиум';
+                popupTitle.textContent = 'Серіум';
                 if (selectedRace === 'elyos') {
                     popupTextarea.value = '[pos:Ceramium;0 600060000 993.8 1130.2 0.0 0] [pos:Ceramium;0 600060000 2085.6 285.5 0.0 0] [pos:Ceramium;0 600060000 716.6 371.3 0.0 0] [pos:Ceramium;0 600060000 982.2 1219.5 0.0 0] [pos:Ceramium;0 600060000 837.4 436.5 0.0 0] [pos:Ceramium;0 600060000 1871.6 231.0 0.0 0] [pos:Ceramium;0 600060000 899.7 1143.7 0.0 0] [pos:Ceramium;0 600060000 2211.7 417.9 0.0 0] [pos:Ceramium;0 600060000 800.9 1117.8 0.0 0] [pos:Ceramium;0 600060000 701.4 1170.2 0.0 0] [pos:Ceramium;0 600060000 1771.6 173.8 0.0 0] [pos:Ceramium;0 600060000 897.2 448.8 0.0 0] [pos:Ceramium;0 600060000 1417.1 412.2 0.0 0] [pos:Ceramium;0 600060000 1800.3 255.2 0.0 0] [pos:Ceramium;0 600060000 1031.5 451.0 0.0 0] [pos:Ceramium;0 600060000 855.3 1222.4 0.0 0] [pos:Ceramium;0 600060000 1953.6 155.9 0.0 0] [pos:Ceramium;0 600060000 963.3 355.8 0.0 0] [pos:Ceramium;0 600060000 2330.6 282.3 0.0 0] [pos:Ceramium;0 600060000 740.4 302.5 0.0 0] [pos:Ceramium;0 600060000 2004.7 447.8 0.0 0] [pos:Ceramium;0 600060000 1650.8 307.4 0.0 0] [pos:Ceramium;0 600060000 2014.4 240.6 0.0 0] [pos:Ceramium;0 600060000 1809.8 125.2 0.0 0] [pos:Ceramium;0 600060000 1494.8 286.0 0.0 0] [pos:Ceramium;0 600060000 839.6 1131.4 0.0 0] [pos:Ceramium;0 600060000 2200.9 308.5 0.0 0] [pos:Ceramium;0 600060000 1967.3 101.4 0.0 0] [pos:Ceramium;0 600060000 2072.9 110.6 0.0 0] [pos:Ceramium;0 600060000 755.3 1216.5 0.0 0] [pos:Ceramium;0 600060000 2277.0 403.6 0.0 0] [pos:Ceramium;0 600060000 971.4 1247.3 0.0 0] [pos:Ceramium;0 600060000 799.6 415.4 0.0 0] [pos:Ceramium;0 600060000 1945.1 284.8 0.0 0] [pos:Ceramium;0 600060000 1907.6 99.6 0.0 0] [pos:Ceramium;0 600060000 1356.8 316.8 0.0 0] [pos:Ceramium;0 600060000 2066.1 414.1 0.0 0] [pos:Ceramium;0 600060000 2074.6 177.8 0.0 0] [pos:Ceramium;0 600060000 834.2 348.1 0.0 0] [pos:Ceramium;0 600060000 1828.3 173.7 0.0 0] [pos:Ceramium;0 600060000 755.3 1216.5 0.0 0] [pos:Ceramium;0 600060000 855.3 1222.4 0.0 0] [pos:Ceramium;0 600060000 971.4 1247.3 0.0 0] [pos:Ceramium;0 600060000 899.7 1143.7 0.0 0] [pos:Ceramium;0 600060000 982.2 1219.5 0.0 0] [pos:Ceramium;0 600060000 993.8 1130.3 0.0 0] [pos:Ceramium;0 600060000 839.6 1131.4 0.0 0] [pos:Ceramium;0 600060000 800.9 1117.9 0.0 0] [pos:Ceramium;0 600060000 701.4 1170.2 0.0 0] [pos:Ceramium;0 600060000 2211.7 417.9 0.0 0] [pos:Ceramium;0 600060000 2277.0 403.6 0.0 0] [pos:Ceramium;0 600060000 740.4 302.5 0.0 0] [pos:Ceramium;0 600060000 834.2 348.1 0.0 0] [pos:Ceramium;0 600060000 716.6 371.3 0.0 0] [pos:Ceramium;0 600060000 2330.6 282.3 0.0 0] [pos:Ceramium;0 600060000 799.6 415.4 0.0 0] [pos:Ceramium;0 600060000 837.4 436.5 0.0 0] [pos:Ceramium;0 600060000 897.2 448.8 0.0 0] [pos:Ceramium;0 600060000 963.3 355.8 0.0 0] [pos:Ceramium;0 600060000 1031.5 451.0 0.0 0] [pos:Ceramium;0 600060000 1356.8 316.8 0.0 0] [pos:Ceramium;0 600060000 2200.9 308.5 0.0 0] [pos:Ceramium;0 600050000 730.2 343.3 0.0 0] [pos:Ceramium;0 600050000 1706.6 1431.0 0.0 0] [pos:Ceramium;0 600050000 1840.2 1348.0 0.0 0] [pos:Ceramium;0 600050000 1758.0 1323.2 0.0 0] [pos:Ceramium;0 600050000 791.7 291.1 0.0 0] [pos:Ceramium;0 600050000 2267.7 1934.2 0.0 0] [pos:Ceramium;0 600050000 709.8 2686.1 0.0 0] [pos:Ceramium;0 600050000 1909.6 1254.6 0.0 0] [pos:Ceramium;0 600050000 624.6 661.0 0.0 0] [pos:Ceramium;0 600050000 205.9 2123.4 0.0 0] [pos:Ceramium;0 600050000 1746.9 1508.5 0.0 0] [pos:Ceramium;0 600050000 1907.3 1598.5 0.0 0] [pos:Ceramium;0 600050000 2413.7 2040.1 0.0 0] [pos:Ceramium;0 600050000 2414.7 1850.3 0.0 0] [pos:Ceramium;0 600050000 2175.4 1902.0 0.0 0] [pos:Ceramium;0 600050000 198.5 1219.3 0.0 0] [pos:Ceramium;0 600050000 1950.1 1206.8 0.0 0] [pos:Ceramium;0 600050000 2423.5 1915.0 0.0 0] [pos:Ceramium;0 600050000 2238.7 1821.2 0.0 0] [pos:Ceramium;0 600050000 246.5 2236.3 0.0 0] [pos:Ceramium;0 600050000 797.7 514.5 0.0 0] [pos:Ceramium;0 600050000 357.7 1184.0 0.0 0] [pos:Ceramium;0 600050000 2270.0 1893.6 0.0 0] [pos:Ceramium;0 600050000 2203.8 1980.5 0.0 0] [pos:Ceramium;0 600050000 1970.0 1629.2 0.0 0] [pos:Ceramium;0 600050000 2279.9 1841.6 0.0 0] [pos:Ceramium;0 600050000 498.6 1116.4 0.0 0] [pos:Ceramium;0 600050000 425.3 2413.7 0.0 0] [pos:Ceramium;0 600050000 1795.8 1512.1 0.0 0] [pos:Ceramium;0 600050000 583.8 2558.9 0.0 0] [pos:Ceramium;0 600050000 1730.6 1373.1 0.0 0] [pos:Ceramium;0 600050000 723.1 571.1 0.0 0] [pos:Ceramium;0 600050000 2142.6 1844.3 0.0 0] [pos:Ceramium;0 600050000 1846.1 1485.8 0.0 0] [pos:Ceramium;0 600050000 169.2 2373.9 0.0 0] [pos:Ceramium;0 600050000 1787.3 1422.5 0.0 0] [pos:Ceramium;0 600050000 2351.3 1877.2 0.0 0] [pos:Ceramium;0 600050000 2141.8 1880.8 0.0 0] [pos:Ceramium;0 600050000 642.0 2865.6 0.0 0] [pos:Ceramium;0 600050000 800.4 2675.6 0.0 0] [pos:Ceramium;0 600050000 409.4 2412.6 0.0 0] [pos:Ceramium;0 600050000 921.2 146.7 0.0 0] [pos:Ceramium;0 600050000 2220.4 1866.5 0.0 0] [pos:Ceramium;0 600050000 1875.6 1500.1 0.0 0] [pos:Ceramium;0 600050000 642.0 2865.6 0.0 0] [pos:Ceramium;0 600050000 800.4 2675.6 0.0 0] [pos:Ceramium;0 600050000 2279.9 1841.6 0.0 0] [pos:Ceramium;0 600050000 2414.7 1850.3 0.0 0] [pos:Ceramium;0 600050000 2351.3 1877.2 0.0 0] [pos:Ceramium;0 600050000 2423.5 1915.0 0.0 0] [pos:Ceramium;0 600050000 2413.7 2040.1 0.0 0] [pos:Ceramium;0 600050000 169.2 2373.9 0.0 0] [pos:Ceramium;0 600050000 246.5 2236.3 0.0 0] [pos:Ceramium;0 600050000 205.9 2123.5 0.0 0] [pos:Ceramium;0 600050000 2270.0 1893.6 0.0 0] [pos:Ceramium;0 600050000 1950.1 1206.8 0.0 0] [pos:Ceramium;0 600050000 1909.6 1254.6 0.0 0] [pos:Ceramium;0 600050000 1970.0 1629.2 0.0 0] [pos:Ceramium;0 600050000 1907.3 1598.6 0.0 0] [pos:Ceramium;0 600050000 1875.6 1500.1 0.0 0] [pos:Ceramium;0 600050000 1846.1 1485.8 0.0 0] [pos:Ceramium;0 600050000 1795.9 1512.1 0.0 0] [pos:Ceramium;0 600050000 1787.3 1422.5 0.0 0] [pos:Ceramium;0 600050000 1746.9 1508.5 0.0 0] [pos:Ceramium;0 600050000 2142.6 1844.3 0.0 0] [pos:Ceramium;0 600050000 2141.8 1880.8 0.0 0] [pos:Ceramium;0 600050000 2175.4 1902.0 0.0 0] [pos:Ceramium;0 600050000 2238.7 1821.2 0.0 0] [pos:Ceramium;0 600050000 2220.4 1866.5 0.0 0] [pos:Ceramium;0 600050000 2267.7 1934.2 0.0 0] [pos:Ceramium;0 600050000 1706.6 1431.0 0.0 0] [pos:Ceramium;0 600050000 1730.6 1373.1 0.0 0] [pos:Ceramium;0 600050000 1840.2 1348.0 0.0 0] [pos:Ceramium;0 600050000 1758.0 1323.2 0.0 0] [pos:Ceramium;0 600050000 198.5 1219.3 0.0 0] [pos:Ceramium;0 600050000 357.7 1184.0 0.0 0] [pos:Ceramium;0 600050000 498.6 1116.4 0.0 0] [pos:Ceramium;0 600050000 921.2 146.7 0.0 0] [pos:Ceramium;0 600050000 791.7 291.1 0.0 0] [pos:Ceramium;0 600050000 730.2 343.3 0.0 0] [pos:Ceramium;0 600050000 409.4 2412.6 0.0 0] [pos:Ceramium;0 600050000 425.3 2413.7 0.0 0] [pos:Ceramium;0 600050000 583.8 2558.9 0.0 0] [pos:Ceramium;0 600050000 709.8 2686.1 0.0 0] [pos:Ceramium;0 600050000 2203.8 1980.6 0.0 0] ';
                 } else if (selectedRace === 'asmodian') {
@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 break;
             case 'Ponica':
-                popupTitle.textContent = 'Стебель фоники';
+                popupTitle.textContent = 'Стебло фоніки';
                 if (selectedRace === 'elyos') {
                     popupTextarea.value = '[pos:Ponica;0 600060000 2910.7 554.0 0.0 0] [pos:Ponica;0 600060000 2801.9 467.2 0.0 0] [pos:Ponica;0 600060000 2573.2 433.6 0.0 0] [pos:Ponica;0 600060000 2881.6 440.5 0.0 0] [pos:Ponica;0 600060000 2778.3 427.0 0.0 0] [pos:Ponica;0 600060000 2691.6 459.2 0.0 0] [pos:Ponica;0 600060000 2856.2 408.1 0.0 0] [pos:Ponica;0 600060000 2694.8 387.3 0.0 0] [pos:Ponica;0 600060000 2774.7 472.6 0.0 0] [pos:Ponica;0 600060000 2659.4 427.1 0.0 0] [pos:Ponica;0 600060000 2756.3 517.8 0.0 0] [pos:Ponica;0 600060000 2661.4 457.0 0.0 0] [pos:Ponica;0 600060000 2855.6 440.0 0.0 0] [pos:Ponica;0 600060000 2790.3 403.0 0.0 0] [pos:Ponica;0 600060000 2762.5 445.7 0.0 0] [pos:Ponica;0 600060000 2477.9 473.5 0.0 0] [pos:Ponica;0 600060000 2665.5 372.2 0.0 0] [pos:Ponica;0 600060000 2754.6 398.1 0.0 0] [pos:Ponica;0 600060000 2862.0 543.9 0.0 0] [pos:Ponica;0 600060000 2846.7 482.6 0.0 0] [pos:Ponica;0 600060000 2614.7 357.5 0.0 0] [pos:Ponica;0 600060000 2687.5 521.4 0.0 0] [pos:Ponica;0 600060000 2557.9 472.4 0.0 0] [pos:Ponica;0 600060000 2592.4 298.9 0.0 0] [pos:Ponica;0 600060000 2694.5 429.0 0.0 0] [pos:Ponica;0 600060000 2797.5 354.2 0.0 0] [pos:Ponica;0 600060000 2830.9 333.2 0.0 0] [pos:Ponica;0 600060000 2519.7 471.5 0.0 0] [pos:Ponica;0 600060000 2477.9 473.5 0.0 0] [pos:Ponica;0 600060000 2519.7 471.5 0.0 0] [pos:Ponica;0 600060000 2557.9 472.4 0.0 0] [pos:Ponica;0 600060000 2573.2 433.6 0.0 0] [pos:Ponica;0 600060000 2614.8 357.5 0.0 0] [pos:Ponica;0 600060000 2665.5 372.2 0.0 0] [pos:Ponica;0 600060000 2659.4 427.1 0.0 0] [pos:Ponica;0 600060000 2661.4 457.0 0.0 0] [pos:Ponica;0 600060000 2694.8 387.3 0.0 0] [pos:Ponica;0 600060000 2694.5 429.0 0.0 0] [pos:Ponica;0 600060000 2691.6 459.2 0.0 0] [pos:Ponica;0 600060000 2754.6 398.1 0.0 0] [pos:Ponica;0 600060000 2762.5 445.7 0.0 0] [pos:Ponica;0 600060000 2790.3 403.0 0.0 0] [pos:Ponica;0 600060000 2778.3 427.0 0.0 0] [pos:Ponica;0 600060000 2797.5 354.2 0.0 0] [pos:Ponica;0 600060000 2830.9 333.2 0.0 0] [pos:Ponica;0 600060000 2774.7 472.6 0.0 0] [pos:Ponica;0 600060000 2856.2 408.1 0.0 0] [pos:Ponica;0 600060000 2801.9 467.2 0.0 0] [pos:Ponica;0 600060000 2855.6 440.0 0.0 0] [pos:Ponica;0 600060000 2846.7 482.6 0.0 0] [pos:Ponica;0 600060000 2881.6 440.5 0.0 0] [pos:Ponica;0 600060000 2756.3 517.8 0.0 0] [pos:Ponica;0 600060000 2862.0 543.9 0.0 0] [pos:Ponica;0 600060000 2910.7 554.0 0.0 0] [pos:Ponica;0 600060000 2592.4 298.9 0.0 0] [pos:Ponica;0 600060000 2687.5 521.4 0.0 0] [pos:Ponica;0 600050000 252.0 2296.8 0.0 0] [pos:Ponica;0 600050000 740.3 632.2 0.0 0] [pos:Ponica;0 600050000 1281.8 1426.5 0.0 0] [pos:Ponica;0 600050000 1665.4 932.9 0.0 0] [pos:Ponica;0 600050000 1537.8 1126.6 0.0 0] [pos:Ponica;0 600050000 687.3 2865.4 0.0 0] [pos:Ponica;0 600050000 678.5 2786.3 0.0 0] [pos:Ponica;0 600050000 596.4 1255.5 0.0 0] [pos:Ponica;0 600050000 1328.8 2172.4 0.0 0] [pos:Ponica;0 600050000 1442.6 1231.7 0.0 0] [pos:Ponica;0 600050000 1379.0 1936.1 0.0 0] [pos:Ponica;0 600050000 826.0 1841.6 0.0 0] [pos:Ponica;0 600050000 1689.4 988.0 0.0 0] [pos:Ponica;0 600050000 530.8 1212.5 0.0 0] [pos:Ponica;0 600050000 1604.2 1046.0 0.0 0] [pos:Ponica;0 600050000 364.3 1059.2 0.0 0] [pos:Ponica;0 600050000 1510.7 812.7 0.0 0] [pos:Ponica;0 600050000 1249.4 872.3 0.0 0] [pos:Ponica;0 600050000 1645.4 872.6 0.0 0] [pos:Ponica;0 600050000 505.7 2458.2 0.0 0] [pos:Ponica;0 600050000 933.7 1204.9 0.0 0] [pos:Ponica;0 600050000 1414.9 795.5 0.0 0] [pos:Ponica;0 600050000 660.7 712.4 0.0 0] [pos:Ponica;0 600050000 1334.6 709.0 0.0 0] [pos:Ponica;0 600050000 923.1 982.6 0.0 0] [pos:Ponica;0 600050000 976.1 2281.5 0.0 0] [pos:Ponica;0 600050000 651.8 2012.9 0.0 0] [pos:Ponica;0 600050000 461.6 2393.8 0.0 0] [pos:Ponica;0 600050000 307.1 1155.6 0.0 0] [pos:Ponica;0 600050000 1038.0 219.6 0.0 0] [pos:Ponica;0 600050000 1726.6 2199.4 0.0 0] [pos:Ponica;0 600050000 894.2 958.7 0.0 0] [pos:Ponica;0 600050000 820.0 1145.5 0.0 0] [pos:Ponica;0 600050000 597.8 2483.7 0.0 0] [pos:Ponica;0 600050000 619.1 707.8 0.0 0] [pos:Ponica;0 600050000 807.2 1705.5 0.0 0] [pos:Ponica;0 600050000 1326.8 1335.4 0.0 0] [pos:Ponica;0 600050000 1756.1 2386.8 0.0 0] [pos:Ponica;0 600050000 182.8 2140.4 0.0 0] [pos:Ponica;0 600050000 1533.5 1883.4 0.0 0] [pos:Ponica;0 600050000 385.8 908.9 0.0 0] [pos:Ponica;0 600050000 1074.5 2138.6 0.0 0] [pos:Ponica;0 600050000 1233.6 1299.7 0.0 0] [pos:Ponica;0 600050000 210.2 2198.5 0.0 0] [pos:Ponica;0 600050000 762.7 2692.6 0.0 0] [pos:Ponica;0 600050000 894.7 201.0 0.0 0] [pos:Ponica;0 600050000 806.5 1365.9 0.0 0] [pos:Ponica;0 600050000 1005.7 352.5 0.0 0] [pos:Ponica;0 600050000 1791.7 2285.8 0.0 0] [pos:Ponica;0 600050000 1570.1 2016.5 0.0 0] [pos:Ponica;0 600050000 1357.4 1545.3 0.0 0] [pos:Ponica;0 600050000 1274.5 2215.4 0.0 0] [pos:Ponica;0 600050000 915.3 1164.1 0.0 0] [pos:Ponica;0 600050000 1497.7 667.0 0.0 0] [pos:Ponica;0 600050000 989.9 2183.4 0.0 0] [pos:Ponica;0 600050000 1665.4 932.9 0.0 0] [pos:Ponica;0 600050000 1689.5 988.0 0.0 0] [pos:Ponica;0 600050000 1645.4 872.6 0.0 0] [pos:Ponica;0 600050000 1604.2 1046.0 0.0 0] [pos:Ponica;0 600050000 1537.8 1126.6 0.0 0] [pos:Ponica;0 600050000 1791.7 2285.8 0.0 0] [pos:Ponica;0 600050000 1756.1 2386.8 0.0 0] [pos:Ponica;0 600050000 1726.6 2199.4 0.0 0] [pos:Ponica;0 600050000 1570.1 2016.5 0.0 0] [pos:Ponica;0 600050000 1533.5 1883.4 0.0 0] [pos:Ponica;0 600050000 1357.4 1545.3 0.0 0] [pos:Ponica;0 600050000 678.5 2786.3 0.0 0] [pos:Ponica;0 600050000 687.3 2865.4 0.0 0] [pos:Ponica;0 600050000 762.7 2692.6 0.0 0] [pos:Ponica;0 600050000 252.0 2296.8 0.0 0] [pos:Ponica;0 600050000 210.2 2198.5 0.0 0] [pos:Ponica;0 600050000 182.8 2140.4 0.0 0] [pos:Ponica;0 600050000 1442.6 1231.7 0.0 0] [pos:Ponica;0 600050000 1249.4 872.3 0.0 0] [pos:Ponica;0 600050000 1334.6 709.0 0.0 0] [pos:Ponica;0 600050000 1414.9 795.5 0.0 0] [pos:Ponica;0 600050000 1497.7 667.0 0.0 0] [pos:Ponica;0 600050000 1510.7 812.7 0.0 0] [pos:Ponica;0 600050000 1005.8 352.5 0.0 0] [pos:Ponica;0 600050000 1038.0 219.6 0.0 0] [pos:Ponica;0 600050000 307.1 1155.7 0.0 0] [pos:Ponica;0 600050000 364.3 1059.2 0.0 0] [pos:Ponica;0 600050000 385.8 908.9 0.0 0] [pos:Ponica;0 600050000 894.7 201.0 0.0 0] [pos:Ponica;0 600050000 461.6 2393.8 0.0 0] [pos:Ponica;0 600050000 505.7 2458.2 0.0 0] [pos:Ponica;0 600050000 597.8 2483.7 0.0 0] [pos:Ponica;0 600050000 530.8 1212.5 0.0 0] [pos:Ponica;0 600050000 596.4 1255.5 0.0 0] [pos:Ponica;0 600050000 806.5 1365.9 0.0 0] [pos:Ponica;0 600050000 1233.7 1299.7 0.0 0] [pos:Ponica;0 600050000 1281.8 1426.6 0.0 0] [pos:Ponica;0 600050000 1326.8 1335.4 0.0 0] [pos:Ponica;0 600050000 1379.0 1936.1 0.0 0] [pos:Ponica;0 600050000 1328.8 2172.4 0.0 0] [pos:Ponica;0 600050000 1274.5 2215.4 0.0 0] [pos:Ponica;0 600050000 933.7 1204.9 0.0 0] [pos:Ponica;0 600050000 915.3 1164.1 0.0 0] [pos:Ponica;0 600050000 820.0 1145.5 0.0 0] [pos:Ponica;0 600050000 1074.5 2138.6 0.0 0] [pos:Ponica;0 600050000 989.9 2183.4 0.0 0] [pos:Ponica;0 600050000 976.1 2281.5 0.0 0] ';
                 } else if (selectedRace === 'asmodian') {
