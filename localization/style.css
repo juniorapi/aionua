@@ -324,6 +324,60 @@ h2, h3, p { overflow-wrap: anywhere; }
   white-space: nowrap;
 }
 
+.howto {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-deep);
+}
+
+.howto > summary {
+  padding: 14px 20px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.howto > summary::-webkit-details-marker { display: none; }
+
+.howto > summary::before {
+  display: inline-block;
+  margin-right: 9px;
+  content: "\25B8";
+  transition: transform 0.18s ease;
+}
+
+.howto[open] > summary::before { transform: rotate(90deg); }
+
+.howto > summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.howto-body { padding: 0 20px 16px; }
+
+.howto-body ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #c9c9d4;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.howto-body li { margin-bottom: 6px; }
+.howto-body li::marker { color: var(--gold); font-weight: 700; }
+.howto-body strong { color: #ededf2; }
+.howto-body a { color: var(--gold); }
+
+.howto-note {
+  margin: 12px 0 0;
+  color: var(--quiet);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
 .page-footer { padding: 17px 4px 0; color: #6f6f82; font-size: 0.66rem; text-align: center; }
 
 @media (max-width: 900px) {
@@ -342,6 +396,8 @@ h2, h3, p { overflow-wrap: anywhere; }
   .tool-panel { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 16px; }
   .tool-icon { width: 44px; height: 44px; }
   .secondary-button { grid-column: 1 / -1; width: 100%; }
+  .howto > summary { padding: 13px 15px; }
+  .howto-body { padding: 0 15px 14px; }
 }
 
 @media (max-width: 390px) {
