@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.3.0
+// @version      1.4.0
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -394,7 +394,7 @@
     'verified': 'Підтверджено',
     'not verified': 'Не підтверджено',
     'currency': 'Валюта',
-    'kinah': 'Кінах',
+    'kinah': 'Кінари',
     'lv.': 'Рів.',
     'lvl': 'Рів.',
 
@@ -451,8 +451,8 @@
     'scrolls': 'Сувої',
     'elemental rings': 'Стихійні персні',
     'miscellaneous': 'Різне',
-    'physical asmo': 'Фізичні (асмодіани)',
-    'magical asmo': 'Магічні (асмодіани)',
+    'physical asmo': 'Фізичні (асмодіанці)',
+    'magical asmo': 'Магічні (асмодіанці)',
     'physical elyos': 'Фізичні (елійці)',
     'magical elyos': 'Магічні (елійці)',
     'buff pets': 'Улюбленці з баффами',
@@ -467,7 +467,7 @@
     'orange': 'Помаранчевий',
     'yellow': 'Жовтий',
     'green': 'Зелений',
-    'asmodian': 'Асмодіани',
+    'asmodian': 'Асмодіанці',
     'elyos': 'Елійці',
     'outdoor': "Екстер'єр",
     'furniture': 'Меблі',
@@ -481,28 +481,32 @@
   /* ── Раси та класи: лише для відповідних колонок таблиці рейтингу,
         щоб не зачепити нікнейми гравців (є, наприклад, гравець «Paladin»). ── */
 
+  /* Назви звірено з client_strings_ui.xml вивіреної бази локалізації гри
+     (STR_CLASS_NAME_*), щоб сайт збігався з українським клієнтом.
+     Виняток — chanter: у базі він «Чарівник», як і sorcerer, тож у таблиці
+     рейтингу два класи стали б нерозрізненними; вжито «Чародій». */
   const RACES = {
     'elyos': 'Елієць',
-    'asmodian': 'Асмодіанин',
+    'asmodian': 'Асмодіанець',
   };
 
   const CLASSES = {
-    'templar': 'Тамплієр',
+    'templar': 'Охоронець',
     'gladiator': 'Гладіатор',
-    'assassin': 'Асасин',
-    'ranger': 'Рейнджер',
-    'sorcerer': 'Чаклун',
-    'spiritmaster': 'Повелитель духів',
-    'cleric': 'Клірик',
-    'chanter': 'Чантер',
-    'gunner': 'Стрілець',
+    'assassin': 'Вбивця',
+    'ranger': 'Стрілець',
+    'sorcerer': 'Чарівник',
+    'spiritmaster': 'Заклинач',
+    'cleric': 'Жрець',
+    'chanter': 'Чародій',
+    'gunner': 'Пілот',
     'bard': 'Бард',
     'rider': 'Вершник',
     'aethertech': 'Етертех',
     'warrior': 'Воїн',
-    'scout': 'Розвідник',
+    'scout': 'Слідопит',
     'mage': 'Маг',
-    'priest': 'Жрець',
+    'priest': 'Цілитель',
     'technist': 'Технолог',
     'muse': 'Муза',
   };
@@ -521,7 +525,7 @@
     'male': 'Чол.',
     'female': 'Жін.',
     'elyos': 'Елійці',
-    'asmodian': 'Асмодіани',
+    'asmodian': 'Асмодіанці',
     'all classes': 'Усі класи',
   };
 
