@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.1.0
+// @version      1.1.1
 // @description  Перекладає сайт aiondestiny.net українською та ставить український прапор у перемикачі мов
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -889,28 +889,44 @@
     /* ═══════════════════ ПРАПОР І ПІДПИС У ПЕРЕМИКАЧІ ══════════════════ */
 
     const FLAG_UA =
-        '<svg width="25" height="17" viewBox="0 0 25 17" fill="none" ' +
+        '<svg data-ua-flag="1" width="25" height="17" viewBox="0 0 25 17" fill="none" ' +
         'xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
         '<rect width="25" height="8.5" fill="#0057B7"/>' +
         '<rect y="8.5" width="25" height="8.5" fill="#FFD700"/></svg>';
+
+    /* Ознакою слугує сам вставлений svg, а не атрибут на контейнері: Vue
+       перемальовує вміст кнопки й повертає туди свій прапор, лишаючи наш
+       підпис. Перевірка «чи всередині вже наш svg» це переживає. */
+    function ensureUaFlag(iconEl) {
+        if (!iconEl || iconEl.querySelector('svg[data-ua-flag]')) return;
+        iconEl.innerHTML = FLAG_UA;
+    }
 
     // Пункт російської підміняємо українським: код, прапор і мова разом.
     function patchSwitcher() {
         const selector = document.querySelector('.language-selector');
         if (!selector) return;
 
+        // Кнопка (згорнутий стан): поки активна українська — там завжди UA.
+        // Її треба чинити окремо, бо підпис уже не «RU» і під умову нижче
+        // вона більше не потрапляє.
+        if (currentLocale() === LOCALE) {
+            const selected = selector.querySelector('.selected-option');
+            if (selected) {
+                const label = selected.querySelector('span');
+                if (label && label.textContent.trim() !== 'UA') label.textContent = 'UA';
+                ensureUaFlag(selected.querySelector('.iconBase') || selected.querySelector('svg')?.parentElement);
+            }
+        }
+
+        // Пункти випадного списку.
         for (const span of selector.querySelectorAll('span')) {
             if (span.textContent.trim() !== 'RU') continue;
 
             span.textContent = 'UA';
-            span.dataset.uaPatched = '1';
 
             const row = span.parentElement;
-            const icon = row?.querySelector('.iconBase') || row?.querySelector('svg')?.parentElement;
-            if (icon && icon.dataset.uaFlag !== '1') {
-                icon.innerHTML = FLAG_UA;
-                icon.dataset.uaFlag = '1';
-            }
+            ensureUaFlag(row?.querySelector('.iconBase') || row?.querySelector('svg')?.parentElement);
 
             // Клік по цьому пункту має вмикати українську, а не російську.
             const clickable = row?.closest('li,button,[role="option"],.option') || row;
@@ -919,6 +935,19 @@
                 clickable.addEventListener('click', () => setTimeout(() => setLocale(LOCALE), 60), true);
             }
         }
+    }
+
+    /* Список розкривається кліком, і його вміст малюється щойно тоді —
+       тік раз на 1.5 с давав би помітну затримку з чужим прапором. */
+    function watchSwitcher() {
+        if (document.__uaSwitcherWatched) return;
+        document.__uaSwitcherWatched = true;
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest?.('.language-selector')) return;
+            patchSwitcher();
+            setTimeout(patchSwitcher, 60);
+            setTimeout(patchSwitcher, 200);
+        }, true);
     }
 
     /* ═══════════════════════════ ЗАПУСК ════════════════════════════════ */
@@ -939,6 +968,7 @@
         if (!applied) apply();
 
         // Vue перемальовує шапку — прапор доводиться ставити повторно.
+        watchSwitcher();
         patchSwitcher();
 
         // Після переходів сайт іноді повертає свою локаль.
@@ -972,7 +1002,7 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '1.1.0',
+        version: '1.1.1',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
