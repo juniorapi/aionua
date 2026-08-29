@@ -289,7 +289,7 @@ const POWDERS_CRAFTING_DATA = {
             icon: "images/icon_item_gempoder03.png",
             outputQuantity: 10, 
             materials: [
-                { id: 'elatrite', name: "Некраяний кельфарат", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
+                { id: 'elatrite', name: "Негранений кельфарат", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
 	       ]
         },
 		powders3: {
@@ -415,7 +415,7 @@ const POWDERS_CRAFTING_DATA = {
 		]
 	},
 	convert7: {
-		name: "Великий негранений кельфарат",
+		name: "Величезний негранений кельфарат",
 		icon: "images/icon_item_gemstone01e.png",
 		outputQuantity: 1,
 		materials: [
@@ -569,7 +569,7 @@ const FOOD_CRAFTING_DATA = {
             ]
         },
 		food4: {
-            name: "М'ясо імператора жахливих драконів в клярі",
+            name: "М'ясо імператора жахливих драконів у клярі",
             icon: "images/icon_item_dish11.png",
             outputQuantity: 2, 
             materials: [
