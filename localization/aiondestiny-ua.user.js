@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.0.0
+// @version      1.1.0
 // @description  Перекладає сайт aiondestiny.net українською та ставить український прапор у перемикачі мов
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -972,7 +972,7 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '1.0.0',
+        version: '1.1.0',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
