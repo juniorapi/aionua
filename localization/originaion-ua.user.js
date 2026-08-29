@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.4.0
+// @version      1.5.0
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -1174,12 +1174,46 @@
     updateToggle();
   }
 
+  /* ── Разове сповіщення після автооновлення ──
+     Tampermonkey оновлює скрипт тихо, тож при першому запуску нової версії
+     показуємо тост. Версія береться з GM_info (доступний без @grant),
+     попередня — з localStorage; збіг або перше встановлення — тиша. */
+  function notifyUpdate() {
+    if (!enabled || !document.body || isCloudflarePage()) return;
+    let current = '';
+    try { current = GM_info.script.version; } catch (e) { return; }
+    const KEY = STORAGE_KEY + '_version';
+    let prev = null;
+    try {
+      prev = localStorage.getItem(KEY);
+      localStorage.setItem(KEY, current);
+    } catch (e) { return; }
+    if (!prev || prev === current) return;
+
+    const toast = document.createElement('div');
+    toast.setAttribute('data-no-l10n', '1');
+    toast.textContent = 'Українську локалізацію оновлено до версії ' + current;
+    toast.style.cssText = [
+      'position:fixed', 'left:50%', 'bottom:72px', 'transform:translateX(-50%)',
+      'z-index:2147483647', 'padding:10px 18px', 'border-radius:8px',
+      'background:rgba(15,18,28,.95)', 'color:#e8ddb5',
+      'font:500 13px/1.4 system-ui,sans-serif',
+      'border:1px solid rgba(255,215,0,.35)',
+      'box-shadow:0 6px 20px rgba(0,0,0,.5)', 'cursor:pointer',
+      'max-width:90vw', 'text-align:center',
+    ].join(';');
+    toast.addEventListener('click', () => toast.remove());
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 8000);
+  }
+
   function boot() {
     if (enabled) {
       startObserver();
       run();
     }
     mountToggle();
+    notifyUpdate();
   }
 
   if (document.readyState === 'loading') {

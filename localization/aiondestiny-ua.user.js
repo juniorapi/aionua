@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.2.1
+// @version      1.3.0
 // @description  Перекладає сайт aiondestiny.net українською (з прапором у перемикачі мов) і містить вбудований трекер досягнень
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -789,15 +789,23 @@
        АНГЛІЙСЬКОЮ, і словник з російськими ключами не збігається. Тому в
        запиті примусово ставимо lang=ru, а відповідь перекладаємо самі. */
     function forceRuLang(args) {
+        // Мова може їхати заголовком lang, Accept-Language або параметром
+        // в URL — перекриваємо всі три канали, щоб не вгадувати, який
+        // саме використовує сайт.
+        const rewriteUrl = (u) => String(u).replace(/([?&]lang=)uk\b/i, '$1ru');
+        const forceHeaders = (h) => {
+            const headers = new Headers(h || {});
+            headers.set('lang', 'ru');
+            headers.set('Accept-Language', 'ru');
+            return headers;
+        };
         if (args[0] instanceof Request) {
-            const headers = new Headers(args[0].headers);
-            headers.set('lang', 'ru');
-            args[0] = new Request(args[0], { headers });
+            const moved = new Request(rewriteUrl(args[0].url), args[0]);
+            args[0] = new Request(moved, { headers: forceHeaders(moved.headers) });
         } else {
+            args[0] = rewriteUrl(args[0]);
             const init = Object.assign({}, args[1]);
-            const headers = new Headers(init.headers || {});
-            headers.set('lang', 'ru');
-            init.headers = headers;
+            init.headers = forceHeaders(init.headers);
             args[1] = init;
         }
         return args;
@@ -1016,6 +1024,40 @@
         } catch (e) { return true; }
     }
 
+    /* ── Разове сповіщення після автооновлення ──
+       Tampermonkey оновлює скрипт тихо, тож при першому запуску нової версії
+       показуємо тост. Перше встановлення або та сама версія — тиша. */
+    let updateNotified = false;
+
+    function notifyUpdate() {
+        if (updateNotified || !document.body) return;
+        updateNotified = true;
+        let current = '';
+        try { current = GM_info.script.version; } catch (e) { return; }
+        const KEY = STORAGE_KEY + '_version';
+        let prev = null;
+        try {
+            prev = localStorage.getItem(KEY);
+            localStorage.setItem(KEY, current);
+        } catch (e) { return; }
+        if (!prev || prev === current) return;
+
+        const toast = document.createElement('div');
+        toast.textContent = 'Українську локалізацію оновлено до версії ' + current;
+        toast.style.cssText = [
+            'position:fixed', 'left:50%', 'bottom:24px', 'transform:translateX(-50%)',
+            'z-index:2147483647', 'padding:10px 18px', 'border-radius:8px',
+            'background:rgba(10,11,15,.95)', 'color:#e8eaf0',
+            'font:500 13px/1.4 Inter,system-ui,sans-serif',
+            'border:1px solid rgba(79,142,247,.45)',
+            'box-shadow:0 6px 20px rgba(0,0,0,.5)', 'cursor:pointer',
+            'max-width:90vw', 'text-align:center',
+        ].join(';');
+        toast.addEventListener('click', () => toast.remove());
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 8000);
+    }
+
     function tick() {
         if (!enabled()) return;
 
@@ -1023,6 +1065,7 @@
         if (!i18n) return;
 
         if (!applied) apply();
+        notifyUpdate();
 
         // Vue перемальовує шапку — прапор доводиться ставити повторно.
         watchSwitcher();
@@ -1059,7 +1102,7 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '1.2.1',
+        version: '1.3.0',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
