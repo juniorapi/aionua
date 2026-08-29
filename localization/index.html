@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1a1a2e">
   <meta name="description" content="Українська локалізація для клієнтів Aion Destiny, Origin Aion та Aion Riftshade.">
   <title>Українська локалізація Aion · Aion UA</title>
-  <link rel="stylesheet" href="style.css?v=20260829-us">
+  <link rel="stylesheet" href="style.css?v=20260829-meta">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -131,6 +131,7 @@
         <p class="section-kicker">Переклад сайту</p>
         <h2 id="userscript-title">Origin Aion українською</h2>
         <p>Перекладає сайт <strong>originaion.com</strong> — крамницю, рейтинги, розклад, Eternity Pass, профіль та історію покупок. Потрібен Tampermonkey.</p>
+        <p class="script-meta" data-script-meta="originaion-ua.user.js"></p>
       </div>
       <a class="secondary-button" href="originaion-ua.user.js">Встановити скрипт</a>
     </section>
@@ -142,21 +143,10 @@
       <div class="tool-copy">
         <p class="section-kicker">Переклад сайту</p>
         <h2 id="destiny-ua-title">Aion Destiny українською</h2>
-        <p>Перекладає сайт <strong>aiondestiny.net</strong> — особистий кабінет, крамницю, рейтинги, колесо фортуни, преміум і досягнення. У перемикачі мов з’являється український прапор. Містить вбудований трекер досягнень, тож окремо його ставити не треба. Потрібен Tampermonkey.</p>
+        <p>Перекладає сайт <strong>aiondestiny.net</strong> — особистий кабінет, крамницю, рейтинги, колесо фортуни, преміум і досягнення. У перемикачі мов з’являється український прапор. Містить вбудований трекер досягнень: прогрес, нагороди, скидання й статистику персонажів. Потрібен Tampermonkey.</p>
+        <p class="script-meta" data-script-meta="aiondestiny-ua.user.js"></p>
       </div>
       <a class="secondary-button" href="aiondestiny-ua.user.js">Встановити скрипт</a>
-    </section>
-
-    <section class="tool-panel" aria-labelledby="tracker-title">
-      <div class="tool-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M4 19h16v2H4v-2Zm1-2V9h4v8H5Zm5 0V3h4v14h-4Zm5 0v-6h4v6h-4Z"/></svg>
-      </div>
-      <div class="tool-copy">
-        <p class="section-kicker">Aion Destiny</p>
-        <h2 id="tracker-title">Трекер досягнень</h2>
-        <p>Показує прогрес досягнень, нагороди до отримання, скидання та статистику персонажів на <strong>aiondestiny.net</strong>. Потрібен Tampermonkey.</p>
-      </div>
-      <a class="secondary-button" href="aion-achievements.user.js">Встановити скрипт</a>
     </section>
 
     <details class="howto">
@@ -170,8 +160,7 @@
         </ol>
         <p class="howto-note">
           <strong>Переклад Origin:</strong> відкрийте <a href="https://originaion.com/" target="_blank" rel="noopener noreferrer">originaion.com</a> — сайт уже буде українською. Повернути англійську можна кнопкою <strong>UA</strong> у правому нижньому куті.<br>
-          <strong>Переклад Destiny:</strong> відкрийте <a href="https://aiondestiny.net/" target="_blank" rel="noopener noreferrer">aiondestiny.net</a> — мова перемкнеться сама, а в перемикачі стане український прапор.<br>
-          <strong>Трекер Destiny:</strong> увійдіть в акаунт і відкрийте розділ досягнень — вікно трекера з'явиться саме.<br>
+          <strong>Переклад Destiny:</strong> відкрийте <a href="https://aiondestiny.net/" target="_blank" rel="noopener noreferrer">aiondestiny.net</a> — мова перемкнеться сама, а в перемикачі стане український прапор. Трекер досягнень уже в складі: увійдіть в акаунт і відкрийте розділ досягнень — вікно з'явиться саме. Якщо раніше ставили трекер окремим скриптом, видаліть його в Tampermonkey.<br>
           Усі скрипти Tampermonkey оновлює автоматично.
         </p>
       </div>
