@@ -209,14 +209,16 @@ try:
         # лишаються запасним варіантом, бо є навіть при playerCount: null.
         'elyos': _int_or_none(count.get('elyos')),
         'asmo': _int_or_none(count.get('asmodian')),
-        'elyos_pct': int(race.get('elyosPercent') or 0),
-        'asmo_pct': int(race.get('asmodianPercent') or 0),
+        # None, а не 0: якщо racePercent зникне, нуль був би невідрізнюваний
+        # від справжніх 0% і показав би порожню фракцію на робочому сервері.
+        'elyos_pct': _int_or_none(race.get('elyosPercent')),
+        'asmo_pct': _int_or_none(race.get('asmodianPercent')),
     }
     print(f"Origin: {data['origin']}")
 except Exception as e:
     data['origin'] = {
         'total': None, 'is_online': False,
-        'elyos': None, 'asmo': None, 'elyos_pct': 0, 'asmo_pct': 0,
+        'elyos': None, 'asmo': None, 'elyos_pct': None, 'asmo_pct': None,
     }
     print(f"Origin error: {e}")
 

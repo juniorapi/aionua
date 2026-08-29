@@ -129,17 +129,23 @@ function render(d) {
 
         // Коли лічильник доступний, показуємо розбивку в людях, як у Destiny;
         // без нього лишаються відсотки — вони приходять і при playerCount: null.
+        // Якщо Origin прибере обидві форми, блок ховаємо: намальовані нулі
+        // виглядали б як порожні фракції на робочому сервері.
         const hasRaceCount = Number.isFinite(d.origin.asmo) && Number.isFinite(d.origin.elyos);
-        const asmo = hasRaceCount ? d.origin.asmo : (Number(d.origin.asmo_pct) || 0);
-        const ely = hasRaceCount ? d.origin.elyos : (Number(d.origin.elyos_pct) || 0);
+        const hasRacePct = Number.isFinite(d.origin.asmo_pct) && Number.isFinite(d.origin.elyos_pct);
+        const asmo = hasRaceCount ? d.origin.asmo : d.origin.asmo_pct;
+        const ely = hasRaceCount ? d.origin.elyos : d.origin.elyos_pct;
         const suffix = hasRaceCount ? '' : '%';
 
         const factions = document.getElementById('origin-factions');
         if (factions) {
+            const hasRace = hasRaceCount || hasRacePct;
             // 0/0 буває, коли сервер щойно піднявся, — краще не показувати нічого
-            factions.hidden = !originOnline || asmo + ely === 0;
-            setText('origin-asmo', 'Asm: ' + asmo + suffix);
-            setText('origin-ely', 'Ely: ' + ely + suffix);
+            factions.hidden = !originOnline || !hasRace || asmo + ely === 0;
+            if (hasRace) {
+                setText('origin-asmo', 'Asm: ' + asmo + suffix);
+                setText('origin-ely', 'Ely: ' + ely + suffix);
+            }
         }
 
         originDot.classList.remove('is-loading');

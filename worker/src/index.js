@@ -110,8 +110,10 @@ async function collectOrigin() {
     is_online: Boolean(payload?.isOnline),
     elyos: intOrNull(count.elyos),
     asmo: intOrNull(count.asmodian),
-    elyos_pct: Number(race.elyosPercent) || 0,
-    asmo_pct: Number(race.asmodianPercent) || 0,
+    // null, а не 0: якщо racePercent зникне, нуль був би невідрізнюваний від
+    // справжніх 0% і бот показав би «(Asm:0%/Ely:0%)» на робочому сервері.
+    elyos_pct: intOrNull(race.elyosPercent),
+    asmo_pct: intOrNull(race.asmodianPercent),
   };
 }
 
