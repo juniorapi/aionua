@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      0.9.0
+// @version      0.9.5
 // @description  Перекладає сайт aiondestiny.net українською та ставить український прапор у перемикачі мов
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -121,6 +121,400 @@
             timeout: 'Час очікування вичерпано',
             unauthorized: 'Не авторизовано',
             validationError: 'Помилка перевірки',
+        },
+
+        pages: {
+            accountView: {
+                activate: 'Активувати',
+                allBonusesList: 'Весь список бонусів',
+                balance: 'Баланс:',
+                bonusesForDeposit: 'Бонуси за поповнення',
+                bonusesForMmotop: 'Бонуси за MMOTOP',
+                credited: 'Зараховано:',
+                deposit: 'ПОПОВНИТИ',
+                enterAmount: 'Введіть суму',
+                enterPromocode: 'Введіть промокод',
+                errors: {
+                    characterNotFound: 'Персонажа не знайдено',
+                    enterAmount: 'Введіть суму для поповнення',
+                    getRewardError: 'Сталася помилка під час отримання нагороди',
+                    noVoteBonuses: 'Немає доступних бонусів за голосування',
+                    notAllRewardsGiven: 'Не всі нагороди отримано',
+                    packNameNotFound: 'Назву набору не знайдено',
+                    resetError: 'Сталася помилка під час скидання нагороди',
+                    resetNotAvailable: 'Скидання недоступне',
+                    rewardAlreadyReceived: 'Нагороду вже отримано',
+                    rewardNotAvailable: 'Нагорода недоступна',
+                    rewardNotFound: 'Нагороду не знайдено',
+                    rewardSent: 'Нагороду надіслано персонажу {charName}',
+                    rewardsReset: 'Нагороди скинуто',
+                    voteError: 'Сталася помилка під час отримання бонусів за голосування',
+                    voteRewardReceived: 'Отримано {amount} toll за голосування!',
+                },
+                exchangeRate: 'Курс 1 Toll = 1 рубль',
+                promocodeNotFound: 'Промокод не знайдено',
+                promocodes: 'Промокоди',
+                received: 'Отримано',
+                reset: 'Скинути',
+                socialNetworks: 'Соціальні мережі',
+                status: {
+                    available: 'Доступно до отримання',
+                    received: 'Отримано',
+                    unavailable: 'Недоступно',
+                },
+                take: 'Забрати',
+                totalDeposited: 'Усього поповнено на:',
+                vote: 'Проголосувати',
+            },
+
+            achievements: {
+                event: 'ІВЕНТ ДО {date}',
+                getReward: 'Отримати',
+                new: 'NEW',
+                reset: 'Скинути',
+                reward: 'Нагорода',
+                rewardFor: 'Нагорода за {progress}',
+                rewardReceived: 'Нагороду отримано',
+                seasonal: 'СЕЗОННЕ ДО {date}',
+                unavailable: 'Недоступно',
+                vip: 'VIP',
+            },
+
+            achievementsView: {
+                achievementBlock: {
+                    resetTooltip: 'Це досягнення можна скинути після виконання',
+                },
+                confirmReward: {
+                    cancelButton: 'Скасувати',
+                    confirmButton: 'Отримати нагороду',
+                    messagePrefix: 'Ви впевнені, що хочете отримати нагороду за досягнення для персонажа ',
+                    messageSuffix: '?',
+                    title: 'Підтвердження отримання нагороди',
+                },
+                errors: {
+                    claimError: 'Помилка під час отримання нагороди',
+                    loadError: 'Помилка під час завантаження досягнень',
+                    resetError: 'Помилка під час скидання досягнення',
+                },
+                messages: {
+                    achievementReset: 'Досягнення скинуто',
+                    allRewardsRequired: 'Щоб скинути, потрібно отримати всі нагороди',
+                    noReward: 'Немає нагороди до отримання',
+                    resetNotAvailable: 'Скидання недоступне',
+                    rewardSentToEmail: 'Нагороду надіслано на пошту',
+                    unknownStatus: 'Невідомий статус відповіді',
+                    vipRequired: 'Щоб отримати нагороду, потрібен VIP',
+                },
+                noAchievements: 'Немає досягнень',
+                subtitle: 'Доступно скидань: {count}',
+                title: 'Досягнення',
+            },
+
+            blog: {
+                back: 'Назад до блогу',
+                backToList: 'Повернутися до списку статей',
+                notFoundText: 'На жаль, запитану статтю не знайдено.',
+                notFoundTitle: 'Статтю не знайдено',
+                readMore: 'Докладніше',
+                subtitle: 'Гайди та корисна інформація про сервер',
+                title: 'Корисні статті',
+                videoUnsupported: 'Ваш браузер не підтримує відтворення відео.',
+            },
+
+            blogInfoModal: {
+                goToBlog: 'Перейти',
+                imageAlt: 'Зображення інформаційного банера блогу',
+                title: 'Ознайомтеся з корисними статтями',
+            },
+
+            common: {
+                balance: 'Баланс:',
+                cancel: 'Скасувати',
+                character: 'Персонаж',
+                deposit: {
+                    amount: 'Сума поповнення: {amount}',
+                    depositButton: 'ПОПОВНИТИ',
+                    errors: {
+                        invalidAmount: 'Введіть коректну суму для поповнення',
+                        paymentError: 'Сталася помилка під час створення платежу',
+                        selectMethod: 'Оберіть спосіб оплати',
+                    },
+                    methods: {
+                        crypto: 'CRYPTO',
+                        euCards: 'Картки ЄС і СНД',
+                        ruCards: 'Картки РФ і СБП',
+                    },
+                    title: 'Оберіть спосіб оплати',
+                },
+                getReward: 'Отримати нагороду',
+                menu: {
+                    account: 'Акаунт і баланс',
+                    achievements: 'Досягнення',
+                    admin: 'Адмін',
+                    logout: 'Вийти',
+                    premium: 'Преміум',
+                    rating: 'Рейтинг',
+                    seasonalRating: 'Сезонний рейтинг',
+                    sets: 'Набори',
+                    shop: 'Крамниця',
+                    wheel: 'Колесо фортуни',
+                },
+                selectCharacter: 'Оберіть персонажа',
+            },
+
+            download: {
+                downloadButton: 'Завантажити',
+                title: 'МОВА КЛІЄНТА ЗАЛЕЖИТЬ ВІД МОВИ САЙТУ',
+                // torrentlink навмисно не перекладаємо — це URL
+            },
+
+            footer: {
+                forum: 'Форум',
+                paymentSecurity: 'Безпека платежів',
+                privacyPolicy: 'Політика конфіденційності',
+                userAgreement: 'Угода користувача',
+            },
+
+            header: {
+                blog: 'Статті',
+                db: 'База знань',
+                home: 'Головна',
+                install: 'Встановити',
+                moreDetails: 'ДОКЛАДНІШЕ',
+                online: 'У мережі:',
+                personalAccount: 'Особистий кабінет',
+                premium: 'Преміум',
+                seasonEnd: 'До кінця сезону',
+                support: 'Підтримка',
+            },
+
+            home: {
+                installButton: 'Встановити',
+                personalAccountButton: 'Особистий кабінет',
+                version: '- 4.6 -',
+            },
+
+            itemDisplay: { loadingDescription: 'Завантаження опису…' },
+            loadingTable: { loadingData: 'Завантаження даних…' },
+
+            premium: {
+                benefits: 'Переваги',
+                benefitsList: {
+                    abyssPoints: 'Очки безодні в PvP і PvE',
+                    achievements: 'Система досягнень',
+                    arenaSigns: 'Отримання знаків арени',
+                    craftingExp: 'Прокачування ремесла',
+                    deathDebuff: 'Дебаф після смерті',
+                    flight: 'Переліт',
+                    gatheringExp: 'Прокачування збирання',
+                    itemDrop: 'Випадання предметів',
+                    monsterExp: 'Досвід з монстрів',
+                    questExp: 'Досвід з місій і завдань',
+                    resourceBreakdown: 'Розбір ресурсів',
+                    salesLimit: 'Збільшений ліміт продажів',
+                },
+                benefitsValues: {
+                    absent: 'Відсутня',
+                    extended: 'Розширена',
+                    free: 'Безкоштовно',
+                    oneSecond: '1 сек',
+                },
+                buy: 'КУПИТИ',
+                commandDescriptionButton: 'Опис команд',
+                commandDescriptionModal: {
+                    cancel: 'Знімає вигляд цукерки. Щоб скасувати дію, введіть команду повторно',
+                    dmg: 'Показує шкоду, завдану всіма учасниками групи чи альянсу по мобу або рейд-босу. Візьміть потрібну ціль у таргет і введіть команду',
+                    rem: 'Ви можете змінювати вигляд броні незалежно від її типу',
+                    set: 'Щоб створити сет, введіть у чат команду .set save 1 (де 1 — номер сета); зберігаються всі вдягнені на персонажа предмети.\n' +
+                         '- Щоб застосувати сет, введіть у чат команду .set 1 (де 1 — номер збереженого сета).\n' +
+                         '- Щоб додати новий сет, зробіть те саме, але замініть цифру 1 на будь-яку іншу від 2 до 10.\n' +
+                         'Максимальна кількість сетів — 10',
+                    title: 'Опис команд',
+                },
+                commands: 'Команди',
+                commandsList: {
+                    cancelCandy: 'Знімає вигляд цукерки',
+                    changeAppearance: 'Ремодел без обмежень',
+                    changeSet: 'Зміна сета',
+                    showDamage: 'Показує шкоду по монстру',
+                },
+                subtitle: 'Пакет VIP діє на весь акаунт',
+                title: 'VIP-привілеї',
+                vip14: 'VIP (14 днів)',
+                vip30: 'VIP (30 днів)',
+            },
+
+            rating: {
+                roulette: {
+                    attemptCost: '1 спроба = {price}',
+                    errors: {
+                        notEnoughToll: 'Недостатньо toll для прокручування',
+                        spinError: 'Сталася помилка під час прокручування рулетки',
+                        unavailable: 'Колесо зараз недоступне',
+                    },
+                    getReward: 'ОТРИМАТИ',
+                    giftInfo: 'Подарунок надійде на пошту персонажа',
+                    spin: 'Крутити',
+                    title: 'Колесо фортуни',
+                    untilEnd: 'До кінця акції:',
+                    untilStart: 'До початку акції:',
+                },
+                seasonRating: {
+                    dungeons: { bastion: 'Бастіон', katalamandj: 'Каталамандж', sauro: 'Сауро' },
+                    factions: { asmodians: 'Асмодіани', elians: 'Елійці' },
+                    fastest: 'Найшвидші',
+                    leaders: 'Лідери',
+                    nickname: 'Нікнейм',
+                    noData: 'Немає даних',
+                    oc: 'ОС',
+                    pvp: 'PVP',
+                    pvpSubtitle: 'Облік поєдинків на аренах',
+                    rating: 'Рейтинг',
+                    resetTime: 'Скидання та видача нагород через:',
+                    reward: 'Нагорода',
+                    seasonShop: {
+                        availableFor: 'ДОСТУПНИЙ ЩЕ {time}',
+                        availableIn: 'ДОСТУПНИЙ ЧЕРЕЗ {time}',
+                        description: 'Унікальні товари, доступні лише цього сезону',
+                        loading: 'Завантаження…',
+                        title: 'Сезонна крамниця',
+                    },
+                    time: 'Час',
+                    title: 'Сезонний рейтинг',
+                },
+                towerRating: {
+                    classes: {
+                        assassin: 'Убивця',
+                        bard: 'Бард',
+                        chanter: 'Чародій',
+                        cleric: 'Цілитель',
+                        gladiator: 'Гладіатор',
+                        guardian: 'Страж',
+                        gunner: 'Пілот',
+                        ranger: 'Стрілець',
+                        sniper: 'Снайпер',
+                        sorcerer: 'Чарівник',
+                        spiritmaster: 'Заклинач',
+                    },
+                    floor: 'Поверх',
+                    nickname: 'Нікнейм',
+                    noData: 'Немає даних',
+                    resetTime: 'Скидання та видача нагород через:',
+                    reward: 'Нагорода',
+                    time: 'Час',
+                    title: 'Рейтинг вежі випробувань',
+                    totalFloors: 'Усього поверхів',
+                },
+            },
+
+            roulette: {
+                infoModal: {
+                    description: 'Опис',
+                    items: {
+                        chanceIncrease: 'Шанс дістати унікальний предмет зростає щоразу на другій спробі (Х)',
+                        chanceReset: 'Коли ви отримуєте унікальний предмет, шанс (Х) скидається',
+                        consumableWarning: 'Якщо ви випадково використали витратний предмет, відновити його неможливо',
+                        cost: 'Вартість 1 спроби: {price} TOLL',
+                        itemClick: 'Якщо натиснути на унікальний предмет на колесі, відкриється вікно з його зображенням',
+                        maxChance: 'Максимальний шанс: х5',
+                        purpleItems: 'Фіолетовий колір — звичайні предмети (витратні)',
+                        transferable: 'Усі предмети передавані',
+                        yellowItems: 'Жовтий колір — унікальні предмети (зовнішній вигляд)',
+                    },
+                    title: 'Як працює колесо фортуни?',
+                    understand: 'Зрозуміло',
+                },
+                itemModal: { close: 'Закрити' },
+                rewardsModal: {
+                    availableRewards: 'Доступні нагороди:',
+                    getReward: 'Отримати',
+                    messages: {
+                        alreadyTaken: 'Предмет уже отримано',
+                        characterNotFound: 'Персонажа не знайдено',
+                        itemNotFound: 'Предмет не знайдено',
+                        itemSentToMail: 'Предмет надіслано на пошту',
+                        itemsReceived: 'Отримано предметів: {count}',
+                        loadRewardsError: 'Помилка під час завантаження списку нагород',
+                        takeItemError: 'Помилка під час отримання предмета',
+                        takeRewardsError: 'Помилка під час отримання нагород',
+                        unknownError: 'Невідома помилка',
+                    },
+                    noRewards: 'Немає доступних нагород',
+                    takeAll: 'Отримати всі',
+                    title: 'Отримати нагороди',
+                },
+            },
+
+            sets: { buy: 'Купити', newbieSet: 'Набір новачка' },
+            setsView: { title: 'Набори' },
+
+            shop: {
+                emptyCategory: 'У цій категорії поки немає предметів',
+                foundItems: 'Знайдено предметів: {count}',
+                noResults: 'За запитом «{query}» нічого не знайдено',
+                searchPlaceholder: 'Пошук за ID або назвою предмета',
+                searchResults: 'Результати пошуку за запитом: «{query}»',
+                title: 'Крамниця',
+            },
+
+            shopItem: {
+                characterLimit: 'Ліміт на персонажа: {limit}',
+                details: 'Докладніше',
+                new: 'NEW',
+                pieces: 'шт.',
+                serverLimit: 'Ліміт на сервер: {remain}/{total}',
+            },
+
+            shopItemModal: {
+                buyAsGift: 'Купити в подарунок',
+                buyAsGiftButton: 'Купити в подарунок',
+                buyButton: 'Купити',
+                cancelButton: 'Скасувати',
+                characterLimit: 'Ліміт на персонажа:',
+                confirmGiftButton: 'Так, купити в подарунок',
+                confirmGiftMessage: 'Ви впевнені, що хочете купити «{itemTitle}» у подарунок для персонажа «{recipientName}»?',
+                confirmGiftPurchase: 'Підтвердження покупки в подарунок',
+                enterTitle: 'Введіть титул:',
+                errors: {
+                    badRace: 'Предмет не підходить расі персонажа',
+                    buyError: 'Сталася помилка під час покупки предмета',
+                    buyLimitExceeded: 'Перевищено ліміт покупки для цього предмета',
+                    charNotFound: 'Персонажа не знайдено',
+                    giftPurchaseError: 'Сталася помилка під час покупки в подарунок',
+                    itemNotFound: 'Предмет не знайдено',
+                    loadItemError: 'Не вдалося завантажити інформацію про предмет',
+                    notEnoughMoney: 'Недостатньо toll',
+                    purchaseError: 'Сталася помилка під час покупки предмета',
+                    unknownError: 'Невідома помилка',
+                },
+                giftRecipientName: "Ім'я отримувача подарунка:",
+                giftRecipientPlaceholder: "Введіть ім'я персонажа-отримувача",
+                purchasing: 'Купуємо…',
+                serverLimit: 'Ліміт на сервер:',
+                shopClosed: 'Крамницю зачинено',
+                titlePlaceholder: 'Введіть бажаний титул',
+            },
+
+            statisticModal: {
+                accessRestricted: 'Статистика доступна лише для VIP-користувачів',
+                hours: 'хвилин',
+                place: 'Місце #{place}',
+                players: 'гравців',
+                statisticsBlocked: 'Статистику заблоковано',
+                stats: {
+                    abyssPoints: 'Отримано очок безодні',
+                    blockedPlayers: 'Додано в ЧС',
+                    bossesKilled: 'Убито босів',
+                    gloryPoints: 'Отримано очок слави',
+                    kinahEarned: 'Зароблено кінару',
+                    lfgMessages: 'Повідомлень у ЛФГ',
+                    mobDamage: 'Шкода по мобах',
+                    mobsKilled: 'Убито мобів',
+                    playTime: 'Проведено часу в грі',
+                    playerDamage: 'Шкода по гравцях',
+                },
+                title: 'Статистика',
+            },
         },
     };
 
@@ -283,7 +677,7 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '0.9.0',
+        version: '0.9.5',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
