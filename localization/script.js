@@ -45,6 +45,28 @@ function formatDate(iso) {
   return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()}`;
 }
 
+// Версії лежать у описі релізу машинним рядком, який пише tools/publish_release.py:
+//   <!-- aionua-versions: origin=1.2.3 destiny=2.1.3 riftshade=1.2.3 -->
+// Це той самий запит, що дає розмір і дату, тож зайвого звернення немає.
+function parseVersions(body) {
+  const line = String(body ?? "").match(/<!--\s*aionua-versions:([^>]*)-->/);
+  if (!line) return null;
+
+  const versions = {};
+  for (const pair of line[1].trim().split(/\s+/)) {
+    const [client, version] = pair.split("=");
+    if (client && version) versions[client] = version;
+  }
+  return Object.keys(versions).length ? versions : null;
+}
+
+function applyVersions(versions) {
+  for (const [client, version] of Object.entries(versions)) {
+    const element = document.querySelector(`[data-client="${client}"] [data-version]`);
+    if (element) element.textContent = version;
+  }
+}
+
 function applyReleaseAssets(assets) {
   for (const card of document.querySelectorAll("[data-release-asset]")) {
     const asset = assets[card.dataset.releaseAsset];
@@ -67,16 +89,17 @@ function readCachedAssets() {
     if (!raw) return null;
     const cached = JSON.parse(raw);
     if (Date.now() - cached.at > RELEASE_CACHE_MS) return null;
-    return cached.assets;
+    return cached;
   } catch {
     // Приватне вікно або заблоковані дані сайту — просто йдемо в мережу.
     return null;
   }
 }
 
-const cachedAssets = readCachedAssets();
-if (cachedAssets) {
-  applyReleaseAssets(cachedAssets);
+const cached = readCachedAssets();
+if (cached) {
+  applyReleaseAssets(cached.assets);
+  if (cached.versions) applyVersions(cached.versions);
 } else {
   fetch(RELEASE_API, { headers: { Accept: "application/vnd.github+json" } })
     .then((response) => (response.ok ? response.json() : null))
@@ -87,10 +110,12 @@ if (cachedAssets) {
         assets[asset.name] = { size: asset.size, updated_at: asset.updated_at };
       }
       applyReleaseAssets(assets);
+      const versions = parseVersions(release.body);
+      if (versions) applyVersions(versions);
       try {
         localStorage.setItem(
           RELEASE_CACHE_KEY,
-          JSON.stringify({ at: Date.now(), assets }),
+          JSON.stringify({ at: Date.now(), assets, versions }),
         );
       } catch {
         // Кеш не обов'язковий: без нього просто буде запит на кожне відкриття.
