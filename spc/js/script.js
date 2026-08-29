@@ -50,8 +50,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_atk_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" },
-                { id: 'shard', name: "Рубиновый порошок", quantity: 5, icon: "images/icon_item_gempoder02.png" },
+                { id: 'catalyst', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" },
+                { id: 'shard', name: "Рубіновий порошок", quantity: 5, icon: "images/icon_item_gempoder02.png" },
                 { id: 'ether', name: "Асватовая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]
         },
@@ -60,8 +60,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_atk_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
-                { id: 'shard', name: "Турмалиновый порошок", quantity: 4, icon: "images/icon_item_gempoder02.png" },
+                { id: 'catalyst', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" },
+                { id: 'shard', name: "Турмаліновий порошок", quantity: 4, icon: "images/icon_item_gempoder02.png" },
                 { id: 'ether', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]
         },
@@ -70,8 +70,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_casting_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" },
-                { id: 'shard', name: "Сапфировый порошок", quantity: 5, icon: "images/icon_item_gempoder01.png" },
+                { id: 'catalyst', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" },
+                { id: 'shard', name: "Сапфіровий порошок", quantity: 5, icon: "images/icon_item_gempoder01.png" },
                 { id: 'ether', name: "Асватовая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]
         },
@@ -80,8 +80,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_casting_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
-                { id: 'shard', name: "Порошок из бирюзы", quantity: 4, icon: "images/icon_item_gempoder01.png" },
+                { id: 'catalyst', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" },
+                { id: 'shard', name: "Порошок з бірюзи", quantity: 4, icon: "images/icon_item_gempoder01.png" },
                 { id: 'ether', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]
 		},
@@ -90,8 +90,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_run_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" },
-                { id: 'shard', name: "Алмазный порошок", quantity: 5, icon: "images/icon_item_gempoder03.png" },
+                { id: 'catalyst', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" },
+                { id: 'shard', name: "Алмазний порошок", quantity: 5, icon: "images/icon_item_gempoder03.png" },
                 { id: 'ether', name: "Асватовая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -100,8 +100,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_run_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
-                { id: 'shard', name: "Кельфаратовый порошок", quantity: 4, icon: "images/icon_item_gempoder03.png" },
+                { id: 'catalyst', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" },
+                { id: 'shard', name: "Кельфаратовий порошок", quantity: 4, icon: "images/icon_item_gempoder03.png" },
                 { id: 'ether', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -110,8 +110,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_fly_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'catalyst', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" },
-                { id: 'shard', name: "Сапфировый порошок", quantity: 5, icon: "images/icon_item_gempoder01.png" },
+                { id: 'catalyst', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" },
+                { id: 'shard', name: "Сапфіровий порошок", quantity: 5, icon: "images/icon_item_gempoder01.png" },
                 { id: 'ether', name: "Асватовая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -120,8 +120,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_speed_fly_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
-                { id: 'shard', name: "Порошок из бирюзы", quantity: 4, icon: "images/icon_item_gempoder01.png" },
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" },
+                { id: 'shard', name: "Порошок з бірюзи", quantity: 4, icon: "images/icon_item_gempoder01.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -131,8 +131,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_critical_phy_mag.png",
             outputQuantity: 5,
             materials: [
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" },
-                { id: 'shard', name: "Элитный стихийный порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" },
+                { id: 'shard', name: "Елітний стихійний порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -142,19 +142,19 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_regist_wind_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'shard', name: "Кельфаратовый порошок", quantity: 5, icon: "images/icon_item_gempoder03.png" },
-                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'shard', name: "Кельфаратовий порошок", quantity: 5, icon: "images/icon_item_gempoder03.png" },
+                { id: 'elemental_water', name: "Елітна стихійна вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
 		
 	   regist_water: {
-            name: "Свиток воды V",
+            name: "Сувій води V",
             icon: "images/icon_item_scroll_regist_water_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'shard', name: "Порошок из бирюзы", quantity: 5, icon: "images/icon_item_gempoder01.png" },
-                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'shard', name: "Порошок з бірюзи", quantity: 5, icon: "images/icon_item_gempoder01.png" },
+                { id: 'elemental_water', name: "Елітна стихійна вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -164,8 +164,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_regist_fire_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'shard', name: "Турмалиновый порошок", quantity: 5, icon: "images/icon_item_gempoder02.png" },
-                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'shard', name: "Турмаліновий порошок", quantity: 5, icon: "images/icon_item_gempoder02.png" },
+                { id: 'elemental_water', name: "Елітна стихійна вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         },
@@ -174,8 +174,8 @@ const SCROLL_CRAFTING_DATA = {
             icon: "images/icon_item_scroll_regist_earth_01.png",
             outputQuantity: 5,
             materials: [
-                { id: 'shard', name: "Элитный стихийный порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
-                { id: 'elemental_water', name: "Элитная стихийная вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
+                { id: 'shard', name: "Елітний стихійний порошок", quantity: 5, icon: "images/icon_item_dust01f.png" },
+                { id: 'elemental_water', name: "Елітна стихійна вода", quantity: 5, icon: "images/icon_item_elementalwater01f.png" },
                 { id: 'clemposil', name: "Макиновая бумага", quantity: 5, icon: "images/icon_item_paper01.png" }
             ]	
         }
@@ -191,8 +191,8 @@ const POTION_CRAFTING_DATA = {
             materials: [
                 { id: 'neunan', name: "Люпин", quantity: 1, icon: "images/icon_item_herb07.png" },
 				{ id: 'calamot', name: "Аир", quantity: 1, icon: "images/icon_item_herb09.png" },
-				{ id: 'greater_powder', name: "Сильный стихийный порошок", quantity: 3, icon: "images/icon_item_dust01e.png" }, 
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" }
+				{ id: 'greater_powder', name: "Сильний стихійний порошок", quantity: 3, icon: "images/icon_item_dust01e.png" }, 
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" }
             ]
         },
         recovery_potion: {
@@ -202,8 +202,8 @@ const POTION_CRAFTING_DATA = {
             materials: [
                 { id: 'plia', name: "Фолиата", quantity: 2, icon: "images/icon_item_herb02.png" }, 
 				{ id: 'liconsis', name: "Рико", quantity: 2, icon: "images/icon_item_herb05.png" },
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" }, 
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" }, 
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 	       ]
         },
 		recovery_serum: {
@@ -213,8 +213,8 @@ const POTION_CRAFTING_DATA = {
             materials: [
                 { id: 'fresh_plia', name: "Свежая фолиата", quantity: 1, icon: "images/icon_item_herb02_r.png" }, 
 				{ id: 'fresh_liconsis', name: "Свежий рико", quantity: 1, icon: "images/icon_item_herb05_r.png" },
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" }, 
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" }				
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" }, 
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" }				
             ]
         },
 		fine_life_potion: {
@@ -223,19 +223,19 @@ const POTION_CRAFTING_DATA = {
             outputQuantity: 3, 
             materials: [
                 { id: 'plia', name: "Фолиата", quantity: 3, icon: "images/icon_item_herb02.png" }, 
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 				
             ]
         },
        fine_mana_potion: {
-            name: "Зелье маны VI",
+            name: "Зілля мани VI",
             icon: "images/icon_item_potion_mp02_5.png",
             outputQuantity: 3, 
             materials: [
                 { id: 'liconsis', name: "Рико", quantity: 3, icon: "images/icon_item_herb05.png" }, 
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 				
             ]
         },
@@ -245,19 +245,19 @@ const POTION_CRAFTING_DATA = {
             outputQuantity: 3, 
             materials: [
                 { id: 'fresh_plia', name: "Свежая фолиата", quantity: 1, icon: "images/icon_item_herb02_r.png" }, 
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 				
             ]
         },
 		fine_mana_serum: {
-            name: "Редкое зелье маны VI",
+            name: "Рідкісне зілля мани VI",
             icon: "images/icon_item_potion_mp03_5.png",
             outputQuantity: 3, 
             materials: [
                 { id: 'fresh_liconsis', name: "Свежий рико", quantity: 1, icon: "images/icon_item_herb05_r.png" }, 
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 				
             ]
         },
@@ -266,9 +266,9 @@ const POTION_CRAFTING_DATA = {
             icon: "images/icon_item_potion_cure04d.png",
             outputQuantity: 3, 
             materials: [
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }, 
-				{ id: 'elemental_water', name: "Элитная стихийная вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
-				{ id: 'bottle', name: "Стеклянная бутылка", quantity: 3, icon: "images/icon_item_flask04.png" } 
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }, 
+				{ id: 'elemental_water', name: "Елітна стихійна вода", quantity: 3, icon: "images/icon_item_elementalwater01f.png" },
+				{ id: 'bottle', name: "Скляна пляшка", quantity: 3, icon: "images/icon_item_flask04.png" } 
 				
             ]
         },
@@ -277,23 +277,23 @@ const POTION_CRAFTING_DATA = {
 const POWDERS_CRAFTING_DATA = { 
     types: {
         powders1: {
-            name: "Алмазный порошок",
+            name: "Алмазний порошок",
             icon: "images/icon_item_gempoder03.png",
             outputQuantity: 10,
             materials: [
-                { id: 'diamond', name: "Неграненый алмаз", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
+                { id: 'diamond', name: "Негранений алмаз", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
             ]
         },
         powders2: {
-            name: "Кельфаратовый порошок",
+            name: "Кельфаратовий порошок",
             icon: "images/icon_item_gempoder03.png",
             outputQuantity: 10, 
             materials: [
-                { id: 'elatrite', name: "Неграненый кельфарат", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
+                { id: 'elatrite', name: "Некраяний кельфарат", quantity: 1, icon: "images/icon_item_gemstone02e.png" }
 	       ]
         },
 		powders3: {
-            name: "Порошок из бирюзы",
+            name: "Порошок з бірюзи",
             icon: "images/icon_item_gempoder01.png",
             outputQuantity: 10, 
             materials: [
@@ -301,67 +301,67 @@ const POWDERS_CRAFTING_DATA = {
             ]
         },
 		powders4: {
-            name: "Рубиновый порошок",
+            name: "Рубіновий порошок",
             icon: "images/icon_item_gempoder02.png",
             outputQuantity: 10, 
             materials: [
-                { id: 'ruby', name: "Неграненый рубин", quantity: 1, icon: "images/icon_item_gemstone02c.png" }
+                { id: 'ruby', name: "Негранений рубін", quantity: 1, icon: "images/icon_item_gemstone02c.png" }
             ]
         },
        powders5: {
-            name: "Сапфировый порошок",
+            name: "Сапфіровий порошок",
             icon: "images/icon_item_gempoder01.png",
             outputQuantity: 10, 
             materials: [
-                { id: 'sapphire', name: "Неграненый сапфир", quantity: 1, icon: "images/icon_item_gemstone02b.png" },
+                { id: 'sapphire', name: "Негранений сапфір", quantity: 1, icon: "images/icon_item_gemstone02b.png" },
             ]
         },
 		powders6: {
-            name: "Турмалиновый порошок",
+            name: "Турмаліновий порошок",
             icon: "images/icon_item_gempoder02.png",
             outputQuantity: 10, 
             materials: [
-                { id: 'corundum', name: "Неграненый турмалин", quantity: 1, icon: "images/icon_item_gemstone02c.png" },
+                { id: 'corundum', name: "Некраяний турмалін", quantity: 1, icon: "images/icon_item_gemstone02c.png" },
             ]
         },
 		powders7: {
-            name: "Сильный стихийный порошок",
+            name: "Сильний стихійний порошок",
             icon: "images/icon_item_dust01e.png",
             outputQuantity: 2, 
             materials: [
-                { id: 'greater_elemental_stone', name: "Сильный стихийный камень", quantity: 1, icon: "images/icon_item_elementalstone02c.png" },
+                { id: 'greater_elemental_stone', name: "Сильний стихійний камінь", quantity: 1, icon: "images/icon_item_elementalstone02c.png" },
             ]
         },
 		powders8: {
-            name: "Элитный стихийный порошок",
+            name: "Елітний стихійний порошок",
             icon: "images/icon_item_dust01f.png",
             outputQuantity: 2, 
             materials: [
-                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
+                { id: 'fine_elemental_stone', name: "Елітний стихійний камінь", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
             ]
         },
 		powders9: {
-            name: "Элитный стихийный порошок",
+            name: "Елітний стихійний порошок",
             icon: "images/icon_item_dust01f.png",
             outputQuantity: 20, 
             materials: [
-                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
+                { id: 'fine_elemental_stone', name: "Елітний стихійний камінь", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
             ]
         },
 		water9: {
-            name: "Элитная стихийная вода",
+            name: "Елітна стихійна вода",
             icon: "images/icon_item_elementalwater01f.png",
             outputQuantity: 5, 
             materials: [
-                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
+                { id: 'fine_elemental_stone', name: "Елітний стихійний камінь", quantity: 1, icon: "images/icon_item_elementalstone02e.png" },
 			]
         },
 		water10: {
-            name: "Элитная стихийная вода",
+            name: "Елітна стихійна вода",
             icon: "images/icon_item_elementalwater01f.png",
             outputQuantity: 50, 
             materials: [
-                { id: 'fine_elemental_stone', name: "Элитный стихийный камень", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
+                { id: 'fine_elemental_stone', name: "Елітний стихійний камінь", quantity: 12, icon: "images/icon_item_elementalstone02e.png" },
 				
             ]
         },
@@ -370,7 +370,7 @@ const POWDERS_CRAFTING_DATA = {
             icon: "images/icon_item_herb09.png",
             outputQuantity: 3,
             materials: [
-                { id: 'material1', name: "Осколок эфира", quantity: 1, icon: "images/icon_item_od02.png" }
+                { id: 'material1', name: "Осколок ефіру", quantity: 1, icon: "images/icon_item_od02.png" }
             ]
         },
 		convert2: {
@@ -378,7 +378,7 @@ const POWDERS_CRAFTING_DATA = {
             icon: "images/icon_item_vegetable09.png",
             outputQuantity: 3,
             materials: [
-                { id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+                { id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
 		convert3: {
@@ -386,7 +386,7 @@ const POWDERS_CRAFTING_DATA = {
 			icon: "images/icon_item_vegetable04.png",
 			outputQuantity: 3,
 			materials: [
-				{ id: 'material1', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" }
+				{ id: 'material1', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" }
 			]
 		},
 		convert4: {
@@ -394,7 +394,7 @@ const POWDERS_CRAFTING_DATA = {
 			icon: "images/icon_item_herb07.png",
 			outputQuantity: 3,
 			materials: [
-				{ id: 'material1', name: "Осколок эфира", quantity: 1, icon: "images/icon_item_od02.png" }
+				{ id: 'material1', name: "Осколок ефіру", quantity: 1, icon: "images/icon_item_od02.png" }
 			]
 		},
 		
@@ -403,7 +403,7 @@ const POWDERS_CRAFTING_DATA = {
 			icon: "images/icon_item_fruit02.png",
 			outputQuantity: 3,
 			materials: [
-				{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+				{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 			]
 		},
 		convert6: {
@@ -411,23 +411,23 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_fish05.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert7: {
-		name: "Огромный неграненый кельфарат",
+		name: "Великий негранений кельфарат",
 		icon: "images/icon_item_gemstone01e.png",
 		outputQuantity: 1,
 		materials: [
-			{ id: 'material1', name: "Очищенный магический эфир", quantity: 2, icon: "images/icon_item_od05_r.png" }
+			{ id: 'material1', name: "Очищений магічний ефір", quantity: 2, icon: "images/icon_item_od05_r.png" }
 		]
 	},
 	convert8: {
-		name: "Огромный неграненый турмалин",
+		name: "Великий негранений турмалін",
 		icon: "images/icon_item_gemstone01c.png",
 		outputQuantity: 1,
 		materials: [
-			{ id: 'material1', name: "Очищенный магический эфир", quantity: 2, icon: "images/icon_item_od05_r.png" }
+			{ id: 'material1', name: "Очищений магічний ефір", quantity: 2, icon: "images/icon_item_od05_r.png" }
 		]
 	},
 	convert9: {
@@ -435,7 +435,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_vegetable08.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert10: {
@@ -443,7 +443,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_herb05.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert11: {
@@ -451,7 +451,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_herb02_r.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Очищенный магический эфир", quantity: 1, icon: "images/icon_item_od05_r.png" }
+			{ id: 'material1', name: "Очищений магічний ефір", quantity: 1, icon: "images/icon_item_od05_r.png" }
 		]
 	},
 	convert12: {
@@ -459,7 +459,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_herb05_r.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Очищенный магический эфир", quantity: 1, icon: "images/icon_item_od05_r.png" }
+			{ id: 'material1', name: "Очищений магічний ефір", quantity: 1, icon: "images/icon_item_od05_r.png" }
 		]
 	},
 		convert13: {
@@ -467,7 +467,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_fruit07.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},	
 	convert14: {
@@ -475,15 +475,15 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_fish04.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert15: {
-		name: "Сильный стихийный камень",
+		name: "Сильний стихійний камінь",
 		icon: "images/icon_item_elementalstone02c.png",
 		outputQuantity: 2,
 		materials: [
-			{ id: 'material1', name: "Осколок эфира", quantity: 1, icon: "images/icon_item_od02.png" }
+			{ id: 'material1', name: "Осколок ефіру", quantity: 1, icon: "images/icon_item_od02.png" }
 		]
 	},
 	convert16: {
@@ -491,7 +491,7 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_seefood02.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert17: {
@@ -499,15 +499,15 @@ const POWDERS_CRAFTING_DATA = {
 		icon: "images/icon_item_herb02.png",
 		outputQuantity: 3,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 	convert18: {
-		name: "Элитный стихийный камень",
+		name: "Елітний стихійний камінь",
 		icon: "images/icon_item_elementalstone02e.png",
 		outputQuantity: 2,
 		materials: [
-			{ id: 'material1', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+			{ id: 'material1', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
 		]
 	},
 
@@ -517,7 +517,7 @@ const POWDERS_CRAFTING_DATA = {
 const FOOD_CRAFTING_DATA = { 
     types: {
         food: {
-            name: "Полезные пельмени с тифабом",
+            name: "Корисні пельмені з тифабом",
             icon: "images/icon_item_dish25.png",
             outputQuantity: 2, 
             materials: [
@@ -526,69 +526,69 @@ const FOOD_CRAFTING_DATA = {
 				{ id: 'fresh_liconsis', name: "Свежий рико", quantity: 1, icon: "images/icon_item_herb05_r.png" },
 				{ id: 'wine', name: "Киршевое вино", quantity: 4, icon: "images/icon_item_bottle02.png" },
 				{ id: 'salt', name: "Морская соль", quantity: 8, icon: "images/icon_item_powder02.png" },
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
         food1: {
-            name: "Полезный жареный тифаб",
+            name: "Корисний смажений тифаб",
             icon: "images/icon_item_dish30.png",
             outputQuantity: 2, 
             materials: [
                 { id: 'poma', name: "Тифаб", quantity: 1, icon: "images/icon_item_seefood02.png" },
 				{ id: 'ralloc', name: "Рабено", quantity: 1, icon: "images/icon_item_vegetable08.png" },
 				{ id: 'fresh_liconsis', name: "Свежий рико", quantity: 1, icon: "images/icon_item_herb05_r.png" },
-				{ id: 'spice', name: "Острые специи", quantity: 8, icon: "images/icon_item_dust01c.png" },
-				{ id: 'essenceice', name: "Соевый соус", quantity: 8, icon: "images/icon_item_ink01a.png" },
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+				{ id: 'spice', name: "Гострі спеції", quantity: 8, icon: "images/icon_item_dust01c.png" },
+				{ id: 'essenceice', name: "Соєвий соус", quantity: 8, icon: "images/icon_item_ink01a.png" },
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
 		food2: {
-            name: "Полезные суши с налимом",
+            name: "Корисні суші з минем",
             icon: "images/icon_item_dish10.png",
             outputQuantity: 2, 
             materials: [
                 { id: 'nokara', name: "Налим", quantity: 1, icon: "images/icon_item_fish05.png" },
 				{ id: 'stria', name: "Сибас", quantity: 1, icon: "images/icon_item_fish04.png" },
 				{ id: 'fresh_plia', name: "Свежая фолиата", quantity: 1, icon: "images/icon_item_herb02_r.png" },
-				{ id: 'vinegar', name: "Рейдамовый уксус", quantity: 8, icon: "images/icon_item_bottle01.png" },
-				{ id: 'essenceice', name: "Соевый соус", quantity: 8, icon: "images/icon_item_ink01a.png" },
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+				{ id: 'vinegar', name: "Рейдамовий оцет", quantity: 8, icon: "images/icon_item_bottle01.png" },
+				{ id: 'essenceice', name: "Соєвий соус", quantity: 8, icon: "images/icon_item_ink01a.png" },
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
 		food3: {
-            name: "Салат императора ужасных драконов",
+            name: "Салат імператора жахливих драконів",
             icon: "images/icon_item_dish20.png",
             outputQuantity: 2, 
             materials: [
                 { id: 'meat', name: "Блестящее мясо балаура", quantity: 1, icon: "images/icon_item_meat03.png" },
 				{ id: 'plia', name: "Фолиата", quantity: 1, icon: "images/icon_item_herb02.png" }, 
 				{ id: 'fresh_liconsis', name: "Свежий рико", quantity: 1, icon: "images/icon_item_herb05_r.png" },
-				{ id: 'vinegar', name: "Рейдамовый уксус", quantity: 12, icon: "images/icon_item_bottle01.png" },
+				{ id: 'vinegar', name: "Рейдамовий оцет", quantity: 12, icon: "images/icon_item_bottle01.png" },
 				{ id: 'egg', name: "Яйцо коко", quantity: 16, icon: "images/icon_item_egg01.png" },
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
 		food4: {
-            name: "Мясо императора ужасных драконов в кляре",
+            name: "М'ясо імператора жахливих драконів в клярі",
             icon: "images/icon_item_dish11.png",
             outputQuantity: 2, 
             materials: [
                 { id: 'meat', name: "Блестящее мясо балаура", quantity: 1, icon: "images/icon_item_meat03.png" },
 				{ id: 'ralloc', name: "Рабено", quantity: 1, icon: "images/icon_item_vegetable08.png" },
 				{ id: 'fresh_plia', name: "Свежая фолиата", quantity: 1, icon: "images/icon_item_herb02_r.png" },
-				{ id: 'briga_powder', name: "Тыквенная мука", quantity: 8, icon: "images/icon_item_flour01.png" },
+				{ id: 'briga_powder', name: "Гарбузове борошно", quantity: 8, icon: "images/icon_item_flour01.png" },
 				{ id: 'salt', name: "Морская соль", quantity: 8, icon: "images/icon_item_powder02.png" },
-                { id: 'powder', name: "Магический эфир", quantity: 1, icon: "images/icon_item_od05.png" }
+                { id: 'powder', name: "Магічний ефір", quantity: 1, icon: "images/icon_item_od05.png" }
             ]
         },
 		jelly: {
-            name: "Эфирное желе с кано",
+            name: "Ефірне желе з кано",
             icon: "images/icon_item_jelly01.png",
             outputQuantity: 2, 
             materials: [
-                { id: 'catalyst', name: "Эфир", quantity: 1, icon: "images/icon_item_od01.png" },
+                { id: 'catalyst', name: "Ефір", quantity: 1, icon: "images/icon_item_od01.png" },
 				{ id: 'cippo', name: "Кано", quantity: 1, icon: "images/icon_item_vegetable04.png" },
-				{ id: 'sugar', name: "Белый сахар", quantity: 15, icon: "images/icon_item_powder02.png" }
+				{ id: 'sugar', name: "Білий цукор", quantity: 15, icon: "images/icon_item_powder02.png" }
             ]
         },
 		cocktail: {
@@ -607,7 +607,7 @@ const FOOD_CRAFTING_DATA = {
             icon: "images/icon_item_drink_hpmp02.png",
             outputQuantity: 2, 
             materials: [
-                { id: 'leaf', name: "Ядовитый лист Каспара", quantity: 6, icon: "images/icon_item_leaf02.png" },
+                { id: 'leaf', name: "Ядовитий лист Каспара", quantity: 6, icon: "images/icon_item_leaf02.png" },
 				{ id: 'kuvano', name: "Чико", quantity: 1, icon: "images/icon_item_fruit08.png" },
 				{ id: 'oil', name: "Масло из чико", quantity: 1, icon: "images/icon_item_ink01a.png" }
             ]

@@ -9,21 +9,21 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_ring_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'darite', name: "Обычный даррит", quantity: 3, icon: "images/icon_item_jewelry_r_60s.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Звичайний даррит", quantity: 3, icon: "images/icon_item_jewelry_r_60s.png" },
 				{ id: 'darite2', name: "Хороший даррит", quantity: 2, icon: "images/icon_item_jewelry_l_60s.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         ring2: {
@@ -31,21 +31,21 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_ring_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'opal', name: "Обычный опал", quantity: 3, icon: "images/icon_item_jewelry_r_60a.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Звичайний опал", quantity: 3, icon: "images/icon_item_jewelry_r_60a.png" },
 				{ id: 'opal2', name: "Хороший опал", quantity: 2, icon: "images/icon_item_jewelry_l_60a.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 12, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 6, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 39, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Опаловое украшение", quantity: 1, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 1, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         earring: {
@@ -53,21 +53,21 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_earring_m01.png",
             outputQuantity: 1,
             materials: [
-			    { id: 'flux2', name: "Священный камень украшений II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'darite', name: "Обычный даррит", quantity: 5, icon: "images/icon_item_jewelry_r_60s.png" },
+			    { id: 'flux2', name: "Священний камінь прикрас II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Звичайний даррит", quantity: 5, icon: "images/icon_item_jewelry_r_60s.png" },
 				{ id: 'darite2', name: "Хороший даррит", quantity: 3, icon: "images/icon_item_jewelry_l_60s.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
         },
         earring2: {
@@ -75,21 +75,21 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_earring_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'opal', name: "Обычный опал", quantity: 5, icon: "images/icon_item_jewelry_r_60a.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 13, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 13, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 7, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 13, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 13, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 7, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Звичайний опал", quantity: 5, icon: "images/icon_item_jewelry_r_60a.png" },
 				{ id: 'opal2', name: "Хороший опал", quantity: 3, icon: "images/icon_item_jewelry_l_60a.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 15, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 8, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 61, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 12, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 6, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Опаловое украшение", quantity: 2, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 2, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]
 		},
         necklace: {
@@ -97,21 +97,21 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_necklace_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'darite', name: "Обычный даррит", quantity: 8, icon: "images/icon_item_jewelry_r_60s.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'darite', name: "Звичайний даррит", quantity: 8, icon: "images/icon_item_jewelry_r_60s.png" },
 				{ id: 'darite2', name: "Хороший даррит", quantity: 5, icon: "images/icon_item_jewelry_l_60s.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Дарритовое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60s.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]	
         },
         necklace2: {
@@ -119,59 +119,59 @@ const JEWELRY_CRAFTING_DATA = {
             icon: "images/icon_item_necklace_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'opal', name: "Обычный опал", quantity: 8, icon: "images/icon_item_jewelry_r_60a.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 19, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 19, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 10, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 19, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 19, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 10, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Звичайний опал", quantity: 8, icon: "images/icon_item_jewelry_r_60a.png" },
 				{ id: 'opal2', name: "Хороший опал", quantity: 5, icon: "images/icon_item_jewelry_l_60a.png" },
-				{ id: 'ceranium', name: "Обычный серамиум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
+				{ id: 'ceranium', name: "Звичайний сераміум", quantity: 20, icon: "images/icon_item_noblemetal_r_60a.png" },
 				{ id: 'ceranium2', name: "Хороший серамиум", quantity: 11, icon: "images/icon_item_noblemetal_l_60a.png" },
-				{ id: 'knife', name: "Священный нож ручной работы", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
+				{ id: 'knife', name: "Священний ніж ручної роботи", quantity: 83, icon: "images/icon_item_ha_shopcmaterial_c_60b.png" },
 				{ id: 'crystal', name: "Древний блестящий кристалл", quantity: 16, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 8, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'jewellery', name: "Опаловое украшение", quantity: 3, icon: "images/icon_item_ha_ac_parts_n_r_60a.png" },
-				{ id: 'waterfragment', name: "Частица воды", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
+				{ id: 'waterfragment', name: "Частинка води", quantity: 3, icon: "images/icon_item_ac_material_id_s_n_e_60a.png" }
             ]	
         },
         belt: {
-            name: "Каталиумовый пояс специалиста",
+            name: "Каталіумовий пояс спеціаліста",
             icon: "images/icon_item_belt_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
-				{ id: 'opal', name: "Обычный стебель фоники", quantity: 19, icon: "images/icon_item_plant_r_60a.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+				{ id: 'opal', name: "Звичайне стебло фоніки", quantity: 19, icon: "images/icon_item_plant_r_60a.png" },
 				{ id: 'opal2', name: "Хороший стебель фоники", quantity: 10, icon: "images/icon_item_plant_l_60a.png" },
-				{ id: 'thread', name: "Священный клубок ниток", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60b.png" },
+				{ id: 'thread', name: "Священний клубок ниток", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60b.png" },
 			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'ponicaweaving', name: "Фониковая ткань", quantity: 1, icon: "images/icon_item_ta_rb_parts_n_r_60a.png" },
 				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
         },
 	    belt2: {
-            name: "Каталиумовый ремень специалиста",
+            name: "Каталіумовий ремінь спеціаліста",
             icon: "images/icon_item_belt_m01.png",
             outputQuantity: 1,
             materials: [
-                { id: 'flux2', name: "Священный камень украшений II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
-                { id: 'flux3', name: "Священный камень украшений III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
-                { id: 'flux4', name: "Священный камень украшений IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
-				{ id: 'ether', name: "Древний эфир", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
-				{ id: 'ether2', name: "Древний эфир II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
-				{ id: 'ether3', name: "Древний эфир III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
+                { id: 'flux2', name: "Священний камінь прикрас II", quantity: 9, icon: "images/icon_item_crystalball01e.png" },
+                { id: 'flux3', name: "Священний камінь прикрас III", quantity: 9, icon: "images/icon_item_crystalball01e_r.png" },
+                { id: 'flux4', name: "Священний камінь прикрас IV", quantity: 5, icon: "images/icon_item_crystalball01e_l.png" },
+				{ id: 'ether', name: "Давній ефір", quantity: 9, icon: "images/icon_item_od_all_c_60a.png" },
+				{ id: 'ether2', name: "Давній ефір II", quantity: 9, icon: "images/icon_item_od_all_r_60a.png" },
+				{ id: 'ether3', name: "Давній ефір III", quantity: 5, icon: "images/icon_item_od_all_l_60a.png" },
 				{ id: 'opal', name: "Простая священная недубленая кожа", quantity: 19, icon: "images/icon_item_rawhide01e_r.png" },
 				{ id: 'opal2', name: "Хорошая священная недубленая кожа", quantity: 10, icon: "images/icon_item_rawhide01f_r.png" },
-				{ id: 'thread', name: "Священный кожаный шнур", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60a.png" },
+				{ id: 'thread', name: "Священний шкіряний шнур", quantity: 40, icon: "images/icon_item_ta_shopcmaterial_c_60a.png" },
 			    { id: 'crystal', name: "Древний блестящий кристалл", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
-				{ id: 'water', name: "Вечность воды", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
+				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'ponicaweaving', name: "Священная кожа", quantity: 1, icon: "images/icon_item_ta_rt_parts_n_r_60a.png" },
 				{ id: 'windfragment', name: "Частица ветра", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
@@ -185,11 +185,11 @@ const MATERIAL_CRAFTING_DATA = {
             icon: "images/icon_item_ha_ac_parts_n_r_60s.png",
             outputQuantity: 10,
             materials: [
-                { id: 'holypreciousmetalacid', name: "Священный драгоценный сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
+                { id: 'holypreciousmetalacid', name: "Священний дорогоцінний сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
                 { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
 				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
                 { id: 'darite', name: "Даррит", quantity: 25, icon: "images/icon_item_jewelry_c_60s.png" },
-				{ id: 'steppeessence', name: "Энергия лугов", quantity: 4, icon: "images/icon_item_ldf5a_b_material_60_r_60a.png" },
+				{ id: 'steppeessence', name: "Енергія луків", quantity: 4, icon: "images/icon_item_ldf5a_b_material_60_r_60a.png" },
 				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
             ]
         },
@@ -198,11 +198,11 @@ const MATERIAL_CRAFTING_DATA = {
             icon: "images/icon_item_ha_ac_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
-                { id: 'holypreciousmetalacid', name: "Священный драгоценный сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
+                { id: 'holypreciousmetalacid', name: "Священний дорогоцінний сплав", quantity: 4, icon: "images/icon_item_ha_shopmaterial_c_60b.png" },
                 { id: 'idiumjewellery', name: "Идиумовое украшение", quantity: 20, icon: "images/icon_item_v6_n_ac_shopmaterial_c_60a.png" },
 				{ id: 'ceranium', name: "Серамиум", quantity: 25, icon: "images/icon_item_noblemetal_c_60a.png" },
                 { id: 'opal', name: "Опал", quantity: 25, icon: "images/icon_item_jewelry_c_60a.png" },
-				{ id: 'mysteriousessence', name: "Загадочная энергия", quantity: 4, icon: "images/icon_item_ldf5b_c_material_60_r_60a.png" },
+				{ id: 'mysteriousessence', name: "Загадкова енергія", quantity: 4, icon: "images/icon_item_ldf5b_c_material_60_r_60a.png" },
 				{ id: 'ceraniumfragment', name: "Частица серамиума", quantity: 4, icon: "images/icon_item_ldf5ab_all_material_u_60a.png" }
             ]
         },
@@ -211,11 +211,11 @@ const MATERIAL_CRAFTING_DATA = {
             icon: "images/icon_item_ta_rt_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
-			    { id: 'holyleatherhardener', name: "Священный кожаный усилитель", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60a.png" },
+			    { id: 'holyleatherhardener', name: "Священний шкіряний посилювач", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60a.png" },
                 { id: 'idieleather', name: "Идиевая кожа", quantity: 20, icon: "images/icon_item_v16_n_lt_shopmaterial_c_60a.png" },
                 { id: 'holyrawhide', name: "Священная недубленая кожа", quantity: 50, icon: "images/icon_item_rawhide01f.png" },
-				{ id: 'plateauessence', name: "Энергия равнин", quantity: 1, icon: "images/icon_item_ldf5b_a_material_60_r_60a.png" },
-				{ id: 'essenceofambition', name: "Энергия честолюбия", quantity: 1, icon: "images/icon_item_ldf5under_d_material_60_r_60a.png" }
+				{ id: 'plateauessence', name: "Енергія рівнин", quantity: 1, icon: "images/icon_item_ldf5b_a_material_60_r_60a.png" },
+				{ id: 'essenceofambition', name: "Енергія честолюбства", quantity: 1, icon: "images/icon_item_ldf5under_d_material_60_r_60a.png" }
             ]
         },
         ponicaweaving: {
@@ -223,11 +223,11 @@ const MATERIAL_CRAFTING_DATA = {
             icon: "images/icon_item_ta_rb_parts_n_r_60a.png",
             outputQuantity: 10,
             materials: [
-                { id: 'hardener', name: "Священный усилитель волокон", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60b.png" },
+                { id: 'hardener', name: "Священний посилювач волокон", quantity: 4, icon: "images/icon_item_ta_shopmaterial_c_60b.png" },
                 { id: 'idastextile', name: "Идиевая ткань", quantity: 20, icon: "images/icon_item_v18_n_rb_shopmaterial_c_60a.png" },
                 { id: 'ponicafibre', name: "Стебель фоники", quantity: 50, icon: "images/icon_item_plant_c_60a.png" },
-				{ id: 'woodsessence', name: "Энергия лесов", quantity: 1, icon: "images/icon_item_ldf5b_b_material_60_r_60a.png" },
-				{ id: 'essenceofregret', name: "Энергия раскаяния", quantity: 1, icon: "images/icon_item_ldf5under_f_material_60_r_60a.png" }
+				{ id: 'woodsessence', name: "Енергія лісів", quantity: 1, icon: "images/icon_item_ldf5b_b_material_60_r_60a.png" },
+				{ id: 'essenceofregret', name: "Енергія розкаяння", quantity: 1, icon: "images/icon_item_ldf5under_f_material_60_r_60a.png" }
 		]
         },
         
@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 break;
             case 'Aether':
-                popupTitle.textContent = 'Древний эфир';
+                popupTitle.textContent = 'Давній ефір';
                 if (selectedRace === 'elyos') {
                     popupTextarea.value = '[pos:Ancient Aether;0 600060000 1757.4 1057.7 0.0 0] [pos:Ancient Aether;0 600060000 1738.0 885.5 0.0 0] [pos:Ancient Aether;0 600060000 1476.7 1009.1 0.0 0] [pos:Ancient Aether;0 600060000 1640.4 1067.5 0.0 0] [pos:Ancient Aether;0 600060000 1888.4 867.2 0.0 0] [pos:Ancient Aether;0 600060000 1646.1 980.1 0.0 0] [pos:Ancient Aether;0 600060000 1785.1 645.0 0.0 0] [pos:Ancient Aether;0 600060000 1608.4 1014.8 0.0 0] [pos:Ancient Aether;0 600060000 1633.6 826.9 0.0 0] [pos:Ancient Aether;0 600060000 1589.4 777.4 0.0 0] [pos:Ancient Aether;0 600060000 1508.2 965.4 0.0 0] [pos:Ancient Aether;0 600060000 1432.2 1130.3 0.0 0] [pos:Ancient Aether;0 600060000 1691.4 1000.5 0.0 0] [pos:Ancient Aether;0 600060000 1756.8 724.8 0.0 0] [pos:Ancient Aether;0 600060000 1472.2 1080.5 0.0 0] [pos:Ancient Aether;0 600060000 1357.8 997.1 0.0 0] [pos:Ancient Aether;0 600060000 1611.2 1058.8 0.0 0] [pos:Ancient Aether;0 600060000 1655.2 725.9 0.0 0] [pos:Ancient Aether;0 600060000 1803.2 844.1 0.0 0] [pos:Ancient Aether;0 600060000 1610.1 870.1 0.0 0] [pos:Ancient Aether;0 600060000 1462.8 910.1 0.0 0] [pos:Ancient Aether;0 600060000 1574.2 1100.3 0.0 0] [pos:Ancient Aether;0 600060000 1675.2 805.3 0.0 0] [pos:Ancient Aether;0 600060000 1574.3 1100.5 0.0 0] [pos:Ancient Aether;0 600060000 1502.0 888.8 0.0 0] [pos:Ancient Aether;0 600060000 1343.4 1045.0 0.0 0] [pos:Ancient Aether;0 600060000 1519.7 1107.6 0.0 0] [pos:Ancient Aether;0 600060000 1668.7 947.2 0.0 0] [pos:Ancient Aether;0 600060000 1614.1 935.3 0.0 0] [pos:Ancient Aether;0 600060000 1501.3 1055.1 0.0 0] [pos:Ancient Aether;0 600060000 1526.9 894.7 0.0 0] [pos:Ancient Aether;0 600060000 1732.7 795.6 0.0 0] [pos:Ancient Aether;0 600060000 1698.2 926.7 0.0 0] [pos:Ancient Aether;0 600060000 1867.7 769.1 0.0 0] [pos:Ancient Aether;0 600060000 1562.7 811.8 0.0 0] [pos:Ancient Aether;0 600060000 1835.3 669.4 0.0 0] [pos:Ancient Aether;0 600060000 1435.9 1038.7 0.0 0] [pos:Ancient Aether;0 600060000 1920.0 804.3 0.0 0] [pos:Ancient Aether;0 600060000 1858.9 705.5 0.0 0] [pos:Ancient Aether;0 600060000 1632.0 915.9 0.0 0] [pos:Ancient Aether;0 600060000 1814.3 900.7 0.0 0] [pos:Ancient Aether;0 600060000 1555.4 1068.9 0.0 0] [pos:Ancient Aether;0 600060000 1585.9 881.7 0.0 0] [pos:Ancient Aether;0 600060000 1551.5 970.8 0.0 0] [pos:Ancient Aether;0 600060000 1801.4 727.5 0.0 0] [pos:Ancient Aether;0 600060000 1803.2 844.1 0.0 0] [pos:Ancient Aether;0 600060000 1698.2 926.7 0.0 0] [pos:Ancient Aether;0 600060000 1738.0 885.5 0.0 0] [pos:Ancient Aether;0 600060000 1632.0 915.9 0.0 0] [pos:Ancient Aether;0 600060000 1585.9 881.7 0.0 0] [pos:Ancient Aether;0 600060000 1610.1 870.1 0.0 0] [pos:Ancient Aether;0 600060000 1562.7 811.8 0.0 0] [pos:Ancient Aether;0 600060000 1502.0 888.8 0.0 0] [pos:Ancient Aether;0 600060000 1633.6 826.9 0.0 0] [pos:Ancient Aether;0 600060000 1589.4 777.4 0.0 0] [pos:Ancient Aether;0 600060000 1675.2 805.3 0.0 0] [pos:Ancient Aether;0 600060000 1756.8 724.8 0.0 0] [pos:Ancient Aether;0 600060000 1814.3 900.7 0.0 0] [pos:Ancient Aether;0 600060000 1668.7 947.2 0.0 0] [pos:Ancient Aether;0 600060000 1614.1 935.3 0.0 0] [pos:Ancient Aether;0 600060000 1646.1 980.1 0.0 0] [pos:Ancient Aether;0 600060000 1691.4 1000.5 0.0 0] [pos:Ancient Aether;0 600060000 1608.4 1014.8 0.0 0] [pos:Ancient Aether;0 600060000 1611.2 1058.9 0.0 0] [pos:Ancient Aether;0 600060000 1640.4 1067.5 0.0 0] [pos:Ancient Aether;0 600060000 1526.9 894.7 0.0 0] [pos:Ancient Aether;0 600060000 1462.8 910.1 0.0 0] [pos:Ancient Aether;0 600060000 1508.2 965.4 0.0 0] [pos:Ancient Aether;0 600060000 1655.2 725.9 0.0 0] [pos:Ancient Aether;0 600060000 1732.7 795.6 0.0 0] [pos:Ancient Aether;0 600060000 1555.4 1068.9 0.0 0] [pos:Ancient Aether;0 600060000 1574.3 1100.3 0.0 0] [pos:Ancient Aether;0 600060000 1574.3 1100.5 0.0 0] [pos:Ancient Aether;0 600060000 1519.7 1107.6 0.0 0] [pos:Ancient Aether;0 600060000 1472.2 1080.5 0.0 0] [pos:Ancient Aether;0 600060000 1757.4 1057.7 0.0 0] [pos:Ancient Aether;0 600060000 1435.9 1038.7 0.0 0] [pos:Ancient Aether;0 600060000 1476.7 1009.1 0.0 0] [pos:Ancient Aether;0 600060000 1888.4 867.2 0.0 0] [pos:Ancient Aether;0 600060000 1867.7 769.1 0.0 0] [pos:Ancient Aether;0 600060000 1801.4 727.5 0.0 0] [pos:Ancient Aether;0 600060000 1858.9 705.5 0.0 0] [pos:Ancient Aether;0 600060000 1835.3 669.4 0.0 0] [pos:Ancient Aether;0 600060000 1785.2 645.0 0.0 0] [pos:Ancient Aether;0 600060000 1920.0 804.3 0.0 0] [pos:Ancient Aether;0 600060000 1501.3 1055.1 0.0 0] [pos:Ancient Aether;0 600060000 1343.4 1045.0 0.0 0] [pos:Ancient Aether;0 600060000 1357.8 997.1 0.0 0] [pos:Ancient Aether;0 600050000 219.4 2637.0 0.0 0] [pos:Ancient Aether;0 600050000 334.3 2588.6 0.0 0] [pos:Ancient Aether;0 600050000 245.6 265.1 0.0 0] [pos:Ancient Aether;0 600050000 281.4 2806.8 0.0 0] [pos:Ancient Aether;0 600050000 397.3 2659.4 0.0 0] [pos:Ancient Aether;0 600050000 263.5 277.6 0.0 0] [pos:Ancient Aether;0 600050000 177.1 244.5 0.0 0] [pos:Ancient Aether;0 600050000 286.7 274.1 0.0 0] [pos:Ancient Aether;0 600050000 316.6 2661.5 0.0 0] [pos:Ancient Aether;0 600050000 244.8 435.7 0.0 0] [pos:Ancient Aether;0 600050000 230.1 311.9 0.0 0] [pos:Ancient Aether;0 600050000 194.3 407.8 0.0 0] [pos:Ancient Aether;0 600050000 162.4 287.0 0.0 0] [pos:Ancient Aether;0 600050000 201.6 326.4 0.0 0] [pos:Ancient Aether;0 600050000 396.0 2746.2 0.0 0] [pos:Ancient Aether;0 600050000 178.4 279.7 0.0 0] [pos:Ancient Aether;0 600050000 314.1 244.8 0.0 0] [pos:Ancient Aether;0 600050000 125.5 2878.2 0.0 0] [pos:Ancient Aether;0 600050000 238.8 360.3 0.0 0] [pos:Ancient Aether;0 600050000 216.0 2753.8 0.0 0] [pos:Ancient Aether;0 600050000 235.4 234.3 0.0 0] [pos:Ancient Aether;0 600050000 234.8 2668.1 0.0 0] [pos:Ancient Aether;0 600050000 189.3 452.9 0.0 0] [pos:Ancient Aether;0 600050000 441.5 2716.4 0.0 0] [pos:Ancient Aether;0 600050000 234.4 2845.3 0.0 0] [pos:Ancient Aether;0 600050000 272.2 2739.8 0.0 0] [pos:Ancient Aether;0 600050000 181.2 346.5 0.0 0] [pos:Ancient Aether;0 600050000 247.9 2949.4 0.0 0] [pos:Ancient Aether;0 600050000 424.6 2870.0 0.0 0] [pos:Ancient Aether;0 600050000 416.7 2687.2 0.0 0] [pos:Ancient Aether;0 600050000 397.3 2659.4 0.0 0] [pos:Ancient Aether;0 600050000 416.7 2687.2 0.0 0] [pos:Ancient Aether;0 600050000 441.5 2716.4 0.0 0] [pos:Ancient Aether;0 600050000 396.0 2746.2 0.0 0] [pos:Ancient Aether;0 600050000 316.6 2661.6 0.0 0] [pos:Ancient Aether;0 600050000 272.2 2739.8 0.0 0] [pos:Ancient Aether;0 600050000 234.8 2668.1 0.0 0] [pos:Ancient Aether;0 600050000 281.4 2806.8 0.0 0] [pos:Ancient Aether;0 600050000 424.6 2870.0 0.0 0] [pos:Ancient Aether;0 600050000 334.3 2588.6 0.0 0] [pos:Ancient Aether;0 600050000 234.4 2845.4 0.0 0] [pos:Ancient Aether;0 600050000 216.0 2753.8 0.0 0] [pos:Ancient Aether;0 600050000 125.5 2878.2 0.0 0] [pos:Ancient Aether;0 600050000 219.4 2637.0 0.0 0] [pos:Ancient Aether;0 600050000 247.9 2949.4 0.0 0] [pos:Ancient Aether;0 600050000 314.1 244.8 0.0 0] [pos:Ancient Aether;0 600050000 189.3 452.9 0.0 0] [pos:Ancient Aether;0 600050000 194.3 407.8 0.0 0] [pos:Ancient Aether;0 600050000 244.8 435.7 0.0 0] [pos:Ancient Aether;0 600050000 238.8 360.3 0.0 0] [pos:Ancient Aether;0 600050000 286.7 274.1 0.0 0] [pos:Ancient Aether;0 600050000 263.5 277.6 0.0 0] [pos:Ancient Aether;0 600050000 245.6 265.1 0.0 0] [pos:Ancient Aether;0 600050000 230.1 311.9 0.0 0] [pos:Ancient Aether;0 600050000 201.6 326.4 0.0 0] [pos:Ancient Aether;0 600050000 235.4 234.3 0.0 0] [pos:Ancient Aether;0 600050000 178.4 279.7 0.0 0] [pos:Ancient Aether;0 600050000 181.2 346.5 0.0 0] [pos:Ancient Aether;0 600050000 177.1 244.5 0.0 0] [pos:Ancient Aether;0 600050000 162.4 287.0 0.0 0] ';
                 } else if (selectedRace === 'asmodian') {
