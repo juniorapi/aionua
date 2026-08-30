@@ -282,7 +282,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.querySelector(".back-button").addEventListener("click", () => {
-    if (window.history.length > 1) window.history.back();
+    // history.back() має сенс лише тоді, коли попередня сторінка — наша.
+    // Інакше (прямий захід, перехід із пошуку) повертаємося на головну:
+    // сама лише history.length > 1 тут не рятує, бо в свіжому вікні в історії
+    // вже може лежати сторінка нової вкладки чи пошук.
+    let cameFromSite = false;
+    try {
+      cameFromSite = Boolean(document.referrer)
+        && new URL(document.referrer).origin === window.location.origin;
+    } catch (e) { /* некоректний referrer — вважаємо, що зайшли напряму */ }
+
+    if (cameFromSite && window.history.length > 1) window.history.back();
     else window.location.href = "../";
   });
 
