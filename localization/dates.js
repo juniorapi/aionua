@@ -16,5 +16,5 @@ window.AION_UPDATE_DATES = {
 window.AION_VERSIONS = {
   destiny: "2.1.5",
   origin: "1.2.6",
-  riftshade: "1.3.6",
+  riftshade: "1.3.7",
 };
