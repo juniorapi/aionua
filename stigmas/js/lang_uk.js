@@ -241,3 +241,161 @@ var SKILL_UK = {
 		if (tr.d) skill[i].desc = tr.d;
 	}
 })();
+
+/* ── Інтерфейс: статичні написи, тултіпи вмінь, підказки комірок ──
+   Рядки вставляють мініфіковані handlers.min.js і main.min.js, тож
+   правити їх у коді крихко — перекладаємо вже в DOM. */
+
+var UI_UK = {
+	// Заголовки та кнопки сторінки
+	'Aion stigma calculator': 'Калькулятор стигм Aion',
+	'Get link': 'Отримати посилання',
+	'Clear build': 'Очистити збірку',
+	'Conditions for opening the hidden stigma': 'Умови відкриття прихованої стигми',
+	'Else': 'Інакше',
+
+	// Класи — за термінологією українського клієнта
+	'Templar': 'Охоронець',
+	'Gladiator': 'Гладіатор',
+	'Assassin': 'Вбивця',
+	'Ranger': 'Стрілець',
+	'Sorcerer': 'Чарівник',
+	'Spiritmaster': 'Заклинач',
+	'Chanter': 'Чародій',
+	'Cleric': 'Цілитель',
+	'Songweaver': 'Бард',
+	'Gunner': 'Стрілець-технік',
+	'Aethertech': 'Етертех',
+
+	// Тултіп уміння
+	'Target': 'Ціль',
+	'Usage cost': 'Вартість',
+	'Cast time': 'Час використання',
+	'Cooldown': 'Відкат',
+	'Cast Instantly': 'Миттєво',
+	'Self': 'На себе',
+	'Selected Target': 'Обрана ціль',
+	'Self / Selected Target': 'На себе або обрану ціль',
+	'Area around caster': 'Область навколо себе',
+	'Specified Location': 'Вказане місце',
+	'Group': 'Група',
+	'Alliance': 'Альянс',
+	'Magical': 'Магічне',
+	'Physical': 'Фізичне',
+	'Buff': 'Підсилення',
+	'Debuff': 'Послаблення',
+	'Attack': 'Атака',
+	'Healing': 'Зцілення',
+	'Special': 'Особливе',
+	'Summon': 'Призов',
+	'Stun': 'Оглушення',
+	'Sleep': 'Сон',
+	'Rune Engraving': 'Нанесення клейма',
+	'Abnormal Condition': 'Негативний стан',
+	'Area of Effect': 'Область дії',
+	'Pistol Shot': 'Постріл із пістолета',
+	'Aethercannon Shot': 'Постріл з ефірної гармати',
+	'Melee Weapon': 'Зброя ближнього бою',
+	'Shield': 'Щит',
+
+	// У тултіпі число й одиниця — різні вузли, тож перекладаємо саму одиницю
+	'sec': 'сек',
+	'min': 'хв',
+	'hour': 'год',
+};
+
+/* Шаблонні рядки з числом усередині. Кожен запис — вираз і те, як з нього
+   зібрати український варіант. */
+var UI_UK_PATTERNS = [
+	[/^Available at (\d+) level$/, function (m) { return 'Доступно з ' + m[1] + ' рівня'; }],
+	[/^Major Stigma Slot \((\d+) level\)$/, function (m) { return 'Головна комірка стигми (' + m[1] + ' рівень)'; }],
+	[/^Stigma Slot \((\d+) level\)$/, function (m) { return 'Комірка стигми (' + m[1] + ' рівень)'; }],
+	[/^(\d+) min$/, function (m) { return m[1] + ' хв'; }],
+	[/^(\d+) sec$/, function (m) { return m[1] + ' сек'; }],
+	[/^lvl (\d+) \/ (\d+)$/, function (m) { return 'рів. ' + m[1] + ' / ' + m[2]; }],
+	[/^Usage Requirement: (.+)$/, function (m) {
+		var what = m[1].replace(/\.$/, '').split('/').map(function (p) {
+			var k = p.trim();
+			return UI_UK[k] || k;
+		}).join(' / ');
+		return 'Потрібно: ' + what + '.';
+	}],
+	// «Physical - Attack»: тип і підтип склеєні в один вузол
+	[/^([A-Za-z][A-Za-z ]*) - ([A-Za-z][A-Za-z ]*)$/, function (m) {
+		var a = UI_UK[m[1].trim()];
+		var b = UI_UK[m[2].trim()];
+		return (a && b) ? a + ' — ' + b : null;
+	}],
+];
+
+(function () {
+	if (typeof STIGMAS_LANG !== 'undefined' && STIGMAS_LANG !== 'uk') return;
+
+	function translate(raw) {
+		var s = String(raw).trim();
+		if (!s) return null;
+		if (UI_UK[s]) return UI_UK[s];
+		for (var i = 0; i < UI_UK_PATTERNS.length; i++) {
+			var m = s.match(UI_UK_PATTERNS[i][0]);
+			if (m) { var r = UI_UK_PATTERNS[i][1](m); if (r) return r; }
+		}
+		return null;
+	}
+
+	// node -> вже підставлений нами текст, щоб не перекладати повторно
+	var done = new WeakMap();
+
+	function walk(root) {
+		if (!root) return;
+		var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+		var node;
+		var queue = [];
+		while ((node = walker.nextNode())) queue.push(node);
+		for (var i = 0; i < queue.length; i++) {
+			var n = queue[i];
+			if (done.get(n) === n.nodeValue) continue;
+			var parent = n.parentElement;
+			if (!parent || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') continue;
+			var out = translate(n.nodeValue);
+			if (!out) continue;
+			var lead = n.nodeValue.match(/^\s*/)[0];
+			var tail = n.nodeValue.match(/\s*$/)[0];
+			n.nodeValue = lead + out + tail;
+			done.set(n, n.nodeValue);
+		}
+		// Підказки в атрибуті title
+		if (root.querySelectorAll) {
+			var withTitle = root.querySelectorAll('[title]');
+			for (var j = 0; j < withTitle.length; j++) {
+				var el = withTitle[j];
+				var t = translate(el.getAttribute('title'));
+				if (t) el.setAttribute('title', t);
+			}
+		}
+	}
+
+	function run() { walk(document.body); }
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', run);
+	} else {
+		run();
+	}
+
+	// Тултіпи малюються при наведенні, тож стежимо за появою вузлів.
+	// Власні зміни не запускають зайвий прохід: перекладене лежить у done.
+	if (typeof MutationObserver !== 'undefined') {
+		var scheduled = false;
+		new MutationObserver(function () {
+			if (scheduled) return;
+			scheduled = true;
+			setTimeout(function () { scheduled = false; run(); }, 0);
+		}).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+	}
+
+	// Заголовок вкладки
+	var title = document.title.replace(/^([A-Za-z]+) - Stigma calculator$/, function (all, cls) {
+		return (UI_UK[cls] || cls) + ' — калькулятор стигм';
+	});
+	if (title !== document.title) document.title = title;
+})();
