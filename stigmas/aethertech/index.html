@@ -149,9 +149,43 @@
 		<div id="tooltip_slot" class="tip"></div>
 		<script>var enchant = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="/aionua/stigmas/js/aethertech.js"></script>
+		<script>
+	// Сторінка статична, тож мова обирається на клієнті: з ?lang=, інакше
+	// з localStorage, типово українська.
+	var STIGMAS_LANG = (function () {
+		var v = new URLSearchParams(window.location.search).get('lang');
+		if (v !== 'uk' && v !== 'en') {
+			try { v = localStorage.getItem('stigmas_lang'); } catch (e) { v = null; }
+		}
+		if (v !== 'uk' && v !== 'en') v = 'uk';
+		try { localStorage.setItem('stigmas_lang', v); } catch (e) {}
+		return v;
+	})();
+</script>
+<script src="/aionua/stigmas/js/aethertech.js"></script>
+<script src="/aionua/stigmas/js/lang_uk.js"></script>
 		<script src="/aionua/stigmas/js/handlers.min.js"></script>
 		<script src="/aionua/stigmas/js/main.min.js"></script>
 	
-	</body>
+	<div id="lang_switch">
+	<button type="button" class="lang-btn" data-lang="uk">UA</button>
+	<button type="button" class="lang-btn" data-lang="en">EN</button>
+</div>
+<script>
+	(function () {
+		var btns = document.querySelectorAll('.lang-btn');
+		for (var i = 0; i < btns.length; i++) {
+			if (btns[i].getAttribute('data-lang') === STIGMAS_LANG) {
+				btns[i].className += ' lang-btn-active';
+			}
+			btns[i].onclick = function () {
+				var next = this.getAttribute('data-lang');
+				if (next === STIGMAS_LANG) return;
+				try { localStorage.setItem('stigmas_lang', next); } catch (e) {}
+				window.location.href = window.location.pathname + '?lang=' + next + window.location.hash;
+			};
+		}
+	})();
+</script>
+</body>
 </html>

@@ -510,3 +510,14 @@ section#wrap_green3 #green3 {
 #language img:hover {opacity: 1.0;}
 
 .lvlup {width: 9px;}
+/* Перемикач мови */
+#lang_switch { position: fixed; top: 10px; right: 12px; display: flex; gap: 4px; z-index: 999; }
+.lang-btn {
+	min-width: 34px; padding: 4px 8px;
+	border: 1px solid rgba(255,255,255,.25); border-radius: 3px;
+	background: rgba(10,12,20,.75); color: #c9c9d4;
+	font: 600 11px/1 Arial, sans-serif; letter-spacing: .06em; cursor: pointer;
+	transition: border-color .15s, color .15s, background .15s;
+}
+.lang-btn:hover { border-color: rgba(255,215,0,.55); color: #ffd700; }
+.lang-btn-active { border-color: rgba(255,215,0,.75); background: rgba(255,215,0,.12); color: #ffd700; cursor: default; }
