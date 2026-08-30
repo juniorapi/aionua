@@ -399,3 +399,83 @@ var UI_UK_PATTERNS = [
 	});
 	if (title !== document.title) document.title = title;
 })();
+
+/* ── Характеристики ──
+   Підставляються в описи з rules кожного класу, тому переклад самих
+   описів їх не покриває. Назви взято з client_strings_ui.xml паку. */
+
+var STAT_UK = {
+	"Accuracy": "Точність",
+	"Aerial Thrust": "Повітряні окови",
+	"All Elemental Defence": "Захист від усіх стихій",
+	"Atk Range": "Радіус атаки",
+	"Atk Speed": "Швидк. атаки",
+	"Attack": "Атака",
+	"Block": "Ігнор-лист",
+	"Bow": "Луки",
+	"Crit Spell": "М. крит.",
+	"Crit Strike": "Ф. крит.",
+	"Evasion": "Ухилення",
+	"Evasion, Parry, Block": "Уникнення, парирування, блок щитом",
+	"Fear Resist": "Зах. від страху",
+	"Fire Resist": "Защ. від вогню",
+	"Healing Boost": "Сила зцілення",
+	"Immobilization Resist": "Зах. від обездвиження",
+	"Knock Back Resist": "Зах. від відштовхування",
+	"Magic Boost": "Сила магії",
+	"Magic Resist": "Маг. захист",
+	"Magic Suppression": "Опір магії",
+	"Magical Acc": "Маг. точність",
+	"Magical Attack Skill": "Вміння \"Магічна атака\"",
+	"Maximum HP": "Макс. HP",
+	"Maximum MP": "Макс. MP",
+	"Movement Speed, Flight Speed": "Швидк. руху, швидк. польоту",
+	"Natural Healing": "Швидкість відновл. HP",
+	"Natural Mana Treatment": "Швидкість відновл. MP",
+	"Paralysis Resistance": "Зах. від паралічу",
+	"Parry": "Парир.",
+	"Physical Attack": "Фізична атака",
+	"Physical Attack Skill": "Фізичний шкода",
+	"Physical Def": "Фіз. захист",
+	"Physical and Magical Attack": "Фізична та магічна атака",
+	"Physical, All Elemental Defenses": "Фізичний захист і захист від усіх стихій",
+	"Reduce Speed Resist": "Зах. від сповільнення руху",
+	"Silence Resistance": "Захист від німоти",
+	"Sleep Resist": "Зах. від сну",
+	"Speed": "Швидк. руху",
+	"Strike Resist": "Блок ф. крит.",
+	"Stumble Resist": "Зах. від перекидання",
+	"Stumbled": "Перекидання",
+	"Stun Resist": "Зах. від оглушення",
+	"Stun, Knock Back, Stumble, Spin, and Aerial Thrust Resistance Values": "Зах. від оглушення, відштовхування, перекидання, обертання й повітряних оков",
+	"all attack": "Усі види атак"
+};
+
+(function () {
+	if (typeof STIGMAS_LANG !== 'undefined' && STIGMAS_LANG !== 'uk') return;
+	if (typeof skill === 'undefined' || !Array.isArray(skill)) return;
+
+	// «10 sec», «1 min», «30 min» — у rules вони цілим значенням
+	function time(v) {
+		var m = String(v).match(/^(\d+)\s*(sec|min|hour)\s*$/);
+		if (!m) return null;
+		var unit = { sec: 'сек', min: 'хв', hour: 'год' }[m[2]];
+		return m[1] + ' ' + unit;
+	}
+
+	for (var i = 0; i < skill.length; i++) {
+		var lvls = skill[i].lvls;
+		if (!Array.isArray(lvls)) continue;
+		for (var j = 0; j < lvls.length; j++) {
+			var rules = lvls[j] && lvls[j].rules;
+			if (!rules || typeof rules !== 'object') continue;
+			for (var key in rules) {
+				var v = rules[key];
+				if (typeof v !== 'string') continue;
+				var t = time(v);
+				if (t) { rules[key] = t; continue; }
+				if (STAT_UK[v]) rules[key] = STAT_UK[v];
+			}
+		}
+	}
+})();
