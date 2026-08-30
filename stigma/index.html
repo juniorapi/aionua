@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=800, initial-scale=1">
 	<title>Aion stigma calculator</title>
-	<link rel="stylesheet" href="/aionua/stigma/css/style.css?v=0.4.1a" />
+	<link rel="stylesheet" href="/aionua/stigma/css/style.css?v=0.5.0" />
 	<script src="/aionua/stigma/js/jquery.js"></script>
 	<script src="/aionua/stigma/js/ui.js?v=0.4.1"></script>
 	<script src="/aionua/stigma/js/aion.js?v=0.4.1"></script>
@@ -12,6 +12,26 @@
 	<script src="/aionua/stigma/js/script.js?v=0.4.1a"></script>
 	<script src="/aionua/stigma/js/lang_enn.js?v=0.4.1"></script>
 	<script src="/aionua/stigma/js/lang_en.js?v=0.4.1"></script>
+	<script>
+		// Мова обирається на клієнті: сторінка статична, тож ?lang= нікому
+		// обробляти. Український файл накладається поверх англійського, тому
+		// неперекладене (описи вмінь) лишається англійським, а не порожнім.
+		(function () {
+			var params = new URLSearchParams(window.location.search);
+			var lang = params.get('lang');
+			if (lang !== 'uk' && lang !== 'en') {
+				try { lang = localStorage.getItem('stigma_lang'); } catch (e) { lang = null; }
+			}
+			if (lang !== 'uk' && lang !== 'en') lang = 'uk';
+			try { localStorage.setItem('stigma_lang', lang); } catch (e) {}
+			window.STIGMA_LANG = lang;
+			// document.write тут доречний: файл мусить потрапити в документ до
+			// script.js, який одразу читає lang під час завантаження.
+			if (lang === 'uk') {
+				document.write('<scr' + 'ipt src="/aionua/stigma/js/lang_uk.js?v=1"></scr' + 'ipt>');
+			}
+		})();
+	</script>
 	<script src="/aionua/stigma/js/vals.js?v=0.4.1"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
@@ -62,12 +82,35 @@
 		</div>
 	
 		<div id="share_link"><input type="text" id="stigma_link" /></div>
+
+		<div id="lang_switch">
+			<button type="button" class="lang-btn" data-lang="uk">UA</button>
+			<button type="button" class="lang-btn" data-lang="en">EN</button>
+		</div>
 	</div>
 	
 	
 	
 </div>
 <div id="stigma_tooltip"></div>
+<script>
+	// Перемикач мови. Стара реалізація вела на ?lang=xx і покладалася на
+	// сервер; тут вибір зберігається локально, а набір стигм переживає
+	// перезавантаження, бо він лежить у хеші адреси.
+	(function () {
+		var buttons = document.querySelectorAll('.lang-btn');
+		for (var i = 0; i < buttons.length; i++) {
+			var btn = buttons[i];
+			if (btn.dataset.lang === window.STIGMA_LANG) btn.classList.add('lang-btn-active');
+			btn.addEventListener('click', function () {
+				var next = this.dataset.lang;
+				if (next === window.STIGMA_LANG) return;
+				try { localStorage.setItem('stigma_lang', next); } catch (e) {}
+				window.location.href = window.location.pathname + '?lang=' + next + window.location.hash;
+			});
+		}
+	})();
+</script>
 <div class="footer-text">
 			<p>Designed by <strong>ASPirine and Guimera</strong>.&nbsp;Aion® is a registered trademark of NCSOFT Corporation.</p>
 		</div>

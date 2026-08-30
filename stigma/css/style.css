@@ -616,3 +616,38 @@ a:link, a:visited {
     text-align: center; /* Вирівнювання тексту */
     z-index: 100; /* Забезпечуємо, щоб текст був зверху інших елементів */
 }
+
+/* Перемикач мови */
+#lang_switch {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	display: flex;
+	gap: 4px;
+	z-index: 10;
+}
+
+.lang-btn {
+	min-width: 34px;
+	padding: 4px 8px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 3px;
+	background: rgba(10, 12, 20, 0.7);
+	color: #c9c9d4;
+	font: 600 11px/1 Arial, sans-serif;
+	letter-spacing: 0.06em;
+	cursor: pointer;
+	transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.lang-btn:hover {
+	border-color: rgba(255, 215, 0, 0.55);
+	color: #ffd700;
+}
+
+.lang-btn-active {
+	border-color: rgba(255, 215, 0, 0.75);
+	background: rgba(255, 215, 0, 0.12);
+	color: #ffd700;
+	cursor: default;
+}
