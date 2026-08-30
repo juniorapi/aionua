@@ -335,6 +335,9 @@ var UI_UK_PATTERNS = [
 		var s = String(raw).trim();
 		if (!s) return null;
 		if (UI_UK[s]) return UI_UK[s];
+		// Характеристики зазвичай підставляються ще в rules, але та сама
+		// назва може потрапити в DOM і в обхід — тоді ловимо її тут.
+		if (typeof STAT_UK !== 'undefined' && STAT_UK[s]) return STAT_UK[s];
 		for (var i = 0; i < UI_UK_PATTERNS.length; i++) {
 			var m = s.match(UI_UK_PATTERNS[i][0]);
 			if (m) { var r = UI_UK_PATTERNS[i][1](m); if (r) return r; }
@@ -382,15 +385,25 @@ var UI_UK_PATTERNS = [
 		run();
 	}
 
-	// Тултіпи малюються при наведенні, тож стежимо за появою вузлів.
-	// Власні зміни не запускають зайвий прохід: перекладене лежить у done.
+	// Тултіпи малюються при наведенні й перемальовуються на кожен рух миші.
+	// Перекладаємо синхронно просто в колбеку: відкладати через setTimeout
+	// не можна — це макрозадача, браузер устигає намалювати кадр з
+	// англійським текстом, і при русі миші мова блимає.
+	// takeRecords() відкидає мутації, породжені самим перекладом, тож
+	// спостерігач не запускає сам себе.
 	if (typeof MutationObserver !== 'undefined') {
-		var scheduled = false;
-		new MutationObserver(function () {
-			if (scheduled) return;
-			scheduled = true;
-			setTimeout(function () { scheduled = false; run(); }, 0);
-		}).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+		var patching = false;
+		var mo = new MutationObserver(function () {
+			if (patching) return;
+			patching = true;
+			try {
+				run();
+			} finally {
+				mo.takeRecords();
+				patching = false;
+			}
+		});
+		mo.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
 	}
 
 	// Заголовок вкладки
