@@ -33,6 +33,9 @@ const RELEASE_API =
   "https://api.github.com/repos/juniorapi/aionua/releases/tags/localization";
 const RELEASE_CACHE_KEY = "aionua:release-assets";
 const RELEASE_CACHE_MS = 60 * 60 * 1000;
+// Скільки кешу довіряти без перевірки. Понад цей час значення ще показуємо,
+// але паралельно питаємо GitHub — інакше свіжа публікація не видна.
+const RELEASE_TRUST_MS = 5 * 60 * 1000;
 
 function formatSize(bytes) {
   return `${(bytes / 1048576).toFixed(1)} МБ`;
@@ -96,12 +99,8 @@ function readCachedAssets() {
   }
 }
 
-const cached = readCachedAssets();
-if (cached) {
-  applyReleaseAssets(cached.assets);
-  if (cached.versions) applyVersions(cached.versions);
-} else {
-  fetch(RELEASE_API, { headers: { Accept: "application/vnd.github+json" } })
+function fetchRelease() {
+  return fetch(RELEASE_API, { headers: { Accept: "application/vnd.github+json" } })
     .then((response) => (response.ok ? response.json() : null))
     .then((release) => {
       if (!release?.assets) return;
@@ -122,6 +121,22 @@ if (cached) {
       }
     })
     .catch(() => { /* лишаємо значення з розмітки */ });
+}
+
+// Кеш показуємо одразу, але тут же перевіряємо його в мережі. Раніше свіжий
+// кеш скасовував запит зовсім, і сторінка до години показувала стару версію
+// після кожної публікації — саме так сталося з 1.3.4 замість 1.3.6.
+//
+// Зовсім без кешу теж не можна: анонімний ліміт GitHub — 60 запитів на годину
+// на IP. Тому перші хвилини кешу вважаємо надійними й у мережу не йдемо, а
+// далі показуємо збережене й одразу оновлюємо.
+const cached = readCachedAssets();
+if (cached) {
+  applyReleaseAssets(cached.assets);
+  if (cached.versions) applyVersions(cached.versions);
+  if (Date.now() - cached.at > RELEASE_TRUST_MS) fetchRelease();
+} else {
+  fetchRelease();
 }
 
 backButton?.addEventListener("click", () => {
