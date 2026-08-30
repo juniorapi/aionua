@@ -41,9 +41,21 @@ for (const radioButton of itemTypeRadios) {
   });
 }
 
-document.querySelector('.back-button').addEventListener('click', () => {
-    window.history.back();
-});
+document.querySelector('.back-button')?.addEventListener('click', () => {
+        // history.back() має сенс лише тоді, коли попередня сторінка — наша.
+        // Інакше (прямий захід, перехід із пошуку) повертаємося на головну.
+        let cameFromSite = false;
+        try {
+            cameFromSite = Boolean(document.referrer)
+                && new URL(document.referrer).origin === window.location.origin;
+        } catch (e) { /* некоректний referrer — вважаємо, що зайшли напряму */ }
+
+        if (cameFromSite && window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '../';
+        }
+    });
 
 function generateTable() {
   table.innerHTML = "";

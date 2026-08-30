@@ -153,7 +153,7 @@ const JEWELRY_CRAFTING_DATA = {
 			    { id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'ponicaweaving', name: "Фонікова тканина", quantity: 1, icon: "images/icon_item_ta_rb_parts_n_r_60a.png" },
-				{ id: 'windfragment', name: "Частина вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+				{ id: 'windfragment', name: "Частинка вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
         },
 	    belt2: {
@@ -173,7 +173,7 @@ const JEWELRY_CRAFTING_DATA = {
 			    { id: 'crystal', name: "Давній блискучий кристал", quantity: 8, icon: "images/icon_item_ac_shopcmaterial_s_pve_m_60a.png" },
 				{ id: 'water', name: "Вічність води", quantity: 4, icon: "images/icon_item_ac_material_id_s_pve_m_60a.png" },
 				{ id: 'ponicaweaving', name: "Священна шкіра", quantity: 1, icon: "images/icon_item_ta_rt_parts_n_r_60a.png" },
-				{ id: 'windfragment', name: "Частина вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
+				{ id: 'windfragment', name: "Частинка вітру", quantity: 1, icon: "images/icon_item_ar_material_id_s_n_e_60a.png" }
             ]	
         },
     }
@@ -510,9 +510,21 @@ const calculatorConfigs = {
     }
 };
 
-document.querySelector('.back-button').addEventListener('click', () => {
-    window.history.back();
-});
+document.querySelector('.back-button')?.addEventListener('click', () => {
+        // history.back() має сенс лише тоді, коли попередня сторінка — наша.
+        // Інакше (прямий захід, перехід із пошуку) повертаємося на головну.
+        let cameFromSite = false;
+        try {
+            cameFromSite = Boolean(document.referrer)
+                && new URL(document.referrer).origin === window.location.origin;
+        } catch (e) { /* некоректний referrer — вважаємо, що зайшли напряму */ }
+
+        if (cameFromSite && window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '../';
+        }
+    });
 
 document.addEventListener('DOMContentLoaded', () => {
     const calculators = {
