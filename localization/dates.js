@@ -6,15 +6,15 @@
 // інакше сторінка відставатиме від того, що справді лежить на GitHub.
 window.AION_UPDATE_DATES = {
   destiny: "01.09.2026",
-  origin: "30.08.2026",
-  riftshade: "30.08.2026",
+  origin: "01.09.2026",
+  riftshade: "01.09.2026",
 };
 
 // Запасні значення: справжні версії пише publish_release.py в опис релізу,
 // звідки їх читає script.js. Тут вони лишаються на випадок, коли GitHub API
 // недоступний або вичерпано анонімний ліміт запитів.
 window.AION_VERSIONS = {
-  destiny: "2.1.7",
-  origin: "1.2.7",
-  riftshade: "1.3.9",
+  destiny: "2.1.8",
+  origin: "1.2.8",
+  riftshade: "1.3.10",
 };
