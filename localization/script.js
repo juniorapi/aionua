@@ -55,18 +55,37 @@ function parseVersions(body) {
   const line = String(body ?? "").match(/<!--\s*aionua-versions:([^>]*)-->/);
   if (!line) return null;
 
+  // Формат `клієнт=версія@дата`. Дата — коли збірку справді зроблено.
+  // Без неї бралася дата ассета з GitHub, а вона зсувається від будь-якої
+  // перезаливки: одного разу картки показали сьогоднішній день трьом
+  // клієнтам, хоча змінився лише один.
   const versions = {};
+  const dates = {};
   for (const pair of line[1].trim().split(/\s+/)) {
-    const [client, version] = pair.split("=");
-    if (client && version) versions[client] = version;
+    const [client, rest] = pair.split("=");
+    if (!client || !rest) continue;
+    const [version, date] = rest.split("@");
+    if (version) versions[client] = version;
+    if (date) dates[client] = date;
   }
-  return Object.keys(versions).length ? versions : null;
+  if (!Object.keys(versions).length) return null;
+  return { versions, dates };
 }
 
-function applyVersions(versions) {
+// Викликається після applyReleaseAssets — і дата з релізу навмисно перекриває
+// дату ассета: та зсувається від будь-якої перезаливки, ця показує день збірки.
+function applyVersions(meta) {
+  if (!meta) return;
+  const versions = meta.versions ?? meta;      // сумісність зі старим кешем
+  const dates = meta.dates ?? {};
+
   for (const [client, version] of Object.entries(versions)) {
     const element = document.querySelector(`[data-client="${client}"] [data-version]`);
     if (element) element.textContent = version;
+  }
+  for (const [client, date] of Object.entries(dates)) {
+    const element = document.querySelector(`[data-client="${client}"] [data-date]`);
+    if (element && date) element.textContent = date;
   }
 }
 
