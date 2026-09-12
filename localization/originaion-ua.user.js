@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.6.1
+// @version      1.6.2
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -132,7 +132,7 @@
     'is origin aion pay-to-win?': 'Чи є Origin Aion pay-to-win?',
     'what are cosmic fragments and cosmic gems?':
       'Що таке Cosmic Fragments і Cosmic Gems?',
-    'what is the eternity pass?': 'Що таке Eternity Pass?',
+    'what is the eternity pass?': 'Що таке Вічний пас?',
     'what makes origin aion different from other servers?':
       'Чим Origin Aion відрізняється від інших серверів?',
     'how can i get help or connect with the community?':
@@ -316,7 +316,7 @@
     'conversion failed': 'Конвертація не вдалася',
 
     /* ── Eternity Pass ── */
-    'eternity pass': 'Eternity Pass',
+    'eternity pass': 'Вічний пас',
     'sign in to select a character and load your pass progression.':
       'Увійдіть, щоб обрати персонажа й завантажити прогрес пасу.',
     'free': 'Безкоштовно',
@@ -335,9 +335,8 @@
     'daily': 'Щоденні',
     'weekly quests': 'Тижневі завдання',
     'season rewards': 'Сезонні нагороди',
-    // Назви ігрових сутностей лишаємо англійськими — так вони звуться в грі.
     'exchange your eternity comets for xp in the pass. once you have completed the pass, exchanging comets will turn them into eternity cores, that you may spend in the eternity shop.':
-      'Обмінюйте свої eternity comets на досвід у пасі. Коли пас завершено, обмін комет перетворює їх на eternity cores, які можна витратити в eternity shop.',
+      'Обмінюйте свої вічні комети на досвід у пасі. Коли пас завершено, обмін комет перетворює їх на вічні ядра, які можна витратити в крамниці вічності.',
     'character must be offline before exchanging comets.':
       'Перед обміном комет персонаж має бути офлайн.',
     'tokens in inventory': 'Жетонів в інвентарі',
@@ -348,9 +347,9 @@
     'completed': 'Завершено',
     'exchange': 'Обміняти',
     'exchange comets': 'Обміняти комети',
-    'eternity comets': 'Eternity Comets',
-    'eternity cores': 'Eternity Cores',
-    'eternity shop': 'Eternity Shop',
+    'eternity comets': 'Вічні комети',
+    'eternity cores': 'Вічні ядра',
+    'eternity shop': 'Крамниця вічності',
     'xp': 'Досвід',
     'track season progression, claim unlocked rewards, and exchange comets.':
       'Стежте за прогресом сезону, забирайте відкриті нагороди й обмінюйте комети.',
@@ -363,6 +362,68 @@
     'greater supplements (fabled)': 'Посилювач каменів III (унікал.)',
     'greater supplements (mythic)': 'Посилювач каменів III (міфіч.)',
     'greater supplements (heroic or less)': 'Посилювач каменів III (легенд. і нижче)',
+    'stigma shard': 'Уламок стигми',
+    'blood mark': 'Знак крові',
+    'agrint candy': 'Цукерки огринта',
+    "saam king's herbs": 'Королівський корінь женьшеню',
+    'solorius wine': 'Вино Соллоріуса',
+    'seed of detection': 'Насіння виявлення',
+    'vinna juice': 'Виноградний сік',
+    'illuminary obelisk idian pouch': 'Мішечок з ідіаном захисної башти рунів',
+    'stormwing egg (30 days)': 'Ембріон Рудри (30 дн.)',
+    'elite divine life serum': 'Особливе зілля слави',
+    'sublime mana serum': 'Особливе зілля мани V',
+    'strange ide crystal': 'Загадковий кристал іда',
+    'tasty harvest revel cookie': 'Смачне печиво до Хелловіну',
+    'summoning stone: soul healer (group)': 'Ніка: Цілитель душ (група)',
+    'summoning stone: stigma master (group)': 'Ніка: Майстер стигм (група)',
+    'summoning stone: warehouse manager (group)': 'Ніка: Завідувач складом (група)',
+    'kadomatsu enchantment stone bundles': 'Мішечки з магічними каменями Кадомач',
+    'armor wrapping scroll (eternal/lv. 65 and lower)':
+      'Сяючий сувій упаковки героїчних обладунків',
+    // У паку тут неузгоджене «героїчного зброї» — виправлено.
+    'weapon wrapping scroll (eternal/lv. 65 and lower)':
+      'Сяючий сувій упаковки героїчної зброї',
+
+    /* Нагороди, яких у паку немає — це предмети самого сервера. */
+    'premium recovery serum': 'Преміум-зілля відновлення',
+    'ancient golem': 'Стародавній голем',
+    'cosmic fragments chest [100 cosmic fragments]':
+      'Скриня космічних фрагментів [100 фрагментів]',
+    '[title] legendary - 30-day pass': '[Титул] Легендарний — 30-денний пас',
+    "shining sea dragon king's wing feather":
+      'Сяюче перо крила Короля морських драконів',
+
+    /* Складені назви: скрипт лишав власну назву латинкою, бо не знав її.
+       Ключ — назва без рангу («… II»), саме її шукає складач назв. */
+    'venerable elim amulet': 'Амулет шанованого Еліма',
+    'terath dredgion bonus entry scroll': 'Сувій входу в Дерадікон Садх',
+    'sauro supply base bonus entry scroll': 'Сувій входу на військову базу Сауро',
+    "fortuneer's godstone pack": 'Згорток з божественними каменями гільдії авантюристів',
+    "leader's recovery scroll": 'Відновлювальний сувій правителя',
+    'mythic armor tuning scroll': 'Сувій медитації міфічних обладунків',
+    'mythic weapon tuning scroll': 'Сувій медитації міфічної зброї',
+    'ancient coin pack': 'Мішечок з давніми монетами',
+    'ancient coin bundle': 'Мішечок з давніми монетами',
+    'elemental defence pack': 'Набір захисту від стихій',
+    'major ancient crown': 'Безцінна давня корона',
+    'noble idian pack': 'Набір шляхетних ідіанів',
+    "water dragon king's weapon skin chest":
+      'Скриня зі скінами зброї Короля водяних драконів',
+
+    /* ── Уламки рядків із підстановкою ──
+       React рендерить «Level {n}/{max} - Total EXP: {exp}» кількома текстовими
+       вузлами, тож цілого рядка в DOM немає і шаблон по ньому не спрацьовує.
+       Тому перекладаємо сталі шматки окремо. Шаблони на весь рядок лишаються
+       на випадок, коли вузол усе-таки один. ── */
+    // «level» уже є вище, серед загальних слів.
+    'lv': 'рів.',
+    '- total exp:': '— усього досвіду:',
+    '• exp to next:': '• до наступного:',
+    // Число лежить в іншому вузлі, тож відміняти за ним не можемо:
+    // «переглядів» пасує до переважної більшості чисел.
+    'views': 'переглядів',
+    'view': 'перегляд',
 
     /* ── Профіль і покупки ── */
     'my profile': 'Мій профіль',
