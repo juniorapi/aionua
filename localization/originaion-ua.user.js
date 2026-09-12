@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.7.0
+// @version      1.7.1
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -568,6 +568,62 @@
       'Якщо ви не впевнені, чи дозволений певний інструмент або макрос, перед використанням створіть тикет і запитайте команду.',
     "players are responsible for ensuring that any software or macros they use comply with the server's fair play principles and do not violate any other server rules. any violation of this rule will result in immediate ban without warning.":
       'Гравці самі відповідають за те, щоб їхнє ПЗ і макроси відповідали принципам чесної гри та не порушували інших правил сервера. Порушення цього правила призводить до негайного бану без попередження.',
+
+    /* ═════════════ ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ ════════════════════════════
+       Розмітка така сама, як у правилах: <li><strong>Заголовок:</strong>
+       текст</li>, тож ключів теж по два на пункт. Англійський оригінал
+       лишається головним — це юридичний текст, і якщо адміни змінять
+       формулювання, покажеться англійська, а не застарілий переклад.
+    ═════════════════════════════════════════════════════════════════════ */
+
+    'how we collect, use, and protect your personal information.':
+      'Як ми збираємо, використовуємо та захищаємо ваші персональні дані.',
+    'overview': 'Огляд',
+    'origin aion ("we", "us", or "our") is committed to protecting your privacy. this privacy policy explains what information we collect when you use our services, how we use it, and the choices you have. by registering an account or using our website you agree to the practices described here.':
+      'Origin Aion («ми», «нас», «наш») дбає про захист вашої приватності. Ця політика пояснює, які дані ми збираємо, коли ви користуєтеся нашими послугами, як ми їх використовуємо та який вибір маєте ви. Реєструючи акаунт або користуючись нашим сайтом, ви погоджуєтеся з описаними тут практиками.',
+
+    'information we collect': 'Які дані ми збираємо',
+    'account information:': 'Дані акаунта:',
+    'when you register, we collect your username, email address, and a hashed version of your password. we never store passwords in plaintext.':
+      'Під час реєстрації ми збираємо ваш нік, адресу електронної пошти та хешовану версію пароля. Ми ніколи не зберігаємо паролі у відкритому вигляді.',
+    'technical data:': 'Технічні дані:',
+    'we may log your ip address for security purposes such as detecting login abuse, enforcing rate limits, and preventing fraudulent activity.':
+      'Ми можемо записувати вашу IP-адресу з міркувань безпеки: щоб виявляти зловживання входом, обмежувати частоту запитів і запобігати шахрайству.',
+    'in-game data:': 'Ігрові дані:',
+    'character names, progress, purchases, and other gameplay-related information are stored to operate the game service.':
+      'Імена персонажів, прогрес, покупки та інші пов’язані з грою відомості зберігаються для роботи ігрового сервісу.',
+    'communication data:': 'Дані листування:',
+    'if you contact us via email or discord we retain those communications to respond to your enquiry and improve our support.':
+      'Якщо ви пишете нам електронною поштою чи в Discord, ми зберігаємо це листування, щоб відповісти на ваш запит і покращити підтримку.',
+
+    'how we use your information': 'Як ми використовуємо ваші дані',
+    'to create and manage your account.': 'Щоб створювати ваш акаунт і керувати ним.',
+    'to provide and maintain the game service.':
+      'Щоб надавати й підтримувати ігровий сервіс.',
+    'to process purchases and send transactional emails (e.g. email verification, password change confirmations).':
+      'Щоб обробляти покупки й надсилати службові листи (підтвердження пошти, зміна пароля тощо).',
+    'to detect and prevent abuse, cheating, or fraudulent activity.':
+      'Щоб виявляти зловживання, читерство та шахрайство й запобігати їм.',
+    'to communicate service updates, maintenance notices, and important announcements.':
+      'Щоб повідомляти про оновлення сервісу, технічні роботи та важливі анонси.',
+
+    'data sharing': 'Передавання даних',
+    'we do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:':
+      'Ми не продаємо, не обмінюємо й не передаємо ваші персональні дані третім сторонам, окрім таких випадків:',
+    'when required by law or to comply with a legal obligation.':
+      'Коли цього вимагає закон або потрібно виконати юридичний обов’язок.',
+    'to protect the rights, safety, or property of origin aion, its users, or the public.':
+      'Щоб захистити права, безпеку чи майно Origin Aion, його користувачів або громадськості.',
+    'with service providers who assist us in operating our website under strict confidentiality agreements (e.g. email delivery services).':
+      'З постачальниками послуг, які допомагають нам підтримувати роботу сайту за суворими угодами про конфіденційність (наприклад, служби доставки пошти).',
+
+    'data retention': 'Зберігання даних',
+    'we retain your account data for as long as your account is active or as needed to provide our services. if you wish to have your account and associated data deleted, please contact us through our discord support channel.':
+      'Ми зберігаємо дані вашого акаунта, доки він активний або доки це потрібно для надання послуг. Якщо ви хочете видалити акаунт і пов’язані з ним дані, зверніться до нас у каналі підтримки в Discord.',
+
+    'cookies': 'Файли cookie',
+    'we use session cookies solely to keep you logged in during your visit. we do not use tracking, advertising, or analytics cookies. session cookies are removed when you close your browser or log out.':
+      'Ми використовуємо сеансові файли cookie лише для того, щоб ви лишалися в акаунті під час візиту. Ми не використовуємо cookie для стеження, реклами чи аналітики. Сеансові cookie видаляються, коли ви закриваєте браузер або виходите з акаунта.',
 
     /* ── Профіль і покупки ── */
     'my profile': 'Мій профіль',
