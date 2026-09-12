@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.6.2
+// @version      1.7.0
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -133,6 +133,8 @@
     'what are cosmic fragments and cosmic gems?':
       'Що таке Cosmic Fragments і Cosmic Gems?',
     'what is the eternity pass?': 'Що таке Вічний пас?',
+    'everything you need to know about origin aion before you start playing.':
+      'Усе, що варто знати про Origin Aion, перш ніж почати грати.',
     'what makes origin aion different from other servers?':
       'Чим Origin Aion відрізняється від інших серверів?',
     'how can i get help or connect with the community?':
@@ -425,6 +427,148 @@
     'views': 'переглядів',
     'view': 'перегляд',
 
+    /* ═══════════════════════ ПРАВИЛА СЕРВЕРА ════════════════════════════
+       Розмітка тут — <li><strong>Заголовок:</strong> текст</li>, тобто
+       заголовок і текст лежать в окремих вузлах. Тому на кожне правило два
+       ключі: сам заголовок із двокрапкою і окремо його текст.
+
+       Англійський оригінал лишається головним: якщо адміни змінять
+       формулювання, ключ просто не збіжиться й покажеться англійський
+       текст — це безпечно.
+    ═════════════════════════════════════════════════════════════════════ */
+
+    'server rules': 'Правила сервера',
+    'please read and follow these rules to ensure a fair and enjoyable experience for everyone.':
+      'Прочитайте ці правила й дотримуйтеся їх, щоб гра була чесною та приємною для всіх.',
+    'zero tolerance policy': 'Політика нульової терпимості',
+    'the following behaviours are never acceptable and will result in immediate suspension or a permanent ban, depending on severity and history. ignorance of the rules is not an excuse.':
+      'Наведена нижче поведінка неприпустима й тягне за собою негайне призупинення або довічне блокування — залежно від тяжкості порушення та попередніх випадків. Незнання правил не є виправданням.',
+    'severe harassment, hate speech, threats, or targeted bullying.':
+      'Тяжке цькування, мова ворожнечі, погрози або адресне переслідування.',
+    'use of bots, hacks, or other cheating software.':
+      'Використання ботів, хаків чи іншого шахрайського програмного забезпечення.',
+    'real money trading (rmt), account selling, or account sharing for advantage.':
+      'Торгівля за реальні гроші (RMT), продаж акаунтів або передавання доступу до них заради переваги.',
+    'ddos threats or attacks, doxxing, or similar real-life threats.':
+      'Погрози чи DDoS-атаки, оприлюднення особистих даних та подібні загрози в реальному житті.',
+    'chargeback fraud or other intentional abuse of our payment systems.':
+      'Шахрайство з поверненням платежів та інші умисні зловживання нашими платіжними системами.',
+
+    'general rules': 'Загальні правила',
+    'friendly atmosphere:': 'Дружня атмосфера:',
+    'please treat everyone with respect and avoid offensive language to help maintain a welcoming community. toxic behavior, including spamming, excessive use of capital letters or emojis, and deliberately provoking other players or staff members, is not allowed.':
+      'Ставтеся до всіх з повагою й уникайте образливих висловів, щоб спільнота лишалася привітною. Токсична поведінка — спам, надмірний капс чи емодзі, навмисне провокування інших гравців або команди — заборонена.',
+    'language guidelines:': 'Мовні правила:',
+    'speak english in the general english chat, and other languages in their respective channels. use the correct language in the appropriate channel for clear communication.':
+      'У загальному англійському чаті спілкуйтеся англійською, іншими мовами — у відповідних каналах. Використовуйте правильну мову у відповідному каналі, щоб спілкування було зрозумілим.',
+    'no discrimination:': 'Без дискримінації:',
+    'bullying, harassment, or any form of discrimination based on race, gender, religion, or any other characteristic will not be tolerated. ensure your discord username and profile are appropriate. your in-game character name and legion name and emblem must also be non-offensive and respectful.':
+      'Цькування, переслідування чи будь-яка дискримінація за расою, статтю, релігією або іншою ознакою неприпустимі. Ваш нік і профіль у Discord мають бути доречними. Ім’я персонажа, назва легіону та емблема теж не повинні нікого ображати.',
+    'all player names and profiles must comply with our server rules at all times, both in-game and on discord. this includes, but is not limited to:':
+      'Імена гравців і профілі мають завжди відповідати правилам сервера — і в грі, і в Discord. Це стосується, зокрема:',
+    '• hate speech, slurs, or any discriminatory language':
+      '• мови ворожнечі, образливих прізвиськ і будь-яких дискримінаційних висловів',
+    '• names or references to hate groups, offensive historical figures, or similarly inappropriate content':
+      '• назв і згадок про групи ненависті, одіозних історичних постатей та подібного недоречного вмісту',
+    '• sexually explicit or obscene references':
+      '• відвертих сексуальних чи непристойних згадок',
+    '• impersonation of staff members or other players':
+      '• видавання себе за команду сервера чи інших гравців',
+    '• deliberately disruptive, offensive, or misleading content':
+      '• навмисно деструктивного, образливого чи оманливого вмісту',
+    '• suspicious or harmful profile links':
+      '• підозрілих або шкідливих посилань у профілі',
+    '• inappropriate media such as offensive pictures, gifs, avatars, or banners':
+      '• недоречних медіа: образливих зображень, GIF, аватарів чи банерів',
+    'on-topic focus:': 'За темою:',
+    'keep conversations and content related to gaming. avoid off-topic discussions and use the appropriate channels for different topics or games.':
+      'Тримайтеся ігрової теми. Уникайте офтопу й використовуйте відповідні канали для інших тем чи ігор.',
+    'protect your privacy:': 'Бережіть приватність:',
+    'refrain from sharing personal information or private content. protect both your own privacy and the privacy of others.':
+      'Не діліться особистою інформацією чи приватним вмістом. Бережіть і власну приватність, і чужу.',
+    'no nsfw content:': 'Без NSFW-вмісту:',
+    'to maintain a safe and inclusive environment, any form of explicit, inappropriate, or nsfw content is strictly prohibited.':
+      'Щоб середовище лишалося безпечним і відкритим для всіх, будь-який відвертий, недоречний чи NSFW-вміст суворо заборонено.',
+    'no unauthorised promotion:': 'Без несанкціонованої реклами:',
+    'do not promote or advertise contents, products, services, or other aion private servers without prior authorisation from the staff. advertising other private aion servers within the official origin aion discord server is strictly prohibited. we provide a free service and want to maintain a quality experience for all members.':
+      'Не рекламуйте вміст, товари, послуги чи інші приватні сервери Aion без попереднього дозволу команди. Реклама інших приватних серверів Aion в офіційному Discord Origin Aion суворо заборонена. Ми надаємо безкоштовний сервіс і хочемо зберегти якість для всіх учасників.',
+    'no sharing private content:': 'Без оприлюднення приватного:',
+    'players are not allowed to publicly share private messages, images, screenshots, files, videos, or any other media on our platforms that is sensitive, private, or may offend, expose, or harm others.':
+      'Гравцям заборонено публічно поширювати на наших майданчиках приватні повідомлення, зображення, знімки екрана, файли, відео чи інші медіа, які є конфіденційними, приватними або можуть образити, викрити чи зашкодити іншим.',
+    'faction chat conduct (in-game megaphones & lfg):':
+      'Поведінка у фракційному чаті (мегафони та LFG):',
+    'faction chat and lfg are intended for faction-related communication only. do not use them to insult others or to negatively call out players by name, including through in-game megaphones, lfg, or any other communication channels.':
+      'Фракційний чат і LFG призначені лише для спілкування в межах фракції. Не використовуйте їх, щоб ображати інших або негативно згадувати гравців поіменно — ні через мегафони, ні через LFG, ні через будь-які інші канали.',
+    'no unnecessary tagging:': 'Без зайвих згадок:',
+    'do not unnecessarily tag players or staff members in chat. if you need staff assistance, please open a support ticket or ask in general chat.':
+      'Не згадуйте гравців чи команду в чаті без потреби. Якщо потрібна допомога, створіть тикет підтримки або запитайте в загальному чаті.',
+    'respect towards staff:': 'Повага до команди:',
+    'never insult any staff member, whether on discord (especially in tickets), in game, or anywhere else. every staff member volunteers their time and does their best for all of you. staff will always remain neutral, and you are expected to respect and follow their instructions.':
+      'Ніколи не ображайте членів команди — ні в Discord (особливо в тикетах), ні в грі, ні деінде. Кожен із них витрачає свій час добровільно й робить усе можливе для вас. Команда завжди лишається нейтральною, а ви маєте поважати й виконувати її вказівки.',
+    'loyalty policy:': 'Лояльність:',
+    "if you disagree with a staff decision or action, please address it directly with the team by creating a ticket, rather than publicly damaging the server's reputation. origin aion is a volunteer-driven free project, and the staff is committed to doing their best for the community. we're open to feedback and will always try to find a fair solution through respectful communication.":
+      'Якщо ви не згодні з рішенням команди, зверніться до неї напряму через тикет, а не шкодьте репутації сервера публічно. Origin Aion — безкоштовний проєкт на волонтерських засадах, і команда робить усе можливе для спільноти. Ми відкриті до відгуків і завжди шукатимемо справедливе рішення через шанобливу розмову.',
+    'no refunding or account adjustments:': 'Без повернень і змін акаунта:',
+    'adding or removing items, ap, or any other in-game stuff for players is not supported. no refunds, exchanges, or downgrades will be issued under any circumstances. changing race or other account-related changes are not offered, so please make sure to choose carefully before finalising your character.':
+      'Ми не додаємо й не видаляємо предмети, AP чи будь-що інше в грі на прохання гравців. Повернень, обмінів чи знижень не буде за жодних обставин. Зміна раси та інші зміни акаунта не надаються, тож добре подумайте, перш ніж остаточно створити персонажа.',
+    'enforcement:': 'Покарання:',
+    'any violation of our rules may result in warnings, temporary mutes, kicks, or bans, depending on the severity and recurrence of the offense.':
+      'Будь-яке порушення правил може призвести до попереджень, тимчасового блокування чату, виключення або бану — залежно від тяжкості та повторюваності.',
+
+    'gameplay rules': 'Ігрові правила',
+    'afk policy:': 'Правила щодо AFK:',
+    'when solo queueing for a pvp instance, you are required to accept the entry request and actively participate once inside. going afk or intentionally leaving the instance is only permitted if the entire group agrees or if you are participating in a solo pvp instance.':
+      'Ставши в чергу на PvP-інстанс поодинці, ви маєте прийняти запит на вхід і активно грати всередині. Піти в AFK чи навмисно залишити інстанс можна лише за згодою всієї групи або якщо це одиночний PvP-інстанс.',
+    'dual client & multi-account rules:':
+      'Правила щодо другого клієнта та кількох акаунтів:',
+    'what you can do with dual client:': 'Що можна робити з другим клієнтом:',
+    '• use dual clients for pve, events, and afk activity.':
+      '• Використовувати другий клієнт для PvE, івентів та AFK-активності.',
+    '• join or create pve groups or open-world groups, provided the group agrees beforehand.':
+      '• Вступати в PvE-групи чи групи у відкритому світі або створювати їх, якщо група заздалегідь згодна.',
+    '• power-level your own characters.': '• Прокачувати власних персонажів.',
+    '• stay afk on dual clients to earn rewards.':
+      '• Лишати другий клієнт в AFK заради нагород.',
+    '• join solo or group events if the party agrees.':
+      '• Брати участь в одиночних чи групових івентах, якщо група згодна.',
+    '• you can participate in sieges. if you join an alliance, make sure the alliance leaders agree.':
+      '• Брати участь в облогах. Якщо вступаєте в альянс, переконайтеся, що лідери альянсу не проти.',
+    '• when using a spiritmaster for teleportation, the spiritmaster must remain online and visible for at least 1 minute afterward to avoid being mistaken for a cheater by staff or another player.':
+      '• Якщо телепортуєтеся за допомогою заклинача, він має лишатися онлайн і видимим щонайменше 1 хвилину після цього, щоб команда чи інший гравець не сплутали вас із шахраєм.',
+    'what you cannot do with dual client:': 'Чого не можна робити з другим клієнтом:',
+    '• use dual clients for pvp against your own characters, regardless of faction or activity (open world, dredgion, siege, arena, etc).':
+      '• Використовувати другий клієнт для PvP проти власних персонажів — незалежно від фракції та активності (відкритий світ, дредгіон, облога, арена тощо).',
+    '• control or use skills on both characters simultaneously during pvp. you must wait until the first character dies before controlling the second.':
+      '• Керувати обома персонажами чи застосовувати їхні вміння одночасно під час PvP. Перш ніж керувати другим, дочекайтеся смерті першого.',
+    '• complete quests, trade ap, or exploit mechanics between dual client accounts.':
+      '• Виконувати завдання, передавати AP чи зловживати механіками між акаунтами другого клієнта.',
+    'account sharing & rmt policy:':
+      'Правила щодо передавання акаунтів і RMT:',
+    '• account sharing is strictly prohibited. players must not share, lend, trade, or provide access to their accounts on any origin platform, including the origin game, origin web, or any official origin community channels.':
+      '• Передавати акаунт суворо заборонено. Гравці не мають ділитися акаунтом, позичати, обмінювати чи надавати до нього доступ на жодному майданчику Origin — ні в грі, ні на сайті, ні в офіційних каналах спільноти.',
+    '• rmt (real money trade) is forbidden. selling or buying accounts, kinah, or items, for real money is not allowed.':
+      '• RMT (торгівля за реальні гроші) заборонена. Продавати чи купувати акаунти, кинари або предмети за реальні гроші не можна.',
+    'any account found guilty of sharing or rmt will be permanently banned. evidence from all platforms is welcome. we will then conduct further investigations until we are 100% certain before banning any account.':
+      'Акаунт, викритий у передаванні чи RMT, блокується назавжди. Ми вітаємо докази з будь-яких майданчиків. Перед блокуванням проводимо додаткову перевірку, доки не будемо впевнені на 100%.',
+    'these rules exist to protect fairness, security, and the integrity of the origin community. we do not take responsibility for any issues arising from shared accounts, including lost access, stolen items, or compromised security. accounts involved in sharing will not receive support under any circumstances.':
+      'Ці правила захищають чесність, безпеку й цілісність спільноти Origin. Ми не відповідаємо за наслідки передавання акаунта — втрату доступу, викрадені предмети чи зламану безпеку. Акаунти, причетні до передавання, не отримують підтримки за жодних обставин.',
+    'exploiting and cheating software:': 'Зловживання й шахрайське ПЗ:',
+    'using bugs, glitches, unintended mechanics, or any cheating software that provide an unfair advantage is strictly prohibited on our server. any player found abusing such issues or using cheating software, whether by using, sharing, or discussing exploits or cheats publicly or privately, will face immediate and permanent bans without warning.':
+      'Використання багів, збоїв, непередбачених механік чи будь-якого шахрайського ПЗ, що дає нечесну перевагу, на нашому сервері суворо заборонено. Гравець, викритий у зловживанні ними або у використанні, поширенні чи обговоренні експлойтів і читів — публічно чи приватно — отримує негайний довічний бан без попередження.',
+    'we maintain a zero-tolerance policy towards all forms of cheating. players who choose to exploit bugs or use unauthorised software should understand that this server is not the place for cheaters. all offenders will be thoroughly investigated and caught without exception. if you discover any bugs, exploits, or suspect cheating software usage, you are required to report it immediately via a ticket. maintaining a fair and competitive environment is a responsibility we all share.':
+      'Ми дотримуємося нульової терпимості до будь-якого шахрайства. Хто зловживає багами чи використовує недозволене ПЗ, має розуміти: цей сервер не для шахраїв. Кожного порушника буде ретельно перевірено й викрито без винятків. Якщо ви знайшли баг, експлойт або підозрюєте використання читів, негайно повідомте про це через тикет. Чесне й змагальне середовище — спільна відповідальність.',
+    'cheating undermines fair play, damages the community, and will never be tolerated here. report any issues to staff and avoid engaging in suspicious behaviour.':
+      'Шахрайство руйнує чесну гру та шкодить спільноті — тут його ніколи не терпітимуть. Повідомляйте команді про проблеми й не вдавайтеся до підозрілих дій.',
+    'use of approved third-party software and macros':
+      'Дозволене стороннє ПЗ та макроси',
+    'the following third-party tools are allowed:':
+      'Дозволено такі сторонні інструменти:',
+    '• approved macros': '• Схвалені макроси',
+    'if you are unsure whether a specific tool or macro is permitted, please contact staff by making a ticket for clarification before use.':
+      'Якщо ви не впевнені, чи дозволений певний інструмент або макрос, перед використанням створіть тикет і запитайте команду.',
+    "players are responsible for ensuring that any software or macros they use comply with the server's fair play principles and do not violate any other server rules. any violation of this rule will result in immediate ban without warning.":
+      'Гравці самі відповідають за те, щоб їхнє ПЗ і макроси відповідали принципам чесної гри та не порушували інших правил сервера. Порушення цього правила призводить до негайного бану без попередження.',
+
     /* ── Профіль і покупки ── */
     'my profile': 'Мій профіль',
     'my account': 'Мій акаунт',
@@ -680,6 +824,14 @@
     nov: 'лист.', dec: 'груд.',
   };
 
+  // Повні назви в родовому відмінку: «Востаннє оновлено 24 червня 2026».
+  const MONTHS_GEN = {
+    january: 'січня', february: 'лютого', march: 'березня', april: 'квітня',
+    may: 'травня', june: 'червня', july: 'липня', august: 'серпня',
+    september: 'вересня', october: 'жовтня', november: 'листопада',
+    december: 'грудня',
+  };
+
   const PATTERNS = [
     // «Online · 805»
     [/^online\s*·\s*([\d,\s]+)$/i, (m) => `Онлайн · ${m[1].trim()}`],
@@ -697,6 +849,17 @@
 
     // «Page 1 of 9»
     [/^page\s+(\d+)\s+of\s+(\d+)$/i, (m) => `Сторінка ${m[1]} з ${m[2]}`],
+
+    /* ── «Last updated 24 June 2026» і «Last updated March 24, 2026»:
+       правила й політика конфіденційності пишуть дату по-різному. ── */
+    [/^last\s+updated\s+(\d{1,2})\s+([a-z]+)\s+(\d{4})$/i, (m) => {
+      const mon = MONTHS_GEN[m[2].toLowerCase()];
+      return mon ? `Востаннє оновлено ${toInt(m[1])} ${mon} ${m[3]}` : null;
+    }],
+    [/^last\s+updated\s+([a-z]+)\s+(\d{1,2}),\s*(\d{4})$/i, (m) => {
+      const mon = MONTHS_GEN[m[1].toLowerCase()];
+      return mon ? `Востаннє оновлено ${toInt(m[2])} ${mon} ${m[3]}` : null;
+    }],
 
     // «Ends in 1d 4h 10m»
     [/^ends\s+in\s+(.+)$/i, (m) => `Закінчується через ${duration(m[1])}`],
