@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.6.0
+// @version      1.6.1
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -352,6 +352,17 @@
     'eternity cores': 'Eternity Cores',
     'eternity shop': 'Eternity Shop',
     'xp': 'Досвід',
+    'track season progression, claim unlocked rewards, and exchange comets.':
+      'Стежте за прогресом сезону, забирайте відкриті нагороди й обмінюйте комети.',
+    'unlock': 'Відкрити',
+
+    /* ── Нагороди пасу. Назви звірені з паком: «Greater Supplements» там
+       зветься посилювачем каменів, а Ceramium — сераміумом. ── */
+    'ceramium medal': 'Сераміумова медаль',
+    'greater supplements (eternal)': 'Посилювач каменів III (герой)',
+    'greater supplements (fabled)': 'Посилювач каменів III (унікал.)',
+    'greater supplements (mythic)': 'Посилювач каменів III (міфіч.)',
+    'greater supplements (heroic or less)': 'Посилювач каменів III (легенд. і нижче)',
 
     /* ── Профіль і покупки ── */
     'my profile': 'Мій профіль',
@@ -677,6 +688,19 @@
       const base = UI[norm(m[1])];
       return base ? `${base} — ${m[2]}-денний пас` : null;
     }],
+    // Без тире: «Administrator's Boon 7-Day Pass»
+    [/^(.+?)\s+(\d+)-day\s+pass$/i, (m) => {
+      const base = UI[norm(m[1])];
+      return base ? `${base} — ${m[2]}-денний пас` : null;
+    }],
+
+    /* ── Eternity Pass: заголовок нагород, смуга досвіду й підписи шкали ── */
+    [/^rewards\s*\(level\s*(\d+)\s*[–—-]\s*(\d+)\)$/i,
+      (m) => `Нагороди (рівні ${m[1]}–${m[2]})`],
+    [/^level\s+(\d+)\/(\d+)\s*[–—-]\s*total\s+exp:\s*([\d\s,]+)\s*•\s*exp\s+to\s+next:\s*([\d\s,]+)$/i,
+      (m) => `Рівень ${m[1]}/${m[2]} — усього досвіду: ${m[3].trim()}` +
+             ` • до наступного: ${m[4].trim()}`],
+    [/^lv\.?\s*(\d+)$/i, (m) => `${m[1]} рів.`],
 
     /* ── Баланс: «215 Cosmics», «-65 Cosmics» ── */
     [/^([-\d\s,]+)\s*cosmics?$/i, (m) => `${m[1].trim()} ${cosmicWord(m[1])}`],
