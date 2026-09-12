@@ -152,10 +152,14 @@ function render(d) {
         originDot.classList.toggle('is-offline', !originOnline);
     }
 
+    // EuroAion уже не раз міняв розмітку, тож будь-яке значення може не прийти.
+    // Відсутнє не малюємо — інакше на екрані зʼявиться «null»; лишається попереднє.
     if (d.euro) {
-        setText('euro-total', d.euro.total);
-        setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
-        setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
+        if (Number.isFinite(d.euro.total)) setText('euro-total', d.euro.total);
+        if (Number.isFinite(d.euro.asmo_pct) && Number.isFinite(d.euro.elyos_pct)) {
+            setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
+            setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
+        }
     }
 
     if (d.updated_at) {

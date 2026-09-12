@@ -117,22 +117,29 @@ async function collectOrigin() {
   };
 }
 
+// Станом на 11.09.2026 EuroAion прибрав число з видимого статусу — на сторінці
+// лишилося голе «ONLINE». Кількість гравців тепер є тільки в розмітці schema.org
+// для пошуковиків, а вона змінюється значно рідше за верстку. Старий маркер
+// EURO_ONLINE_RE лишається запасним, якщо число повернуть у видиму частину.
+const EURO_PLAYERS_ONLINE_RE = /"playersOnline"\s*:\s*(\d+)/;
+
 async function collectEuro() {
   const response = await fetchUpstream(EURO_URL, 'text/html');
   const html = await response.text();
 
-  const online = EURO_ONLINE_RE.exec(html);
+  const online = EURO_PLAYERS_ONLINE_RE.exec(html) ?? EURO_ONLINE_RE.exec(html);
   const elyos = EURO_ELYOS_RE.exec(html);
   const asmo = EURO_ASMO_RE.exec(html);
 
-  // A layout change would silently zero the counters, so treat it as a failure
-  // and let the previous value stay on screen instead.
-  if (!online) throw new Error('ONLINE marker not found (page layout changed?)');
+  // Без числа — помилка, а не нуль: тоді спрацює запасне джерело,
+  // а на сайті не зʼявиться вигадане «EuroAion 0».
+  if (!online) throw new Error('player count not found (page layout changed?)');
 
   return {
     total: Number(online[1]),
-    elyos_pct: elyos ? Number(elyos[1]) : 0,
-    asmo_pct: asmo ? Number(asmo[1]) : 0,
+    // null, а не 0 — з тієї ж причини, що й в Origin: нуль невідрізнюваний від справжніх 0%.
+    elyos_pct: elyos ? Number(elyos[1]) : null,
+    asmo_pct: asmo ? Number(asmo[1]) : null,
   };
 }
 

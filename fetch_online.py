@@ -229,18 +229,22 @@ try:
     resp = scraper.get('https://euroaion.com/en-US', timeout=15)
     html = resp.text
 
-    online_match    = re.search(r"<strong>ONLINE</strong>\s*(\d+)", html)
+    # Станом на 11.09.2026 число гравців є лише в розмітці schema.org — у видимому
+    # статусі лишилося голе «ONLINE». Старий маркер лишаємо запасним.
+    online_match    = (re.search(r'"playersOnline"\s*:\s*(\d+)', html)
+                       or re.search(r"<strong>ONLINE</strong>\s*(\d+)", html))
     elyos_match     = re.search(r"status-race--elyos\b.*?(\d+)%", html, re.DOTALL)
     asmodians_match = re.search(r"status-race--asmo\b.*?(\d+)%", html, re.DOTALL)
 
+    # None, а не 0: нуль із data.json воркер віддав би як «EuroAion 0».
     data['euro'] = {
-        'total':      int(online_match.group(1))    if online_match    else 0,
-        'elyos_pct':  int(elyos_match.group(1))     if elyos_match     else 0,
-        'asmo_pct':   int(asmodians_match.group(1)) if asmodians_match else 0,
+        'total':      int(online_match.group(1))    if online_match    else None,
+        'elyos_pct':  int(elyos_match.group(1))     if elyos_match     else None,
+        'asmo_pct':   int(asmodians_match.group(1)) if asmodians_match else None,
     }
     print(f"Euro: {data['euro']}")
 except Exception as e:
-    data['euro'] = {'total': 0, 'elyos_pct': 0, 'asmo_pct': 0}
+    data['euro'] = {'total': None, 'elyos_pct': None, 'asmo_pct': None}
     print(f"Euro error: {e}")
 
 data['updated_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
