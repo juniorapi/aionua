@@ -204,7 +204,8 @@ try:
     race = origin_status.get('racePercent') or {}
     data['origin'] = {
         'total': _int_or_none(raw_count),
-        'is_online': bool(origin_status.get('isOnline')),
+        # Лише справжнє True/False з API; зникле чи дивне поле — стан невідомий (None).
+        'is_online': origin_status.get('isOnline') if isinstance(origin_status.get('isOnline'), bool) else None,
         # Разом із лічильником приходить розбивка по расах у людях; відсотки
         # лишаються запасним варіантом, бо є навіть при playerCount: null.
         'elyos': _int_or_none(count.get('elyos')),
@@ -216,8 +217,10 @@ try:
     }
     print(f"Origin: {data['origin']}")
 except Exception as e:
+    # Помилка запиту — не доказ офлайну. False тут показав би «Origin офлайн» на
+    # робочому сервері за першого ж мережевого збою; None означає «стан невідомий».
     data['origin'] = {
-        'total': None, 'is_online': False,
+        'total': None, 'is_online': None,
         'elyos': None, 'asmo': None, 'elyos_pct': None, 'asmo_pct': None,
     }
     print(f"Origin error: {e}")
@@ -229,6 +232,17 @@ try:
     resp = scraper.get('https://euroaion.com/en-US', timeout=15)
     html = resp.text
 
+    # Стан сервера: schema.org — основний сигнал, видимий <strong> — запасний.
+    # Під час техробіт числа й відсотків на сторінці немає — це офлайн, а не збій.
+    status_match  = re.search(r'"serverStatus"\s*:\s*"https?://schema\.org/(\w+)"', html)
+    visible_match = re.search(r'<strong[^>]*>\s*(ONLINE|OFFLINE)\s*</strong>', html, re.IGNORECASE)
+    if status_match:
+        is_online = status_match.group(1).startswith('Online')
+    elif visible_match:
+        is_online = visible_match.group(1).upper() == 'ONLINE'
+    else:
+        is_online = None
+
     # Станом на 11.09.2026 число гравців є лише в розмітці schema.org — у видимому
     # статусі лишилося голе «ONLINE». Старий маркер лишаємо запасним.
     online_match    = (re.search(r'"playersOnline"\s*:\s*(\d+)', html)
@@ -236,15 +250,21 @@ try:
     elyos_match     = re.search(r"status-race--elyos\b.*?(\d+)%", html, re.DOTALL)
     asmodians_match = re.search(r"status-race--asmo\b.*?(\d+)%", html, re.DOTALL)
 
+    if is_online is None and online_match:
+        is_online = True
+    counts_valid = is_online is True
+
     # None, а не 0: нуль із data.json воркер віддав би як «EuroAion 0».
+    # is_online: None означає «стан невідомий» — офлайном його не називаємо.
     data['euro'] = {
-        'total':      int(online_match.group(1))    if online_match    else None,
-        'elyos_pct':  int(elyos_match.group(1))     if elyos_match     else None,
-        'asmo_pct':   int(asmodians_match.group(1)) if asmodians_match else None,
+        'total':      int(online_match.group(1))    if counts_valid and online_match    else None,
+        'is_online':  is_online,
+        'elyos_pct':  int(elyos_match.group(1))     if counts_valid and elyos_match     else None,
+        'asmo_pct':   int(asmodians_match.group(1)) if counts_valid and asmodians_match else None,
     }
     print(f"Euro: {data['euro']}")
 except Exception as e:
-    data['euro'] = {'total': None, 'elyos_pct': None, 'asmo_pct': None}
+    data['euro'] = {'total': None, 'is_online': None, 'elyos_pct': None, 'asmo_pct': None}
     print(f"Euro error: {e}")
 
 data['updated_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')

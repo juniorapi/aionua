@@ -21,10 +21,10 @@
 
         <div class="online-bar">
             <div class="online-bar-item">
-                <div class="status-dot"></div>
+                <div class="status-dot is-loading" id="euro-status-dot"></div>
                 <span class="bar-server">EuroAion</span>
                 <span class="bar-total" id="euro-total">—</span>
-                <span class="bar-factions">(<span class="bar-asmo" id="euro-asmo">—</span> / <span class="bar-ely" id="euro-ely">—</span>)</span>
+                <span class="bar-factions" id="euro-factions">(<span class="bar-asmo" id="euro-asmo">—</span> / <span class="bar-ely" id="euro-ely">—</span>)</span>
             </div>
             <div class="online-bar-sep">•</div>
             <div class="online-bar-item">
@@ -111,8 +111,10 @@ function render(d) {
         setText('destiny-ely', 'Ely: ' + d.destiny.light);
     }
 
-    if (d.origin) {
-        const originOnline = Boolean(d.origin.is_online);
+    // is_online: null — стан Origin невідомий (збій запиту чи змінилась відповідь API).
+    // Тоді нічого не міняємо: ні «офлайн», ні старе число як живе не стверджуємо.
+    if (d.origin && d.origin.is_online != null) {
+        const originOnline = d.origin.is_online === true;
         const originDot = document.getElementById('origin-status-dot');
 
         // З 27.08.2026 Origin не публікує кількість гравців: API віддає
@@ -154,11 +156,27 @@ function render(d) {
 
     // EuroAion уже не раз міняв розмітку, тож будь-яке значення може не прийти.
     // Відсутнє не малюємо — інакше на екрані зʼявиться «null»; лишається попереднє.
+    // Офлайн стверджуємо лише за явним is_online: false (техробіти). Відсутнє поле
+    // чи null означає «стан невідомий» — тоді нічого не міняємо, щоб не збрехати.
     if (d.euro) {
-        if (Number.isFinite(d.euro.total)) setText('euro-total', d.euro.total);
-        if (Number.isFinite(d.euro.asmo_pct) && Number.isFinite(d.euro.elyos_pct)) {
-            setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
-            setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
+        const euroDot = document.getElementById('euro-status-dot');
+        const euroFactions = document.getElementById('euro-factions');
+
+        if (d.euro.is_online === false) {
+            setText('euro-total', 'офлайн');
+            if (euroFactions) euroFactions.hidden = true;
+            euroDot?.classList.remove('is-loading');
+            euroDot?.classList.add('is-offline');
+        } else {
+            if (Number.isFinite(d.euro.total)) {
+                setText('euro-total', d.euro.total);
+                euroDot?.classList.remove('is-loading', 'is-offline');
+            }
+            if (Number.isFinite(d.euro.asmo_pct) && Number.isFinite(d.euro.elyos_pct)) {
+                setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
+                setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
+                if (euroFactions) euroFactions.hidden = false;
+            }
         }
     }
 

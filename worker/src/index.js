@@ -11,6 +11,8 @@
 
 const TTL_SECONDS = 60;
 const STALE_MAX_AGE_SECONDS = 15 * 60;
+// Старіший за це запасний data.json не підставляємо: давнє число, видане за живе, — неправда.
+const FALLBACK_MAX_AGE_SECONDS = 2 * 60 * 60;
 const UPSTREAM_TIMEOUT_MS = 8000;
 
 const DESTINY_URL = 'https://aiondestiny.net/api/online';
@@ -107,7 +109,9 @@ async function collectOrigin() {
   // варіантом: вони приходять навіть тоді, коли playerCount порожній.
   return {
     total: originPlayerCount(payload),
-    is_online: Boolean(payload?.isOnline),
+    // Лише справжнє true/false з API. Якщо поле зникне чи змінить тип — це зміна
+    // відповіді, а не офлайн: null означає «стан невідомий», і офлайном сервер не назвуть.
+    is_online: typeof payload?.isOnline === 'boolean' ? payload.isOnline : null,
     elyos: intOrNull(count.elyos),
     asmo: intOrNull(count.asmodian),
     // null, а не 0: якщо racePercent зникне, нуль був би невідрізнюваний від
@@ -123,20 +127,45 @@ async function collectOrigin() {
 // EURO_ONLINE_RE лишається запасним, якщо число повернуть у видиму частину.
 const EURO_PLAYERS_ONLINE_RE = /"playersOnline"\s*:\s*(\d+)/;
 
+// Стан сервера. Під час техробіт 13.09.2026 сторінка віддала
+// "serverStatus":"https://schema.org/OfflineTemporarily" і <strong style="…">OFFLINE</strong>,
+// а playersOnline і відсотків не було зовсім. schema.org — основний сигнал,
+// видимий <strong> — запасний; атрибути на тезі допускаємо, бо офлайн його фарбують.
+const EURO_SCHEMA_STATUS_RE = /"serverStatus"\s*:\s*"https?:\/\/schema\.org\/(\w+)"/;
+const EURO_VISIBLE_STATUS_RE = /<strong[^>]*>\s*(ONLINE|OFFLINE)\s*<\/strong>/i;
+
+/** true чи false за самою сторінкою, або null, якщо стану не видно (змінилась верстка). */
+function euroIsOnline(html) {
+  const schema = EURO_SCHEMA_STATUS_RE.exec(html);
+  // GameServerStatus: Online, OnlineFull, OfflineTemporarily, OfflinePermanently
+  if (schema) return schema[1].startsWith('Online');
+  const visible = EURO_VISIBLE_STATUS_RE.exec(html);
+  return visible ? visible[1].toUpperCase() === 'ONLINE' : null;
+}
+
 async function collectEuro() {
   const response = await fetchUpstream(EURO_URL, 'text/html');
   const html = await response.text();
+
+  // Офлайн — це дані, а не збій зчитування. Якби тут кидали помилку, спрацювало б
+  // запасне джерело й підставило останнє число до техробіт як живе: саме так 13.09
+  // сайт показував «EuroAion 541», коли на самому сервері висіло OFFLINE.
+  const isOnline = euroIsOnline(html);
+  if (isOnline === false) {
+    return { total: null, is_online: false, elyos_pct: null, asmo_pct: null };
+  }
 
   const online = EURO_PLAYERS_ONLINE_RE.exec(html) ?? EURO_ONLINE_RE.exec(html);
   const elyos = EURO_ELYOS_RE.exec(html);
   const asmo = EURO_ASMO_RE.exec(html);
 
-  // Без числа — помилка, а не нуль: тоді спрацює запасне джерело,
-  // а на сайті не зʼявиться вигадане «EuroAion 0».
+  // Сервер онлайн або стан невідомий, а числа немає — оце вже змінена верстка:
+  // помилка, а не нуль, і далі спрацює запасне джерело.
   if (!online) throw new Error('player count not found (page layout changed?)');
 
   return {
     total: Number(online[1]),
+    is_online: true,
     // null, а не 0 — з тієї ж причини, що й в Origin: нуль невідрізнюваний від справжніх 0%.
     elyos_pct: elyos ? Number(elyos[1]) : null,
     asmo_pct: asmo ? Number(asmo[1]) : null,
@@ -175,6 +204,17 @@ async function fillFromFallback(data, missing) {
   try {
     const response = await fetchUpstream(FALLBACK_URL, 'application/json');
     const previous = await response.json();
+
+    // data.json оновлює ненадійний cron у GitHub Actions, тож він буває старим на
+    // години. Застаріле число, видане за живе, — та сама неправда, що й нуль: краще
+    // не підставити нічого, і сторінка лишить останнє справжнє значення.
+    const fallbackAge = (Date.now() - Date.parse(previous.updated_at)) / 1000;
+    if (!(fallbackAge <= FALLBACK_MAX_AGE_SECONDS)) {
+      data.sources.fallback = Number.isFinite(fallbackAge)
+        ? `skipped: data.json is ${Math.round(fallbackAge / 60)} min old`
+        : 'skipped: data.json has no valid updated_at';
+      return;
+    }
 
     for (const name of missing) {
       if (!previous[name]) continue;
