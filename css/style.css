@@ -78,6 +78,9 @@
             background-clip: text;
         }
         .bar-factions { font-size: 0.82rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.15rem; }
+        /* display: flex вище перебиває типове [hidden] { display: none } — без цього
+           розбивка офлайн-сервера лишалася видимою як «( — / — )». */
+        .bar-factions[hidden] { display: none; }
         .bar-asmo { color: #FF6B6B; font-weight: 600; }
         .bar-ely  { color: #87CEEB; font-weight: 600; }
         .online-bar-sep { color: rgba(255,255,255,0.2); user-select: none; }
