@@ -1,1 +1,1 @@
-{"destiny": {"total": 1895, "light": 896, "dark": 999}, "origin": {"total": null, "is_online": null, "elyos": null, "asmo": null, "elyos_pct": null, "asmo_pct": null}, "euro": {"total": null, "is_online": true, "elyos_pct": 57, "asmo_pct": 43}, "updated_at": "2026-09-23T18:46:03Z"}
+{"destiny": {"total": 715, "light": 346, "dark": 369}, "origin": {"total": 1301, "is_online": true, "elyos": 575, "asmo": 726, "elyos_pct": 44, "asmo_pct": 56}, "euro": {"total": null, "is_online": true, "elyos_pct": 61, "asmo_pct": 39}, "updated_at": "2026-09-23T21:49:22Z"}
