@@ -13,6 +13,9 @@ const TTL_SECONDS = 60;
 const STALE_MAX_AGE_SECONDS = 15 * 60;
 // Старіший за це запасний data.json не підставляємо: давнє число, видане за живе, — неправда.
 const FALLBACK_MAX_AGE_SECONDS = 2 * 60 * 60;
+// Старший за 2 год знімок ще годиться на відсотки фракцій (вони майже не міняються),
+// але не на число й не на статус. Після 8 год не беремо з нього нічого.
+const FALLBACK_STALE_MAX_AGE_SECONDS = 8 * 60 * 60;
 const UPSTREAM_TIMEOUT_MS = 8000;
 
 const DESTINY_URL = 'https://aiondestiny.net/api/online';
@@ -207,6 +210,20 @@ async function collect() {
   return data;
 }
 
+/**
+ * Зі застарілого знімка лишаємо тільки те, що майже не міняється, — відсотки фракцій.
+ * Кількість гравців і стан «онлайн/офлайн» за кілька годин цілком могли змінитися:
+ * число прибираємо, is_online стає null («невідомо»), і сторінка нічого не стверджує.
+ * null означає, що корисного в знімку не лишилось — тоді сервер краще пропустити,
+ * ніж підставити порожній обʼєкт (у Destiny відсотків немає взагалі).
+ */
+function slowFieldsOnly(server) {
+  const elyos = intOrNull(server.elyos_pct);
+  const asmo = intOrNull(server.asmo_pct);
+  if (elyos === null && asmo === null) return null;
+  return { total: null, is_online: null, elyos_pct: elyos, asmo_pct: asmo };
+}
+
 async function fillFromFallback(data, missing) {
   try {
     // Унікальний параметр обовʼязковий: без нього Cloudflare віддає власну
@@ -220,19 +237,31 @@ async function fillFromFallback(data, missing) {
     // години. Застаріле число, видане за живе, — та сама неправда, що й нуль: краще
     // не підставити нічого, і сторінка лишить останнє справжнє значення.
     const fallbackAge = (Date.now() - Date.parse(previous.updated_at)) / 1000;
-    if (!(fallbackAge <= FALLBACK_MAX_AGE_SECONDS)) {
-      data.sources.fallback = Number.isFinite(fallbackAge)
-        ? `skipped: data.json is ${Math.round(fallbackAge / 60)} min old`
-        : 'skipped: data.json has no valid updated_at';
+    if (!Number.isFinite(fallbackAge)) {
+      data.sources.fallback = 'skipped: data.json has no valid updated_at';
+      return;
+    }
+    if (fallbackAge > FALLBACK_STALE_MAX_AGE_SECONDS) {
+      data.sources.fallback = `skipped: data.json is ${Math.round(fallbackAge / 60)} min old`;
       return;
     }
 
+    // cron у GitHub Actions відпрацьовує раз на 4-5 годин, а живий шлях до EuroAion
+    // закритий (403 з воркера), тож знімок майже завжди старший за 2 год. Викидати
+    // його цілком — лишити сервер без даних зовсім; брати цілком — видати за живі
+    // і число, і статус. Тому зі старого беремо лише повільні величини.
+    const stale = fallbackAge > FALLBACK_MAX_AGE_SECONDS;
+
     for (const name of missing) {
-      if (!previous[name]) continue;
-      data[name] = previous[name];
-      data.sources[name] = `fallback: ${data.sources[name]}`;
+      const snapshot = previous[name];
+      if (!snapshot) continue;
+      const value = stale ? slowFieldsOnly(snapshot) : snapshot;
+      if (!value) continue;
+      data[name] = value;
+      data.sources[name] = `fallback${stale ? ' (stale)' : ''}: ${data.sources[name]}`;
     }
     data.fallback_updated_at = previous.updated_at ?? null;
+    if (stale) data.fallback_stale = true;
   } catch (error) {
     // Nothing to fall back on: the missing keys stay absent and the page keeps
     // whatever it was already showing.

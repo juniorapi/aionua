@@ -174,7 +174,9 @@ function render(d) {
             // віддає самі відсотки. Ховаємо тоді цифру, а не весь рядок, — як в Origin.
             const hasCount = Number.isFinite(d.euro.total);
             if (hasCount) setText('euro-total', d.euro.total);
-            if (euroTotal && d.euro.is_online === true) euroTotal.hidden = !hasCount;
+            // Немає числа — ховаємо цифру незалежно від того, відомий стан чи ні:
+            // інакше поруч із відсотками висить прочерк.
+            if (euroTotal) euroTotal.hidden = !hasCount;
             if (hasCount || d.euro.is_online === true) {
                 euroDot?.classList.remove('is-loading', 'is-offline');
             }
