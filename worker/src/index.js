@@ -209,7 +209,11 @@ async function collect() {
 
 async function fillFromFallback(data, missing) {
   try {
-    const response = await fetchUpstream(FALLBACK_URL, 'application/json');
+    // Унікальний параметр обовʼязковий: без нього Cloudflare віддає власну
+    // кешовану копію. 24.09.2026 воркер так отримав data.json чотиригодинної
+    // давнини, хоча свіжий уже лежав на Pages, — і через вікове обмеження
+    // викинув EuroAion із відповіді зовсім, лишивши в барі «—».
+    const response = await fetchUpstream(`${FALLBACK_URL}?t=${Date.now()}`, 'application/json');
     const previous = await response.json();
 
     // data.json оновлює ненадійний cron у GitHub Actions, тож він буває старим на
