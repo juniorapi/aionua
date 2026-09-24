@@ -159,12 +159,19 @@ async function collectEuro() {
   const elyos = EURO_ELYOS_RE.exec(html);
   const asmo = EURO_ASMO_RE.exec(html);
 
-  // Сервер онлайн або стан невідомий, а числа немає — оце вже змінена верстка:
-  // помилка, а не нуль, і далі спрацює запасне джерело.
-  if (!online) throw new Error('player count not found (page layout changed?)');
+  // Ні стану, ні числа — оце вже справді змінена верстка: помилка, і далі
+  // спрацює запасне джерело.
+  if (isOnline === null && !online) {
+    throw new Error('neither status nor player count found (page layout changed?)');
+  }
 
+  // З 24.09.2026 EuroAion не публікує кількість гравців ніде: у видимому статусі
+  // лишилося голе «ONLINE», а зі schema.org зникло playersOnline (прибирали двічі —
+  // 11.09 з верстки, 24.09 зі структурованих даних). Сервер при цьому працює й далі
+  // віддає відсотки фракцій, тож відсутнє число — не поломка: total лишається null,
+  // а сторінка просто не малює цифру, як це вже зроблено для Origin.
   return {
-    total: Number(online[1]),
+    total: online ? Number(online[1]) : null,
     is_online: true,
     // null, а не 0 — з тієї ж причини, що й в Origin: нуль невідрізнюваний від справжніх 0%.
     elyos_pct: elyos ? Number(elyos[1]) : null,

@@ -161,15 +161,21 @@ function render(d) {
     if (d.euro) {
         const euroDot = document.getElementById('euro-status-dot');
         const euroFactions = document.getElementById('euro-factions');
+        const euroTotal = document.getElementById('euro-total');
 
         if (d.euro.is_online === false) {
             setText('euro-total', 'офлайн');
+            if (euroTotal) euroTotal.hidden = false;
             if (euroFactions) euroFactions.hidden = true;
             euroDot?.classList.remove('is-loading');
             euroDot?.classList.add('is-offline');
         } else {
-            if (Number.isFinite(d.euro.total)) {
-                setText('euro-total', d.euro.total);
+            // З 24.09.2026 EuroAion не публікує кількість гравців: сервер працює й
+            // віддає самі відсотки. Ховаємо тоді цифру, а не весь рядок, — як в Origin.
+            const hasCount = Number.isFinite(d.euro.total);
+            if (hasCount) setText('euro-total', d.euro.total);
+            if (euroTotal && d.euro.is_online === true) euroTotal.hidden = !hasCount;
+            if (hasCount || d.euro.is_online === true) {
                 euroDot?.classList.remove('is-loading', 'is-offline');
             }
             if (Number.isFinite(d.euro.asmo_pct) && Number.isFinite(d.euro.elyos_pct)) {
