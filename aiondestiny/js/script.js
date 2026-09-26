@@ -35,6 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     minute: "2-digit",
     hourCycle: "h23",
   });
+  const updatedAt = new Intl.DateTimeFormat("uk-UA", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  });
 
   function formatOffset(offsetHours) {
     const totalMinutes = Math.round(offsetHours * 60);
@@ -214,7 +222,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scheduleGroups.length === 0) throw new Error("AionDestiny schedule contains no valid events");
     renderRows();
     status.classList.remove("is-error");
-    status.textContent = `Розклад сервера · ${scheduleGroups.length} подій`;
+    // fetchedAt ставить збирач із db.aiondestiny.net; без нього (ручний файл) дати не вигадуємо.
+    const fetched = data.fetchedAt ? new Date(data.fetchedAt) : null;
+    status.textContent = fetched && !Number.isNaN(fetched.getTime())
+      ? `Оновлено ${updatedAt.format(fetched)} · ${scheduleGroups.length} подій`
+      : `Розклад сервера · ${scheduleGroups.length} подій`;
   }
 
   function renderError() {

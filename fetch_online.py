@@ -4,6 +4,8 @@ import json
 import os
 from datetime import datetime, timezone
 
+import destiny_schedule
+
 ORIGIN_SCHEDULE_URL = 'https://originaion.com/schedule'
 ORIGIN_BASE_URL = 'https://originaion.com'
 ORIGIN_DAYS = (
@@ -315,3 +317,16 @@ try:
 except Exception as e:
     # Keep the last successfully collected file when Origin changes or is unavailable.
     print(f"Origin schedule error: {e}")
+
+# --- AionDestiny Schedule ---
+if destiny_schedule.is_due():
+    try:
+        destiny = destiny_schedule.fetch_schedule()
+        with open(destiny_schedule.SCHEDULE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(destiny, f, ensure_ascii=False)
+        print(f"Destiny schedule saved: {destiny['eventCount']} events, {len(destiny['events'])} records")
+    except Exception as e:
+        # Як і з Origin: зламана чи недоступна відповідь не затирає останній добрий файл.
+        print(f"Destiny schedule error: {e}")
+else:
+    print("Destiny schedule is fresh, skipped")

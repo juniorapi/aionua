@@ -28,8 +28,14 @@ function launchBrowser() {
   return chromium.launch({ headless: true, executablePath });
 }
 
+// Знімок euroaion/schedule.json від 26.09.2026. Живий файл бот оновлює сам, і тест не має
+// падати щоразу, коли EuroAion змінює розклад, — тут перевіряємо саму сторінку.
+const FIXTURE = path.join(root, "tests", "fixtures", "euroaion-schedule.json");
+// Субота, 26.09.2026: Київ тоді в UTC+3, сервер EuroAion — в UTC+2.
+const NOW = "2026-09-26T10:04:07Z";
+
 test("EuroAion page renders the official schedule in the AionDestiny table style", async () => {
-  const schedule = JSON.parse(await readFile(path.join(root, "euroaion", "schedule.json"), "utf8"));
+  const schedule = JSON.parse(await readFile(FIXTURE, "utf8"));
   assert.equal(schedule.sourceUrl, "https://euroaion.com/en-US/Tools/Schedule");
   assert.equal(schedule.events.length, 18);
 
@@ -60,7 +66,14 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
   });
-  await page.route("**/googletagmanager.com/**", (route) => route.abort());
+  // Аналітика на www.googletagmanager.com: порожній скрипт замість мережі, інакше
+  // її помилка завантаження без інтернету потрапляє в консоль у випадковий момент.
+  await page.route(/googletagmanager\.com/, (route) => route.fulfill({ contentType: "text/javascript", body: "" }));
+  await page.route("**/euroaion/schedule.json?*", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify(schedule),
+  }));
+  await page.clock.install({ time: new Date(NOW) });
 
   try {
     const port = server.address().port;
@@ -78,7 +91,7 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
     );
     assert.deepEqual(
       await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
-      "00:00-01:00\n01:00-02:00\n13:00-15:00\n22:00-23:00",
+      "00:00-01:00\n01:00-02:00\n03:00-04:00\n13:00-15:00\n22:00-23:00",
     );
     assert.match(await page.locator("#current-time").innerText(), /Сервер \(UTC\+2\)/);
     assert.equal(await page.getByText("Рунаторіум", { exact: true }).count(), 1);
@@ -133,7 +146,7 @@ test("EuroAion page renders the official schedule in the AionDestiny table style
     await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 26);
     assert.equal(
       await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
-      "00:00-01:00\n02:00-03:00\n03:00-04:00\n15:00-17:00",
+      "00:00-01:00\n02:00-03:00\n03:00-04:00\n05:00-06:00\n15:00-17:00",
     );
     assert.match(await page.locator(".server-time").innerText(), /Сервер \(UTC\+0\)/);
   } finally {

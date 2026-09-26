@@ -28,12 +28,18 @@ function launchBrowser() {
   return chromium.launch({ headless: true, executablePath });
 }
 
+// Знімок того, що збирає destiny_schedule.py з API db.aiondestiny.net: живий файл
+// оновлюється щогодини, а сторінку перевіряємо на незмінних даних.
+const FIXTURE = path.join(root, "tests", "fixtures", "aiondestiny-schedule.json");
+// Субота, 26.09.2026: Київ і Москва тоді обидва в UTC+3.
+const NOW = "2026-09-26T10:04:07Z";
+
 test("AionDestiny page renders categorized Ukrainian schedules from GMT+3", async () => {
-  const schedule = JSON.parse(await readFile(path.join(root, "aiondestiny", "schedule.json"), "utf8"));
+  const schedule = JSON.parse(await readFile(FIXTURE, "utf8"));
   const uniqueEvents = new Set(schedule.events.map((event) => `${event.cat}\u0000${event.name}`));
   assert.equal(schedule.serverOffset, 3);
-  assert.equal(schedule.eventCount, 31);
-  assert.equal(uniqueEvents.size, 31);
+  assert.equal(schedule.eventCount, 34);
+  assert.equal(uniqueEvents.size, 34);
   assert.deepEqual(
     new Set(schedule.events.map((event) => event.cat)),
     new Set(["pvp", "arenas", "siege", "tournaments"]),
@@ -66,16 +72,23 @@ test("AionDestiny page renders categorized Ukrainian schedules from GMT+3", asyn
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
   });
-  await page.route("**/googletagmanager.com/**", (route) => route.abort());
+  // Аналітика на www.googletagmanager.com: порожній скрипт замість мережі, інакше
+  // її помилка завантаження без інтернету потрапляє в консоль у випадковий момент.
+  await page.route(/googletagmanager\.com/, (route) => route.fulfill({ contentType: "text/javascript", body: "" }));
+  await page.route("**/aiondestiny/schedule.json?*", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify(schedule),
+  }));
+  await page.clock.install({ time: new Date(NOW) });
 
   try {
     const port = server.address().port;
     await page.goto(`http://127.0.0.1:${port}/aiondestiny/`, { waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 31);
+    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 34);
 
     assert.equal(await page.locator("html").getAttribute("lang"), "uk");
     assert.equal(await page.getByRole("heading", { name: "Розклад AionDestiny" }).count(), 1);
-    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 31);
+    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 34);
     assert.equal(await page.locator("#schedule-body .category-row").count(), 4);
     assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Дерадикон");
     assert.equal(
@@ -87,18 +100,24 @@ test("AionDestiny page renders categorized Ukrainian schedules from GMT+3", asyn
       "00:00-02:00\n12:00-14:00\n20:00-22:00",
     );
     assert.match(await page.locator("#current-time").innerText(), /Сервер \(UTC\+3\)/);
-    assert.equal(await page.locator(".schedule-note", { hasText: "2 входи" }).count(), 6);
+    // Облоги в API мають лише годину початку — клітинка показує один час.
+    const divineFortress = page.getByRole("row", { name: /Божественна фортеця/ });
+    assert.equal(await divineFortress.locator("td").nth(2).innerText(), "20:00");
     assert.equal(await page.getByText("Сірчана фортеця", { exact: true }).count(), 1);
     assert.equal(await page.getByText("Сірка", { exact: true }).count(), 0);
-    assert.match(await page.locator("#schedule-status").innerText(), /31 подія|31 подій/);
+    assert.equal(await page.locator("#schedule-status").innerText(), "Оновлено 26.09.2026, 15:00 · 34 подій");
+    assert.equal(
+      await page.getByRole("link", { name: "Офіційне джерело" }).getAttribute("href"),
+      "https://db.aiondestiny.net/schedule/",
+    );
     assert.deepEqual(errors, []);
 
     await page.getByRole("button", { name: "Турніри" }).click();
-    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 6);
+    assert.equal(await page.locator("#schedule-body .schedule-label").count(), 8);
     assert.equal(await page.locator("#schedule-body .category-row").count(), 1);
     assert.equal(await page.getByRole("button", { name: "Турніри" }).getAttribute("aria-pressed"), "true");
     const ffa2x2Row = page.getByRole("row", { name: /Кожен за себе 2×2/ });
-    assert.match(await ffa2x2Row.innerText(), /17:30/);
+    assert.match(await ffa2x2Row.innerText(), /17:30-17:49/);
 
     await page.screenshot({ path: path.join(os.tmpdir(), "aionua-aiondestiny-desktop.png"), fullPage: true });
 
@@ -125,7 +144,7 @@ test("AionDestiny page renders categorized Ukrainian schedules from GMT+3", asyn
       body: JSON.stringify({ ...schedule, serverOffset: 0 }),
     }));
     await page.reload({ waitUntil: "domcontentloaded" });
-    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 31);
+    await page.waitForFunction(() => document.querySelectorAll("#schedule-body .schedule-label").length === 34);
     assert.equal(
       await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
       "03:00-05:00\n15:00-17:00\n23:00-01:00",

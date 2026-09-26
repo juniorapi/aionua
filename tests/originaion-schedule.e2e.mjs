@@ -29,7 +29,9 @@ function launchBrowser() {
 }
 
 test("Origin Aion page renders the official weekly schedule in local time", async () => {
-  const schedule = JSON.parse(await readFile(path.join(root, "originaion", "schedule.json"), "utf8"));
+  // Знімок originaion/schedule.json від 26.09.2026: живий файл бот оновлює сам,
+  // а тут перевіряємо сторінку на незмінних даних.
+  const schedule = JSON.parse(await readFile(path.join(root, "tests", "fixtures", "originaion-schedule.json"), "utf8"));
   assert.equal(schedule.sourceUrl, "https://originaion.com/schedule");
   assert.match(schedule.sourceAsset, /^\/_next\/static\/chunks\/.*\.js$/);
   assert.equal(schedule.eventCount, 30);
@@ -63,7 +65,15 @@ test("Origin Aion page renders the official weekly schedule in local time", asyn
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());
   });
-  await page.route("**/googletagmanager.com/**", (route) => route.abort());
+  // Аналітика на www.googletagmanager.com: порожній скрипт замість мережі, інакше
+  // її помилка завантаження без інтернету потрапляє в консоль у випадковий момент.
+  await page.route(/googletagmanager\.com/, (route) => route.fulfill({ contentType: "text/javascript", body: "" }));
+  await page.route("**/originaion/schedule.json?*", (route) => route.fulfill({
+    contentType: "application/json",
+    body: JSON.stringify(schedule),
+  }));
+  // Субота, 26.09.2026: Київ тоді в UTC+3, сервер Origin — в UTC+2.
+  await page.clock.install({ time: new Date("2026-09-26T10:04:07Z") });
 
   try {
     const port = server.address().port;

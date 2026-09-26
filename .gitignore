@@ -4,3 +4,4 @@ node_modules/
 
 # Локальні налаштування Claude Code
 .claude/
+__pycache__/

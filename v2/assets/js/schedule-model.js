@@ -156,7 +156,7 @@ export const SERVERS = Object.freeze({
     name: "AionDestiny",
     url: "../aiondestiny/schedule.json",
     legacyPage: "../aiondestiny/",
-    officialUrl: null,
+    officialUrl: "https://db.aiondestiny.net/schedule/",
     defaultOffset: 3,
     normalize: normalizeDestiny,
   },
