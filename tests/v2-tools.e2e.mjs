@@ -410,7 +410,9 @@ test("v2 stigma calculator adds prerequisites, keeps old links and shares the bu
     await page.waitForFunction(() => Math.abs(document.querySelector('[data-section="normal"]').getBoundingClientRect().top - 88) < 2);
 
     // Корінь першого дерева цілителя — «Розкати грому»: з ним стають усі потрібні стигми.
-    await page.locator(".st-tree").first().locator(".st-tree-scroll > .st-node > .st-stigma").click();
+    const poolBefore = await page.locator("[data-normal] .st-stigma").count();
+    const firstTree = page.locator(".st-tree").first();
+    await firstTree.locator(".st-tree-scroll > .st-node > .st-stigma").click();
     assert.equal(await page.locator("[data-status]").innerText(), "Додано «Розкати грому» і ще 7 потрібних стигм.");
     // Той самий код дає старий калькулятор на ті самі дії.
     assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
@@ -418,18 +420,32 @@ test("v2 stigma calculator adds prerequisites, keeps old links and shares the bu
     assert.match(stats, /3\/6/);
     assert.match(stats, /5\/6/);
     assert.equal(await page.locator('[data-slot-row] .st-cell[data-state="filled"]').count(), 8);
+    // У гілці вибрані сіріють з позначкою, а звичайні йдуть зі списку в слоти.
+    assert.equal(await firstTree.locator(".st-stigma").count(), 10);
+    assert.equal(await firstTree.locator('.st-stigma[data-state="installed"]').count(), 10);
+    assert.equal(await firstTree.locator(".st-tree-count").innerText(), "вибрано 8 з 8");
+    assert.equal(await page.locator("[data-normal] .st-stigma").count(), poolBefore - 3);
+    assert.equal(await page.locator('[data-normal] .st-stigma[data-state="installed"]').count(), 0);
 
-    // Наведення показує підказку з описом; після кліку вона лишається й пропонує наступну дію.
+    // Наведення показує підказку з описом; вибрана стигма переходить у слот, а звідти — назад у список.
     const key = await page.locator('[data-normal] .st-stigma[data-state="available"]').first().getAttribute("data-key");
     const poolIcon = page.locator(`[data-normal] .st-stigma[data-key="${key}"]`);
+    const slotIcon = page.locator(`[data-slot-row="normal"] .st-cell-stigma[data-key="${key}"]`);
     const poolName = (await poolIcon.getAttribute("aria-label")).split(":")[0];
     await poolIcon.hover();
     await page.locator("[data-tooltip] .stigma-details-title").filter({ hasText: poolName }).waitFor();
     assert.equal(await page.locator("[data-tooltip] .st-tooltip-hint").innerText(), "Клік — додати в збірку");
     await poolIcon.click();
-    assert.equal(await poolIcon.getAttribute("data-state"), "installed");
-    assert.equal(await page.locator("[data-tooltip] .st-tooltip-hint").innerText(), "Клік — прибрати зі збірки");
-    await poolIcon.click();
+    assert.equal(await poolIcon.count(), 0);
+    assert.equal(await slotIcon.count(), 1);
+    await slotIcon.click();
+    assert.equal(await poolIcon.count(), 1);
+    assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
+
+    // Подвійний клік ставить одну стигму: друга половина не влучає в сусідню, що зсунулася на її місце.
+    await poolIcon.dblclick();
+    assert.equal(await page.locator('[data-slot-row="normal"] .st-cell[data-state="filled"]').count(), 4);
+    await slotIcon.click();
     assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
 
     await page.getByRole("button", { name: "Копіювати посилання" }).click();
@@ -474,6 +490,7 @@ test("v2 stigma calculator on a touch phone opens the description sheet", async 
     await sheet.locator(".stigma-details-title").filter({ hasText: iconName }).waitFor();
     assert.equal(await sheet.evaluate((dialog) => dialog.open), true);
     assert.match(await sheet.locator(".stigma-stage p").first().innerText(), /\d/);
+    const key = await icon.getAttribute("data-key");
     await sheet.getByRole("button", { name: "Додати в збірку" }).tap();
     await sheet.getByRole("button", { name: "Прибрати зі збірки" }).waitFor();
     // Повідомлення видно просто в картці.
@@ -481,6 +498,12 @@ test("v2 stigma calculator on a touch phone opens the description sheet", async 
     await sheet.getByRole("button", { name: "Закрити" }).tap();
     assert.equal(await sheet.evaluate((dialog) => dialog.open), false);
     assert.equal(await page.locator('[data-slot-row="normal"] .st-cell[data-state="filled"]').count(), 1);
+    assert.equal(await page.locator(`[data-normal] [data-key="${key}"]`).count(), 0);
+    // Зі слота стигма повертається у список.
+    await page.locator(`[data-slot-row="normal"] [data-key="${key}"]`).tap();
+    await sheet.getByRole("button", { name: "Прибрати зі збірки" }).tap();
+    await sheet.getByRole("button", { name: "Закрити" }).tap();
+    assert.equal(await page.locator(`[data-normal] [data-key="${key}"]`).count(), 1);
     await fitsViewport(page);
     assert.deepEqual(errors, []);
     await context.close();

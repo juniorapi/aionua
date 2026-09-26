@@ -201,11 +201,19 @@ function showTooltip(target, key) {
   placeTooltip(target);
 }
 
+// У гілці підказка стає збоку від панелі, щоб не закривати сусідні стигми;
+// коли місця збоку немає (вузький екран) — поруч зі значком.
 function placeTooltip(target) {
   const box = target.getBoundingClientRect();
   const tip = ui.tooltip.getBoundingClientRect();
-  let left = box.right + 12;
-  if (left + tip.width > window.innerWidth - 8) left = box.left - tip.width - 12;
+  const panel = target.closest(".st-tree")?.getBoundingClientRect();
+  const fitsRight = (edge) => edge + 12 + tip.width <= window.innerWidth - 8;
+  const fitsLeft = (edge) => edge - 12 - tip.width >= 8;
+  let left;
+  if (panel && fitsRight(panel.right)) left = panel.right + 12;
+  else if (panel && fitsLeft(panel.left)) left = panel.left - 12 - tip.width;
+  else if (fitsRight(box.right)) left = box.right + 12;
+  else left = box.left - 12 - tip.width;
   let top = box.top;
   if (top + tip.height > window.innerHeight - 8) top = window.innerHeight - tip.height - 8;
   ui.tooltip.style.left = `${Math.max(8, left)}px`;
@@ -332,9 +340,14 @@ function stigmaButton(key, className) {
   const gem = element("span", "st-gem");
   gem.append(icon(key, rank));
   button.append(gem);
+  if (!installed && !max) button.dataset.level = stigma.levels[0];
   const state = installed ? `у збірці, ранг ${roman(rank)}` : max ? "можна додати" : `з ${stigma.levels[0]} рівня`;
   button.setAttribute("aria-label", `${name(key)}: ${state}`);
-  button.addEventListener("click", () => onStigmaClick(key));
+  // Другий клік подвійного кліку пропускаємо: після першого список уже зсунувся,
+  // і він влучив би в іншу стигму.
+  button.addEventListener("click", (event) => {
+    if (event.detail < 2) onStigmaClick(key);
+  });
   return button;
 }
 
@@ -387,15 +400,21 @@ function renderSlots() {
   ui.advancedCells.replaceChildren(...cells(SLOT_COUNT));
 }
 
+// Вибрана звичайна стигма переходить у слот і зникає зі списку, а прибрана — повертається.
 function renderNormal() {
-  ui.normal.replaceChildren(...build.normalKeys().map((key) => {
+  const keys = build.normalKeys().filter((key) => !build.has(key));
+  if (!keys.length) {
+    ui.normal.replaceChildren(element("p", "st-pool-empty", "Усі звичайні стигми вже в слотах."));
+    return;
+  }
+  ui.normal.replaceChildren(...keys.map((key) => {
     const item = element("div", "st-pool-item");
     item.append(stigmaButton(key, "st-stigma"), element("span", "st-pool-level", String(build.get(key).levels[0])));
     return item;
   }));
 }
 
-// Гілка росте вгору: покращена стигма зверху, потрібні для неї — під нею.
+// Гілка йде зліва направо: потрібні стигми ліворуч, покращена — праворуч від них.
 function treeNode(node) {
   const branch = element("div", "st-node");
   branch.append(stigmaButton(node.key, "st-stigma"));
@@ -407,14 +426,27 @@ function treeNode(node) {
   return branch;
 }
 
+// Одна стигма може стояти в гілці кілька разів, тож рахуємо різні.
+function treeKeys(node, keys = new Set()) {
+  keys.add(node.key);
+  node.children.forEach((child) => treeKeys(child, keys));
+  return keys;
+}
+
 function renderTrees() {
   ui.trees.replaceChildren(...build.trees().map((tree) => {
     const panel = element("div", "panel st-tree");
     panel.setAttribute("role", "group");
     panel.setAttribute("aria-label", `Гілка: ${name(tree.key)}`);
+    const keys = [...treeKeys(tree)];
+    const head = element("div", "st-tree-head");
+    head.append(
+      element("p", "st-tree-title", name(tree.key)),
+      element("p", "st-tree-count", `вибрано ${keys.filter((key) => build.has(key)).length} з ${keys.length}`),
+    );
     const scroller = element("div", "st-tree-scroll");
     scroller.append(treeNode(tree));
-    panel.append(element("p", "st-tree-title", name(tree.key)), scroller);
+    panel.append(head, scroller);
     return panel;
   }));
 }

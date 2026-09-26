@@ -2796,11 +2796,12 @@ textarea {
   font-variant-numeric: tabular-nums;
 }
 
-.st-pool-item:has([data-state="installed"]) .st-pool-level {
-  color: var(--gold);
+.st-pool-empty {
+  font-size: 14px;
+  color: var(--text-3);
 }
 
-/* Гілки поруч; кожна росте знизу вгору до покращеної стигми. */
+/* Гілки поруч; кожна йде зліва направо: потрібні стигми → покращена, до якої вони ведуть. */
 .st-trees {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2809,9 +2810,19 @@ textarea {
 }
 
 .st-tree {
+  --link: 36px;
+  --stub: 16px;
   display: grid;
-  gap: 16px;
-  padding: 18px 16px 22px;
+  gap: 14px;
+  padding: 18px 16px 20px;
+}
+
+.st-tree-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
 }
 
 .st-tree-title {
@@ -2819,8 +2830,15 @@ textarea {
   color: var(--gold-strong);
 }
 
+.st-tree-count {
+  font-size: 13px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
 .st-tree-scroll {
   overflow-x: auto;
+  padding: 8px 8px 10px;
 }
 
 .st-tree-scroll > .st-node {
@@ -2828,64 +2846,125 @@ textarea {
   margin: 0 auto;
 }
 
+/* Кнопка йде першою в розмітці, а стоїть праворуч від своїх потрібних. */
 .st-node {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
 }
 
 .st-children {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 30px;
+  flex-direction: column;
+  margin-right: var(--link);
 }
 
+/* Від шини до стигми: лінія й стрілка праворуч. */
 .st-children::before {
   content: "";
   position: absolute;
-  top: -22px;
-  left: calc(50% - 1px);
-  height: 22px;
-  border-left: 2px solid var(--st-line);
+  top: calc(50% - 1px);
+  right: calc(8px - var(--link));
+  width: calc(var(--link) - 8px - var(--stub));
+  border-top: 2px solid var(--st-line);
 }
 
 .st-children::after {
   content: "";
   position: absolute;
-  top: -30px;
-  left: calc(50% - 6px);
-  border-bottom: 8px solid var(--st-line);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
+  top: calc(50% - 6px);
+  right: calc(0px - var(--link));
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 8px solid var(--st-line);
 }
 
+/* Кожна потрібна стигма — відвід до вертикальної шини; проміжок між ними — у padding, щоб шина не рвалася. */
 .st-children > .st-node {
   position: relative;
-  padding-top: 14px;
+  padding: 5px 0;
+}
+
+.st-children > .st-node::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  right: calc(0px - var(--stub));
+  width: var(--stub);
+  border-top: 2px solid var(--st-line);
 }
 
 .st-children > .st-node::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -5px;
-  right: -5px;
-  border-top: 2px solid var(--st-line);
+  bottom: 0;
+  right: calc(-1px - var(--stub));
+  border-left: 2px solid var(--st-line);
 }
 
-.st-children > .st-node:first-child::before { left: calc(50% - 1px); }
-.st-children > .st-node:last-child::before { right: calc(50% - 1px); }
+.st-children > .st-node:first-child::before { top: 50%; }
+.st-children > .st-node:last-child::before { bottom: 50%; }
 .st-children > .st-node:only-child::before { display: none; }
 
-.st-children > .st-node::after {
-  content: "";
+/* Стан у гілці: вибрана сіріє й має золоту позначку (під курсором — хрестик: клік прибирає),
+   закрита рівнем — темна з рівнем, з якого відкривається. */
+.st-tree .st-stigma {
+  position: relative;
+}
+
+.st-tree .st-stigma[data-state="installed"] .st-gem {
+  background: var(--line-strong);
+}
+
+.st-tree .st-stigma[data-state="installed"] .st-img {
+  filter: grayscale(1) brightness(0.55);
+}
+
+.st-tree .st-stigma[data-state="installed"]::after,
+.st-tree .st-stigma[data-state="locked"]::after {
   position: absolute;
-  top: 0;
-  left: calc(50% - 1px);
-  height: 14px;
-  border-left: 2px solid var(--st-line);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.st-tree .st-stigma[data-state="installed"]::after {
+  content: "";
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317130a' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat;
+  box-shadow: 0 0 0 2px var(--surface);
+}
+
+.st-tree .st-stigma[data-state="installed"]:hover::after,
+.st-tree .st-stigma[data-state="installed"]:focus-visible::after {
+  background: var(--asmo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7 7 17'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+.st-tree .st-stigma[data-state="installed"]:hover .st-img {
+  filter: grayscale(0.6) brightness(0.8);
+}
+
+.st-tree .st-stigma[data-state="locked"] .st-img {
+  filter: grayscale(0.7) brightness(0.35);
+}
+
+.st-tree .st-stigma[data-state="locked"]::after {
+  content: attr(data-level);
+  bottom: -7px;
+  left: 50%;
+  padding: 1px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--sunken);
+  font: 600 11px/1.3 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+  transform: translateX(-50%);
 }
 
 /* Підказка біля курсора й картка знизу мають однаковий вміст. */
@@ -3536,6 +3615,17 @@ textarea {
 
   .st-stat dd {
     font-size: 20px;
+  }
+
+  .st-tree {
+    --link: 26px;
+    --stub: 11px;
+    padding: 16px 10px 18px;
+  }
+
+  .st-tree .st-gem {
+    width: 46px;
+    height: 46px;
   }
 
   .counter-controls,
