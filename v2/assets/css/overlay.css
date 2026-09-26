@@ -1,0 +1,95 @@
+/* Оверлей лічильника для OBS. Окремий від v2.css: джерело в OBS не тягне стилі всього сайту. */
+
+:root {
+  --gold: #e2b865;
+  --text: #f4f2f7;
+  --font-display: "Bona Nova", Georgia, "Times New Roman", serif;
+  --font-body: "Geologica", "Segoe UI", system-ui, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Зелений — для програм без прозорості: його прибирають фільтром «Хромакей». */
+html[data-bg="green"],
+html[data-bg="green"] body {
+  background: #00ff00;
+}
+
+html[data-bg="dark"],
+html[data-bg="dark"] body {
+  background: #0a0b10;
+}
+
+.overlay {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 3vh;
+  height: 100%;
+  padding: 4vh 4vw;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Розміри від висоти й ширини джерела: у будь-якому розмірі в OBS число вміщається. */
+.overlay-label {
+  margin: 0;
+  font: 600 min(11vh, 5.5vw)/1.1 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.overlay-count {
+  display: flex;
+  align-items: center;
+  gap: 0.18em;
+  margin: 0;
+  font: 700 min(52vh, 22vw)/1 var(--font-display);
+  color: var(--text);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.overlay-count span {
+  display: inline-block;
+}
+
+.overlay-count img {
+  width: auto;
+  height: 0.78em;
+}
+
+/* Над грою світлий текст губиться без тіні: вона замінює фон. */
+html[data-bg="transparent"] .overlay-label,
+html[data-bg="transparent"] .overlay-count {
+  text-shadow: 0 0.04em 0.14em rgba(0, 0, 0, 0.85), 0 0 0.03em rgba(0, 0, 0, 0.9);
+}
+
+html[data-bg="transparent"] .overlay-count img {
+  filter: drop-shadow(0 0.6vh 1.2vh rgba(0, 0, 0, 0.8));
+}
+
+.overlay.is-bumped .overlay-count span {
+  animation: bump 0.26s cubic-bezier(0.2, 0.7, 0.3, 1.4);
+}
+
+@keyframes bump {
+  40% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay.is-bumped .overlay-count span {
+    animation: none;
+  }
+}
