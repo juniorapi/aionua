@@ -1,0 +1,1346 @@
+{
+ "calculators": [
+  {
+   "id": "scroll",
+   "title": "Крафт сувоїв",
+   "label": "Тип сувоїв",
+   "recipes": [
+    {
+     "id": "courage",
+     "name": "Сувій відваги III",
+     "icon": "spc/images/icon_item_scroll_speed_atk_01.png",
+     "description": "Швидк. атаки +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм переродження.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      },
+      {
+       "id": "shard",
+       "name": "Рубіновий порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder02.png"
+      },
+      {
+       "id": "ether",
+       "name": "Асватовий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "courage2",
+     "name": "Сувій відваги III",
+     "icon": "spc/images/icon_item_scroll_speed_atk_01.png",
+     "description": "Швидк. атаки +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм переродження.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "shard",
+       "name": "Турмаліновий порошок",
+       "quantity": 4,
+       "icon": "spc/images/icon_item_gempoder02.png"
+      },
+      {
+       "id": "ether",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "rebirth",
+     "name": "Сувій переродження III",
+     "icon": "spc/images/icon_item_scroll_speed_casting_01.png",
+     "description": "Швидк. магії +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм відваги.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      },
+      {
+       "id": "shard",
+       "name": "Сапфіровий порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder01.png"
+      },
+      {
+       "id": "ether",
+       "name": "Асватовий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "rebirth2",
+     "name": "Сувій переродження III",
+     "icon": "spc/images/icon_item_scroll_speed_casting_01.png",
+     "description": "Швидк. магії +9%. Час дії: 5хв. Не можна використовувати разом зі сувоєм відваги.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "shard",
+       "name": "Порошок з бірюзи",
+       "quantity": 4,
+       "icon": "spc/images/icon_item_gempoder01.png"
+      },
+      {
+       "id": "ether",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "acceleration",
+     "name": "Сувій прискорення III",
+     "icon": "spc/images/icon_item_scroll_speed_run_01.png",
+     "description": "Швидк. руху +30%. Час дії: 5хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      },
+      {
+       "id": "shard",
+       "name": "Алмазний порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder03.png"
+      },
+      {
+       "id": "ether",
+       "name": "Асватовий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "acceleration2",
+     "name": "Сувій прискорення III",
+     "icon": "spc/images/icon_item_scroll_speed_run_01.png",
+     "description": "Швидк. руху +30%. Час дії: 5хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "shard",
+       "name": "Кельфаратовий порошок",
+       "quantity": 4,
+       "icon": "spc/images/icon_item_gempoder03.png"
+      },
+      {
+       "id": "ether",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "wind",
+     "name": "Сувій лютого вітру III",
+     "icon": "spc/images/icon_item_scroll_speed_fly_01.png",
+     "description": "Швидк. польоту +30%. Час дії: 5хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      },
+      {
+       "id": "shard",
+       "name": "Сапфіровий порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder01.png"
+      },
+      {
+       "id": "ether",
+       "name": "Асватовий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "wind2",
+     "name": "Сувій лютого вітру III",
+     "icon": "spc/images/icon_item_scroll_speed_fly_01.png",
+     "description": "Швидк. польоту +30%. Час дії: 5хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "shard",
+       "name": "Порошок з бірюзи",
+       "quantity": 4,
+       "icon": "spc/images/icon_item_gempoder01.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "critical",
+     "name": "Сувій ф/м крит IV/V",
+     "icon": "spc/images/icon_item_scroll_critical_phy_mag.png",
+     "description": "Ф. крит. +120/М. крит. +40. Час дії: 5 хв. Неможливо використовувати разом зі свитком критичного удару іншого типу.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "shard",
+       "name": "Елітний стихійний порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_dust01f.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "regist_wind",
+     "name": "Сувій повітря V",
+     "icon": "spc/images/icon_item_scroll_regist_wind_01.png",
+     "description": "Захист від повітря +100. Час дії: 10хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "shard",
+       "name": "Кельфаратовий порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder03.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "regist_water",
+     "name": "Сувій води V",
+     "icon": "spc/images/icon_item_scroll_regist_water_01.png",
+     "description": "Захист від води +100. Час дії: 10хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "shard",
+       "name": "Порошок з бірюзи",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder01.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "regist_fire",
+     "name": "Сувій вогню V",
+     "icon": "spc/images/icon_item_scroll_regist_fire_01.png",
+     "description": "Захист від вогню +100. Час дії: 10хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "shard",
+       "name": "Турмаліновий порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_gempoder02.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    },
+    {
+     "id": "regist_earth",
+     "name": "Сувій землі V",
+     "icon": "spc/images/icon_item_scroll_regist_earth_01.png",
+     "description": "Захист від землі +100. Час дії: 10хв.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "shard",
+       "name": "Елітний стихійний порошок",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_dust01f.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "clemposil",
+       "name": "Макіновий папір",
+       "quantity": 5,
+       "icon": "spc/images/icon_item_paper01.png"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "potion",
+   "title": "Крафт зілля",
+   "label": "Тип зілля",
+   "recipes": [
+    {
+     "id": "cure",
+     "name": "Сильне зілля зцілення",
+     "icon": "spc/images/icon_item_potion_cure01a.png",
+     "description": "Знімає негативні ефекти.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "neunan",
+       "name": "Люпин",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb07.png"
+      },
+      {
+       "id": "calamot",
+       "name": "Аір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb09.png"
+      },
+      {
+       "id": "greater_powder",
+       "name": "Сильний стихійний порошок",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_dust01e.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "recovery_potion",
+     "name": "Зілля відновлення VI",
+     "icon": "spc/images/icon_item_potion_hpmp02_5.png",
+     "description": "Відновлює по 212 HP і 183 MP кожні 2с. Час дії: 20с.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "plia",
+       "name": "Фоліата",
+       "quantity": 2,
+       "icon": "spc/images/icon_item_herb02.png"
+      },
+      {
+       "id": "liconsis",
+       "name": "Ріко",
+       "quantity": 2,
+       "icon": "spc/images/icon_item_herb05.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "recovery_serum",
+     "name": "Рідкісне зілля відновлення VI",
+     "icon": "spc/images/icon_item_potion_hpmp03_5.png",
+     "description": "Відновлює 1940 HP і 1680 MP.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "fresh_plia",
+       "name": "Свіжа фоліата",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb02_r.png"
+      },
+      {
+       "id": "fresh_liconsis",
+       "name": "Свіжий рико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb05_r.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "fine_life_potion",
+     "name": "Зілля життя VI",
+     "icon": "spc/images/icon_item_potion_hp02_5.png",
+     "description": "Відновлює по 212 HP кожні 2с. Час дії: 20с.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "plia",
+       "name": "Фоліата",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_herb02.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "fine_mana_potion",
+     "name": "Зілля мани VI",
+     "icon": "spc/images/icon_item_potion_mp02_5.png",
+     "description": "Відновлює по 183 MP кожні 2с. Час дії: 20с.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "liconsis",
+       "name": "Ріко",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_herb05.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "fine_life_serum",
+     "name": "Рідкісне зілля життя VI",
+     "icon": "spc/images/icon_item_potion_hp03_5.png",
+     "description": "Відновлює 1940 HP.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "fresh_plia",
+       "name": "Свіжа фоліата",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb02_r.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "fine_mana_serum",
+     "name": "Рідкісне зілля мани VI",
+     "icon": "spc/images/icon_item_potion_mp03_5.png",
+     "description": "Відновлює 1680 MP.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "fresh_liconsis",
+       "name": "Свіжий рико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb05_r.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    },
+    {
+     "id": "fine_wind_serum",
+     "name": "Рідкісне зілля вітру V",
+     "icon": "spc/images/icon_item_potion_cure04d.png",
+     "description": "Збільшує час польоту на 60 сек.",
+     "output": 3,
+     "materials": [
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      },
+      {
+       "id": "elemental_water",
+       "name": "Елітна стихійна вода",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_elementalwater01f.png"
+      },
+      {
+       "id": "bottle",
+       "name": "Скляна пляшка",
+       "quantity": 3,
+       "icon": "spc/images/icon_item_flask04.png"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "title": "Крафт їжі та коктейлів",
+   "label": "Тип їжі",
+   "recipes": [
+    {
+     "id": "food",
+     "name": "Корисні пельмені з тифабом",
+     "icon": "spc/images/icon_item_dish25.png",
+     "description": "Ф. крит. +60. Точність +60. Ухилення +30. Час польоту +15 сек. Час дії: 30хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "poma",
+       "name": "Тифаб",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_seefood02.png"
+      },
+      {
+       "id": "jurak",
+       "name": "Джирака",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_vegetable09.png"
+      },
+      {
+       "id": "fresh_liconsis",
+       "name": "Свіжий рико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb05_r.png"
+      },
+      {
+       "id": "wine",
+       "name": "Кіршеве вино",
+       "quantity": 4,
+       "icon": "spc/images/icon_item_bottle02.png"
+      },
+      {
+       "id": "salt",
+       "name": "Морська сіль",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_powder02.png"
+      },
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "food1",
+     "name": "Корисний смажений тифаб",
+     "icon": "spc/images/icon_item_dish30.png",
+     "description": "Фізична атака +12. Точн. магії +60. HP +240. Час польоту +15 сек. Час дії: 30 хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "poma",
+       "name": "Тифаб",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_seefood02.png"
+      },
+      {
+       "id": "ralloc",
+       "name": "Рабено",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_vegetable08.png"
+      },
+      {
+       "id": "fresh_liconsis",
+       "name": "Свіжий рико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb05_r.png"
+      },
+      {
+       "id": "spice",
+       "name": "Гострі спеції",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_dust01c.png"
+      },
+      {
+       "id": "essenceice",
+       "name": "Соєвий соус",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_ink01a.png"
+      },
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "food2",
+     "name": "Корисні суші з минем",
+     "icon": "spc/images/icon_item_dish10.png",
+     "description": "Сила магії +60. Точн. магії +60. HP +240. Час польоту +15 сек. Час дії: 30 хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "nokara",
+       "name": "Налим",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_fish05.png"
+      },
+      {
+       "id": "stria",
+       "name": "Сібас",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_fish04.png"
+      },
+      {
+       "id": "fresh_plia",
+       "name": "Свіжа фоліата",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb02_r.png"
+      },
+      {
+       "id": "vinegar",
+       "name": "Рейдамовий оцет",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_bottle01.png"
+      },
+      {
+       "id": "essenceice",
+       "name": "Соєвий соус",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_ink01a.png"
+      },
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "food3",
+     "name": "Салат імператора жахливих драконів",
+     "icon": "spc/images/icon_item_dish20.png",
+     "description": "Ухилення +30. Захист від стихій +60. Маг. захист +60. Час польоту +15 сек. Час дії: 30 хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "meat",
+       "name": "Блискуче м'ясо балаура",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_meat03.png"
+      },
+      {
+       "id": "plia",
+       "name": "Фоліата",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb02.png"
+      },
+      {
+       "id": "fresh_liconsis",
+       "name": "Свіжий рико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb05_r.png"
+      },
+      {
+       "id": "vinegar",
+       "name": "Рейдамовий оцет",
+       "quantity": 12,
+       "icon": "spc/images/icon_item_bottle01.png"
+      },
+      {
+       "id": "egg",
+       "name": "Яйце коко",
+       "quantity": 16,
+       "icon": "spc/images/icon_item_egg01.png"
+      },
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "food4",
+     "name": "М'ясо імператора жахливих драконів у клярі",
+     "icon": "spc/images/icon_item_dish11.png",
+     "description": "HP +240. Захист від стихій +60. MP +240. Час польоту +15 сек. Час дії: 30 хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "meat",
+       "name": "Блискуче м'ясо балаура",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_meat03.png"
+      },
+      {
+       "id": "ralloc",
+       "name": "Рабено",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_vegetable08.png"
+      },
+      {
+       "id": "fresh_plia",
+       "name": "Свіжа фоліата",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_herb02_r.png"
+      },
+      {
+       "id": "briga_powder",
+       "name": "Гарбузове борошно",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_flour01.png"
+      },
+      {
+       "id": "salt",
+       "name": "Морська сіль",
+       "quantity": 8,
+       "icon": "spc/images/icon_item_powder02.png"
+      },
+      {
+       "id": "powder",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "jelly",
+     "name": "Ефірне желе з кано",
+     "icon": "spc/images/icon_item_jelly01.png",
+     "description": "Відновлює 4000 DP.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "catalyst",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      },
+      {
+       "id": "cippo",
+       "name": "Кано",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_vegetable04.png"
+      },
+      {
+       "id": "sugar",
+       "name": "Білий цукор",
+       "quantity": 15,
+       "icon": "spc/images/icon_item_powder02.png"
+      }
+     ]
+    },
+    {
+     "id": "cocktail",
+     "name": "Коктейль із серина",
+     "icon": "spc/images/icon_item_drink01.png",
+     "description": "Швидкість відновл. HP +12. Швидкість відновл. MP +18. Час дії: 30 хв.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "drupa",
+       "name": "Серін",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_fruit07.png"
+      },
+      {
+       "id": "manzu",
+       "name": "Мензе",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_fruit02.png"
+      },
+      {
+       "id": "brandy",
+       "name": "Бренді",
+       "quantity": 6,
+       "icon": "spc/images/icon_item_bottle03.png"
+      },
+      {
+       "id": "cream",
+       "name": "Свіжі вершки",
+       "quantity": 6,
+       "icon": "spc/images/icon_item_sac01.png"
+      }
+     ]
+    },
+    {
+     "id": "cocktail2",
+     "name": "Сік чико",
+     "icon": "spc/images/icon_item_drink_hpmp02.png",
+     "description": "Швидкість відновл. HP +14. Швидкість відновл. MP +21. Час дії: 30м. Через отруту Каспара може заболіти живіт, але ймовірність отруєння дуже мала.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "leaf",
+       "name": "Отруйний лист Каспара",
+       "quantity": 6,
+       "icon": "spc/images/icon_item_leaf02.png"
+      },
+      {
+       "id": "kuvano",
+       "name": "Чико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_fruit08.png"
+      },
+      {
+       "id": "oil",
+       "name": "Масло з чико",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_ink01a.png"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "powders",
+   "title": "Перекрафт/Перетворення матеріалів",
+   "label": "Тип матеріалу",
+   "recipes": [
+    {
+     "id": "powders1",
+     "name": "Алмазний порошок",
+     "icon": "spc/images/icon_item_gempoder03.png",
+     "description": "Порошок, отриманий з необробленого алмаза.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "diamond",
+       "name": "Негранений алмаз",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "powders2",
+     "name": "Кельфаратовий порошок",
+     "icon": "spc/images/icon_item_gempoder03.png",
+     "description": "Порошок, отриманий з необробленого кельфарату.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "elatrite",
+       "name": "Негранений кельфарат",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "powders3",
+     "name": "Порошок з бірюзи",
+     "icon": "spc/images/icon_item_gempoder01.png",
+     "description": "Порошок, отриманий з необробленої бірюзи.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "turquoise",
+       "name": "Негранена бірюза",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02b.png"
+      }
+     ]
+    },
+    {
+     "id": "powders4",
+     "name": "Рубіновий порошок",
+     "icon": "spc/images/icon_item_gempoder02.png",
+     "description": "Порошок, отриманий з необробленого рубіна.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "ruby",
+       "name": "Негранений рубін",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02c.png"
+      }
+     ]
+    },
+    {
+     "id": "powders5",
+     "name": "Сапфіровий порошок",
+     "icon": "spc/images/icon_item_gempoder01.png",
+     "description": "Порошок, отриманий з необробленого сапфіра.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "sapphire",
+       "name": "Негранений сапфір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02b.png"
+      }
+     ]
+    },
+    {
+     "id": "powders6",
+     "name": "Турмаліновий порошок",
+     "icon": "spc/images/icon_item_gempoder02.png",
+     "description": "Порошок, отриманий з необробленого турмаліну.",
+     "output": 10,
+     "materials": [
+      {
+       "id": "corundum",
+       "name": "Негранений турмалін",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_gemstone02c.png"
+      }
+     ]
+    },
+    {
+     "id": "powders7",
+     "name": "Сильний стихійний порошок",
+     "icon": "spc/images/icon_item_dust01e.png",
+     "description": "Порошок, який отримують з сильного стихійного каменю.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "greater_elemental_stone",
+       "name": "Сильний стихійний камінь",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_elementalstone02c.png"
+      }
+     ]
+    },
+    {
+     "id": "powders8",
+     "name": "Елітний стихійний порошок",
+     "icon": "spc/images/icon_item_dust01f.png",
+     "description": "Порошок, який отримують з елітного стихійного каменю.",
+     "output": 2,
+     "materials": [
+      {
+       "id": "fine_elemental_stone",
+       "name": "Елітний стихійний камінь",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_elementalstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "water9",
+     "name": "Елітна стихійна вода",
+     "icon": "spc/images/icon_item_elementalwater01f.png",
+     "description": "Магічна вода з елітного стихійного каменю.",
+     "output": 5,
+     "materials": [
+      {
+       "id": "fine_elemental_stone",
+       "name": "Елітний стихійний камінь",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_elementalstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "powders9",
+     "name": "Елітний стихійний порошок",
+     "icon": "spc/images/icon_item_dust01f.png",
+     "description": "Порошок, який отримують з елітного стихійного каменю.",
+     "output": 20,
+     "materials": [
+      {
+       "id": "fine_elemental_stone",
+       "name": "Елітний стихійний камінь",
+       "quantity": 12,
+       "icon": "spc/images/icon_item_elementalstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "water10",
+     "name": "Елітна стихійна вода",
+     "icon": "spc/images/icon_item_elementalwater01f.png",
+     "description": "Магічна вода з елітного стихійного каменю.",
+     "output": 50,
+     "materials": [
+      {
+       "id": "fine_elemental_stone",
+       "name": "Елітний стихійний камінь",
+       "quantity": 12,
+       "icon": "spc/images/icon_item_elementalstone02e.png"
+      }
+     ]
+    },
+    {
+     "id": "convert1",
+     "name": "Аір",
+     "icon": "spc/images/icon_item_herb09.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Осколок ефіру",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od02.png"
+      }
+     ]
+    },
+    {
+     "id": "convert2",
+     "name": "Джирака",
+     "icon": "spc/images/icon_item_vegetable09.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert3",
+     "name": "Кано",
+     "icon": "spc/images/icon_item_vegetable04.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od01.png"
+      }
+     ]
+    },
+    {
+     "id": "convert4",
+     "name": "Люпин",
+     "icon": "spc/images/icon_item_herb07.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Осколок ефіру",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od02.png"
+      }
+     ]
+    },
+    {
+     "id": "convert5",
+     "name": "Мензе",
+     "icon": "spc/images/icon_item_fruit02.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert6",
+     "name": "Налим",
+     "icon": "spc/images/icon_item_fish05.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert7",
+     "name": "Величезний негранений кельфарат",
+     "icon": "spc/images/icon_item_gemstone01e.png",
+     "output": 1,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Очищений магічний ефір",
+       "quantity": 2,
+       "icon": "spc/images/icon_item_od05_r.png"
+      }
+     ]
+    },
+    {
+     "id": "convert8",
+     "name": "Великий негранений турмалін",
+     "icon": "spc/images/icon_item_gemstone01c.png",
+     "output": 1,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Очищений магічний ефір",
+       "quantity": 2,
+       "icon": "spc/images/icon_item_od05_r.png"
+      }
+     ]
+    },
+    {
+     "id": "convert9",
+     "name": "Рабено",
+     "icon": "spc/images/icon_item_vegetable08.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert10",
+     "name": "Ріко",
+     "icon": "spc/images/icon_item_herb05.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert11",
+     "name": "Свіжа фоліата",
+     "icon": "spc/images/icon_item_herb02_r.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Очищений магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05_r.png"
+      }
+     ]
+    },
+    {
+     "id": "convert12",
+     "name": "Свіжий рико",
+     "icon": "spc/images/icon_item_herb05_r.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Очищений магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05_r.png"
+      }
+     ]
+    },
+    {
+     "id": "convert13",
+     "name": "Серін",
+     "icon": "spc/images/icon_item_fruit07.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert14",
+     "name": "Сібас",
+     "icon": "spc/images/icon_item_fish04.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert15",
+     "name": "Сильний стихійний камінь",
+     "icon": "spc/images/icon_item_elementalstone02c.png",
+     "output": 2,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Осколок ефіру",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od02.png"
+      }
+     ]
+    },
+    {
+     "id": "convert16",
+     "name": "Тифаб",
+     "icon": "spc/images/icon_item_seefood02.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert17",
+     "name": "Фоліата",
+     "icon": "spc/images/icon_item_herb02.png",
+     "output": 3,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    },
+    {
+     "id": "convert18",
+     "name": "Елітний стихійний камінь",
+     "icon": "spc/images/icon_item_elementalstone02e.png",
+     "output": 2,
+     "materials": [
+      {
+       "id": "material1",
+       "name": "Магічний ефір",
+       "quantity": 1,
+       "icon": "spc/images/icon_item_od05.png"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

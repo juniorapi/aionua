@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор чар (патч 4.6) · Aion UA</title>
+  <meta name="description" content="Калькулятор зачарування Aion 4.6: шанс успіху для кожного рівня каменю залежно від рідкості, рівня предмета й поточного зачарування.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=2">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">До основного вмісту</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="../schedule/">Розклад</a>
+        <a href="../#craft">Крафт</a>
+        <a href="../#calculators" aria-current="true">Калькулятори</a>
+        <a href="../#streambox">СтрімБокс</a>
+        <a href="../../localization/">Локалізація</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap tool-page" data-asset-base="../../">
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
+      <a href="../">Головна</a>
+      <span aria-hidden="true">/</span>
+      <a href="../#calculators">Калькулятори</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Калькулятор чар</span>
+    </nav>
+
+    <div class="tool-head">
+      <h1 class="page-title">Калькулятор чар</h1>
+      <p class="tool-lead">Шанс зачарування для кожного рівня каменю на патчі 4.6. Оберіть рідкість, рівень предмета й поточне зачарування.</p>
+    </div>
+
+    <div class="tool-stack">
+      <section class="panel" data-enchant aria-labelledby="enchant-title">
+        <h2 class="visually-hidden" id="enchant-title">Параметри предмета й шанси</h2>
+        <div class="enchant-controls">
+          <div class="field field--grade">
+            <span class="field-label" id="grade-label">Рідкість предмета</span>
+            <div class="segmented" role="group" aria-labelledby="grade-label" data-grades></div>
+          </div>
+          <div class="field">
+            <label for="item-level">Рівень предмета</label>
+            <select class="select" id="item-level" data-item-level></select>
+          </div>
+          <div class="field">
+            <label for="enchant-level">Поточне зачарування</label>
+            <select class="select" id="enchant-level" data-enchant-level></select>
+          </div>
+        </div>
+        <p class="enchant-summary" data-summary role="status"></p>
+        <ol class="stone-grid" data-stones aria-label="Шанс успіху за рівнем каменю"></ol>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="../../aion-4.6-enchantment-calculator/">Стара версія сторінки</a>
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/tools/enchant.js?v=1"></script>
+</body>
+</html>

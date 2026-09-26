@@ -93,7 +93,9 @@ ol {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
   color: inherit;
 }
@@ -199,6 +201,16 @@ input {
 
 .btn-primary:hover {
   background: var(--gold-strong);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.btn-primary:disabled:hover {
+  background: var(--gold);
 }
 
 .text-link {
@@ -332,11 +344,11 @@ input {
 }
 
 .site-nav a:hover,
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current] {
   color: var(--text);
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current] {
   box-shadow: inset 0 -2px 0 var(--gold);
 }
 
@@ -1463,6 +1475,565 @@ input {
   white-space: normal;
 }
 
+/* ---------- Сторінки інструментів: калькулятори, крафт, збирання ---------- */
+
+.tool-page {
+  padding: 24px 0 var(--section-gap);
+}
+
+.tool-head {
+  margin-top: 8px;
+  max-width: 760px;
+}
+
+.tool-lead {
+  margin-top: 12px;
+  font-size: 17px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+.tool-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.tool-stack--narrow {
+  max-width: 760px;
+}
+
+.panel-heading {
+  font: 400 26px/1.15 var(--font-display);
+}
+
+.panel-head .btn-ghost {
+  margin-left: auto;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--line-control);
+  color: var(--text);
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field > label,
+.field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 44px 0 14px;
+  border: 1px solid var(--line-control);
+  border-radius: var(--r-md);
+  background: var(--sunken) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a7a9b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+  font-size: 15px;
+  color: var(--text);
+  appearance: none;
+  cursor: pointer;
+}
+
+.select:focus-visible {
+  border-color: var(--gold);
+}
+
+.select option {
+  background: var(--raised);
+  color: var(--text);
+}
+
+.item-icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background: var(--raised);
+  object-fit: contain;
+}
+
+/* Іконки гри мають 40 px: рамка з відступом, а не розтягнута картинка. */
+.item-icon--lg {
+  width: 48px;
+  height: 48px;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+}
+
+.stepper {
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  border: 1px solid var(--line-control);
+  border-radius: var(--r-md);
+  background: var(--sunken);
+}
+
+.stepper button {
+  width: 44px;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.stepper button:hover {
+  color: var(--gold);
+}
+
+.stepper button:disabled {
+  color: var(--line-control);
+  cursor: default;
+}
+
+.stepper input {
+  width: 72px;
+  min-height: 46px;
+  border: 0;
+  border-inline: 1px solid var(--line-strong);
+  background: transparent;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  -moz-appearance: textfield;
+}
+
+.stepper input::-webkit-outer-spin-button,
+.stepper input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.stepper input:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Калькулятор рецепта: вибір ліворуч, матеріали праворуч. */
+.recipe-body {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+}
+
+.recipe-controls {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+}
+
+.recipe-pick {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.recipe-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+.recipe-results {
+  padding: 8px 24px 24px;
+  overflow-x: auto;
+}
+
+.recipe-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.recipe-table th,
+.recipe-table td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-weight: 400;
+}
+
+.recipe-table thead th {
+  padding-block: 14px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.recipe-table .num {
+  width: 110px;
+  padding-left: 16px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.recipe-table td.num {
+  color: var(--text-3);
+}
+
+.recipe-table td.total {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 36px;
+}
+
+.recipe-table tfoot th[colspan] {
+  padding-top: 18px;
+  border-bottom: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.recipe-table tfoot tr:last-child > * {
+  border-bottom: 0;
+}
+
+.recipe-table tfoot td.total {
+  color: var(--gold-strong);
+}
+
+.tool-section {
+  margin-top: 72px;
+}
+
+.tool-section .section-title + .tool-lead {
+  margin-bottom: 28px;
+}
+
+/* Збирання: список точок ліворуч, координати для чату праворуч. */
+.gather-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.search-field--sm {
+  flex: 1 1 260px;
+  max-width: 420px;
+  height: 48px;
+}
+
+.search-field--sm input {
+  font-size: 15px;
+}
+
+.gather-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  align-items: start;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.gather-region {
+  margin-top: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-strong);
+  font: 400 22px/1.2 var(--font-display);
+}
+
+.gather-region:first-child {
+  margin-top: 0;
+}
+
+.gather-item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.gather-list--plain .gather-item {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.gather-item:hover {
+  background: var(--surface);
+}
+
+.gather-item[aria-pressed="true"] {
+  background: var(--raised);
+  box-shadow: inset 2px 0 0 var(--gold);
+}
+
+.gather-level {
+  font-size: 13px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.gather-name {
+  font-weight: 500;
+}
+
+.gather-name::first-letter {
+  text-transform: uppercase;
+}
+
+.gather-count {
+  font-size: 13px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.gather-output {
+  position: sticky;
+  top: 96px;
+  scroll-margin-top: 88px;
+  display: grid;
+  gap: 14px;
+  padding: 22px 24px 24px;
+}
+
+.gather-output :is(h2, h3) {
+  font: 400 24px/1.2 var(--font-display);
+}
+
+.gather-output :is(h2, h3)::first-letter {
+  text-transform: uppercase;
+}
+
+.gather-output.is-inline {
+  margin: 6px 0 14px;
+}
+
+/* Назва вже є в рядку над панеллю; заголовок лишаємо для читачів екрана. */
+.gather-output.is-inline > :is(h2, h3) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.spots {
+  width: 100%;
+  min-height: 220px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-control);
+  border-radius: var(--r-md);
+  background: var(--sunken);
+  font: 400 12px/1.6 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color: var(--text-2);
+  resize: vertical;
+}
+
+.copy-status {
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--live);
+}
+
+.copy-status.is-error {
+  color: var(--asmo);
+}
+
+.tool-hint {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-3);
+}
+
+.empty-note {
+  padding: 18px 0;
+  color: var(--text-2);
+}
+
+/* Конвертер ефіру */
+.ether-rows {
+  display: grid;
+  padding: 8px 24px;
+}
+
+.ether-row {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ether-row label {
+  display: grid;
+  gap: 2px;
+  font-weight: 500;
+}
+
+.ether-row label small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+.ether-result {
+  min-width: 110px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ether-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 20px 24px 24px;
+}
+
+.ether-total strong {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--gold-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Калькулятор чар */
+.enchant-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 20px 24px;
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.enchant-controls .field {
+  flex: 0 1 180px;
+}
+
+.enchant-controls .field--grade {
+  flex: 1 1 100%;
+}
+
+.field--grade .segmented {
+  justify-self: start;
+}
+
+.enchant-summary {
+  padding: 20px 24px 0;
+  font-size: 17px;
+  color: var(--text-2);
+}
+
+.enchant-summary strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.stone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(11, auto);
+  grid-auto-flow: column;
+  gap: 0 32px;
+  padding: 12px 24px 24px;
+}
+
+.stone {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.stone-level {
+  font-weight: 500;
+}
+
+.stone-bar {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.stone-bar span {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+}
+
+.stone-chance {
+  font-size: 14px;
+  text-align: right;
+  color: var(--text-2);
+}
+
+.stone.is-best .stone-level,
+.stone.is-best .stone-chance {
+  color: var(--gold-strong);
+}
+
 /* ---------- Єдиний анімований момент: поява героя ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1531,6 +2102,25 @@ input {
   .loc-panel {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .recipe-body,
+  .gather-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .recipe-controls {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .gather-output {
+    position: static;
+  }
+
+  .stone-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(21, auto);
+  }
 }
 
 @media (max-width: 900px) {
@@ -1557,7 +2147,7 @@ input {
     font-size: 16px;
   }
 
-  .site-nav a[aria-current="page"] {
+  .site-nav a[aria-current] {
     box-shadow: none;
     color: var(--gold);
   }
@@ -1770,6 +2360,75 @@ input {
 
   .footer-links {
     margin-left: 0;
+  }
+
+  .recipe-controls,
+  .recipe-results,
+  .ether-rows,
+  .ether-total,
+  .enchant-controls,
+  .stone-grid {
+    padding-inline: 18px;
+  }
+
+  .ether-row {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icon label label"
+      "icon stepper result";
+    gap: 10px 14px;
+  }
+
+  .ether-row > img {
+    grid-area: icon;
+    align-self: start;
+  }
+
+  .ether-row label {
+    grid-area: label;
+  }
+
+  .ether-row .stepper {
+    grid-area: stepper;
+  }
+
+  .ether-row .ether-result {
+    grid-area: result;
+    min-width: 0;
+  }
+
+  .recipe-table {
+    font-size: 14px;
+  }
+
+  .recipe-table .num {
+    width: 60px;
+    padding-left: 10px;
+  }
+
+  .recipe-table thead th.num {
+    white-space: normal;
+    letter-spacing: 0.06em;
+  }
+
+  .recipe-item {
+    gap: 10px;
+  }
+
+  .field--grade .segmented {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-self: stretch;
+  }
+
+  .enchant-controls .field:not(.field--grade) {
+    flex: 1 1 120px;
+  }
+
+  .stone-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-auto-flow: row;
   }
 
   .clocks {
