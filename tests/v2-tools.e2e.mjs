@@ -395,50 +395,67 @@ test("v2 localization shows release versions, sizes and script versions", async 
 test("v2 stigma calculator adds prerequisites, keeps old links and shares the build", async () => {
   await withSite(async (open) => {
     const { page, context, errors } = await open("v2/stigma/");
-    await page.locator("[data-normal] .st-icon").first().waitFor();
+    await page.locator("[data-normal] .st-stigma").first().waitFor();
+    // Порожня збірка не дописує код в адресу: посилання лишається чистим.
+    assert.equal(await page.evaluate(() => window.location.hash), "");
     assert.equal(await page.getByRole("button", { name: "Цілитель" }).getAttribute("aria-pressed"), "true");
     assert.equal(await page.getByRole("button", { name: "Елійці" }).getAttribute("aria-pressed"), "true");
     assert.equal(await page.getByLabel("Рівень", { exact: true }).inputValue(), "65");
-    assert.equal(await page.locator("[data-title]").innerText(), "Цілитель, 65 рівень");
-    assert.equal(await page.locator("[data-slots] .st-slot").count(), 12);
+    assert.equal(await page.locator("[data-class-name]").innerText(), "Цілитель");
+    assert.equal(await page.locator('[data-slot-row] .st-cell[data-state="empty"]').count(), 12);
     assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
 
+    // «+» у порожньому слоті веде до списку звичайних стигм.
+    await page.locator('[data-slot-row="normal"] .st-cell-add').first().click();
+    await page.waitForFunction(() => Math.abs(document.querySelector('[data-section="normal"]').getBoundingClientRect().top - 88) < 2);
+
     // Корінь першого дерева цілителя — «Розкати грому»: з ним стають усі потрібні стигми.
-    await page.locator(".st-tree").first().locator(":scope > .st-node > .st-icon").click();
-    assert.match(await page.locator("[data-status]").innerText(), /^Додано «Розкати грому» разом із: /);
+    await page.locator(".st-tree").first().locator(".st-tree-scroll > .st-node > .st-stigma").click();
+    assert.equal(await page.locator("[data-status]").innerText(), "Додано «Розкати грому» і ще 7 потрібних стигм.");
     // Той самий код дає старий калькулятор на ті самі дії.
     assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
-    const counts = await page.locator("[data-counts]").innerText();
-    assert.match(counts, /3\/6/);
-    assert.match(counts, /5\/6/);
-    assert.equal(await page.locator("[data-installed] .st-row").count(), 8);
+    const stats = await page.locator("[data-stats]").innerText();
+    assert.match(stats, /3\/6/);
+    assert.match(stats, /5\/6/);
+    assert.equal(await page.locator('[data-slot-row] .st-cell[data-state="filled"]').count(), 8);
 
-    // Наведення показує підказку з описом.
-    const poolIcon = page.locator('[data-normal] .st-icon[data-state="available"]').first();
+    // Наведення показує підказку з описом; після кліку вона лишається й пропонує наступну дію.
+    const key = await page.locator('[data-normal] .st-stigma[data-state="available"]').first().getAttribute("data-key");
+    const poolIcon = page.locator(`[data-normal] .st-stigma[data-key="${key}"]`);
     const poolName = (await poolIcon.getAttribute("aria-label")).split(":")[0];
     await poolIcon.hover();
     await page.locator("[data-tooltip] .stigma-details-title").filter({ hasText: poolName }).waitFor();
-    assert.match(await page.locator("[data-tooltip] .st-tooltip-hint").innerText(), /^Клік — додати/);
+    assert.equal(await page.locator("[data-tooltip] .st-tooltip-hint").innerText(), "Клік — додати в збірку");
+    await poolIcon.click();
+    assert.equal(await poolIcon.getAttribute("data-state"), "installed");
+    assert.equal(await page.locator("[data-tooltip] .st-tooltip-hint").innerText(), "Клік — прибрати зі збірки");
+    await poolIcon.click();
+    assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
 
-    await page.getByRole("button", { name: "Копіювати" }).click();
+    await page.getByRole("button", { name: "Копіювати посилання" }).click();
     assert.equal(await page.evaluate(() => navigator.clipboard.readText()), page.url());
 
     await page.getByLabel("Рівень", { exact: true }).selectOption("44");
     assert.match(await page.locator("[data-status]").innerText(), /^Прибрано \d+ стигм/);
-    assert.equal(await page.locator('[data-slots] [data-kind="advanced"][data-state="locked"]').count(), 6);
+    assert.equal(await page.locator('[data-slot-row="advanced"] .st-cell[data-state="locked"]').count(), 6);
 
     // Посилання зі старого калькулятора: гладіатор, вісім звичайних, дві з них у покращених слотах.
     await page.goto(`${page.url().replace(/#.*$/, "")}#cCnaqaBgbhhjgaasgoflc`);
-    await page.locator('[data-slots] [data-kind="advanced"][data-state="filled"]').nth(1).waitFor();
+    await page.locator('[data-slot-row="advanced"] .st-cell[data-state="filled"]').nth(1).waitFor();
     assert.equal(await page.getByRole("button", { name: "Гладіатор" }).getAttribute("aria-pressed"), "true");
-    assert.equal(await page.locator('[data-slots] [data-kind="normal"][data-state="filled"]').count(), 6);
+    assert.equal(await page.locator('[data-slot-row="normal"] .st-cell[data-state="filled"]').count(), 6);
 
-    // Прибрати можна і зі списку встановлених, і кліком по слоту.
-    await page.getByRole("button", { name: /^Прибрати: / }).first().click();
-    assert.equal(await page.locator('[data-slots] [data-kind="advanced"][data-state="filled"]').count(), 1);
-    assert.equal(await page.locator('[data-slots] [data-kind="normal"][data-state="filled"]').count(), 6);
-    await page.locator('[data-slots] [data-kind="advanced"][data-state="filled"] .st-slot-icon').click();
-    assert.equal(await page.locator('[data-slots] [data-kind="advanced"][data-state="filled"]').count(), 0);
+    // Клік по стигмі в слоті прибирає її, а звичайна з покращеного слота переходить на звільнене місце.
+    await page.locator('[data-slot-row="normal"] .st-cell-stigma').first().click();
+    assert.equal(await page.locator('[data-slot-row="advanced"] .st-cell[data-state="filled"]').count(), 1);
+    assert.equal(await page.locator('[data-slot-row="normal"] .st-cell[data-state="filled"]').count(), 6);
+    await page.locator('[data-slot-row="advanced"] .st-cell-stigma').click();
+    assert.equal(await page.locator('[data-slot-row="advanced"] .st-cell[data-state="filled"]').count(), 0);
+
+    // Після скидання адреса знову чиста.
+    await page.getByRole("button", { name: "Скинути" }).click();
+    assert.equal(await page.evaluate(() => window.location.hash), "");
+    assert.ok(page.url().endsWith("/v2/stigma/"), page.url());
 
     assert.deepEqual(errors, []);
     await context.close();
@@ -448,7 +465,7 @@ test("v2 stigma calculator adds prerequisites, keeps old links and shares the bu
 test("v2 stigma calculator on a touch phone opens the description sheet", async () => {
   await withSite(async (open) => {
     const { page, context, errors } = await open("v2/stigma/", { width: 390, height: 844 }, { isMobile: true, hasTouch: true });
-    const icon = page.locator('[data-normal] .st-icon[data-state="available"]').first();
+    const icon = page.locator('[data-normal] .st-stigma[data-state="available"]').first();
     await icon.waitFor();
     const iconName = (await icon.getAttribute("aria-label")).split(":")[0];
     assert.equal(await page.locator("[data-class-name]").innerText(), "Цілитель");
@@ -459,9 +476,11 @@ test("v2 stigma calculator on a touch phone opens the description sheet", async 
     assert.match(await sheet.locator(".stigma-stage p").first().innerText(), /\d/);
     await sheet.getByRole("button", { name: "Додати в збірку" }).tap();
     await sheet.getByRole("button", { name: "Прибрати зі збірки" }).waitFor();
+    // Повідомлення видно просто в картці.
+    assert.equal(await sheet.locator("[data-sheet-status]").innerText(), `Додано «${iconName}».`);
     await sheet.getByRole("button", { name: "Закрити" }).tap();
     assert.equal(await sheet.evaluate((dialog) => dialog.open), false);
-    assert.equal(await page.locator('[data-slots] [data-kind="normal"][data-state="filled"]').count(), 1);
+    assert.equal(await page.locator('[data-slot-row="normal"] .st-cell[data-state="filled"]').count(), 1);
     await fitsViewport(page);
     assert.deepEqual(errors, []);
     await context.close();

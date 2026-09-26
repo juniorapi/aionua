@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="../assets/css/v2.css?v=5">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=6">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
   <script>
@@ -73,57 +73,71 @@
     </div>
 
     <div class="st-app" data-stigma-app>
-      <section class="panel st-bar" aria-label="Персонаж">
+      <section class="panel st-hero" aria-label="Персонаж">
+        <div class="st-hero-top">
+          <div class="st-hero-name">
+            <span class="st-crest" aria-hidden="true"><span class="st-class-icon" data-class-crest></span></span>
+            <div>
+              <p class="label">Клас</p>
+              <p class="st-hero-title" data-class-name></p>
+            </div>
+          </div>
+          <div class="st-hero-side">
+            <div class="segmented st-races" role="group" aria-label="Раса" data-race></div>
+            <div class="st-level">
+              <label for="st-level">Рівень</label>
+              <select class="select" id="st-level" data-level></select>
+            </div>
+          </div>
+        </div>
         <div class="st-classes" role="group" aria-label="Клас" data-classes></div>
-        <p class="st-class-name" data-class-name aria-hidden="true"></p>
-        <div class="st-bar-side">
-          <div class="st-races" role="group" aria-label="Раса" data-race></div>
-          <div class="st-level">
-            <label for="st-level">Рівень</label>
-            <select class="select select--sm" id="st-level" data-level></select>
+      </section>
+
+      <section class="st-summary" aria-label="Підсумок збірки">
+        <dl class="st-stats" data-stats></dl>
+        <div class="st-summary-actions">
+          <button class="btn btn-primary" type="button" data-copy>Копіювати посилання</button>
+          <button class="btn-ghost" type="button" data-reset>Скинути</button>
+        </div>
+      </section>
+
+      <section class="panel st-board" aria-labelledby="slots-title">
+        <div class="panel-head">
+          <h2 class="panel-heading" id="slots-title">Слоти</h2>
+          <p class="meta">Звичайні відкриваються з 20 рівня, покращені — з 45</p>
+        </div>
+        <div class="st-slot-rows">
+          <div class="st-slot-row">
+            <h3 class="label">Звичайні</h3>
+            <ol class="st-cells" data-slot-row="normal"></ol>
+          </div>
+          <div class="st-slot-row">
+            <h3 class="label">Покращені</h3>
+            <ol class="st-cells" data-slot-row="advanced"></ol>
           </div>
         </div>
       </section>
 
-      <div class="st-layout">
-        <section class="panel st-board" aria-labelledby="board-title">
-          <h2 class="visually-hidden" id="board-title">Дошка стигм</h2>
-          <p class="st-status" role="status" data-status></p>
-          <div class="st-board-top">
-            <ol class="st-slots" aria-label="Слоти стигм" data-slots></ol>
-            <div class="st-pool">
-              <h3 class="label">Звичайні стигми</h3>
-              <div class="st-pool-grid" data-normal></div>
-            </div>
-          </div>
-          <div class="st-trees" data-trees></div>
-          <p class="tool-hint st-hint">Клік додає стигму, повторний клік прибирає. Покращена стигма ставиться разом з усіма потрібними.</p>
-        </section>
+      <section class="st-section" aria-labelledby="normal-title" data-section="normal">
+        <h2 class="panel-heading" id="normal-title">Звичайні стигми</h2>
+        <div class="st-pool" data-normal></div>
+      </section>
 
-        <aside class="panel st-side" aria-labelledby="side-title">
-          <h2 class="st-side-title" id="side-title" data-title></h2>
-          <div class="st-counts" data-counts></div>
-          <dl class="st-costs" data-costs></dl>
-          <h3 class="label">Встановлені</h3>
-          <ol class="st-installed" data-installed></ol>
-          <div class="st-share">
-            <label class="visually-hidden" for="st-link">Посилання на збірку</label>
-            <input class="input" id="st-link" type="url" readonly data-link>
-            <div class="st-share-actions">
-              <button class="btn btn-primary" type="button" data-copy>Копіювати</button>
-              <button class="btn-ghost" type="button" data-reset>Скинути</button>
-            </div>
-          </div>
-        </aside>
-      </div>
+      <section class="st-section" aria-labelledby="advanced-title" data-section="advanced">
+        <h2 class="panel-heading" id="advanced-title">Покращені стигми</h2>
+        <p class="tool-hint">Гілка росте знизу вгору: покращена стигма ставиться разом з усіма потрібними під нею.</p>
+        <div class="st-trees" data-trees></div>
+      </section>
 
+      <p class="st-status" role="status" data-status></p>
       <div class="panel st-tooltip" role="tooltip" data-tooltip hidden></div>
       <dialog class="stigma-sheet" data-sheet aria-label="Опис стигми">
         <button class="btn-ghost stigma-sheet-close" type="button" data-sheet-close>Закрити</button>
+        <p class="st-status st-status--sheet" role="status" data-sheet-status></p>
         <div class="stigma-sheet-body" data-sheet-body></div>
       </dialog>
 
-      <p class="tool-hint stigma-credits">Дані, рамки слотів і значки — з калькулятора ASPirine і Guimera. Українські назви й описи вмінь — з паків локалізації Aion UA.</p>
+      <p class="tool-hint stigma-credits">Дані й значки класів — з калькулятора ASPirine і Guimera. Українські назви й описи вмінь — з паків локалізації Aion UA.</p>
     </div>
   </main>
 
@@ -147,6 +161,6 @@
   <script src="../../stigma/js/lang_en.js"></script>
   <script src="../../stigma/js/lang_uk.js"></script>
   <script src="../../stigma/js/vals.js"></script>
-  <script type="module" src="../assets/js/tools/stigma.js?v=2"></script>
+  <script type="module" src="../assets/js/tools/stigma.js?v=5"></script>
 </body>
 </html>

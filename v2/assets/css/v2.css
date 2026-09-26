@@ -2375,60 +2375,100 @@ textarea {
 }
 
 /* ---------- Калькулятор стигм ---------- */
-/* Вікно стигм, як у грі: рамки слотів, значки класів і рас — зі старого калькулятора. */
+/* Слоти й значки — восьмикутники в золоті (звичайні) і сріблясто-блакитному (покращені). */
 
 .st-app {
   --st-adv: #8fcbf0;
-  --st-line: rgba(226, 184, 101, 0.5);
-  --slot: 80px;
+  --st-line: rgba(226, 184, 101, 0.45);
+  --st-gold-frame: linear-gradient(160deg, #f0cd85, #a47c35 55%, #5a4520);
+  --st-adv-frame: linear-gradient(160deg, #d6ecfb, #6b98bb 55%, #34506a);
+  margin-top: 36px;
 }
 
-.st-bar {
+.st-hero {
+  display: grid;
+  gap: 20px;
+  padding: 20px 24px 22px;
+}
+
+.st-hero-top {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px 32px;
-  margin-top: 36px;
-  padding: 16px;
+}
+
+.st-hero-name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.st-crest {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--gold-line);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(226, 184, 101, 0.2), transparent 70%), var(--sunken);
+}
+
+.st-hero-title {
+  margin-top: 2px;
+  font: 400 clamp(28px, 3vw, 36px)/1.1 var(--font-display);
+}
+
+.st-hero-side {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px 20px;
+}
+
+.st-level {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.st-level .select {
+  width: 100px;
 }
 
 .st-classes {
-  display: grid;
-  flex: 1 1 640px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.st-class,
-.st-race {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
-  min-height: 48px;
-  padding: 6px 12px 6px 8px;
-  border: 1px solid transparent;
-  border-radius: var(--r-md);
+}
+
+/* Значок класу в колі; назва вибраного класу — великим написом поруч із гербом. */
+.st-class {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
   background: var(--sunken);
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  color: var(--text-2);
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.st-class:hover,
-.st-race:hover {
-  border-color: var(--line-strong);
-  color: var(--text);
+.st-class:hover {
+  border-color: var(--line-control);
 }
 
-.st-class[aria-pressed="true"],
-.st-race[aria-pressed="true"] {
-  border-color: var(--gold-line);
-  background: var(--gold-tint);
-  color: var(--gold-strong);
+.st-class[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: radial-gradient(circle, rgba(226, 184, 101, 0.16), var(--sunken) 72%);
+  box-shadow: 0 0 0 3px var(--gold-tint);
 }
 
 .st-class-icon {
@@ -2450,117 +2490,246 @@ textarea {
 .st-class-icon--bard { background-position: -160px -32px; }
 .st-class-icon--rider { background-position: -128px -32px; }
 
-/* Назва вибраного класу — лише на телефоні, де кнопки класів без підписів. */
-.st-class-name {
-  display: none;
-}
-
-.st-bar-side {
-  display: flex;
-  flex-wrap: wrap;
+/* Підсумок однією смугою. */
+.st-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 8px 12px;
+  gap: 12px 24px;
+  margin-top: 16px;
 }
 
-.st-races {
-  display: flex;
-  gap: 8px;
-}
-
-/* Значок раси: кольоровий — вибрана, сірий — ні. */
-.st-race-icon {
-  flex: none;
-  width: 25px;
-  height: 32px;
-  background: url("../../../stigma/img/races.png") no-repeat;
-}
-
-.st-race-icon--pc_light { background-position: 0 -32px; }
-.st-race[aria-pressed="true"] .st-race-icon--pc_light { background-position: 0 0; }
-.st-race-icon--pc_dark { background-position: -25px 0; }
-.st-race[aria-pressed="true"] .st-race-icon--pc_dark { background-position: -25px -32px; }
-
-.st-level {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-2);
-}
-
-.st-level .select {
-  width: 86px;
-  min-height: 48px;
-  font-size: 15px;
-}
-
-.st-layout {
+.st-stats {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
-  align-items: start;
-  gap: 24px;
-  margin-top: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  background: var(--surface);
 }
 
-.st-board {
-  display: grid;
-  gap: 28px;
-  min-width: 0;
-  padding: 20px 24px 24px;
+.st-stat {
+  padding: 14px 20px;
+  border-left: 1px solid var(--line);
 }
 
-.st-status {
-  min-height: 20px;
-  margin-bottom: -16px;
-  font-size: 14px;
-  color: var(--live);
+.st-stat:first-child {
+  border-left: 0;
 }
 
-.st-status.is-error {
-  color: var(--asmo);
-}
-
-.st-board-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 24px 32px;
-}
-
-/* Дошка слотів: дві колонки звичайних (золоті) і дві покращених (сині). */
-.st-slots {
-  display: grid;
-  flex: none;
-  grid-template-columns: repeat(4, var(--slot));
-  gap: 6px 10px;
-}
-
-.st-slot {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: var(--slot);
-  height: var(--slot);
-  background: url("../../../stigma/img/stigmaslots.png") no-repeat;
-  background-size: calc(var(--slot) * 3) calc(var(--slot) * 2);
-  background-position: 0 0;
-}
-
-.st-slot[data-kind="advanced"] { background-position: 0 calc(var(--slot) * -1); }
-.st-slot[data-state="filled"] { background-position: calc(var(--slot) * -1) 0; }
-.st-slot[data-kind="advanced"][data-state="filled"] { background-position: calc(var(--slot) * -1) calc(var(--slot) * -1); }
-.st-slot[data-state="locked"] { background-position: calc(var(--slot) * -2) 0; }
-.st-slot[data-kind="advanced"][data-state="locked"] { background-position: calc(var(--slot) * -2) calc(var(--slot) * -1); }
-
-.st-slot-level {
-  font-size: 13px;
+.st-stat dt {
+  font-size: 12px;
   font-weight: 600;
-  color: var(--text-2);
-  text-shadow: 0 1px 2px #000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.st-stat dd {
+  margin-top: 2px;
+  font-size: 24px;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
 
-.st-slot-icon {
+.st-stat--normal dd { color: var(--gold-strong); }
+.st-stat--advanced dd { color: var(--st-adv); }
+
+.st-summary-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Повідомлення про дію спливає внизу екрана: видно й біля гілок, а сторінка не зсувається. */
+.st-status {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 50;
+  width: max-content;
+  max-width: min(640px, calc(100vw - 32px));
+  padding: 12px 18px;
+  border: 1px solid rgba(94, 211, 154, 0.4);
+  border-radius: var(--r-md);
+  background: var(--raised);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  text-wrap: pretty;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.st-status:not(:empty)::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--live);
+  vertical-align: 1px;
+}
+
+.st-status.is-error {
+  border-color: rgba(216, 88, 63, 0.55);
+}
+
+.st-status.is-error::before {
+  background: var(--asmo);
+}
+
+/* Порожнє лишається на сторінці, щоб зчитувач екрана озвучив наступне повідомлення. */
+.st-status:empty {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.st-status--sheet {
+  position: static;
+  width: auto;
+  max-width: none;
+  margin-bottom: 12px;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Слоти. */
+.st-board {
+  margin-top: 16px;
+}
+
+.st-slot-rows {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 40px;
+  padding: 20px 24px 24px;
+}
+
+.st-slot-row {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.st-cells {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* Під кожною клітинкою місце для рангу, тож перша стигма не зсуває сторінку. */
+.st-cell {
+  display: grid;
+  grid-template-rows: auto 30px;
+  justify-items: center;
+  align-content: start;
+  gap: 6px;
+}
+
+.st-cell-frame {
+  --edge: 14px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 72px;
+  aspect-ratio: 1;
+  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
+  background: var(--line-strong);
+}
+
+.st-cell-frame::before {
+  --edge: 13px;
+  content: "";
+  position: absolute;
+  inset: 2px;
+  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
+  background: radial-gradient(circle at 50% 38%, #1b1e29, #0a0b10 75%);
+}
+
+.st-cell[data-kind="normal"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-gold-frame); }
+.st-cell[data-kind="advanced"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-adv-frame); }
+.st-cell[data-state="empty"] .st-cell-frame { opacity: 0.55; }
+.st-cell[data-state="locked"] .st-cell-frame { opacity: 0.5; }
+
+.st-cell-add,
+.st-cell-note {
+  position: relative;
+  color: var(--text-3);
+}
+
+/* Порожній слот: «+» на всю клітинку веде до списку стигм. */
+.st-cell-add {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 300 26px/1 var(--font-body);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.st-cell-add:hover {
+  color: var(--text);
+}
+
+.st-cell-add:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -10px;
+}
+
+.st-cell[data-state="empty"]:has(.st-cell-add:hover) .st-cell-frame {
+  opacity: 0.85;
+}
+
+.st-cell-note {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.st-cell-note::before {
+  content: "з ";
+  font-weight: 400;
+}
+
+.st-cell-stigma {
+  position: relative;
+  z-index: 1;
+}
+
+.st-cell-rank {
+  width: 100%;
+  max-width: 72px;
+  height: 30px;
+  padding: 0 18px 0 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--sunken) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a7a9b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 5px center;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  appearance: none;
+  cursor: pointer;
+}
+
+.st-cell-rank:disabled {
+  padding-right: 6px;
+  background-image: none;
+  text-align: center;
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* Значок стигми: восьмикутна рамка, у збірці — золота. */
+.st-stigma,
+.st-cell-stigma {
   display: block;
   padding: 0;
   border: 0;
@@ -2568,313 +2737,155 @@ textarea {
   cursor: pointer;
 }
 
-.st-slot-icon .st-img {
+.st-gem {
+  --edge: 9px;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 2px;
+  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
+  background: var(--line-strong);
+  transition: filter 0.15s;
+}
+
+.st-gem .st-img {
+  --edge: 8px;
   display: block;
-  width: calc(var(--slot) / 2);
-  height: calc(var(--slot) / 2);
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
+}
+
+.st-cell-stigma .st-gem,
+.st-stigma[data-state="installed"] .st-gem {
+  background: var(--st-gold-frame);
+}
+
+.st-stigma[data-state="locked"] .st-img {
+  filter: grayscale(1) brightness(0.5);
+}
+
+.st-stigma:hover .st-gem,
+.st-cell-stigma:hover .st-gem {
+  filter: brightness(1.18);
+}
+
+/* Звичайні стигми: значок і рівень під ним. */
+.st-section {
+  display: grid;
+  gap: 14px;
+  margin-top: 40px;
 }
 
 .st-pool {
   display: grid;
-  flex: 1 1 300px;
-  gap: 10px;
-  min-width: 0;
+  grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+  gap: 14px 8px;
 }
 
-.st-pool-grid {
+.st-pool-item {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 48px);
-  gap: 6px;
-  min-height: 72px;
-  padding: 12px;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-md);
-  background: var(--sunken);
+  justify-items: center;
+  gap: 4px;
 }
 
-.st-pool-grid .st-empty {
-  grid-column: 1 / -1;
-  align-self: center;
-}
-
-/* Значок стигми в списку й деревах. */
-.st-icon {
-  position: relative;
-  display: grid;
-  flex: none;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  background: #0b0c12;
-  cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.st-icon .st-img,
-.st-details-icon .st-img {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
-}
-
-.st-icon:hover {
-  border-color: var(--gold-line);
-}
-
-.st-icon[data-state="installed"] {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold), 0 0 14px rgba(226, 184, 101, 0.35);
-}
-
-.st-icon[data-state="locked"] .st-img {
-  filter: grayscale(1) brightness(0.55);
-}
-
-.st-lock {
-  position: absolute;
-  right: 2px;
-  bottom: 1px;
-  padding: 0 3px;
-  border-radius: 3px;
-  background: rgba(10, 11, 16, 0.85);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-2);
+.st-pool-level {
+  font-size: 12px;
+  color: var(--text-3);
   font-variant-numeric: tabular-nums;
 }
 
-/* Два дерева поруч: потрібні стигми ліворуч, стрілки ведуть до покращеної праворуч. */
+.st-pool-item:has([data-state="installed"]) .st-pool-level {
+  color: var(--gold);
+}
+
+/* Гілки поруч; кожна росте знизу вгору до покращеної стигми. */
 .st-trees {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  overflow-x: auto;
+  align-items: start;
+  gap: 16px;
 }
 
 .st-tree {
-  display: flex;
-  min-width: max-content;
+  display: grid;
+  gap: 16px;
+  padding: 18px 16px 22px;
+}
+
+.st-tree-title {
+  font: 400 20px/1.2 var(--font-display);
+  color: var(--gold-strong);
+}
+
+.st-tree-scroll {
+  overflow-x: auto;
+}
+
+.st-tree-scroll > .st-node {
+  width: max-content;
+  margin: 0 auto;
 }
 
 .st-node {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .st-children {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-right: 26px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.st-children::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: calc(50% - 1px);
+  height: 22px;
+  border-left: 2px solid var(--st-line);
+}
+
+.st-children::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 6px);
+  border-bottom: 8px solid var(--st-line);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
 }
 
 .st-children > .st-node {
   position: relative;
-  padding-right: 14px;
-}
-
-.st-children > .st-node::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 1px);
-  right: 0;
-  width: 14px;
-  border-top: 2px solid var(--st-line);
+  padding-top: 14px;
 }
 
 .st-children > .st-node::before {
   content: "";
   position: absolute;
   top: 0;
-  bottom: 0;
-  right: 0;
-  border-right: 2px solid var(--st-line);
-}
-
-.st-children > .st-node:first-child::before { top: calc(50% - 1px); }
-.st-children > .st-node:last-child::before { bottom: calc(50% - 1px); }
-.st-children > .st-node:only-child::before { display: none; }
-
-.st-children::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 1px);
-  right: -18px;
-  width: 18px;
+  left: -5px;
+  right: -5px;
   border-top: 2px solid var(--st-line);
 }
 
-.st-children::before {
+.st-children > .st-node:first-child::before { left: calc(50% - 1px); }
+.st-children > .st-node:last-child::before { right: calc(50% - 1px); }
+.st-children > .st-node:only-child::before { display: none; }
+
+.st-children > .st-node::after {
   content: "";
   position: absolute;
-  top: calc(50% - 6px);
-  right: -26px;
-  border-left: 8px solid var(--st-line);
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-}
-
-.st-hint {
-  margin-top: -8px;
-}
-
-/* Бічна панель: підсумок, встановлені стигми, посилання. */
-.st-side {
-  position: sticky;
-  top: 96px;
-  display: grid;
-  gap: 16px;
-  padding: 22px 22px 24px;
-}
-
-.st-side-title {
-  font: 400 24px/1.2 var(--font-display);
-}
-
-.st-counts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.st-count {
-  display: grid;
-  gap: 2px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--sunken);
-}
-
-.st-count strong {
-  font-size: 24px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-
-.st-count--normal strong { color: var(--gold-strong); }
-.st-count--advanced strong { color: var(--st-adv); }
-
-.st-count span {
-  font-size: 12px;
-  color: var(--text-3);
-}
-
-.st-costs {
-  display: grid;
-  gap: 8px;
-}
-
-.st-cost {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 15px;
-}
-
-.st-cost dt {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-2);
-}
-
-.st-cost dd {
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.st-cost-icon {
-  flex: none;
-  width: 16px;
-  height: 16px;
-  background: url("../../../stigma/img/cost.png") no-repeat;
-}
-
-.st-cost-icon--abyss { background-position: 0 0; }
-.st-cost-icon--shard { background-position: 0 -16px; }
-
-.st-installed {
-  display: grid;
-  gap: 6px;
-  max-height: 380px;
-  overflow: auto;
-}
-
-.st-row {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto 28px;
-  align-items: center;
-  gap: 10px;
-}
-
-.st-row .st-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-}
-
-.st-row-name {
-  display: grid;
-  font-size: 14px;
-  line-height: 1.25;
-}
-
-.st-row-name small {
-  font-size: 11px;
-  color: var(--gold);
-}
-
-.st-row-rank {
-  width: 92px;
-}
-
-.st-row-remove {
-  width: 28px;
-  height: 28px;
-  border: 0;
-  border-radius: var(--r-sm);
-  background: transparent;
-  font-size: 18px;
-  line-height: 1;
-  color: var(--text-3);
-  cursor: pointer;
-}
-
-.st-row-remove:hover {
-  background: rgba(216, 88, 63, 0.14);
-  color: var(--asmo);
-}
-
-.st-empty {
-  font-size: 14px;
-  color: var(--text-3);
-}
-
-.st-share {
-  display: grid;
-  gap: 8px;
-}
-
-.st-share .input {
-  font-size: 13px;
-}
-
-.st-share-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.st-share-actions > * {
-  justify-content: center;
+  top: 0;
+  left: calc(50% - 1px);
+  height: 14px;
+  border-left: 2px solid var(--st-line);
 }
 
 /* Підказка біля курсора й картка знизу мають однаковий вміст. */
@@ -2896,16 +2907,6 @@ textarea {
   color: var(--gold);
 }
 
-.st-details-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  background: #0b0c12;
-}
-
 .stigma-sheet-body {
   display: grid;
   gap: 16px;
@@ -2913,7 +2914,7 @@ textarea {
 
 .stigma-details-head {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
   gap: 14px;
 }
@@ -2998,8 +2999,7 @@ textarea {
   text-wrap: pretty;
 }
 
-.stigma-costs,
-.stigma-price {
+.stigma-costs {
   display: grid;
   gap: 6px;
   font-size: 14px;
@@ -3023,6 +3023,10 @@ textarea {
 .stigma-price {
   padding-top: 12px;
   border-top: 1px solid var(--line);
+}
+
+.stigma-price dd {
+  font-weight: 600;
 }
 
 .stigma-action {
@@ -3149,16 +3153,8 @@ textarea {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .st-layout {
+  .st-slot-rows {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .st-side {
-    position: static;
-  }
-
-  .st-classes {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
 
@@ -3175,9 +3171,23 @@ textarea {
 }
 
 @media (max-width: 900px) {
-  .st-trees {
+  .st-trees,
+  .st-summary {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .st-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .st-stat:nth-child(3) {
+    border-left: 0;
+  }
+
+  .st-stat:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
 
 
   .site-nav {
@@ -3486,47 +3496,46 @@ textarea {
     margin: 18px 18px 0;
   }
 
-  /* Телефон: класи значками в сітці 6 × 2, дошка слотів трохи менша. */
-  .st-bar {
-    padding: 12px;
+  /* Телефон: класи сіткою 6 × 2, слоти по три в ряд. */
+  .st-hero {
+    padding: 16px;
   }
 
   .st-classes {
+    display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 6px;
   }
 
   .st-class {
-    justify-content: center;
-    padding: 6px;
-  }
-
-  .st-class > span:last-child {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-
-  .st-class-name {
-    display: block;
     width: 100%;
-    font: 400 20px/1.2 var(--font-display);
-    color: var(--gold-strong);
+    height: auto;
+    aspect-ratio: 1;
   }
 
-  .st-board {
+  .st-cells {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .st-slot-rows {
     padding: 16px;
   }
 
-  .st-app {
-    --slot: 72px;
+  .st-summary-actions {
+    flex-wrap: wrap;
   }
 
-  .st-slots {
-    gap: 4px 8px;
+  .st-summary-actions > * {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .st-stat {
+    padding: 12px 14px;
+  }
+
+  .st-stat dd {
+    font-size: 20px;
   }
 
   .counter-controls,
