@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Розклад подій Aion · Aion UA</title>
+  <meta name="description" content="Розклад облог, арен і PvP-інстансів EuroAion, Origin Aion та AionDestiny за вашим часом: що йде зараз і що буде за тиждень.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=1">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 16 16 8M9 8h7v7"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">До основного вмісту</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="./" aria-current="page">Розклад</a>
+        <a href="../#craft">Крафт</a>
+        <a href="../#calculators">Калькулятори</a>
+        <a href="../#streambox">СтрімБокс</a>
+        <a href="../../localization/">Локалізація</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap schedule-page" data-schedule>
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
+      <a href="../">Головна</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Розклад</span>
+    </nav>
+
+    <div class="page-head">
+      <h1 class="page-title">Розклад <span data-server-name>EuroAion</span></h1>
+      <dl class="clocks">
+        <div class="clock">
+          <dt>Ваш час</dt>
+          <dd data-clock-local>—</dd>
+        </div>
+        <div class="clock">
+          <dt data-clock-server-label>Сервер</dt>
+          <dd data-clock-server>—</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="page-controls">
+      <div class="segmented" role="group" aria-label="Сервер">
+        <button type="button" data-server-button="euro" aria-pressed="true">EuroAion</button>
+        <button type="button" data-server-button="origin" aria-pressed="false">Origin Aion</button>
+        <button type="button" data-server-button="destiny" aria-pressed="false">AionDestiny</button>
+      </div>
+      <p class="meta" data-status role="status">Завантажуємо розклад…</p>
+      <a class="text-link" data-official href="https://euroaion.com/en-US/Tools/Schedule" target="_blank" rel="noopener noreferrer">Офіційне джерело <svg aria-hidden="true"><use href="#i-external"/></svg></a>
+    </div>
+
+    <div class="filters" role="group" aria-label="Категорії подій" data-filters></div>
+
+    <section class="schedule-section" aria-labelledby="today-title">
+      <div class="schedule-section-head">
+        <h2 id="today-title" class="section-title">Сьогодні</h2>
+        <p class="meta" data-today-range>за вашим часом</p>
+      </div>
+      <div class="scroll-x" tabindex="0" aria-label="Шкала подій на найближчі години, прокручується горизонтально">
+        <div class="timeline" data-timeline></div>
+      </div>
+      <p class="events-empty" data-timeline-empty hidden>У найближчі години подій немає.</p>
+    </section>
+
+    <section class="schedule-section" aria-labelledby="week-title">
+      <div class="schedule-section-head">
+        <h2 id="week-title" class="section-title">Тиждень</h2>
+        <p class="meta">за вашим часом · сьогодні виділено</p>
+      </div>
+      <div class="scroll-x" tabindex="0" aria-label="Таблиця розкладу, прокручується горизонтально">
+        <table class="week-table">
+          <caption class="visually-hidden">Розклад подій на тиждень за вашим часом</caption>
+          <thead>
+            <tr data-week-head>
+              <th scope="col">Подія</th>
+            </tr>
+          </thead>
+          <tbody data-week-body></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="../../euroaion/" data-legacy-link>Стара сторінка розкладу</a>
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/schedule-page.js?v=1"></script>
+</body>
+</html>
