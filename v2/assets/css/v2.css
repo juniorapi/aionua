@@ -2374,6 +2374,469 @@ textarea {
   color: var(--gold);
 }
 
+/* ---------- Калькулятор стигм ---------- */
+
+.stigma-app {
+  margin-top: 36px;
+}
+
+.stigma-setup {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+}
+
+.stigma-setup-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px 24px;
+}
+
+.stigma-setup-fields .field:first-child {
+  flex: 1 1 240px;
+  max-width: 320px;
+}
+
+.stigma-setup-fields .field:last-child {
+  flex: 0 1 140px;
+}
+
+.stigma-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stigma-stat {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--sunken);
+}
+
+.stigma-stat dt {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.stigma-stat dd {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.stigma-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.stigma-status {
+  flex: 1 1 280px;
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--live);
+}
+
+.stigma-status.is-error {
+  color: var(--asmo);
+}
+
+.stigma-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  align-items: start;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.stigma-lists {
+  display: grid;
+  gap: 44px;
+  min-width: 0;
+}
+
+.stigma-section {
+  display: grid;
+  gap: 16px;
+}
+
+/* Слоти: плитки з іконкою, назвою й рангом. */
+.stigma-slots {
+  display: grid;
+  gap: 20px;
+  padding: 20px 24px 24px;
+}
+
+.stigma-slot-group {
+  display: grid;
+  gap: 10px;
+}
+
+.stigma-slot-group ol {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stigma-slot {
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  gap: 8px;
+  min-height: 136px;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--sunken);
+}
+
+.stigma-slot[data-kind="advanced"] {
+  border-color: var(--gold-line);
+}
+
+.stigma-slot[data-state="empty"],
+.stigma-slot[data-state="locked"] {
+  place-content: center;
+  border-style: dashed;
+}
+
+.stigma-slot[data-state="locked"] {
+  opacity: 0.5;
+}
+
+.stigma-slot-note {
+  font-size: 13px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.stigma-slot-main {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 4px 0 0;
+  border: 0;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.stigma-slot-main .stigma-card-name {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.stigma-slot-main .stigma-card-meta {
+  display: none;
+}
+
+.stigma-slot-tools {
+  display: grid;
+}
+
+.select--sm {
+  min-height: 36px;
+  padding: 0 24px 0 8px;
+  font-size: 13px;
+  background-position: right 6px center;
+}
+
+.stigma-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-3);
+  cursor: pointer;
+}
+
+.stigma-remove:hover {
+  background: rgba(216, 88, 63, 0.14);
+  color: var(--asmo);
+}
+
+/* Картки стигм у списку й деревах. */
+.stigma-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.stigma-card {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.stigma-card:hover {
+  border-color: var(--line-control);
+  background: var(--raised);
+}
+
+.stigma-card[data-state="installed"] {
+  border-color: var(--gold-line);
+  background: var(--gold-tint);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.stigma-card[data-state="locked"] {
+  opacity: 0.5;
+}
+
+.stigma-card.is-selected,
+.stigma-slot-main.is-selected .item-icon {
+  border-color: var(--gold);
+}
+
+.stigma-card-body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stigma-card-name {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.stigma-card-meta {
+  font-size: 12px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.stigma-trees {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+}
+
+.stigma-tree-panel {
+  padding: 16px;
+}
+
+.stigma-tree,
+.stigma-tree ul {
+  display: grid;
+  gap: 8px;
+}
+
+/* Лінії дерева: від кожної потрібної стигми до тієї, що з неї виростає. */
+.stigma-tree ul {
+  margin: 8px 0 0 18px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
+}
+
+.stigma-tree ul > li {
+  position: relative;
+}
+
+.stigma-tree ul > li::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: -14px;
+  width: 12px;
+  border-top: 1px solid var(--line-strong);
+}
+
+/* Опис стигми: бічна панель на широкому екрані, картка знизу на вузькому. */
+.stigma-details {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 16px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  padding: 22px 24px 24px;
+}
+
+.stigma-sheet-body {
+  display: grid;
+  gap: 16px;
+}
+
+.stigma-details-empty {
+  display: grid;
+  gap: 8px;
+  color: var(--text-2);
+}
+
+.stigma-details-head {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.stigma-details-title {
+  font: 400 24px/1.2 var(--font-display);
+  text-wrap: balance;
+}
+
+.stigma-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.badge-live {
+  background: rgba(94, 211, 154, 0.12);
+  color: var(--live);
+}
+
+.stigma-ranks {
+  flex-wrap: wrap;
+  justify-self: start;
+}
+
+.stigma-ranks button {
+  display: grid;
+  justify-items: center;
+  min-width: 52px;
+  padding: 4px 8px;
+  line-height: 1.15;
+}
+
+.stigma-ranks small {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.stigma-ranks button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.stigma-warning {
+  font-size: 14px;
+  color: var(--asmo);
+}
+
+.stigma-links {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.stigma-links-label {
+  color: var(--text-3);
+}
+
+.stigma-links .is-done {
+  color: var(--gold);
+}
+
+.stigma-stage {
+  display: grid;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.stigma-stage-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.stigma-stage p {
+  font-size: 15px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.stigma-costs,
+.stigma-price {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.stigma-costs div,
+.stigma-price div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stigma-costs dt,
+.stigma-price dt {
+  color: var(--text-3);
+}
+
+.stigma-costs dd,
+.stigma-price dd {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.stigma-price {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.stigma-action {
+  width: 100%;
+  justify-content: center;
+}
+
+.stigma-sheet {
+  width: min(100%, 560px);
+  max-width: 100%;
+  max-height: 85vh;
+  margin: auto auto 0;
+  padding: 16px 18px 24px;
+  overflow: auto;
+  border: 1px solid var(--line-strong);
+  border-bottom: 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.stigma-sheet::backdrop {
+  background: rgba(5, 6, 10, 0.72);
+}
+
+.stigma-sheet-close {
+  display: flex;
+  margin: 0 0 12px auto;
+}
+
+.stigma-credits {
+  margin-top: 48px;
+}
+
 /* ---------- Єдиний анімований момент: поява героя ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2466,6 +2929,14 @@ textarea {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .stigma-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stigma-details {
+    display: none;
+  }
+
   .loc-client {
     grid-template-columns: 48px minmax(0, 1fr) auto;
     grid-template-areas:
@@ -2479,6 +2950,14 @@ textarea {
 }
 
 @media (max-width: 900px) {
+  .stigma-trees {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stigma-slot-group ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .site-nav {
     display: none;
     position: absolute;
@@ -2783,6 +3262,41 @@ textarea {
   .counter-preview {
     height: 180px;
     margin: 18px 18px 0;
+  }
+
+  .stigma-setup,
+  .stigma-slots {
+    padding: 18px;
+  }
+
+  .stigma-setup-fields .field:first-child,
+  .stigma-setup-fields .field:last-child {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .stigma-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stigma-stat dd {
+    font-size: 20px;
+  }
+
+  /* Порожні слоти на телефоні низькі: інакше дванадцять плиток займають цілий екран. */
+  .stigma-slot {
+    min-height: 0;
+  }
+
+  .stigma-slot[data-state="empty"],
+  .stigma-slot[data-state="locked"] {
+    min-height: 56px;
+  }
+
+  .stigma-actions .btn,
+  .stigma-actions .btn-ghost {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 
   .counter-controls,

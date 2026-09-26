@@ -392,11 +392,77 @@ test("v2 localization shows release versions, sizes and script versions", async 
   });
 });
 
+test("v2 stigma calculator adds prerequisites, keeps old links and shares the build", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors } = await open("v2/stigma/");
+    await page.locator("[data-normal] .stigma-card").first().waitFor();
+    assert.equal(await page.getByLabel("Клас").inputValue(), "priest");
+    assert.equal(await page.getByLabel("Рівень").inputValue(), "65");
+    assert.equal(await page.getByRole("button", { name: "Елійці" }).getAttribute("aria-pressed"), "true");
+    assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
+
+    // Корінь першого дерева цілителя — «Розкати грому»: з ним стають усі потрібні стигми.
+    await page.locator(".stigma-tree-panel").first().locator(".stigma-card").first().click();
+    assert.match(await page.locator("[data-status]").innerText(), /^Додано «Розкати грому» разом із: /);
+    // Той самий код дає старий калькулятор на ті самі дії.
+    assert.equal(await page.evaluate(() => window.location.hash), "#aCnahasgxaqgwaffBeecd");
+    const summary = await page.locator("[data-summary]").innerText();
+    assert.match(summary, /3\/6/);
+    assert.match(summary, /5\/6/);
+
+    const card = page.locator('[data-normal] .stigma-card[data-state="available"]').first();
+    const cardName = await card.locator(".stigma-card-name").innerText();
+    await card.hover();
+    await page.locator("[data-details] .stigma-details-title").filter({ hasText: cardName }).waitFor();
+
+    await page.getByRole("button", { name: "Копіювати посилання" }).click();
+    assert.equal(await page.evaluate(() => navigator.clipboard.readText()), page.url());
+
+    await page.getByLabel("Рівень").selectOption("44");
+    assert.match(await page.locator("[data-status]").innerText(), /^Прибрано \d+ стигм/);
+    assert.equal(await page.locator('[data-slot-group="advanced"] [data-state="locked"]').count(), 6);
+
+    // Посилання зі старого калькулятора: гладіатор, вісім звичайних, дві з них у покращених слотах.
+    await page.goto(`${page.url().replace(/#.*$/, "")}#cCnaqaBgbhhjgaasgoflc`);
+    await page.locator('[data-slot-group="advanced"] [data-state="filled"]').nth(1).waitFor();
+    assert.equal(await page.getByLabel("Клас").inputValue(), "fighter");
+    assert.equal(await page.locator('[data-slot-group="normal"] [data-state="filled"]').count(), 6);
+    await page.getByRole("button", { name: /^Прибрати: / }).first().click();
+    assert.equal(await page.locator('[data-slot-group="advanced"] [data-state="filled"]').count(), 1);
+    assert.equal(await page.locator('[data-slot-group="normal"] [data-state="filled"]').count(), 6);
+
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
+test("v2 stigma calculator on a phone opens the description sheet", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors } = await open("v2/stigma/", { width: 390, height: 844 });
+    const card = page.locator('[data-normal] .stigma-card[data-state="available"]').first();
+    await card.waitFor();
+    const cardName = await card.locator(".stigma-card-name").innerText();
+    await card.click();
+    const sheet = page.locator("[data-sheet]");
+    await sheet.locator(".stigma-details-title").filter({ hasText: cardName }).waitFor();
+    assert.equal(await sheet.evaluate((dialog) => dialog.open), true);
+    assert.match(await sheet.locator(".stigma-stage p").first().innerText(), /\d/);
+    await sheet.getByRole("button", { name: "Додати в збірку" }).click();
+    await sheet.getByRole("button", { name: "Прибрати зі збірки" }).waitFor();
+    await sheet.getByRole("button", { name: "Закрити" }).click();
+    assert.equal(await sheet.evaluate((dialog) => dialog.open), false);
+    assert.equal(await page.locator('[data-slot-group="normal"] [data-state="filled"]').count(), 1);
+    await fitsViewport(page);
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
 test("v2 home links every migrated tool to its v2 page", async () => {
   const html = await readFile(path.join(root, "v2", "index.html"), "utf8");
   for (const tool of [
     "crystal_crafting", "craft", "spc", "essencetapping", "aethertapping", "aion-4.6-enchantment-calculator", "efir",
-    "tempering-solution-counter", "ice-hammer-counter", "localization",
+    "tempering-solution-counter", "ice-hammer-counter", "localization", "stigma",
   ]) {
     assert.match(html, new RegExp(`class="tool-link" href="${tool.replace(/\./g, "\\.")}/"`), tool);
     assert.ok(existsSync(path.join(root, "v2", tool, "index.html")), tool);

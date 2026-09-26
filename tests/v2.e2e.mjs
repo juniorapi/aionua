@@ -139,11 +139,11 @@ test("v2 home shows live servers, upcoming events and tool search", async () => 
     assert.equal(await page.locator("[data-events-link]").getAttribute("href"), "schedule/?server=origin");
 
     await page.keyboard.press("/");
-    await page.keyboard.type("стіг");
+    await page.keyboard.type("стиг");
     const results = page.locator("#search-results a");
-    assert.deepEqual(await results.locator(".result-name").allInnerTexts(), ["Стігми 4.6", "Стігми 4.8"]);
+    assert.deepEqual(await results.locator(".result-name").allInnerTexts(), ["Стигми 4.6", "Стигми 4.8"]);
     await page.keyboard.press("Enter");
-    await page.waitForURL(/\/aionua\/stigma\/$/);
+    await page.waitForURL(/\/aionua\/v2\/stigma\/(#.*)?$/);
 
     assert.deepEqual(errors, []);
     await context.close();
