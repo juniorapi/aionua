@@ -1454,6 +1454,16 @@ textarea {
   color: var(--text-3);
 }
 
+/* Час стоїть під назвою дня, по центру колонки; назви подій лишаються ліворуч. */
+.week-table thead th:not(:first-child),
+.week-table td {
+  text-align: center;
+}
+
+.week-table td .slots {
+  justify-items: center;
+}
+
 .slots {
   display: grid;
   gap: 4px;
