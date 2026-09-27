@@ -50,7 +50,7 @@ lang = $.extend(true, lang, {
 		"elementalist": "Заклинач",
 		"bard": "Бард",
 		"gunner": "Стрілець-технік",
-		"rider": "Вершник"
+		"rider": "Пілот"
 	},
 	abyssranks: {
 		"rank_min": "Мін. ранг Безодні: %1",

@@ -25,6 +25,12 @@
   --ely: #8fcbf0;
   --live: #5ed39a;
 
+  /* Рідкість предметів — кольори як у грі, лише для даних про рідкість. */
+  --grade-heroic: #5aa9ec;
+  --grade-fabled: #ecc146;
+  --grade-eternal: #f08a3c;
+  --grade-mythic: #b57cf0;
+
   --font-display: "Bona Nova", Georgia, "Times New Roman", serif;
   --font-body: "Geologica", "Segoe UI", system-ui, -apple-system, sans-serif;
 
@@ -1985,6 +1991,32 @@ textarea {
 
 .field--grade .segmented {
   justify-self: start;
+}
+
+/* Назва рідкості завжди свого ігрового кольору; вибрана — ще й з підкладкою того ж кольору. */
+[data-grade="heroic"] { --grade: var(--grade-heroic); --grade-tint: rgba(90, 169, 236, 0.14); --grade-line: rgba(90, 169, 236, 0.5); }
+[data-grade="fabled"] { --grade: var(--grade-fabled); --grade-tint: rgba(236, 193, 70, 0.14); --grade-line: rgba(236, 193, 70, 0.5); }
+[data-grade="eternal"] { --grade: var(--grade-eternal); --grade-tint: rgba(240, 138, 60, 0.14); --grade-line: rgba(240, 138, 60, 0.5); }
+[data-grade="mythic"] { --grade: var(--grade-mythic); --grade-tint: rgba(181, 124, 240, 0.14); --grade-line: rgba(181, 124, 240, 0.5); }
+
+.segmented button[data-grade],
+.segmented button[data-grade]:hover {
+  color: var(--grade);
+}
+
+.segmented button[data-grade]:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.segmented button[data-grade][aria-pressed="true"] {
+  border-color: var(--grade-line);
+  background: var(--grade-tint);
+  font-weight: 600;
+}
+
+.grade-name {
+  font-weight: 600;
+  color: var(--grade);
 }
 
 .enchant-summary {

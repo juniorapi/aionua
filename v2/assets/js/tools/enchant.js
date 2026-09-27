@@ -6,11 +6,12 @@
 import { initHeader } from "../header.js";
 import { element } from "./common.js";
 
+// id — рідкість у грі (Heroic, Fabled, Eternal, Mythic), від неї колір назви.
 const GRADES = [
-  { value: 20, name: "Героїчний" },
-  { value: 30, name: "Легендарний" },
-  { value: 40, name: "Вічний" },
-  { value: 50, name: "Міфічний" },
+  { value: 20, id: "heroic", name: "Героїчний" },
+  { value: 30, id: "fabled", name: "Легендарний" },
+  { value: 40, id: "eternal", name: "Вічний" },
+  { value: 50, id: "mythic", name: "Міфічний" },
 ];
 const DEFAULT_GRADE = 40;
 const MAX_ITEM_LEVEL = 65;
@@ -20,9 +21,10 @@ const STEP_CHANCE = 2;
 
 function renderCalculator(root) {
   let grade = DEFAULT_GRADE;
-  const gradeButtons = GRADES.map(({ value, name }) => {
+  const gradeButtons = GRADES.map(({ value, id, name }) => {
     const button = element("button", "", name);
     button.type = "button";
+    button.dataset.grade = id;
     button.setAttribute("aria-pressed", String(value === grade));
     button.addEventListener("click", () => {
       grade = value;
@@ -42,10 +44,13 @@ function renderCalculator(root) {
 
   function update() {
     const best = Number(itemLevel.value) + grade + Number(enchantLevel.value);
-    const gradeName = GRADES.find((candidate) => candidate.value === grade).name;
+    const chosen = GRADES.find((candidate) => candidate.value === grade);
+    const gradeName = element("span", "grade-name", chosen.name);
+    gradeName.dataset.grade = chosen.id;
 
     summary.replaceChildren(
-      `${gradeName} предмет ${itemLevel.value} рівня, +${enchantLevel.value}: найкращий шанс `,
+      gradeName,
+      ` предмет ${itemLevel.value} рівня, +${enchantLevel.value}: найкращий шанс `,
       element("strong", "", `${STEPS * STEP_CHANCE}%`),
       " дає камінь ",
       element("strong", "", `L${best}`),
