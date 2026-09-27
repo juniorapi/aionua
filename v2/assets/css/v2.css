@@ -2681,8 +2681,8 @@ textarea {
 
 .st-cells {
   display: grid;
-  grid-template-columns: repeat(2, 72px);
-  gap: 12px;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px 10px;
 }
 
 /* Під кожною клітинкою місце для рангу, тож перша стигма не зсуває сторінку. */
@@ -2691,72 +2691,65 @@ textarea {
   grid-template-rows: auto 30px;
   justify-items: center;
   align-content: start;
-  gap: 6px;
+  gap: 4px;
 }
 
+/* Слот — ігрова рамка зі stigma/img/stigmaslots.png: верхній ряд спрайта — звичайні слоти,
+   нижній — покращені; ліворуч звичайна рамка, посередині підсвічена (у слоті стигма або курсор),
+   праворуч тьмяна (слот ще закритий). */
 .st-cell-frame {
-  --edge: 14px;
+  --slot: 80px;
   position: relative;
   display: grid;
   place-items: center;
-  width: 100%;
-  max-width: 72px;
-  aspect-ratio: 1;
-  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
-  background: var(--line-strong);
+  width: var(--slot);
+  height: var(--slot);
+  padding-bottom: 2px;
+  background: url("../../../stigma/img/stigmaslots.png") no-repeat 0 0 / calc(var(--slot) * 3) calc(var(--slot) * 2);
 }
 
-.st-cell-frame::before {
-  --edge: 13px;
-  content: "";
-  position: absolute;
-  inset: 2px;
-  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
-  background: radial-gradient(circle at 50% 38%, #1b1e29, #0a0b10 75%);
-}
-
-.st-cell[data-kind="normal"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-gold-frame); }
-.st-cell[data-kind="advanced"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-adv-frame); }
-.st-cell[data-state="empty"] .st-cell-frame { opacity: 0.55; }
-.st-cell[data-state="locked"] .st-cell-frame { opacity: 0.5; }
+.st-cell[data-kind="advanced"] .st-cell-frame { background-position-y: calc(var(--slot) * -1); }
+.st-cell[data-state="filled"] .st-cell-frame,
+.st-cell[data-state="empty"]:hover .st-cell-frame { background-position-x: calc(var(--slot) * -1); }
+.st-cell[data-state="locked"] .st-cell-frame { background-position-x: calc(var(--slot) * -2); }
 
 .st-cell-add,
 .st-cell-note {
-  position: relative;
   color: var(--text-3);
 }
 
-/* Порожній слот: «+» на всю клітинку веде до списку стигм. */
+/* Порожній слот: уся рамка — кнопка, що веде до списку стигм. */
 .st-cell-add {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   padding: 0;
   border: 0;
+  border-radius: 50%;
   background: none;
-  font: 300 26px/1 var(--font-body);
   cursor: pointer;
-  transition: color 0.15s;
-}
-
-.st-cell-add:hover {
-  color: var(--text);
 }
 
 .st-cell-add:focus-visible {
   outline: 2px solid var(--gold);
-  outline-offset: -10px;
+  outline-offset: -14px;
 }
 
-.st-cell[data-state="empty"]:has(.st-cell-add:hover) .st-cell-frame {
-  opacity: 0.85;
-}
-
+/* Закритий слот: рівень, з якого він відкривається, — плашкою під гніздом. */
 .st-cell-note {
-  font-size: 13px;
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  padding: 1px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(10, 11, 16, 0.88);
+  font-size: 12px;
   font-weight: 600;
+  line-height: 1.3;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text-2);
+  transform: translateX(-50%);
 }
 
 .st-cell-note::before {
@@ -2792,7 +2785,8 @@ textarea {
   opacity: 0.7;
 }
 
-/* Значок стигми: восьмикутна рамка, у збірці — золота. */
+/* Значок стигми — ігрова клітинка: квадратна рамка stigma/img/borders.png і значок 40 з 52 px;
+   під курсором чи фокусом — жовта рамка item_hover.png, як у грі. У слоті — сам значок, без клітинки. */
 .st-stigma,
 .st-cell-stigma {
   display: block;
@@ -2802,38 +2796,54 @@ textarea {
   cursor: pointer;
 }
 
+.st-stigma:focus-visible,
+.st-cell-stigma:focus-visible {
+  outline: none;
+}
+
 .st-gem {
-  --edge: 9px;
+  position: relative;
   display: grid;
   place-items: center;
   width: 52px;
   height: 52px;
-  padding: 2px;
-  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
-  background: var(--line-strong);
-  transition: filter 0.15s;
+  background: url("../../../stigma/img/borders.png") no-repeat center / 100% 100%;
 }
 
 .st-gem .st-img {
-  --edge: 8px;
   display: block;
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(var(--edge) 0, calc(100% - var(--edge)) 0, 100% var(--edge), 100% calc(100% - var(--edge)), calc(100% - var(--edge)) 100%, var(--edge) 100%, 0 calc(100% - var(--edge)), 0 var(--edge));
+  width: 76.92%;
+  height: 76.92%;
 }
 
-.st-cell-stigma .st-gem,
-.st-stigma[data-state="installed"] .st-gem {
-  background: var(--st-gold-frame);
+.st-stigma:hover .st-gem::after,
+.st-stigma:focus-visible .st-gem::after,
+.st-cell-stigma:hover .st-gem::after,
+.st-cell-stigma:focus-visible .st-gem::after {
+  content: "";
+  position: absolute;
+  inset: 7.7%;
+  background: url("../../../stigma/img/item_hover.png") no-repeat center / 100% 100%;
+  pointer-events: none;
+}
+
+.st-cell-stigma .st-gem {
+  width: calc(var(--slot, 80px) / 2 + 4px);
+  height: calc(var(--slot, 80px) / 2 + 4px);
+  background: none;
+}
+
+.st-cell-stigma .st-gem .st-img {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+}
+
+.st-cell-stigma .st-gem::after {
+  inset: 0;
 }
 
 .st-stigma[data-state="locked"] .st-img {
   filter: grayscale(1) brightness(0.5);
-}
-
-.st-stigma:hover .st-gem,
-.st-cell-stigma:hover .st-gem {
-  filter: brightness(1.18);
 }
 
 /* Звичайні стигми: значок і рівень під ним. */
@@ -2977,10 +2987,6 @@ textarea {
    закрита рівнем — темна з рівнем, з якого відкривається. */
 :is(.st-tree, .s48-links) .st-stigma {
   position: relative;
-}
-
-:is(.st-tree, .s48-links) .st-stigma[data-state="installed"] .st-gem {
-  background: var(--line-strong);
 }
 
 :is(.st-tree, .s48-links) .st-stigma[data-state="installed"] .st-img {
@@ -3209,11 +3215,6 @@ textarea {
 /* Слоти кільцем, як у грі: головний угорі, великі з боків, звичайні внизу, прихована в центрі.
    Рамки — за рангом: золото головних, блакить великих, зелень звичайних, фіолет прихованих. */
 
-.s48-app {
-  --s48-green-frame: linear-gradient(160deg, #cdeec4, #5f9c52 55%, #2f5228);
-  --s48-violet-frame: linear-gradient(160deg, #e6d2ff, #8d62cc 55%, #472c70);
-}
-
 .s48-stats {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -3227,97 +3228,155 @@ textarea {
   text-wrap: balance;
 }
 
+/* Поле — ігровий диск stigmas/img/bg.jpg (400 × 630: угорі без прихованої стигми, унизу — з нею).
+   Слоти й центр стоять у гніздах диска; координати зняті зі старого калькулятора (поле 400 × 314). */
 .s48-ring {
-  --cell: 64px;
-  --half: 50px;
-  --col: 96px;
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, var(--col));
-  grid-template-rows: repeat(6, var(--half));
-  grid-template-areas:
-    ".      gold1  ."
-    "blue2  gold1  blue1"
-    "blue2  linked blue1"
-    "green3 linked green1"
-    "green3 green2 green1"
-    ".      green2 .";
-  justify-content: center;
-  padding: 8px 0 4px;
+  width: min(100%, 400px);
+  aspect-ratio: 400 / 314;
+  margin: 4px auto 14px;
+  border-radius: var(--r-md);
+  background: url("../../../stigmas/img/bg.jpg") no-repeat 0 0 / 100% auto;
+  box-shadow: 0 0 0 1px var(--line-strong);
 }
 
-/* Коло, на якому стоять слоти; центр — рамка прихованої стигми. */
-.s48-ring::before {
-  content: "";
-  position: absolute;
-  top: calc(8px + 2 * var(--half) + 36px);
-  left: 50%;
-  width: calc(2 * var(--col) + 20px);
-  aspect-ratio: 1;
-  border: 1px solid var(--gold-line);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(141, 98, 204, 0.14), transparent 62%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+.s48-ring.is-linked {
+  background-position: 0 100%;
 }
 
 .s48-cell {
-  position: relative;
+  position: absolute;
+  width: 21.25%;
+  height: 24.84%;
 }
 
-.s48-cell .st-cell-frame,
+.s48-cell--gold1 { left: 39.5%; top: 3.82%; }
+.s48-cell--blue1 { left: 65%; top: 25.8%; }
+.s48-cell--blue2 { left: 12.5%; top: 25.8%; }
+.s48-cell--green1 { left: 63%; top: 60.83%; }
+.s48-cell--green2 { left: 39.5%; top: 74.84%; }
+.s48-cell--green3 { left: 15.25%; top: 61.15%; }
+
+/* Рамка слота — gold/blue/green_slots.png: знизу спрайта звичайна, згори підсвічена. */
+.s48-frame {
+  position: absolute;
+  inset: 0;
+  background: no-repeat 0 100% / 100% 200%;
+  pointer-events: none;
+}
+
+.s48-cell[data-kind="gold"] .s48-frame { background-image: url("../../../stigmas/img/gold_slots.png"); }
+.s48-cell[data-kind="blue"] .s48-frame { background-image: url("../../../stigmas/img/blue_slots.png"); }
+.s48-cell[data-kind="green"] .s48-frame { background-image: url("../../../stigmas/img/green_slots.png"); }
+
+.s48-cell[data-state="filled"] .s48-frame,
+.s48-cell[data-state="empty"]:hover .s48-frame {
+  background-position: 0 0;
+}
+
+/* Закритий слот: гніздо притемнене, під ним — рівень. */
+.s48-cell[data-state="locked"] .s48-frame {
+  background: radial-gradient(circle at 50% 49%, rgba(5, 6, 10, 0.72) 0 30%, transparent 31%);
+}
+
+/* Значок у гнізді: 40 × 40 зі зсувом 22, 19 у рамці 85 × 78. */
+.s48-cell .st-cell-stigma,
+.s48-linked .st-cell-stigma {
+  position: absolute;
+  left: 25.88%;
+  top: 24.36%;
+  width: 47.06%;
+  height: 51.28%;
+}
+
+.s48-linked .st-cell-stigma {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.s48-cell .st-cell-stigma .st-gem {
+  width: 100%;
+  height: 100%;
+}
+
+.s48-cell .st-cell-stigma .st-gem .st-img {
+  width: 100%;
+  height: 100%;
+}
+
+.s48-cell .st-cell-stigma .st-gem::after {
+  inset: -5%;
+}
+
+.s48-cell .st-cell-note {
+  bottom: 2%;
+}
+
+/* Заточка — плашкою під гніздом. */
 .s48-cell .st-cell-rank {
-  max-width: var(--cell);
+  position: absolute;
+  bottom: -6%;
+  left: 50%;
+  z-index: 2;
+  width: 50px;
+  height: 22px;
+  padding: 0 14px 0 7px;
+  border-color: var(--line-control);
+  background-color: rgba(10, 11, 16, 0.9);
+  background-position: right 3px center;
+  background-size: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateX(-50%);
 }
 
-.s48-cell[data-kind="gold"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-gold-frame); }
-.s48-cell[data-kind="blue"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-adv-frame); }
-.s48-cell[data-kind="green"]:not([data-state="locked"]) .st-cell-frame { background: var(--s48-green-frame); }
-
+/* Прихована стигма — у центрі диска; коли вона є, диск показує золоту рамку центру. */
 .s48-linked {
-  grid-template-rows: auto 22px;
-}
-
-.s48-linked .st-cell-frame {
-  max-width: 72px;
-  background: var(--s48-violet-frame);
-}
-
-.s48-linked[data-state="empty"] .st-cell-frame,
-.s48-linked[data-state="locked"] .st-cell-frame {
-  opacity: 0.5;
-}
-
-.s48-linked[data-state="empty"] .st-cell-note {
-  font-size: 22px;
-  font-weight: 400;
-}
-
-.s48-linked[data-state="empty"] .st-cell-note::before {
-  content: none;
+  left: 45.5%;
+  top: 43.63%;
+  width: 10%;
+  height: 12.74%;
 }
 
 .s48-linked[data-state="inactive"] .st-img {
   filter: grayscale(0.8) brightness(0.6);
 }
 
+.s48-linked[data-state="empty"] .st-cell-note,
+.s48-linked[data-state="locked"] .st-cell-note {
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.s48-linked[data-state="empty"] .st-cell-note::before {
+  content: none;
+}
+
 .s48-linked-caption {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  padding: 1px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(10, 11, 16, 0.88);
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.3;
   font-variant-numeric: tabular-nums;
-  color: var(--text-3);
+  white-space: nowrap;
+  color: var(--text-2);
+  transform: translateX(-50%);
 }
 
 .s48-linked[data-state="active"] .s48-linked-caption {
+  border-color: var(--gold-line);
   color: var(--gold);
 }
 
-/* Значок стигми 4.8 — у рамці свого рангу; без вільного слота — притлумлений. */
-.s48-app .s48-gem--gold { background: var(--st-gold-frame); }
-.s48-app .s48-gem--blue { background: var(--st-adv-frame); }
-.s48-app .s48-gem--green { background: var(--s48-green-frame); }
-.s48-app .s48-gem--violet { background: var(--s48-violet-frame); }
-
+/* Без вільного слота — значок притлумлений. */
 .s48-app .st-stigma[data-state="blocked"] .st-img {
   opacity: 0.45;
 }
@@ -3387,9 +3446,9 @@ textarea {
 }
 
 .s48-op {
-  padding: 0 2px;
-  font: 400 26px/1 var(--font-display);
-  color: var(--text-3);
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .s48-note {
@@ -3894,7 +3953,11 @@ textarea {
 
   .st-cells {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 8px;
+    gap: 8px 6px;
+  }
+
+  .st-cell-frame {
+    --slot: 66px;
   }
 
   .st-board-slots,
@@ -3930,14 +3993,16 @@ textarea {
     height: 46px;
   }
 
-  .s48-ring {
-    --col: 92px;
-    --cell: 60px;
-  }
-
   .s48-link {
     grid-template-columns: minmax(0, 1fr);
     padding: 14px;
+  }
+
+  .s48-cell .st-cell-rank {
+    width: 44px;
+    height: 20px;
+    padding: 0 12px 0 5px;
+    font-size: 11px;
   }
 
   .s48-apply {

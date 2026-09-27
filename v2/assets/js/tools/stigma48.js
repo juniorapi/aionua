@@ -314,7 +314,7 @@ function stigmaButton(number, className) {
   else if (!hidden && !build.canAdd(number)) state = "blocked";
   button.dataset.state = state;
   if (state === "locked") button.dataset.level = GRADE_LEVEL[grade];
-  const gem = element("span", `st-gem s48-gem s48-gem--${KIND[grade]}`);
+  const gem = element("span", "st-gem");
   gem.append(icon(number));
   button.append(gem);
   const label = {
@@ -331,35 +331,34 @@ function stigmaButton(number, className) {
   return button;
 }
 
-// Кільце як у грі: головний слот угорі, великі — з боків, звичайні — внизу, прихована — в центрі.
+// Ігровий диск: головний слот угорі, великі — з боків, звичайні — внизу, прихована — в центрі.
 function slotCell(index) {
   const slot = SLOTS[index];
-  const cell = element("li", "st-cell s48-cell");
+  const cell = element("li", `s48-cell s48-cell--${slot.id}`);
   cell.dataset.kind = KIND[slot.grade];
-  cell.style.gridArea = slot.id;
-  const frame = element("div", "st-cell-frame");
-  cell.append(frame);
+  cell.append(element("span", "s48-frame"));
   const title = `${SLOT_NAMES[slot.grade]}, з ${slot.level} рівня`;
 
   if (!build.isOpen(index)) {
     cell.dataset.state = "locked";
-    frame.append(element("span", "st-cell-note", `${slot.level}`));
+    cell.append(element("span", "st-cell-note", `${slot.level}`));
     cell.setAttribute("aria-label", `${title}: ще закритий`);
     return cell;
   }
   const current = build.slots[index];
   if (!current) {
     cell.dataset.state = "empty";
-    const add = element("button", "st-cell-add", "+");
+    const add = element("button", "st-cell-add");
     add.type = "button";
+    add.title = title;
     add.setAttribute("aria-label", `${title}: вільний — вибрати стигму`);
     add.addEventListener("click", (event) => jumpTo(ui.sections.pool, event.detail === 0));
-    frame.append(add);
+    cell.append(add);
     return cell;
   }
 
   cell.dataset.state = "filled";
-  frame.append(stigmaButton(current.number, "st-cell-stigma"));
+  cell.append(stigmaButton(current.number, "st-cell-stigma"));
   const select = element("select", "st-cell-rank");
   select.setAttribute("aria-label", `Заточка: ${name(current.number)}`);
   for (let value = 0; value <= MAX_ENCHANT; value += 1) select.append(new Option(`+${value}`, String(value)));
@@ -370,29 +369,26 @@ function slotCell(index) {
 }
 
 function linkedCell() {
-  const cell = element("li", "st-cell s48-cell s48-linked");
+  const cell = element("li", "s48-cell s48-linked");
   cell.dataset.kind = KIND[HIDDEN];
-  cell.style.gridArea = "linked";
-  const frame = element("div", "st-cell-frame");
-  cell.append(frame);
   const linked = build.linked();
   if (!linked) {
     const locked = build.level < GRADE_LEVEL[HIDDEN];
     cell.dataset.state = locked ? "locked" : "empty";
-    frame.append(element("span", "st-cell-note s48-linked-note", locked ? "55" : "?"));
-    cell.append(element("span", "s48-linked-caption", "прихована"));
+    cell.append(element("span", "st-cell-note", locked ? "55" : "?"));
     const hint = locked ? "Прихована стигма: з 55 рівня" : "Прихована стигма: відкриється, коли зайняті всі шість слотів";
     cell.setAttribute("aria-label", hint);
     cell.title = hint;
     return cell;
   }
   cell.dataset.state = linked.charged ? "active" : "inactive";
-  frame.append(stigmaButton(linked.number, "st-cell-stigma"));
+  cell.append(stigmaButton(linked.number, "st-cell-stigma"));
   cell.append(element("span", "s48-linked-caption", linked.charged ? `+${linked.enchant}` : "не діє"));
   return cell;
 }
 
 function renderRing() {
+  ui.ring.classList.toggle("is-linked", Boolean(build.linked()));
   ui.ring.replaceChildren(...SLOTS.map((_, index) => slotCell(index)), linkedCell());
 }
 
@@ -434,7 +430,14 @@ function renderLinks() {
     }
     return item;
   };
-  const op = (sign) => element("span", "s48-op", sign);
+  const op = (sign) => {
+    const image = element("img", "s48-op");
+    image.src = `${ICONS}${sign === "+" ? "plus" : "result"}.png`;
+    image.alt = sign === "+" ? "плюс" : "дорівнює";
+    image.width = 28;
+    image.height = 28;
+    return image;
+  };
   const rows = LINKS[build.classId].map((combo, index) => {
     const formula = element("div", "s48-formula");
     formula.append(
@@ -498,7 +501,7 @@ function renderDetails(container, key, mode) {
   if (installed) badges.append(element("span", "badge badge-live", "У збірці"));
   if (hidden && linked?.number === number) badges.append(element("span", linked.charged ? "badge badge-live" : "badge", linked.charged ? "Діє" : "Не діє"));
   titleBlock.append(badges);
-  const gem = element("span", `st-gem st-gem--lg s48-gem s48-gem--${KIND[grade]}`);
+  const gem = element("span", "st-gem st-gem--lg");
   gem.append(icon(number, 44));
   head.append(gem, titleBlock);
   parts.push(head);

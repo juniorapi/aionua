@@ -256,8 +256,9 @@ function slotCell(index) {
   if (!slot) {
     // Порожня клітинка веде до списку, з якого її можна заповнити.
     cell.dataset.state = "empty";
-    const add = element("button", "st-cell-add", "+");
+    const add = element("button", "st-cell-add");
     add.type = "button";
+    add.title = advanced ? "Вільний покращений слот" : "Вільний звичайний слот";
     add.setAttribute("aria-label", advanced ? "Вільний слот: вибрати покращену стигму" : "Вільний слот: вибрати звичайну стигму");
     // detail 0 — натиснуто з клавіатури.
     add.addEventListener("click", (event) => jumpTo(ui.sections[advanced ? "advanced" : "normal"], event.detail === 0));
