@@ -59,7 +59,7 @@ const EURO_NAMES = Object.freeze({
 
 // Origin Aion має власну локалізацію назв — ті самі, що на сторінці originaion/.
 const ORIGIN_NAMES = Object.freeze({
-  "Terath Dredgion": "Дерадикон Терат",
+  "Terath Dredgion": "Дерадикон Садх",
   "Kamar Battlefield": "Поле битви Камара",
   "Engulfed Ophidan Bridge": "Міст Йормунґанда",
   "Iron Wall Warfront": "Неприступна твердиня",

@@ -135,7 +135,7 @@ test("v2 home shows live servers, upcoming events and tool search", async () => 
     assert.equal(await page.locator("[data-next-list] .next-in").first().innerText(), "через 56 хв");
 
     await page.getByRole("button", { name: "Origin Aion" }).click();
-    await page.locator("[data-next-list] .next-name").filter({ hasText: "Дерадикон Терат" }).waitFor();
+    await page.locator("[data-next-list] .next-name").filter({ hasText: "Дерадикон Садх" }).waitFor();
     assert.equal(await page.locator("[data-events-link]").getAttribute("href"), "schedule/?server=origin");
 
     await page.keyboard.press("/");

@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.7.2
+// @version      1.7.3
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -167,8 +167,8 @@
     'sunday': 'Неділя',
 
     /* ── Локації та інстанси ── */
-    'terath dredgion': 'Дредгіон Терату',
-    'dredgion': 'Дредгіон',
+    'terath dredgion': 'Дерадикон Садх',
+    'dredgion': 'Дерадикон',
     'engulfed ophidan bridge': 'Поглинутий міст Офідан',
     'kamar battlefield': 'Поле бою Камар',
     'arena of discipline': 'Арена Дисципліни',
@@ -402,7 +402,7 @@
     /* Складені назви: скрипт лишав власну назву латинкою, бо не знав її.
        Ключ — назва без рангу («… II»), саме її шукає складач назв. */
     'venerable elim amulet': 'Амулет шанованого Еліма',
-    'terath dredgion bonus entry scroll': 'Сувій входу в Дерадікон Садх',
+    'terath dredgion bonus entry scroll': 'Сувій входу в Дерадикон Садх',
     'sauro supply base bonus entry scroll': 'Сувій входу на військову базу Сауро',
     "fortuneer's godstone pack": 'Згорток з божественними каменями гільдії авантюристів',
     "leader's recovery scroll": 'Відновлювальний сувій правителя',
@@ -540,7 +540,7 @@
       '• Якщо телепортуєтеся за допомогою заклинача, він має лишатися онлайн і видимим щонайменше 1 хвилину після цього, щоб команда чи інший гравець не сплутали вас із шахраєм.',
     'what you cannot do with dual client:': 'Чого не можна робити з другим клієнтом:',
     '• use dual clients for pvp against your own characters, regardless of faction or activity (open world, dredgion, siege, arena, etc).':
-      '• Використовувати другий клієнт для PvP проти власних персонажів — незалежно від фракції та активності (відкритий світ, дредгіон, облога, арена тощо).',
+      '• Використовувати другий клієнт для PvP проти власних персонажів — незалежно від фракції та активності (відкритий світ, Дерадикон, облога, арена тощо).',
     '• control or use skills on both characters simultaneously during pvp. you must wait until the first character dies before controlling the second.':
       '• Керувати обома персонажами чи застосовувати їхні вміння одночасно під час PvP. Перш ніж керувати другим, дочекайтеся смерті першого.',
     '• complete quests, trade ap, or exploit mechanics between dual client accounts.':
@@ -756,10 +756,10 @@
   /* ── Раси та класи: лише для відповідних колонок таблиці рейтингу,
         щоб не зачепити нікнейми гравців (є, наприклад, гравець «Paladin»). ── */
 
-  /* Назви звірено з client_strings_ui.xml вивіреної бази локалізації гри
-     (STR_CLASS_NAME_*), щоб сайт збігався з українським клієнтом.
-     Виняток — chanter: у базі він «Чарівник», як і sorcerer, тож у таблиці
-     рейтингу два класи стали б нерозрізненними; вжито «Чародій». */
+  /* Назви — з STR_CLASS_NAME_* українських паків Origin, Riftshade і Destiny
+     (у всіх трьох однакові), щоб сайт збігався з клієнтом. Ключі тут — англійські
+     назви з сайту, а не ключі клієнта: у клієнті CLERIC і PRIEST переставлені
+     (STR_CLASS_NAME_CLERIC — «Priest», Жрець; STR_CLASS_NAME_PRIEST — «Cleric», Цілитель). */
   const RACES = {
     'elyos': 'Елієць',
     'asmodian': 'Асмодіанець',
@@ -772,18 +772,18 @@
     'ranger': 'Стрілець',
     'sorcerer': 'Чарівник',
     'spiritmaster': 'Заклинач',
-    'cleric': 'Жрець',
+    'cleric': 'Цілитель',
     'chanter': 'Чародій',
-    'gunner': 'Пілот',
+    'gunner': 'Снайпер',
     'bard': 'Бард',
-    'rider': 'Вершник',
-    'aethertech': 'Етертех',
+    'rider': 'Пілот',
+    'aethertech': 'Пілот',
     'warrior': 'Воїн',
     'scout': 'Слідопит',
     'mage': 'Маг',
-    'priest': 'Цілитель',
-    'technist': 'Технолог',
-    'muse': 'Муза',
+    'priest': 'Жрець',
+    'technist': 'Інженер',
+    'muse': 'Артист',
   };
 
   /* ═══════════════════ КОМПОЗИЦІЙНИЙ ПЕРЕКЛАД НАЗВ ══════════════════════

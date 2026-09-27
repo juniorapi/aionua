@@ -84,7 +84,7 @@ test("Origin Aion page renders the official weekly schedule in local time", asyn
     assert.equal(await page.getByRole("heading", { name: "Розклад Origin Aion" }).count(), 1);
     assert.equal(await page.locator("#schedule-body .schedule-label").count(), 30);
     assert.equal(await page.locator("#schedule-body .category-row").count(), 4);
-    assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Дерадикон Терат");
+    assert.equal(await page.locator("#schedule-body .schedule-label").first().innerText(), "Дерадикон Садх");
     assert.equal(
       await page.locator("#schedule-body tr:not(.category-row)").first().locator("td").first().innerText(),
       "01:00-03:00\n13:00-15:00\n20:00-22:00",

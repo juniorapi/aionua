@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const categoryOrder = Object.freeze(["pvp", "arenas", "siege", "rifts"]);
   const translations = Object.freeze({
-    "Terath Dredgion": "Дерадикон Терат",
+    "Terath Dredgion": "Дерадикон Садх",
     "Kamar Battlefield": "Поле битви Камара",
     "Engulfed Ophidan Bridge": "Міст Йормунґанда",
     "Iron Wall Warfront": "Неприступна твердиня",
