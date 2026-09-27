@@ -573,7 +573,17 @@ a:link, a:visited {
 	height:102px;
 	opacity:0.6;
 	filter: alpha(opacity=60);
-	background: url(/aionua/stigma/img/4.5.png);
+	/* Було зображення 4.5.png, а калькулятор — для 4.6: версія тепер текстом у тому ж стилі. */
+	color: #6f5c43;
+	font: 66px/102px "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+	letter-spacing: 2px;
+	text-align: center;
+	transform: rotate(-24deg);
+	pointer-events: none;
+}
+
+#version_layer::before {
+	content: "4.6";
 }
 
 #cost_wrapper {

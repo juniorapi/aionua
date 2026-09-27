@@ -399,6 +399,7 @@ section#wrap_green3 #green3 {
 	opacity: .97;
 	max-width: 350px;
 	z-index: 3000;
+	pointer-events: none;
 }
 #enchant {
 	opacity: .9;
@@ -416,6 +417,7 @@ section#wrap_green3 #green3 {
 	display: none;
 	padding: 5px 7px 5px 7px;
 	position: absolute;
+	pointer-events: none;
 }
 
 
@@ -509,7 +511,7 @@ section#wrap_green3 #green3 {
 #language img.current {opacity: .85;}
 #language img:hover {opacity: 1.0;}
 
-.lvlup {width: 9px;}
+.lvlup {color: #2FF019; font-size: 9px; vertical-align: 1px;}
 /* Перемикач мови */
 #lang_switch { position: fixed; top: 10px; right: 12px; display: flex; gap: 4px; z-index: 999; }
 .lang-btn {

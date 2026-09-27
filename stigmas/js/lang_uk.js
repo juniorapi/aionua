@@ -234,11 +234,44 @@ var SKILL_UK = {
 (function () {
 	if (typeof skill === 'undefined' || !Array.isArray(skill)) return;
 	if (typeof STIGMAS_LANG !== 'undefined' && STIGMAS_LANG !== 'uk') return;
+
+	// Деякі описи з паку належать іншій версії вміння: чисел для їхніх плейсхолдерів у даних
+	// немає, і в підказці лишилися б «[%e1...]». Такий опис не підставляємо — лишається
+	// англійський, що точно відповідає даним. Порівнюємо точно, як і сама підказка.
+	function fits(text, parts) {
+		var holes = String(text).match(/\[%[^\]]*\]/g) || [];
+		for (var h = 0; h < holes.length; h++) {
+			var found = false;
+			for (var p = 0; p < parts.length && !found; p++) {
+				var rules = parts[p] && parts[p].rules;
+				if (!rules) continue;
+				for (var key in rules) {
+					if (key === holes[h] || key === holes[h] + '%') { found = true; break; }
+				}
+			}
+			if (!found) return false;
+		}
+		return true;
+	}
+
 	for (var i = 0; i < skill.length; i++) {
 		var tr = SKILL_UK[skill[i].name];
 		if (!tr) continue;
 		skill[i].name_l10n = tr.n;
-		if (tr.d) skill[i].desc = tr.d;
+		if (!tr.d) continue;
+		var levels = [];
+		for (var l in skill[i].lvls) levels.push(skill[i].lvls[l]);
+		if (skill[i].type !== 'charge') {
+			if (fits(tr.d, levels)) skill[i].desc = tr.d;
+			continue;
+		}
+		// Уміння із зарядкою: той самий опис для кожного етапу, якщо до нього є числа.
+		for (var n = 1; n <= 3; n++) {
+			var stage = skill[i]['stage_' + n];
+			if (!stage) continue;
+			var parts = levels.map(function (level) { return level['stage_' + n]; });
+			if (fits(tr.d, parts)) stage.desc = tr.d;
+		}
 	}
 })();
 
@@ -298,6 +331,27 @@ var UI_UK = {
 	'Melee Weapon': 'Зброя ближнього бою',
 	'Shield': 'Щит',
 
+	'Heal': 'Зцілення',
+	'Skill': 'Уміння',
+	'Summon Trap': 'Пастка',
+	'Summon Homing': 'Самонавідний призов',
+	'Trap': 'Пастка',
+	'Stealth': 'Непомітність',
+	'Dispel': 'Зняття ефектів',
+	'None': 'Немає',
+	'Usage Cost': 'Вартість',
+	'Charging Time': 'Час зарядки',
+	'Hold Time': 'Час утримання',
+	'Group Member': 'Член групи',
+	'Area within a Radius of Target': 'Область навколо цілі',
+	'Pet': 'Вихованець',
+	'PvP: Remain time': 'PvP: тривалість',
+	'PvP: Remain Time': 'PvP: тривалість',
+	'PvP: Damage': 'PvP: шкода',
+	'Charge Stigma': 'Зарядити стигму',
+	'If you equip Charged Stigmas in all 6 slots, a Linked Stigma skill becomes available.': 'Коли в усіх 6 слотах заряджені стигми, відкривається прихована стигма.',
+	'If any slot contains an Inert Stigma, however, a Linked Stigma skill will not be available.': 'Якщо хоч в одному слоті незаряджена стигма, прихована не діє.',
+
 	// У тултіпі число й одиниця — різні вузли, тож перекладаємо саму одиницю
 	'sec': 'сек',
 	'min': 'хв',
@@ -309,7 +363,9 @@ var UI_UK = {
 var UI_UK_PATTERNS = [
 	[/^Available at (\d+) level$/, function (m) { return 'Доступно з ' + m[1] + ' рівня'; }],
 	[/^Major Stigma Slot \((\d+) level\)$/, function (m) { return 'Головна комірка стигми (' + m[1] + ' рівень)'; }],
+	[/^Greater Stigma Slot \((\d+) level\)$/, function (m) { return 'Велика комірка стигми (' + m[1] + ' рівень)'; }],
 	[/^Stigma Slot \((\d+) level\)$/, function (m) { return 'Комірка стигми (' + m[1] + ' рівень)'; }],
+	[/^(\d) Stage$/, function (m) { return 'Етап ' + m[1]; }],
 	[/^(\d+) min$/, function (m) { return m[1] + ' хв'; }],
 	[/^(\d+) sec$/, function (m) { return m[1] + ' сек'; }],
 	[/^lvl (\d+) \/ (\d+)$/, function (m) { return 'рів. ' + m[1] + ' / ' + m[2]; }],
@@ -476,19 +532,26 @@ var STAT_UK = {
 		return m[1] + ' ' + unit;
 	}
 
+	function patch(rules) {
+		if (!rules || typeof rules !== 'object') return;
+		for (var key in rules) {
+			var v = rules[key];
+			if (typeof v !== 'string') continue;
+			var t = time(v);
+			if (t) { rules[key] = t; continue; }
+			if (STAT_UK[v]) rules[key] = STAT_UK[v];
+		}
+	}
+
 	for (var i = 0; i < skill.length; i++) {
 		var lvls = skill[i].lvls;
-		if (!Array.isArray(lvls)) continue;
-		for (var j = 0; j < lvls.length; j++) {
-			var rules = lvls[j] && lvls[j].rules;
-			if (!rules || typeof rules !== 'object') continue;
-			for (var key in rules) {
-				var v = rules[key];
-				if (typeof v !== 'string') continue;
-				var t = time(v);
-				if (t) { rules[key] = t; continue; }
-				if (STAT_UK[v]) rules[key] = STAT_UK[v];
-			}
+		for (var j in lvls) {
+			var level = lvls[j];
+			if (!level) continue;
+			patch(level.rules);
+			patch(level.stage_1 && level.stage_1.rules);
+			patch(level.stage_2 && level.stage_2.rules);
+			patch(level.stage_3 && level.stage_3.rules);
 		}
 	}
 })();

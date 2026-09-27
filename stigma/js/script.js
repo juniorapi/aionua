@@ -697,14 +697,28 @@ Calc.reloadStigmas = function(cl) {
 		$('#stigma_tooltip').hide();
 		UI.reposWindow('#stigma_tooltip', e);
 	});
+	// Порожня збірка — чиста адреса без коду: клас і рівень без стигм пересилати нема чого.
 	var link = Calc.getHash();
+	var empty = true;
+	for (var k = 0; k < Calc.slots.length; ++k) {
+		if (Calc.slots[k])
+			empty = false;
+	}
+	if (empty)
+		link = '';
 	
-	if (! Calc.noReload && location.hash != link) {
-		Calc.noReload = 1;
-		location.hash = link;
+	// location.hash починається з «#», тож порівнюємо без нього: інакше той самий код
+	// записувався б знову, подія hashchange не приходила, і наступне посилання пропускалося.
+	if (! Calc.noReload && location.hash.slice(1) != link) {
+		if (link) {
+			Calc.noReload = 1;
+			location.hash = link;
+		} else {
+			history.replaceState(null, '', location.pathname + location.search);
+		}
 	}
 	
-	link = location.protocol +'//'+ location.hostname + (location.pathname ? location.pathname : '/') + (link ? '#'+ link : '');
+	link = location.protocol +'//'+ location.host + (location.pathname ? location.pathname : '/') + (link ? '#'+ link : '');
 	$("#stigma_link").attr('value', link);
 }
 
