@@ -1,4 +1,4 @@
-// Оригінальні калькулятори стигм 4.6 (stigma/) і 4.8 (stigmas/) та переходи на них зі старих адрес v2.
+// Оригінальні калькулятори стигм 4.6 (stigma/) і 4.8 (stigmas/) та сторінки v2, що показують їх у своєму дизайні.
 //
 // Запуск: node --test tests/stigma-calculators.e2e.mjs
 import assert from "node:assert/strict";
@@ -54,8 +54,8 @@ async function withSite(run) {
   // Калькулятор 4.8 бере jQuery з CDN; у тестах — локальна копія зі сторінки 4.6.
   const jquery = await readFile(path.join(root, "stigma", "js", "jquery.js"), "utf8");
 
-  async function open(pagePath) {
-    const context = await browser.newContext({ viewport: { width: 1280, height: 950 }, locale: "uk-UA" });
+  async function open(pagePath, { viewport = { width: 1280, height: 950 } } = {}) {
+    const context = await browser.newContext({ viewport, locale: "uk-UA" });
     const page = await context.newPage();
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
@@ -122,13 +122,21 @@ test("stigma calculator 4.8 takes clicks, charges stigmas and explains them in U
     await page.locator('#enchant .button[data-value="5"]').click();
     assert.equal(await page.evaluate(() => window.location.hash), "#jbahfdvzzzzz:65");
 
-    // Уміння із зарядкою: етапи й час — українською.
+    // Уміння із зарядкою: етапи, час і потрібна зброя — українською.
     await page.locator("#left_stigma #gold1").hover();
     const tooltip = await page.locator("#tooltip").innerText();
     assert.match(tooltip, /Етап 1/);
     assert.match(tooltip, /Час зарядки/);
     assert.match(tooltip, /Удар магією вітру/);
+    assert.match(tooltip, /Потрібно: Ефірна гармата\./);
     assert.doesNotMatch(tooltip, /\[%/);
+    // Опис, якого немає в паку, перекладено з даних калькулятора.
+    await page.locator('#right_stigma div.stigma[data-stigma="08"]').hover();
+    await page.locator('#right_stigma div.stigma[data-stigma="07"]').hover();
+    await page.locator('#right_stigma div.stigma[data-stigma="08"]').hover();
+    const armorBreak = await page.locator("#tooltip").innerText();
+    assert.match(armorBreak, /Удар магією вітру, завдає/);
+    assert.doesNotMatch(armorBreak, /Inflicts|\[%/);
 
     await page.locator("#default_build").click();
     assert.equal(page.url(), `${origin}/aionua/stigmas/gunner/`);
@@ -137,14 +145,154 @@ test("stigma calculator 4.8 takes clicks, charges stigmas and explains them in U
   });
 });
 
-test("old v2 calculator addresses open the original calculators with the same build", async () => {
+test("stigma calculator 4.8 keeps zeros and percent values in Ukrainian descriptions", async () => {
   await withSite(async (open) => {
-    const first = await open("v2/stigma/#aCnahasgxaqgwaffBeecd");
-    await first.page.waitForURL(/\/aionua\/stigma\/#aCnahasgxaqgwaffBeecd$/);
+    const { page, context, errors } = await open("stigmas/ranger/");
+    const hover = async (name) => {
+      const index = await page.evaluate((skillName) => window.skill.findIndex((item) => item.name === skillName), name);
+      const target = page.locator(`#right_stigma div.stigma[data-stigma="${String(index + 1).padStart(2, "0")}"]`);
+      await page.locator("#stigma_info").hover();
+      await target.hover();
+      return page.locator("#tooltip").innerText();
+    };
+    // Уміння без росту за рівнем раніше перетворювали кожен нуль в описі на «NaN».
+    const trap = await hover("Light_BlazingTrap");
+    assert.match(trap, /потрібно 20 насіння трипіда/);
+    assert.doesNotMatch(trap, /NaN/);
+    await context.close();
+
+    const bard = await open("stigmas/songweaver/");
+    const index = await bard.page.evaluate(() => window.skill.findIndex((item) => item.name === "PlayingStylesChangeB"));
+    await bard.page.locator("#stigma_info").hover();
+    await bard.page.locator(`#right_stigma div.stigma[data-stigma="${String(index + 1).padStart(2, "0")}"]`).hover();
+    const boost = await bard.page.locator("#tooltip").innerText();
+    // Ключ у даних зі знаком «%»: число підставляється, а не лишається «[%e1...]».
+    assert.match(boost, /Сила магії \+\d+/);
+    assert.doesNotMatch(boost, /\[%/);
+    assert.deepEqual([...errors, ...bard.errors], []);
+    await bard.context.close();
+  });
+});
+
+test("v2 stigma page 4.6 shows the original calculator in the site design and keeps the build in its own address", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors, origin } = await open("v2/stigma/");
+    const base = `${origin}/aionua/v2/stigma/`;
+    await page.locator('[data-viewport][data-state="ready"]').waitFor();
+    assert.equal(await page.locator("h1").innerText(), "Стигми 4.6");
+    assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
+    assert.equal(await page.getByRole("link", { name: "Патч 4.6" }).getAttribute("aria-current"), "page");
+
+    // Калькулятор — оригінальний, але без власного фону, кнопки «Назад» і підвалу.
+    const calc = page.frameLocator("[data-viewport] iframe");
+    await calc.locator(".stigma-free").first().waitFor();
+    assert.equal(await calc.locator(".back-button").isVisible(), false);
+    assert.equal(await calc.locator(".footer-text").isVisible(), false);
+    assert.equal(await calc.locator("body").evaluate((body) => getComputedStyle(body).backgroundImage), "none");
+    assert.equal(await calc.locator("#stigma_link").inputValue(), base);
+
+    // Збірка йде в адресу сторінки v2, і поле з посиланням показує саме її.
+    await calc.locator(".stigma-free").first().click();
+    await page.waitForURL(/\/aionua\/v2\/stigma\/#[a-zA-Z]+$/);
+    assert.equal(await calc.locator("#stigma_link").inputValue(), page.url());
+    await calc.locator("#stigma_nor_1").hover();
+    await calc.locator("#stigma_nor_1 .stigma-delete").click();
+    await page.waitForURL(base);
+
+    // Посилання на збірку відкриває її, а новий код в адресі — нову збірку.
+    const active = () => calc.locator(".stigma-slot-active, .stigma-slot-advance-active").count();
+    await page.goto(`${base}#aCnahasgxaqgwaffBeecd`);
+    await calc.locator("#stigma_nor_1.stigma-slot-active").waitFor();
+    assert.equal(await active(), 8);
+    await page.evaluate(() => { window.location.hash = "fBybdeBbakaib"; });
+    await page.waitForFunction(() => document.querySelector('[data-viewport][data-state="ready"] iframe')?.contentDocument
+      ?.querySelectorAll(".stigma-slot-active, .stigma-slot-advance-active").length === 4);
+    assert.equal(page.url(), `${base}#fBybdeBbakaib`);
+
+    // Мова перемикається на сторінці v2, збірка лишається.
+    await page.getByRole("button", { name: "English" }).click();
+    await page.waitForFunction(() => /lang=en/.test(document.querySelector('[data-viewport][data-state="ready"] iframe')?.src ?? ""));
+    await calc.locator("#stigma_nor_1.stigma-slot-active").waitFor();
+    assert.equal(await active(), 4);
+    assert.equal(await page.getByRole("button", { name: "English" }).getAttribute("aria-pressed"), "true");
+    assert.equal(page.url(), `${base}#fBybdeBbakaib`);
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
+test("v2 stigma page 4.8 switches classes, keeps class and build in its address and shares v2 links", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors, origin } = await open("v2/stigmas/#cleric/jbghfd:65");
+    const base = `${origin}/aionua/v2/stigmas/`;
+    const calc = page.frameLocator("[data-viewport] iframe");
+    await page.locator('[data-viewport][data-state="ready"]').waitFor();
+    await calc.locator('#hidden_stigma[data-stigma="001"]').waitFor();
+    assert.equal(await page.locator('[data-class="cleric"]').getAttribute("aria-current"), "page");
+    assert.match(await page.title(), /^Цілитель · Калькулятор стигм 4\.8/);
+    assert.equal(await page.getByRole("link", { name: "Патч 4.8" }).getAttribute("aria-current"), "page");
+    // Заголовок, ряд класів і підвал калькулятора дає сама сторінка v2.
+    assert.equal(await calc.locator("h1").isVisible(), false);
+    assert.equal(await calc.locator("#classes").isVisible(), false);
+    assert.equal(await calc.locator("#footer").isVisible(), false);
+
+    // Інший клас — у рамці його калькулятор, в адресі — його назва.
+    await page.locator('[data-class="gunner"]').click();
+    await page.waitForURL(`${base}#gunner`);
+    await calc.locator('#hidden_stigma[data-stigma="000"]').waitFor();
+    assert.match(await calc.locator(".name_class").innerText(), /Снайпер/);
+    assert.equal(await page.locator('[data-class="gunner"]').getAttribute("aria-current"), "page");
+    for (const code of ["02", "03", "06", "09", "10", "11"]) await calc.locator(`#right_stigma div.stigma[data-stigma="${code}"]`).click();
+    await page.waitForURL(`${base}#gunner/jbahfd:65`);
+    assert.equal(await calc.locator("#hidden_stigma").getAttribute("data-stigma"), "002");
+
+    // «Отримати посилання» дає адресу сторінки v2.
+    let shared = "";
+    page.once("dialog", async (prompt) => {
+      shared = prompt.defaultValue();
+      await prompt.dismiss();
+    });
+    await calc.locator("#link_build").click();
+    assert.equal(shared, `${base}#gunner/jbahfd:65`);
+
+    await calc.locator("#default_build").click();
+    await page.waitForURL(`${base}#gunner`);
+    // Повторний клік по своєму класу нічого не скидає, а основний клас дає чисту адресу.
+    await page.locator('[data-class="gunner"]').click();
+    assert.equal(page.url(), `${base}#gunner`);
+    await page.locator('[data-class="templar"]').click();
+    await page.waitForURL(base);
+    await calc.locator(".name_class").filter({ hasText: "Охоронець" }).waitFor();
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
+test("v2 stigma pages fit a phone screen and old v2 links still open their builds", async () => {
+  await withSite(async (open) => {
+    const phone = { viewport: { width: 390, height: 844 } };
+    const first = await open("v2/stigma/#aCnahasgxaqgwaffBeecd", phone);
+    await first.page.locator('[data-viewport][data-state="ready"]').waitFor();
+    await first.page.frameLocator("[data-viewport] iframe").locator("#stigma_nor_1.stigma-slot-active").waitFor();
+    const fit46 = await first.page.evaluate(() => ({
+      page: document.documentElement.scrollWidth,
+      frame: document.querySelector("[data-viewport] iframe").getBoundingClientRect().width,
+    }));
+    assert.ok(fit46.page <= 390, JSON.stringify(fit46));
+    assert.ok(fit46.frame <= 390, JSON.stringify(fit46));
+    assert.deepEqual(first.errors, []);
     await first.context.close();
-    const second = await open("v2/stigmas/#cleric/jbghfd:65");
-    await second.page.waitForURL(/\/aionua\/stigmas\/cleric\/#jbghfd:65$/);
-    await second.page.waitForFunction(() => document.getElementById("hidden_stigma")?.getAttribute("data-stigma") === "001");
+
+    // У вузькій рамці 4.8 ставить слоти над списком стигм, щоб не дрібнішати.
+    const second = await open("v2/stigmas/#cleric/jbghfd:65", phone);
+    const calc = second.page.frameLocator("[data-viewport] iframe");
+    await second.page.locator('[data-viewport][data-state="ready"]').waitFor();
+    await calc.locator('#hidden_stigma[data-stigma="001"]').waitFor();
+    const left = await calc.locator("#left_stigma").boundingBox();
+    const right = await calc.locator("#right_stigma").boundingBox();
+    assert.ok(right.y > left.y + left.height, JSON.stringify({ left, right }));
+    assert.ok(await second.page.evaluate(() => document.documentElement.scrollWidth <= 390));
+    assert.deepEqual(second.errors, []);
     await second.context.close();
   });
 });

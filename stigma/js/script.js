@@ -718,7 +718,11 @@ Calc.reloadStigmas = function(cl) {
 		}
 	}
 	
-	link = location.protocol +'//'+ location.host + (location.pathname ? location.pathname : '/') + (link ? '#'+ link : '');
+	// На сторінці v2 посилання дає вона сама й веде на себе (див. embed.js).
+	if (window.STIGMA_SHARE)
+		link = window.STIGMA_SHARE(link);
+	else
+		link = location.protocol +'//'+ location.host + (location.pathname ? location.pathname : '/') + (link ? '#'+ link : '');
 	$("#stigma_link").attr('value', link);
 }
 

@@ -399,12 +399,9 @@ test("v2 home links every migrated tool to its v2 page", async () => {
   const html = await readFile(path.join(root, "v2", "index.html"), "utf8");
   for (const tool of [
     "crystal_crafting", "craft", "spc", "essencetapping", "aethertapping", "aion-4.6-enchantment-calculator", "efir",
-    "tempering-solution-counter", "ice-hammer-counter", "localization",
+    "tempering-solution-counter", "ice-hammer-counter", "localization", "stigma", "stigmas",
   ]) {
     assert.match(html, new RegExp(`class="tool-link" href="${tool.replace(/\./g, "\\.")}/"`), tool);
     assert.ok(existsSync(path.join(root, "v2", tool, "index.html")), tool);
   }
-  // Калькулятори стигм — оригінальні сторінки основного сайту.
-  assert.match(html, /class="tool-link" href="\.\.\/stigma\/"/);
-  assert.match(html, /class="tool-link" href="\.\.\/stigmas\/"/);
 });

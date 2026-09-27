@@ -694,3 +694,22 @@ a:link, a:visited {
 	font-size: 1.2rem;
 	line-height: 1;
 }
+
+/* Усередині сторінки нового сайту (v2): фон, кнопку «Назад», підвал і перемикач мови дає сама сторінка. */
+html.embedded,
+html.embedded body {
+	margin: 0;
+	background: transparent;
+	overflow: hidden;
+}
+
+html.embedded #page {
+	top: 25px;
+	margin-top: 0;
+}
+
+html.embedded .back-button,
+html.embedded .footer-text,
+html.embedded #lang_switch {
+	display: none;
+}

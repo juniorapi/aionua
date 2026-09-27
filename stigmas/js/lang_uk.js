@@ -231,38 +231,106 @@ var SKILL_UK = {
 	"windsleep": { "n": "Вітер сну", "d": "Присипляє ціль у радіусі 12 м від персонажа та 6 сусупротивників навколо неї. [%e3.StatUp.StatName]% сусупротивників у зоні дії вміння збільшується. Час дії: [%e2.Sleep.RemainTime]" }
 };
 
+/* Описи, яких у паку немає для цієї версії вміння: перекладено з англійських описів самого
+   калькулятора, з тими самими плейсхолдерами. Мають перевагу над паком. Для вмінь
+   із зарядкою — окремо для кожного етапу. */
+var SKILL_UK_DATA = {
+	"ReflectShield": "[%e2.Statup.StatName] +[%e2.Statup.value]. [%e2.Statup.StatName3] +[%e2.Statup.value3]. [%e3.StatBoost.StatName] +[%e3.StatBoost.FixValue]. Повертає [%e1.Reflector.FixedDamage] од. шкоди ворогові в радіусі [%e1.Reflector.MaxRange] м, який застосовує до вас «[%e1.Reflector.Condition]».\nПоки діє вміння, не можна стрибати, а інше вміння перериває його дію.\nПотрібен щит.\nАктивне вміння.",
+	"Light_FairyFlare": "Встановлює пастку в радіусі [%First_Target_Valid_Distance] м. Пастка діє [%e1.SummonTrap.SummonTime], а коли ворог підходить до неї ближче ніж на 10 м, вибухає й знімає з нього маскування.",
+	"Light_ShockTrap": "Встановлює пастку навколо вас. Пастка вибухає одразу після встановлення й відкидає ворогів у радіусі 3 м від себе.",
+	"WideNewBlindingBurst": "Осліплює ворогів у радіусі 15 м і знижує їм [%e2.StatDown.StatName] на [%e2.StatDown.Value]. Час дії: [%e1.Blind.RemainTime]. Ворог-гравець на мить втрачає обрану ціль.",
+	"WindCutter": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м і знижує їй [%e2.StatDown.StatName] на [%e2.StatDown.Value] на [%e2.StatDown.RandomTime]–[%e2.StatDown.RemainTime].",
+	"HarshThrust": {
+		"1": "Потужний удар згори із зарядкою, завдає цілі [%e1.SkillATK_Instant.MinDamage]-[%e1.SkillATK_Instant.MaxDamage] од. фізичної шкоди.",
+		"2": "Потужний удар згори із зарядкою, завдає цілі [%e1.SkillATK_Instant.MinDamage]-[%e1.SkillATK_Instant.MaxDamage] од. фізичної шкоди."
+	},
+	"Light_HealingServent": "Закликає нерухомого духа зцілення, який відновлює [%e0.PR_N_Totem_HealingServent_G6.e1.Heal_Instant.Heal] HP вам і щонайбільше шістьом членам альянсу в радіусі 30 м.\nПотрібна стигма.",
+	"Light_EternalServent": "Закликає поруч духа, який не сходить з місця й завдає [%e0.PR_N_EternalServent_G6.e1.SpellATK_Instant.FixDamage] од. шкоди вогнем цілі в радіусі 30 м. З кожною атакою дух витрачає частину власних HP.",
+	"Sprint": "Збільшує швидкість руху на 30%% на час до 15 сек.",
+	"PunishingLight": "Знижує цілі в радіусі [%First_Target_Valid_Distance] м [%e1.StatDown.StatName] на [%e1.StatDown.Value] і [%e1.StatDown.StatName2] на [%e1.StatDown.Value2]. Час дії: [%e1.StatDown.RemainTime].",
+	"ArmorBreak": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м. [%e2.StatDown.StatName] цілі -[%e2.StatDown.Value], а отримуване нею відновлення HP менше на 50%%. Час дії: [%e2.StatDown.RemainTime].",
+	"ShockCannon": {
+		"2": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м і ще щонайбільше 2 ворогам у радіусі 2 м від неї. Сила вітру відкидає ворогів.",
+		"3": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м і ще 3 цілям у радіусі 4 м від неї. Сила вітру відкидає ворогів на 4 сек."
+	},
+	"EathiumWall": "Створює захисний бар'єр, що протягом 30 сек з імовірністю [%e1.MPShield.ConditionProb]%% блокує до [%e1.MPShield.CoverValue]%% шкоди щоразу, коли вас вражає «[%e1.MPShield.Condition]». (Бар'єр діє, доки сумарна шкода не сягне [%e1.MPShield.ShieldValue]. Витрачає до [%e1.MPShield.LoseMP]%% заблокованої шкоди у вигляді MP.)\nПоки діє бар'єр, опір шоку +[%e2.StatUp.Value], [%e2.StatUp.StatName2] +[%e2.StatUp.Value2].\nАктивне вміння.\nПотрібна стигма.",
+	"EathiumReactive": {
+		"1": "Відновлює [%e1.MpHeal_Instant.Heal] MP.",
+		"2": "Відновлює [%e1.MpHeal_Instant.Heal] MP.",
+		"3": "Відновлює [%e1.MpHeal_Instant.Heal] MP."
+	},
+	"EathiumBlast": {
+		"1": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м.",
+		"2": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м.",
+		"3": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди цілі в радіусі [%First_Target_Valid_Distance] м і щонайбільше 6 ворогам у радіусі 5 м від неї."
+	},
+	"FlameThrow": {
+		"1": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди щонайбільше 3 цілям у радіусі 15 м у передній півсфері.",
+		"2": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди щонайбільше 4 цілям у радіусі 15 м у передній півсфері й може оглушити ціль.",
+		"3": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди щонайбільше 6 цілям у радіусі 15 м у передній півсфері й може оглушити ціль."
+	},
+	"EathiumBeam": {
+		"1": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди ворогам між вами й ціллю на відстані до [%First_Target_Valid_Distance] м. Балаурам завдає ще [%e1.SpellATK_Instant.AddDamage] од. шкоди.",
+		"2": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди ворогам між вами й ціллю на відстані до [%First_Target_Valid_Distance] м. Балаурам завдає ще [%e1.SpellATK_Instant.AddDamage] од. шкоди.",
+		"3": "Удар магією вітру, завдає [%e1.SpellATK_Instant.FixDamage] од. шкоди ворогам між вами й ціллю на відстані до [%First_Target_Valid_Distance] м. Балаурам завдає ще [%e1.SpellATK_Instant.AddDamage] од. шкоди."
+	},
+	"SongofBless": "Знімає 2 негативні стани з вас і членів групи в радіусі 25 м, відновлює [%e2.Heal_Instant.Heal] HP і посилює отримуване відновлення HP. Час дії: [%e3.DeboostHealAmount.RemainTime].",
+	"PlayingStylesChangeA": "[%e1.StatBoost.StatName] +[%e1.StatBoost.fixValue]%%. [%e2.StatBoost.StatName] +[%e2.StatBoost.fixValue].\nАктивне вміння.",
+	"SongofAdvance": "Вам і членам групи в радіусі 25 м: [%e1.StatUp.StatName] +[%e1.StatUp.Value] на 15 сек.",
+	"SongofRegeneration": "Миттєво відновлює [%e1.Heal_Instant.Heal] HP цілі в радіусі [%First_Target_Valid_Distance] м, а потім ще по [%e2.Heal.CheckTimeHeal] HP кожні [%e2.Heal.CheckTime] протягом [%e2.Heal.RemainTime].",
+	"Lullaby": "Присипляє ціль у радіусі [%First_Target_Valid_Distance] м на [%e2.Sleep.RemainTime] і знижує її магічний захист."
+};
+
 (function () {
 	if (typeof skill === 'undefined' || !Array.isArray(skill)) return;
 	if (typeof STIGMAS_LANG !== 'undefined' && STIGMAS_LANG !== 'uk') return;
 
 	// Деякі описи з паку належать іншій версії вміння: чисел для їхніх плейсхолдерів у даних
 	// немає, і в підказці лишилися б «[%e1...]». Такий опис не підставляємо — лишається
-	// англійський, що точно відповідає даним. Порівнюємо точно, як і сама підказка.
-	function fits(text, parts) {
-		var holes = String(text).match(/\[%[^\]]*\]/g) || [];
+	// переклад із SKILL_UK_DATA або англійський, що точно відповідає даним. Порівнюємо точно,
+	// як і сама підказка.
+	// Інколи ключ у даних разом зі знаками «%» ([%e1.X]% чи [%e1.X]%%): підказка шукає саме
+	// так, тож і в описі плейсхолдер дописуємо з ними. Повертає готовий опис або null.
+	function adapt(text, parts) {
+		var out = String(text);
+		var holes = out.match(/\[%[^\]]*\]/g) || [];
 		for (var h = 0; h < holes.length; h++) {
-			var found = false;
-			for (var p = 0; p < parts.length && !found; p++) {
+			var hole = holes[h];
+			var exact = false;
+			var suffix = '';
+			for (var p = 0; p < parts.length; p++) {
 				var rules = parts[p] && parts[p].rules;
 				if (!rules) continue;
 				for (var key in rules) {
-					if (key === holes[h] || key === holes[h] + '%') { found = true; break; }
+					if (key === hole) exact = true;
+					else if (!suffix && key.indexOf(hole) === 0 && /^%+$/.test(key.slice(hole.length))) suffix = key.slice(hole.length);
 				}
 			}
-			if (!found) return false;
+			if (exact) continue;
+			if (!suffix) return null;
+			var pieces = out.split(hole + suffix);
+			for (var q = 0; q < pieces.length; q++) pieces[q] = pieces[q].split(hole).join(hole + suffix);
+			out = pieces.join(hole + suffix);
 		}
-		return true;
+		return out;
+	}
+
+	// Спершу власний переклад з даних калькулятора, далі опис з паку.
+	function pick(own, pack, parts) {
+		return (own && adapt(own, parts)) || (pack && adapt(pack, parts)) || null;
 	}
 
 	for (var i = 0; i < skill.length; i++) {
 		var tr = SKILL_UK[skill[i].name];
-		if (!tr) continue;
-		skill[i].name_l10n = tr.n;
-		if (!tr.d) continue;
+		var own = SKILL_UK_DATA[skill[i].name];
+		if (!tr && !own) continue;
+		if (tr) skill[i].name_l10n = tr.n;
+		var pack = tr && tr.d;
 		var levels = [];
 		for (var l in skill[i].lvls) levels.push(skill[i].lvls[l]);
 		if (skill[i].type !== 'charge') {
-			if (fits(tr.d, levels)) skill[i].desc = tr.d;
+			var desc = pick(typeof own === 'string' ? own : null, pack, levels);
+			if (desc) skill[i].desc = desc;
 			continue;
 		}
 		// Уміння із зарядкою: той самий опис для кожного етапу, якщо до нього є числа.
@@ -270,7 +338,8 @@ var SKILL_UK = {
 			var stage = skill[i]['stage_' + n];
 			if (!stage) continue;
 			var parts = levels.map(function (level) { return level['stage_' + n]; });
-			if (fits(tr.d, parts)) stage.desc = tr.d;
+			var stageDesc = pick(own && (typeof own === 'string' ? own : own[n]), pack, parts);
+			if (stageDesc) stage.desc = stageDesc;
 		}
 	}
 })();
@@ -330,6 +399,20 @@ var UI_UK = {
 	'Aethercannon Shot': 'Постріл з ефірної гармати',
 	'Melee Weapon': 'Зброя ближнього бою',
 	'Shield': 'Щит',
+	// Зброя в рядку «Потрібно: …» — назви як у перекладі крамниці Origin.
+	'Sword': 'Меч',
+	'Mace': 'Булава',
+	'Dagger': 'Кинджал',
+	'Greatsword': 'Дворучний меч',
+	'Polearm': 'Спис',
+	'Bow': 'Лук',
+	'Spellbook': 'Книга заклять',
+	'Orb': 'Сфера',
+	'Harp': 'Арфа',
+	'Pistol': 'Пістолет',
+	'Aether Cannon': 'Ефірна гармата',
+	'Cipher-Blade': 'Ключ-клинок',
+	'Available when riding a Bastion': 'верхи на бастіоні',
 
 	'Heal': 'Зцілення',
 	'Skill': 'Уміння',
@@ -368,6 +451,8 @@ var UI_UK_PATTERNS = [
 	[/^(\d) Stage$/, function (m) { return 'Етап ' + m[1]; }],
 	[/^(\d+) min$/, function (m) { return m[1] + ' хв'; }],
 	[/^(\d+) sec$/, function (m) { return m[1] + ' сек'; }],
+	// Вартість з інтервалом «MP 2% (3 sec)»: кожна цифра у своєму вузлі, тож одиниця — окремо
+	[/^(sec|min|hour)\)$/, function (m) { return { sec: 'сек', min: 'хв', hour: 'год' }[m[1]] + ')'; }],
 	[/^lvl (\d+) \/ (\d+)$/, function (m) { return 'рів. ' + m[1] + ' / ' + m[2]; }],
 	[/^Usage Requirement: (.+)$/, function (m) {
 		var what = m[1].replace(/\.$/, '').split('/').map(function (p) {
@@ -480,14 +565,14 @@ var STAT_UK = {
 	"Atk Range": "Радіус атаки",
 	"Atk Speed": "Швидк. атаки",
 	"Attack": "Атака",
-	"Block": "Ігнор-лист",
+	"Block": "Блок щитом",
 	"Bow": "Луки",
 	"Crit Spell": "М. крит.",
 	"Crit Strike": "Ф. крит.",
 	"Evasion": "Ухилення",
 	"Evasion, Parry, Block": "Уникнення, парирування, блок щитом",
 	"Fear Resist": "Зах. від страху",
-	"Fire Resist": "Защ. від вогню",
+	"Fire Resist": "Зах. від вогню",
 	"Healing Boost": "Сила зцілення",
 	"Immobilization Resist": "Зах. від знерухомлення",
 	"Knock Back Resist": "Зах. від відштовхування",

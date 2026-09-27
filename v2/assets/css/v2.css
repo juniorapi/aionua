@@ -2406,6 +2406,150 @@ textarea {
   color: var(--gold);
 }
 
+/* ---------- Калькулятори стигм: оригінальний калькулятор у рамці ---------- */
+
+.stigma-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.stigma-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+/* Перемикач версії веде на сусідню сторінку, але виглядає як кнопки поруч. */
+.segmented a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.segmented a:hover {
+  color: var(--text);
+}
+
+.segmented a[aria-current="page"] {
+  border-color: var(--line-strong);
+  background: var(--raised);
+  color: var(--text);
+}
+
+/* Класи — один ряд плиток, як вибір класу в грі; що не влізло, гортається вбік. */
+.stigma-classes {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(80px, 1fr);
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.stigma-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 4px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.stigma-class img {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.stigma-class:hover {
+  border-color: var(--gold-line);
+  background: var(--raised);
+  color: var(--text);
+}
+
+.stigma-class:hover img,
+.stigma-class[aria-current="page"] img {
+  opacity: 1;
+}
+
+.stigma-class[aria-current="page"] {
+  border-color: var(--gold-line);
+  background: var(--gold-tint);
+  color: var(--text);
+}
+
+.stigma-stage {
+  padding: 32px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  background: radial-gradient(60% 70% at 50% 45%, rgba(226, 184, 101, 0.07), transparent 70%), var(--sunken);
+}
+
+.stigma-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Схема кольорів як у самого калькулятора: за різних схем браузер зафарбовує прозорий фон рамки. */
+.stigma-viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border: 0;
+  transform-origin: 0 0;
+  color-scheme: normal;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.stigma-viewport[data-state="ready"] iframe {
+  opacity: 1;
+}
+
+.stigma-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: var(--text-3);
+}
+
+.stigma-viewport[data-state="ready"] .stigma-loading {
+  display: none;
+}
+
+.stigma-credits {
+  max-width: 76ch;
+}
+
 /* ---------- Єдиний анімований момент: поява героя ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2916,5 +3060,33 @@ textarea {
   .week-table thead th:first-child,
   .week-table tbody th {
     padding-left: 14px;
+  }
+
+  .stigma-toolbar .segmented {
+    width: 100%;
+  }
+
+  .stigma-toolbar .segmented a,
+  .stigma-toolbar .segmented button {
+    flex: 1;
+  }
+
+  /* На телефоні ряд класів доходить до країв екрана. */
+  .stigma-classes {
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .stigma-classes::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stigma-stage {
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 16px 8px;
+    border-width: 1px 0;
+    border-radius: 0;
   }
 }

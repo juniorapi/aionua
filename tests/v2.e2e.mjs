@@ -142,9 +142,8 @@ test("v2 home shows live servers, upcoming events and tool search", async () => 
     await page.keyboard.type("стиг");
     const results = page.locator("#search-results a");
     assert.deepEqual(await results.locator(".result-name").allInnerTexts(), ["Стигми 4.6", "Стигми 4.8"]);
-    // Калькулятори стигм — оригінальні сторінки основного сайту.
     await page.keyboard.press("Enter");
-    await page.waitForURL(/\/aionua\/stigma\/(#.*)?$/);
+    await page.waitForURL(/\/aionua\/v2\/stigma\/(#.*)?$/);
 
     assert.deepEqual(errors, []);
     await context.close();

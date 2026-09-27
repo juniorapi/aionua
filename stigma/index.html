@@ -4,12 +4,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=800, initial-scale=1">
 	<title>Aion stigma calculator</title>
-	<link rel="stylesheet" href="/aionua/stigma/css/style.css?v=0.5.0" />
+	<link rel="stylesheet" href="/aionua/stigma/css/style.css?v=0.5.1" />
+	<script src="/aionua/stigma/js/embed.js?v=1"></script>
 	<script src="/aionua/stigma/js/jquery.js"></script>
 	<script src="/aionua/stigma/js/ui.js?v=0.4.1"></script>
 	<script src="/aionua/stigma/js/aion.js?v=0.4.1"></script>
 	<script src="/aionua/stigma/js/data.js?v=0.4.1a"></script>
-	<script src="/aionua/stigma/js/script.js?v=0.4.1a"></script>
+	<script src="/aionua/stigma/js/script.js?v=0.4.2"></script>
 	<script src="/aionua/stigma/js/lang_enn.js?v=0.4.1"></script>
 	<script src="/aionua/stigma/js/lang_en.js?v=0.4.1"></script>
 	<script>
@@ -28,19 +29,23 @@
 			// document.write тут доречний: файл мусить потрапити в документ до
 			// script.js, який одразу читає lang під час завантаження.
 			if (lang === 'uk') {
-				document.write('<scr' + 'ipt src="/aionua/stigma/js/lang_uk.js?v=1"></scr' + 'ipt>');
+				document.write('<scr' + 'ipt src="/aionua/stigma/js/lang_uk.js?v=2"></scr' + 'ipt>');
 			}
 		})();
 	</script>
 	<script src="/aionua/stigma/js/vals.js?v=0.4.1"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+<!-- Google tag (gtag.js). Усередині сторінки v2 перегляд уже рахує вона сама. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BDBL7DSC46');
+  if (window.parent === window) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46';
+    document.head.appendChild(gtagScript);
+  }
 </script>
 </head>
 <body>
