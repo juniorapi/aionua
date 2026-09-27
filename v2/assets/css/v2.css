@@ -2628,16 +2628,49 @@ textarea {
   transform: none;
 }
 
-/* Слоти. */
+/* Слоти як у грі: дві колонки звичайних і дві покращених, по три ряди
+   (20 · 20 / 30 · 40 / 50 · 55 і 45 · 45 / 50 · 52 / 55 · 58); праворуч — список звичайних стигм. */
 .st-board {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   margin-top: 16px;
+}
+
+.st-board-slots,
+.st-board-pool {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 20px 24px 24px;
+}
+
+/* Список звичайних — утоплена область на всю висоту дошки, як інвентар поруч зі слотами. */
+.st-board-pool {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-content: stretch;
+  border-left: 1px solid var(--line);
+}
+
+.st-board-pool .st-pool {
+  align-content: start;
+  padding: 14px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--sunken);
+}
+
+.st-board-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
 }
 
 .st-slot-rows {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 40px;
-  padding: 20px 24px 24px;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  gap: 16px 36px;
 }
 
 .st-slot-row {
@@ -2648,8 +2681,8 @@ textarea {
 
 .st-cells {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, 72px);
+  gap: 12px;
 }
 
 /* Під кожною клітинкою місце для рангу, тож перша стигма не зсуває сторінку. */
@@ -3264,10 +3297,6 @@ textarea {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .st-slot-rows {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
 
   .loc-client {
     grid-template-columns: 48px minmax(0, 1fr) auto;
@@ -3283,8 +3312,14 @@ textarea {
 
 @media (max-width: 900px) {
   .st-trees,
-  .st-summary {
+  .st-summary,
+  .st-board {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .st-board-pool {
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .st-stats {
@@ -3607,7 +3642,7 @@ textarea {
     margin: 18px 18px 0;
   }
 
-  /* Телефон: класи сіткою 6 × 2, слоти по три в ряд. */
+  /* Телефон: класи сіткою 6 × 2, слоти тією ж сіткою 3 × 4 на всю ширину. */
   .st-hero {
     padding: 16px;
   }
@@ -3624,11 +3659,18 @@ textarea {
     aspect-ratio: 1;
   }
 
-  .st-cells {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .st-slot-rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 20px;
   }
 
-  .st-slot-rows {
+  .st-cells {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 8px;
+  }
+
+  .st-board-slots,
+  .st-board-pool {
     padding: 16px;
   }
 

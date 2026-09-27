@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="../assets/css/v2.css?v=8">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=9">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
   <script>
@@ -101,27 +101,30 @@
         </div>
       </section>
 
-      <section class="panel st-board" aria-labelledby="slots-title">
-        <div class="panel-head">
-          <h2 class="panel-heading" id="slots-title">Слоти</h2>
-          <p class="meta">Звичайні відкриваються з 20 рівня, покращені — з 45</p>
-        </div>
-        <div class="st-slot-rows">
-          <div class="st-slot-row">
-            <h3 class="label">Звичайні</h3>
-            <ol class="st-cells" data-slot-row="normal"></ol>
+      <section class="panel st-board" aria-label="Слоти й звичайні стигми">
+        <div class="st-board-slots">
+          <div class="st-board-head">
+            <h2 class="panel-heading" id="slots-title">Слоти</h2>
+            <p class="meta">Звичайні — з 20 рівня, покращені — з 45</p>
           </div>
-          <div class="st-slot-row">
-            <h3 class="label">Покращені</h3>
-            <ol class="st-cells" data-slot-row="advanced"></ol>
+          <div class="st-slot-rows">
+            <div class="st-slot-row">
+              <h3 class="label">Звичайні</h3>
+              <ol class="st-cells" data-slot-row="normal"></ol>
+            </div>
+            <div class="st-slot-row">
+              <h3 class="label">Покращені</h3>
+              <ol class="st-cells" data-slot-row="advanced"></ol>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="st-section" aria-labelledby="normal-title" data-section="normal">
-        <h2 class="panel-heading" id="normal-title">Звичайні стигми</h2>
-        <p class="tool-hint">Вибрана стигма переходить у слот і зникає зі списку. Щоб повернути, натисніть на неї в слоті.</p>
-        <div class="st-pool" data-normal></div>
+        <section class="st-board-pool" aria-labelledby="normal-title" data-section="normal">
+          <div class="st-board-head">
+            <h2 class="panel-heading" id="normal-title">Звичайні стигми</h2>
+          </div>
+          <div class="st-pool" data-normal></div>
+          <p class="tool-hint">Вибрана стигма переходить у слот і зникає зі списку. Щоб повернути, натисніть на неї в слоті.</p>
+        </section>
       </section>
 
       <section class="st-section" aria-labelledby="advanced-title" data-section="advanced">
@@ -162,6 +165,6 @@
   <script src="../../stigma/js/lang_en.js"></script>
   <script src="../../stigma/js/lang_uk.js"></script>
   <script src="../../stigma/js/vals.js"></script>
-  <script type="module" src="../assets/js/tools/stigma.js?v=6"></script>
+  <script type="module" src="../assets/js/tools/stigma.js?v=7"></script>
 </body>
 </html>

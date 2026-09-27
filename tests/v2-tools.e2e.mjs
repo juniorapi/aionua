@@ -239,6 +239,9 @@ test("v2 enchantment calculator lists 41 stones from 80% down to 0%", async () =
     assert.equal(await stones.first().innerText(), "L105\n80%");
     assert.equal(await stones.last().innerText(), "L65\n0%");
     assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
+    // Рідкість — ігровим кольором: Heroic, Fabled, Eternal, Mythic.
+    const grades = await page.locator("[data-grades] button").evaluateAll((buttons) => buttons.map((button) => button.dataset.grade));
+    assert.deepEqual(grades, ["heroic", "fabled", "eternal", "mythic"]);
 
     await page.getByRole("button", { name: "Міфічний" }).click();
     await page.getByLabel("Рівень предмета").selectOption("60");
@@ -404,6 +407,17 @@ test("v2 stigma calculator adds prerequisites, keeps old links and shares the bu
     assert.equal(await page.locator("[data-class-name]").innerText(), "Цілитель");
     assert.equal(await page.locator('[data-slot-row] .st-cell[data-state="empty"]').count(), 12);
     assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
+    // Слоти стоять як у грі: дві колонки звичайних і дві покращених, по три ряди.
+    const corners = (row) => page.locator(`[data-slot-row="${row}"] .st-cell-frame`).evaluateAll((frames) =>
+      frames.map((frame) => [Math.round(frame.getBoundingClientRect().left), Math.round(frame.getBoundingClientRect().top)]));
+    const normal = await corners("normal");
+    const advanced = await corners("advanced");
+    assert.equal(new Set(normal.map(([left]) => left)).size, 2);
+    assert.equal(new Set(normal.map(([, top]) => top)).size, 3);
+    assert.equal(normal[0][1], normal[1][1]);
+    assert.ok(normal[2][1] > normal[0][1]);
+    assert.deepEqual(advanced.map(([, top]) => top), normal.map(([, top]) => top));
+    assert.ok(advanced[0][0] > normal[1][0]);
 
     // «+» у порожньому слоті веде до списку звичайних стигм.
     await page.locator('[data-slot-row="normal"] .st-cell-add').first().click();
