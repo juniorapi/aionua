@@ -15,6 +15,7 @@ import {
   StigmaBuild,
 } from "./stigma-model.js";
 import { createText, roman } from "./stigma-text.js";
+import { POINTER, createAnnouncer, createTooltip, focusedControl, jumpTo, refocus } from "./stigma-ui.js";
 
 const ICONS = "../../stigma/icons/skills/";
 const SAVE_KEY = "aionua-v2-stigma";
@@ -22,10 +23,6 @@ const RACE_NAMES = { pc_light: "Елійці", pc_dark: "Асмодіани" };
 // Знахідний відмінок: «прибрано 1 стигму», «додано 5 потрібних стигм».
 const STIGMAS = { one: "стигму", few: "стигми", many: "стигм", other: "стигми" };
 const NEEDED = { one: "потрібну стигму", few: "потрібні стигми", many: "потрібних стигм", other: "потрібної стигми" };
-// Миша: клік одразу ставить чи прибирає стигму, наведення показує підказку.
-// Дотик: натискання відкриває картку з описом і кнопкою.
-const POINTER = window.matchMedia("(hover: hover) and (pointer: fine)");
-
 const data = window.stigmas;
 const text = createText(window.lang, window.stigmaValues);
 const root = document.querySelector("[data-stigma-app]");
@@ -53,11 +50,9 @@ const ui = {
 
 let build = loadBuild();
 let sheetKey = null;
-let tooltipTarget = null;
-// Де зараз миша: після перемальовування підказка повертається до стигми під курсором.
-let pointer = null;
 const previewRanks = new Map();
-let statusTimer = 0;
+const announce = createAnnouncer([ui.status, ui.sheetStatus]);
+const FOCUS_ZONES = "[data-normal], [data-trees], [data-slot-row]";
 
 function loadBuild() {
   const code = window.location.hash.slice(1) || readPreference(SAVE_KEY) || "";
@@ -93,48 +88,6 @@ function shownRank(key) {
   if (build.has(key)) return build.rankOf(key);
   const max = build.maxRank(key);
   return Math.min(previewRanks.get(key) ?? Math.max(1, max), build.get(key).levels.length);
-}
-
-// Повідомлення спливає внизу екрана, тож його видно й біля гілок; у відкритій картці — в ній.
-function announce(message, isError = false) {
-  window.clearTimeout(statusTimer);
-  for (const node of [ui.status, ui.sheetStatus]) {
-    node.textContent = message;
-    node.classList.toggle("is-error", isError);
-  }
-  statusTimer = window.setTimeout(() => {
-    ui.status.textContent = "";
-    ui.sheetStatus.textContent = "";
-  }, 6000);
-}
-
-// З клавіатури фокус переходить у список, щоб одразу вибрати стигму.
-function jumpTo(section, moveFocus) {
-  const smooth = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
-  section.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
-  if (moveFocus) section.querySelector('[data-state="available"]')?.focus({ preventScroll: true });
-}
-
-// Перемальовування замінює кнопки, тож фокус клавіатури повертаємо на те саме місце:
-// на ту саму стигму (одна стигма буває в обох гілках, тому спершу — на тій самій позиції),
-// а якщо її там уже немає — на сусідню кнопку.
-const controlsIn = (zone) => [...zone.querySelectorAll("button:not(:disabled), select:not(:disabled)")];
-
-function focusedControl() {
-  const active = document.activeElement;
-  const zone = active?.closest?.("[data-normal], [data-trees], [data-slot-row]");
-  if (!zone || !root.contains(zone)) return null;
-  return { zone, key: active.dataset.key, index: controlsIn(zone).indexOf(active) };
-}
-
-function refocus(focus) {
-  if (!focus) return;
-  const controls = controlsIn(focus.zone);
-  const same = controls[focus.index];
-  const target = (same?.dataset.key === focus.key ? same : null)
-    ?? (focus.key && focus.zone.querySelector(`[data-key="${focus.key}"]`))
-    ?? controls[Math.min(focus.index, controls.length - 1)];
-  target?.focus({ preventScroll: true });
 }
 
 // ---------- Дії ----------
@@ -192,52 +145,6 @@ function onStigmaClick(key) {
   else openSheet(key);
 }
 
-// ---------- Підказка біля курсора ----------
-
-function showTooltip(target, key) {
-  tooltipTarget = target;
-  renderDetails(ui.tooltip, key, "tooltip");
-  ui.tooltip.hidden = false;
-  placeTooltip(target);
-}
-
-// У гілці підказка стає збоку від панелі, щоб не закривати сусідні стигми;
-// коли місця збоку немає (вузький екран) — поруч зі значком.
-function placeTooltip(target) {
-  const box = target.getBoundingClientRect();
-  const tip = ui.tooltip.getBoundingClientRect();
-  const panel = target.closest(".st-tree")?.getBoundingClientRect();
-  const fitsRight = (edge) => edge + 12 + tip.width <= window.innerWidth - 8;
-  const fitsLeft = (edge) => edge - 12 - tip.width >= 8;
-  let left;
-  if (panel && fitsRight(panel.right)) left = panel.right + 12;
-  else if (panel && fitsLeft(panel.left)) left = panel.left - 12 - tip.width;
-  else if (fitsRight(box.right)) left = box.right + 12;
-  else left = box.left - 12 - tip.width;
-  let top = box.top;
-  if (top + tip.height > window.innerHeight - 8) top = window.innerHeight - tip.height - 8;
-  ui.tooltip.style.left = `${Math.max(8, left)}px`;
-  ui.tooltip.style.top = `${Math.max(8, top)}px`;
-}
-
-function hideTooltip() {
-  tooltipTarget = null;
-  ui.tooltip.hidden = true;
-}
-
-function restoreTooltip() {
-  if (!pointer || !POINTER.matches) return;
-  const target = document.elementFromPoint(pointer.x, pointer.y)?.closest("[data-key]");
-  if (target && root.contains(target)) showTooltip(target, target.dataset.key);
-}
-
-// Сторінка прокрутилася під курсором: підказка йде за стигмою, поки курсор на ній.
-function followScroll() {
-  if (!tooltipTarget) return;
-  if (tooltipTarget.isConnected && (tooltipTarget.matches(":hover") || tooltipTarget === document.activeElement)) placeTooltip(tooltipTarget);
-  else hideTooltip();
-}
-
 // ---------- Налаштування персонажа ----------
 
 function setupControls() {
@@ -290,27 +197,6 @@ function setupControls() {
     announce("Збірку очищено.");
     update();
   });
-
-  // Підказка: наведення миші або фокус з клавіатури на будь-яку стигму.
-  root.addEventListener("pointermove", (event) => {
-    pointer = event.pointerType === "mouse" ? { x: event.clientX, y: event.clientY } : null;
-  }, { passive: true });
-  root.addEventListener("pointerover", (event) => {
-    if (event.pointerType !== "mouse" || !POINTER.matches) return;
-    const target = event.target.closest("[data-key]");
-    if (target && target !== tooltipTarget) showTooltip(target, target.dataset.key);
-  });
-  root.addEventListener("pointerout", (event) => {
-    const target = event.target.closest("[data-key]");
-    if (target && !target.contains(event.relatedTarget)) hideTooltip();
-  });
-  // Лише фокус з клавіатури: після кліку мишею підказку веде курсор.
-  root.addEventListener("focusin", (event) => {
-    const target = event.target.closest?.("[data-key]");
-    if (target && POINTER.matches && target.matches(":focus-visible")) showTooltip(target, target.dataset.key);
-  });
-  root.addEventListener("focusout", hideTooltip);
-  window.addEventListener("scroll", followScroll, { passive: true });
 
   ui.sheet.addEventListener("click", (event) => {
     if (event.target === ui.sheet) ui.sheet.close();
@@ -436,6 +322,7 @@ function treeKeys(node, keys = new Set()) {
 function renderTrees() {
   ui.trees.replaceChildren(...build.trees().map((tree) => {
     const panel = element("div", "panel st-tree");
+    panel.dataset.tipPanel = "";
     panel.setAttribute("role", "group");
     panel.setAttribute("aria-label", `Гілка: ${name(tree.key)}`);
     const keys = [...treeKeys(tree)];
@@ -600,9 +487,9 @@ function save() {
 }
 
 function update({ initial = false } = {}) {
-  const hadTooltip = Boolean(tooltipTarget);
-  const focus = focusedControl();
-  hideTooltip();
+  const hadTooltip = tooltip.active;
+  const focus = focusedControl(root, FOCUS_ZONES);
+  tooltip.hide();
   if (!initial) save();
   renderSetup();
   renderStats();
@@ -611,9 +498,10 @@ function update({ initial = false } = {}) {
   renderTrees();
   if (ui.sheet.open && sheetKey) renderDetails(ui.sheetBody, sheetKey, "sheet");
   refocus(focus);
-  if (hadTooltip) restoreTooltip();
+  if (hadTooltip) tooltip.restore();
 }
 
+const tooltip = createTooltip({ root, node: ui.tooltip, render: (node, key) => renderDetails(node, key, "tooltip") });
 initHeader();
 setupControls();
 update({ initial: true });

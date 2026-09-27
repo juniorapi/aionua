@@ -2975,26 +2975,26 @@ textarea {
 
 /* Стан у гілці: вибрана сіріє й має золоту позначку (під курсором — хрестик: клік прибирає),
    закрита рівнем — темна з рівнем, з якого відкривається. */
-.st-tree .st-stigma {
+:is(.st-tree, .s48-links) .st-stigma {
   position: relative;
 }
 
-.st-tree .st-stigma[data-state="installed"] .st-gem {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"] .st-gem {
   background: var(--line-strong);
 }
 
-.st-tree .st-stigma[data-state="installed"] .st-img {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"] .st-img {
   filter: grayscale(1) brightness(0.55);
 }
 
-.st-tree .st-stigma[data-state="installed"]::after,
-.st-tree .st-stigma[data-state="locked"]::after {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"]::after,
+:is(.st-tree, .s48-links) .st-stigma[data-state="locked"]::after {
   position: absolute;
   z-index: 1;
   pointer-events: none;
 }
 
-.st-tree .st-stigma[data-state="installed"]::after {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"]::after {
   content: "";
   top: -6px;
   right: -6px;
@@ -3005,20 +3005,20 @@ textarea {
   box-shadow: 0 0 0 2px var(--surface);
 }
 
-.st-tree .st-stigma[data-state="installed"]:hover::after,
-.st-tree .st-stigma[data-state="installed"]:focus-visible::after {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"]:hover::after,
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"]:focus-visible::after {
   background: var(--asmo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7 7 17'/%3E%3C/svg%3E") center / 12px no-repeat;
 }
 
-.st-tree .st-stigma[data-state="installed"]:hover .st-img {
+:is(.st-tree, .s48-links) .st-stigma[data-state="installed"]:hover .st-img {
   filter: grayscale(0.6) brightness(0.8);
 }
 
-.st-tree .st-stigma[data-state="locked"] .st-img {
+:is(.st-tree, .s48-links) .st-stigma[data-state="locked"] .st-img {
   filter: grayscale(0.7) brightness(0.35);
 }
 
-.st-tree .st-stigma[data-state="locked"]::after {
+:is(.st-tree, .s48-links) .st-stigma[data-state="locked"]::after {
   content: attr(data-level);
   bottom: -7px;
   left: 50%;
@@ -3203,6 +3203,234 @@ textarea {
 
 .stigma-credits {
   margin-top: 40px;
+}
+
+/* ---------- Калькулятор стигм 4.8 ---------- */
+/* Слоти кільцем, як у грі: головний угорі, великі з боків, звичайні внизу, прихована в центрі.
+   Рамки — за рангом: золото головних, блакить великих, зелень звичайних, фіолет прихованих. */
+
+.s48-app {
+  --s48-green-frame: linear-gradient(160deg, #cdeec4, #5f9c52 55%, #2f5228);
+  --s48-violet-frame: linear-gradient(160deg, #e6d2ff, #8d62cc 55%, #472c70);
+}
+
+.s48-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.s48-stats .st-stat--slots dd {
+  color: var(--gold-strong);
+}
+
+.s48-stats .st-stat--linked dd {
+  font: 400 20px/1.25 var(--font-display);
+  text-wrap: balance;
+}
+
+.s48-ring {
+  --cell: 64px;
+  --half: 50px;
+  --col: 96px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, var(--col));
+  grid-template-rows: repeat(6, var(--half));
+  grid-template-areas:
+    ".      gold1  ."
+    "blue2  gold1  blue1"
+    "blue2  linked blue1"
+    "green3 linked green1"
+    "green3 green2 green1"
+    ".      green2 .";
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+/* Коло, на якому стоять слоти; центр — рамка прихованої стигми. */
+.s48-ring::before {
+  content: "";
+  position: absolute;
+  top: calc(8px + 2 * var(--half) + 36px);
+  left: 50%;
+  width: calc(2 * var(--col) + 20px);
+  aspect-ratio: 1;
+  border: 1px solid var(--gold-line);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141, 98, 204, 0.14), transparent 62%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.s48-cell {
+  position: relative;
+}
+
+.s48-cell .st-cell-frame,
+.s48-cell .st-cell-rank {
+  max-width: var(--cell);
+}
+
+.s48-cell[data-kind="gold"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-gold-frame); }
+.s48-cell[data-kind="blue"]:not([data-state="locked"]) .st-cell-frame { background: var(--st-adv-frame); }
+.s48-cell[data-kind="green"]:not([data-state="locked"]) .st-cell-frame { background: var(--s48-green-frame); }
+
+.s48-linked {
+  grid-template-rows: auto 22px;
+}
+
+.s48-linked .st-cell-frame {
+  max-width: 72px;
+  background: var(--s48-violet-frame);
+}
+
+.s48-linked[data-state="empty"] .st-cell-frame,
+.s48-linked[data-state="locked"] .st-cell-frame {
+  opacity: 0.5;
+}
+
+.s48-linked[data-state="empty"] .st-cell-note {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.s48-linked[data-state="empty"] .st-cell-note::before {
+  content: none;
+}
+
+.s48-linked[data-state="inactive"] .st-img {
+  filter: grayscale(0.8) brightness(0.6);
+}
+
+.s48-linked-caption {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+}
+
+.s48-linked[data-state="active"] .s48-linked-caption {
+  color: var(--gold);
+}
+
+/* Значок стигми 4.8 — у рамці свого рангу; без вільного слота — притлумлений. */
+.s48-app .s48-gem--gold { background: var(--st-gold-frame); }
+.s48-app .s48-gem--blue { background: var(--st-adv-frame); }
+.s48-app .s48-gem--green { background: var(--s48-green-frame); }
+.s48-app .s48-gem--violet { background: var(--s48-violet-frame); }
+
+.s48-app .st-stigma[data-state="blocked"] .st-img {
+  opacity: 0.45;
+}
+
+.s48-pool {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.s48-group {
+  display: grid;
+  gap: 8px;
+}
+
+.s48-group-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.s48-group-level {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-3);
+}
+
+.s48-group-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Умови прихованої стигми: головна + дві великі з трьох = прихована. */
+.s48-links {
+  display: grid;
+  gap: 12px;
+}
+
+.s48-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.s48-link.is-active {
+  border-color: var(--gold-line);
+  background: linear-gradient(90deg, var(--gold-tint), transparent 70%), var(--surface);
+}
+
+.s48-formula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.s48-op {
+  padding: 0 2px;
+  font: 400 26px/1 var(--font-display);
+  color: var(--text-3);
+}
+
+.s48-note {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.s48-link-name {
+  font: 400 18px/1.25 var(--font-display);
+  color: var(--gold-strong);
+}
+
+.s48-link-state {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.s48-link-state.is-on {
+  color: var(--live);
+}
+
+.s48-badge--gold { background: rgba(226, 184, 101, 0.14); color: var(--gold); }
+.s48-badge--blue { background: rgba(143, 203, 240, 0.12); color: var(--st-adv); }
+.s48-badge--green { background: rgba(143, 208, 138, 0.12); color: #9fd99a; }
+.s48-badge--violet { background: rgba(181, 124, 240, 0.14); color: #c9a2f5; }
+
+.s48-enchants {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  justify-self: stretch;
+}
+
+.s48-enchants button {
+  min-width: 0;
+  padding: 6px 4px;
+}
+
+.s48-english {
+  font-size: 13px;
+  color: var(--text-3);
 }
 
 /* ---------- Єдиний анімований момент: поява героя ---------- */
@@ -3700,6 +3928,20 @@ textarea {
   .st-tree .st-gem {
     width: 46px;
     height: 46px;
+  }
+
+  .s48-ring {
+    --col: 92px;
+    --cell: 60px;
+  }
+
+  .s48-link {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 14px;
+  }
+
+  .s48-apply {
+    justify-self: start;
   }
 
   .counter-controls,

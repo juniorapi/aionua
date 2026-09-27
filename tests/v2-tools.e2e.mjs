@@ -524,11 +524,84 @@ test("v2 stigma calculator on a touch phone opens the description sheet", async 
   });
 });
 
+test("v2 stigma calculator 4.8 places stigmas like the old one, charges them and opens the hidden stigma", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors } = await open("v2/stigmas/");
+    await page.locator("[data-pool] .st-stigma").first().waitFor();
+    assert.equal(await page.evaluate(() => window.location.hash), "");
+    assert.equal(await page.locator("[data-class-name]").innerText(), "Цілитель");
+    assert.equal(await page.locator('.site-nav a[aria-current="true"]').innerText(), "Калькулятори");
+    // Кільце як у грі: шість слотів і прихована стигма в центрі.
+    assert.equal(await page.locator("[data-ring] .s48-cell").count(), 7);
+
+    // Звичайні стають у найнижчі вільні слоти й зникають зі списку, як у старому калькуляторі.
+    for (const key of ["9", "10", "11"]) await page.locator(`[data-pool] .st-stigma[data-key="${key}"]`).click();
+    assert.equal(await page.evaluate(() => window.location.hash), "#cleric/zzzhfd:65");
+    assert.equal(await page.locator('[data-pool] .st-stigma[data-key="9"]').count(), 0);
+    // Головна й дві великі з першої комбінації відкривають приховану; діє вона лише із зарядженими.
+    for (const key of ["2", "4", "6"]) await page.locator(`[data-pool] .st-stigma[data-key="${key}"]`).click();
+    assert.equal(await page.evaluate(() => window.location.hash), "#cleric/jbghfd:65");
+    assert.equal(await page.locator(".s48-linked").getAttribute("data-state"), "inactive");
+    const enchants = page.locator("[data-ring] .st-cell-rank");
+    for (let index = 0; index < 6; index += 1) await enchants.nth(index).selectOption(String(index + 1));
+    assert.equal(await page.evaluate(() => window.location.hash), "#cleric/jbghfdwtsxvu:65");
+    assert.equal(await page.locator(".s48-linked").getAttribute("data-state"), "active");
+    assert.equal(await page.locator(".s48-link.is-active .s48-link-name").innerText(), "Блискавка правосуддя");
+    assert.match(await page.locator("[data-stats]").innerText(), /\+1/);
+
+    // Підказка: ранг за рівнем персонажа й числа з даних.
+    await page.locator('[data-pool] .st-stigma[data-key="12"]').hover();
+    await page.locator("[data-tooltip] .stigma-details-title").filter({ hasText: "Реверс" }).waitFor();
+    assert.match(await page.locator("[data-tooltip]").innerText(), /Відкат\s+10 хв/);
+
+    // «Зібрати» ставить другу комбінацію, звичайні лишаються зі своєю заточкою.
+    await page.getByRole("button", { name: "Зібрати комбінацію для «Сяйво порятунку»" }).click();
+    assert.equal(await page.evaluate(() => window.location.hash), "#cleric/lcahfdzzzxvu:65");
+
+    await page.getByRole("button", { name: "Копіювати посилання" }).click();
+    assert.equal(await page.evaluate(() => navigator.clipboard.readText()), page.url());
+
+    // Посилання зі старого калькулятора: охоронець, повний комплект із заточкою.
+    await page.goto(`${page.url().replace(/#.*$/, "")}#templar/loamenwtsxvu:65`);
+    await page.locator(".s48-linked[data-state=active]").waitFor();
+    assert.equal(await page.getByRole("button", { name: "Охоронець" }).getAttribute("aria-pressed"), "true");
+
+    // На 50 рівні головний слот закритий, тож головна стигма знімається.
+    await page.getByLabel("Рівень", { exact: true }).selectOption("50");
+    assert.match(await page.locator("[data-status]").innerText(), /^Знято 1 стигму/);
+    assert.equal(await page.locator('[data-ring] .s48-cell[data-state="locked"]').count(), 2);
+
+    await page.getByRole("button", { name: "Скинути" }).click();
+    assert.equal(await page.evaluate(() => window.location.hash), "#templar");
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
+test("v2 stigma calculator 4.8 on a touch phone charges a stigma in the sheet", async () => {
+  await withSite(async (open) => {
+    const { page, context, errors } = await open("v2/stigmas/", { width: 390, height: 844 }, { isMobile: true, hasTouch: true });
+    const icon = page.locator('[data-pool] .st-stigma[data-key="3"]');
+    await icon.waitFor();
+    await icon.tap();
+    const sheet = page.locator("[data-sheet]");
+    await sheet.locator(".s48-enchants button", { hasText: "+4" }).tap();
+    assert.match(await sheet.locator(".stigma-details-title").innerText(), /\+4$/);
+    await sheet.getByRole("button", { name: "Додати в збірку" }).tap();
+    await sheet.getByRole("button", { name: "Прибрати зі збірки" }).waitFor();
+    await sheet.getByRole("button", { name: "Закрити" }).tap();
+    assert.equal(await page.evaluate(() => window.location.hash), "#cleric/zzazzzzzxzzz:65");
+    await fitsViewport(page);
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
 test("v2 home links every migrated tool to its v2 page", async () => {
   const html = await readFile(path.join(root, "v2", "index.html"), "utf8");
   for (const tool of [
     "crystal_crafting", "craft", "spc", "essencetapping", "aethertapping", "aion-4.6-enchantment-calculator", "efir",
-    "tempering-solution-counter", "ice-hammer-counter", "localization", "stigma",
+    "tempering-solution-counter", "ice-hammer-counter", "localization", "stigma", "stigmas",
   ]) {
     assert.match(html, new RegExp(`class="tool-link" href="${tool.replace(/\./g, "\\.")}/"`), tool);
     assert.ok(existsSync(path.join(root, "v2", tool, "index.html")), tool);
