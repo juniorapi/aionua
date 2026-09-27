@@ -264,8 +264,8 @@ var UI_UK = {
 	'Chanter': 'Чародій',
 	'Cleric': 'Цілитель',
 	'Songweaver': 'Бард',
-	'Gunner': 'Стрілець-технік',
-	'Aethertech': 'Етертех',
+	'Gunner': 'Снайпер',
+	'Aethertech': 'Пілот',
 
 	// Тултіп уміння
 	'Target': 'Ціль',

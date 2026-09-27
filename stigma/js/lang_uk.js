@@ -49,7 +49,7 @@ lang = $.extend(true, lang, {
 		"wizard": "Чарівник",
 		"elementalist": "Заклинач",
 		"bard": "Бард",
-		"gunner": "Стрілець-технік",
+		"gunner": "Снайпер",
 		"rider": "Пілот"
 	},
 	abyssranks: {
