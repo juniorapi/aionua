@@ -1,274 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крафт сувоїв, зілля, їжі</title>
-    <link rel="stylesheet" href="css/style.css">
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Крафт сувоїв, зілля та їжі · Aion UA</title>
+  <meta name="description" content="Калькулятор крафту Aion: сувої, зілля, їжа й коктейлі, перетворення каміння на порошки й воду. Матеріали на будь-яку кількість крафтів.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=13">
 
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
 </head>
 <body>
-<button class="back-button">
-    <span class="back-icon">←</span>
-    
-</button>
-    <div class="calculator-container">
-        
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Крафт сувоїв</h2>
-                <button id="reset-scroll" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="scroll-icon-container">
-                    <img src="images" alt="scroll" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="scroll-type">Тип сувоїв:</label>
-                    <select id="scroll-type">
-                        <option value="courage" data-icon="images/icon_item_scroll_speed_atk_01.png">Сувій відваги III</option>
-                        <option value="courage2" data-icon="images/icon_item_scroll_speed_atk_01.png">Сувій відваги III [2]</option>
-                        <option value="rebirth" data-icon="images/icon_item_scroll_speed_casting_01.png">Сувій переродження III</option>
-                        <option value="rebirth2" data-icon="images/icon_item_scroll_speed_casting_01.png">Сувій переродження III [2]</option>
-                        <option value="acceleration" data-icon="images/icon_item_scroll_speed_run_01.png">Сувій прискорення III</option>
-                        <option value="acceleration2" data-icon="images/icon_item_scroll_speed_run_01.png">Сувій прискорення III [2]</option>
-                        <option value="wind" data-icon="images/icon_item_scroll_speed_fly_01.png">Сувій лютого вітру III</option>
-                        <option value="wind2" data-icon="images/icon_item_scroll_speed_fly_01.png">Сувій лютого вітру III [2]</option>
-                        <option value="critical" data-icon="images/icon_item_scroll_critical_phy_mag.png">Сувій ф/м крит IV/V</option>
-						<option value="regist_wind" data-icon="images/icon_item_scroll_regist_wind_01.png">Сувій повітря V</option>
-						<option value="regist_water" data-icon="images/icon_item_scroll_regist_water_01.png">Сувій води V</option>
-						<option value="regist_fire" data-icon="images/icon_item_scroll_regist_fire_01.png">Сувій вогню V</option>
-						<option value="regist_earth" data-icon="images/icon_item_scroll_regist_earth_01.png">Сувій землі V</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-scroll">Кількість крафтів:</label>
-                    <input type="number" id="quantity-scroll" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-scroll"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-scroll"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
 
-      
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Крафт зілля</h2>
-                <button id="reset-potion" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="potion-icon-container">
-                    <img src="images" alt="potion" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="potion-type">Тип зілля:</label>
-                    <select id="potion-type">
-                        <option value="cure" data-icon="images/icon_item_potion_cure01a.png">Сильне зілля зцілення</option>
-                        <option value="recovery_potion" data-icon="images/icon_item_potion_hpmp02_5.png">Зілля відновлення VI</option>
-                        <option value="recovery_serum" data-icon="images/icon_item_potion_hpmp03_5.png">Рідкісне зілля відновлення VI</option>
-                        <option value="fine_life_potion" data-icon="images/icon_item_potion_hp02_5.png">Зілля життя VI</option>
-						<option value="fine_mana_potion" data-icon="images/icon_item_potion_mp02_5.png">Зілля мани VI</option>
-						<option value="fine_life_serum" data-icon="images/icon_item_potion_hp03_5.png">Рідкісне зілля життя VI</option>
-						<option value="fine_mana_serum" data-icon="images/icon_item_potion_mp03_5.png">Рідкісне зілля мани VI</option>
-						<option value="fine_wind_serum" data-icon="images/icon_item_potion_cure04d.png">Рідкісне зілля вітру V</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-potion">Кількість крафтів:</label>
-                    <input type="number" id="quantity-potion" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-potion"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-potion"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">До основного вмісту</a>
 
-       
-        <div class="calculator">
-		
-            <div class="calculator-header">
-                <h2>Крафт їжі та коктейлів</h2>
-                <button id="reset-food" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="food-icon-container">
-                    <img src="images" alt="food" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="food-type">Тип їжі:</label>
-                    <select id="food-type">
-                        <option value="food" data-icon="images/icon_item_dish25.png">Корисні пельмені з тифабом</option>
-                        <option value="food1" data-icon="images/icon_item_dish30.png">Корисний смажений тифаб</option>
-                        <option value="food2" data-icon="images/icon_item_dish10.png">Корисні суші з минем</option>
-                        <option value="food3" data-icon="images/icon_item_dish20.png">Салат імператора жахливих драконів</option>
-                        <option value="food4" data-icon="images/icon_item_dish11.png">М'ясо імператора жахливих драконів у клярі</option>
-                        <option value="jelly" data-icon="images/icon_item_jelly01.png">Ефірне желе з кано</option>
-                        <option value="cocktail" data-icon="images/icon_item_drink01.png">Коктейль із серина</option>
-						<option value="cocktail2" data-icon="images/icon_item_drink_hpmp02.png">Сік чико</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-food">Кількість крафтів:</label>
-                    <input type="number" id="quantity-food" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-food"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-food"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-		<div class="calculator">
-            <div class="calculator-header">
-                <h2>Перекрафт/Перетворення матеріалів</h2>
-                <button id="reset-powders" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="powders-icon-container">
-                    <img src="images" alt="powders" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="powders-type">Тип матеріалу:</label>
-<select id="powders-type">
-    <optgroup label="Перекрафт матеріалів">
-        <option value="powders1" data-icon="images/icon_item_gempoder03.png">Алмазний порошок</option>
-        <option value="powders2" data-icon="images/icon_item_gempoder03.png">Кельфаратовий порошок</option>
-        <option value="powders3" data-icon="images/icon_item_gempoder01.png">Порошок з бірюзи</option>
-        <option value="powders4" data-icon="images/icon_item_gempoder02.png">Рубіновий порошок</option>
-        <option value="powders5" data-icon="images/icon_item_gempoder01.png">Сапфіровий порошок</option>
-        <option value="powders6" data-icon="images/icon_item_gempoder02.png">Турмаліновий порошок</option>
-        <option value="powders7" data-icon="images/icon_item_dust01e.png">Сильний стихійний порошок</option>
-        <option value="powders8" data-icon="images/icon_item_dust01f.png">Елітний стихійний порошок</option>
-        <option value="water9" data-icon="images/icon_item_elementalwater01f.png">Елітна стихійна вода</option>
-    </optgroup>
-	<optgroup label="Пакет Перекрафт матеріалів">
-        <option value="powders9" data-icon="images/icon_item_dust01f.png">Пакет елітного стихійного порошку</option>
-		<option value="water10" data-icon="images/icon_item_elementalwater01f.png">Пакет елітної стихійної води</option>
-    </optgroup>
-    <optgroup label="Перетворення матеріалів">
-        <option value="convert1" data-icon="images/icon_item_herb09.png">Аір</option>
-        <option value="convert2" data-icon="images/icon_item_vegetable09.png">Джирака</option>
-        <option value="convert3" data-icon="images/icon_item_vegetable04.png">Кано</option>
-        <option value="convert4" data-icon="images/icon_item_herb07.png">Люпин</option>
-        <option value="convert5" data-icon="images/icon_item_fruit02.png">Мензе</option>
-        <option value="convert6" data-icon="images/icon_item_fish05.png">Налим</option>
-        <option value="convert7" data-icon="images/icon_item_gemstone01e.png">Величезний негранений кельфарат</option>
-        <option value="convert8" data-icon="images/icon_item_gemstone01c.png">Великий негранений турмалін</option>
-        <option value="convert9" data-icon="images/icon_item_vegetable08.png">Рабено</option>
-        <option value="convert10" data-icon="images/icon_item_herb05.png">Ріко</option>
-        <option value="convert11" data-icon="images/icon_item_herb02_r.png">Свіжа фоліата</option>
-        <option value="convert12" data-icon="images/icon_item_herb05_r.png">Свіжий рико</option>
-		<option value="convert13" data-icon="images/icon_item_fruit07.png">Серін</option>
-        <option value="convert14" data-icon="images/icon_item_fish04.png">Сібас</option>
-        <option value="convert15" data-icon="images/icon_item_elementalstone02c.png">Сильний стихійний камінь</option>
-        <option value="convert16" data-icon="images/icon_item_seefood02.png">Тифаб</option>
-        <option value="convert17" data-icon="images/icon_item_herb02.png">Фоліата</option>
-        <option value="convert18" data-icon="images/icon_item_elementalstone02e.png">Елітний стихійний камінь</option>
-    </optgroup>
-</select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-powders">Кількість крафтів:</label>
-                    <input type="number" id="quantity-powders" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-powders"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-powders"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="../schedule/">Розклад</a>
+        <a href="../#craft" aria-current="true">Крафт</a>
+        <a href="../#calculators">Калькулятори</a>
+        <a href="../#streambox">СтрімБокс</a>
+        <a href="../localization/">Локалізація</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap tool-page" data-asset-base="../">
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
+      <a href="../">Головна</a>
+      <span aria-hidden="true">/</span>
+      <a href="../#craft">Крафт</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Сувої, зілля, їжа</span>
+    </nav>
+
+    <div class="tool-head">
+      <h1 class="page-title">Сувої, зілля та їжа</h1>
+      <p class="tool-lead">Рецепти алхімії й кулінарії з ефектами предметів, а також перетворення матеріалів: порошки, вода й сировина.</p>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="tool-stack" data-calculators>
+      <p class="empty-note">Завантажуємо рецепти…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/tools/craft-page.js?v=1"></script>
 </body>
 </html>

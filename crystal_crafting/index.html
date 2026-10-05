@@ -1,183 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крафт кристалів та предметів</title>
-    <link rel="stylesheet" href="css/style.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Крафт кристалів, стрижнів і божественного каміння · Aion UA</title>
+  <meta name="description" content="Калькулятор крафту Aion: давні кристали, стрижні й бруси, божественне каміння. Скільки матеріалів треба на потрібну кількість крафтів.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=13">
 
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
 </head>
 <body>
-<button class="back-button">
-    <span class="back-icon">←</span>
-    
-</button>
-    <div class="calculator-container">
-        
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Кристали</h2>
-                <button id="reset-crystal" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="crystal-icon-container">
-                    <img src="images/icon_item_ta_combineskill_ws_r_60a.png" alt="crystal" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="crystal-type">Тип кристалу:</label>
-                    <select id="crystal-type">
-                        <option value="white" data-icon="images/icon_item_ws_combineskill_ar_r_60a.png">Давній білий кристал</option>
-                        <option value="yellow" data-icon="images/icon_item_ha_combineskill_ta_r_60a.png">Древній жовтий кристал</option>
-                        <option value="green" data-icon="images/icon_item_as_combineskill_ha_r_60a.png">Давній зелений кристал</option>
-                        <option value="red" data-icon="images/icon_item_ta_combineskill_ws_r_60a.png">Давній червоний кристал</option>
-                        <option value="blue" data-icon="images/icon_item_al_combineskill_as_r_60a.png">Давній синій кристал</option>
-                        <option value="idium" data-icon="images/icon_item_co_combineskill_all_r_60a.png">Ідіумовий кристал часу</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity">Кількість крафтів:</label>
-                    <input type="number" id="quantity" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
 
-      
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Стрижні та бруси</h2>
-                <button id="reset-item" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="item-icon-container">
-                    <img src="images/icon_item_etc_bm_jewel_i4_60b.png" alt="item" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="item-type">Тип предмета:</label>
-                    <select id="item-type">
-                        <option value="rod" data-icon="images/icon_item_etc_bm_jewel_i4_60b.png">Гнучкий оброблений стержень</option>
-                        <option value="rod2" data-icon="images/icon_item_ws_we_long_parts_n_e_65a.png">Оброблений каталіумовий стержень</option>
-                        <option value="bar" data-icon="images/icon_item_ha_we_long_parts_n_e_60a.png">Гнучкий оброблений брус</option>
-                        <option value="bar2" data-icon="images/icon_item_ha_we_long_parts_n_e_65a.png">Оброблений каталіумовий брус</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-item">Кількість крафтів:</label>
-                    <input type="number" id="quantity-item" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-item"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-item"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">До основного вмісту</a>
 
-       
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Божественне каміння</h2>
-                <button id="reset-resource" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="resource-icon-container">
-                    <img src="images/icon_item_holystone_unique_fire_demage.png" alt="resource" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="resource-type">Тип ресурсу:</label>
-                    <select id="resource-type">
-                        <option value="godstone" data-icon="images/icon_item_holystone_unique_fire_demage.png">Контратака експерта (10%)</option>
-                        <option value="godstone3" data-icon="images/icon_item_holystone_unique_water_demage.png">Егоїзм експерта (10%)</option>
-                        <option value="godstone2" data-icon="images/icon_item_holystone_unique_earth_demage.png">Справедливість експерта (10%)</option>
-                        <option value="godstone4" data-icon="images/icon_item_holystone_unique_air_demage.png">Відгукливість експерта (10%)</option>
-                        <option value="godstone5" data-icon="images/icon_item_holystone_unique_fire_demage.png">Ярість експерта (1%)</option>
-                        <option value="godstone6" data-icon="images/icon_item_holystone_unique_water_demage.png">Жаль експерта (1%)</option>
-                        <option value="godstone7" data-icon="images/icon_item_holystone_unique_earth_demage.png">Розум експерта (1%)</option>
-                        <option value="godstone8" data-icon="images/icon_item_holystone_unique_air_demage.png">Клятва експерта (1%)</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-resource">Кількість крафтів:</label>
-                    <input type="number" id="quantity-resource" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Матеріал</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="materials-list-resource"></tbody>
-                    </table>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Предмет</th>
-                                <th>Кількість</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output-list-resource"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="../schedule/">Розклад</a>
+        <a href="../#craft" aria-current="true">Крафт</a>
+        <a href="../#calculators">Калькулятори</a>
+        <a href="../#streambox">СтрімБокс</a>
+        <a href="../localization/">Локалізація</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap tool-page" data-asset-base="../">
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
+      <a href="../">Головна</a>
+      <span aria-hidden="true">/</span>
+      <a href="../#craft">Крафт</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Кристали</span>
+    </nav>
+
+    <div class="tool-head">
+      <h1 class="page-title">Кристали, стрижні та божественне каміння</h1>
+      <p class="tool-lead">Оберіть предмет і скільки разів його крафтити: калькулятор порахує матеріали на один крафт і на всю партію.</p>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="tool-stack" data-calculators>
+      <p class="empty-note">Завантажуємо рецепти…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/tools/craft-page.js?v=1"></script>
 </body>
 </html>

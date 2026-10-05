@@ -1,7 +1,13 @@
-// Калькулятор відкрито всередині сторінки нового сайту (v2). Шапку, фон і перемикач мови там дає
-// сама сторінка, тож тут вони ховаються, а посилання на збірку веде на сторінку v2.
+// Калькулятор відкрито в рамці на сторінці сайту. Шапку, фон і перемикач мови там дає сама
+// сторінка, тож тут вони ховаються, а посилання на збірку веде на неї.
 (function () {
-	if (window.parent === window) return;
+	// Відкрито напряму (стара закладка): калькулятор живе на сторінці сайту, адреса там — #клас/код.
+	if (window.parent === window) {
+		var parts = location.pathname.replace(/index\.html$/, '').split('/').filter(Boolean);
+		var cls = parts[parts.length - 1];
+		location.replace('/aionua/stigmas/#' + cls + (location.hash.length > 1 ? '/' + location.hash.slice(1) : ''));
+		return;
+	}
 	var share;
 	try {
 		share = window.parent.stigmaShareLink;

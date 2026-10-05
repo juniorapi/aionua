@@ -718,7 +718,7 @@ Calc.reloadStigmas = function(cl) {
 		}
 	}
 	
-	// На сторінці v2 посилання дає вона сама й веде на себе (див. embed.js).
+	// У рамці на сторінці сайту посилання дає вона сама й веде на себе (див. embed.js).
 	if (window.STIGMA_SHARE)
 		link = window.STIGMA_SHARE(link);
 	else

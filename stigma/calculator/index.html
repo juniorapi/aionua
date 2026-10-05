@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=800, initial-scale=1">
+	<title>Aion stigma calculator</title>
+	<link rel="stylesheet" href="/aionua/stigma/css/style.css?v=0.5.1" />
+	<script src="/aionua/stigma/js/embed.js?v=2"></script>
+	<script src="/aionua/stigma/js/jquery.js"></script>
+	<script src="/aionua/stigma/js/ui.js?v=0.4.1"></script>
+	<script src="/aionua/stigma/js/aion.js?v=0.4.1"></script>
+	<script src="/aionua/stigma/js/data.js?v=0.4.1a"></script>
+	<script src="/aionua/stigma/js/script.js?v=0.4.2"></script>
+	<script src="/aionua/stigma/js/lang_enn.js?v=0.4.1"></script>
+	<script src="/aionua/stigma/js/lang_en.js?v=0.4.1"></script>
+	<script>
+		// Мова обирається на клієнті: сторінка статична, тож ?lang= нікому
+		// обробляти. Український файл накладається поверх англійського, тому
+		// неперекладене (описи вмінь) лишається англійським, а не порожнім.
+		(function () {
+			var params = new URLSearchParams(window.location.search);
+			var lang = params.get('lang');
+			if (lang !== 'uk' && lang !== 'en') {
+				try { lang = localStorage.getItem('stigma_lang'); } catch (e) { lang = null; }
+			}
+			if (lang !== 'uk' && lang !== 'en') lang = 'uk';
+			try { localStorage.setItem('stigma_lang', lang); } catch (e) {}
+			window.STIGMA_LANG = lang;
+			// document.write тут доречний: файл мусить потрапити в документ до
+			// script.js, який одразу читає lang під час завантаження.
+			if (lang === 'uk') {
+				document.write('<scr' + 'ipt src="/aionua/stigma/js/lang_uk.js?v=2"></scr' + 'ipt>');
+			}
+		})();
+	</script>
+	<script src="/aionua/stigma/js/vals.js?v=0.4.1"></script>
+<!-- Google tag (gtag.js). Усередині сторінки v2 перегляд уже рахує вона сама. -->
+<script>
+  if (window.parent === window) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46';
+    document.head.appendChild(gtagScript);
+  }
+</script>
+</head>
+<body>
+<button class="back-button" type="button"><span class="back-icon">←</span></button>
+<div id="page">
+	<div id="wrapper">
+		<div class="bookmark-border" id="border_top_left"></div>
+		<div class="bookmark-border" id="border_top_right"></div>
+		<div class="bookmark-border" id="border_bottom_left"></div>
+		<div class="bookmark-border" id="border_bottom_right"></div>
+		<div class="bookmark-border-hor" id="border_top"></div>
+		<div class="bookmark-border-hor" id="border_bottom"></div>
+		<div class="bookmark-border-vert" id="border_left"></div>
+		<div class="bookmark-border-vert" id="border_right"></div>
+		<div id="version_layer"></div>
+		<div id="stigma_wrapper">
+			<div class="stigma-slot" id="stigma_nor_1"></div>
+			<div class="stigma-slot" id="stigma_nor_2"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot" id="stigma_nor_3"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot" id="stigma_nor_4"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot" id="stigma_nor_5"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot" id="stigma_nor_6"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_1"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_2"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_3"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_4"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_5"><div class="stigma-icon"></div></div>
+			<div class="stigma-slot stigma-slot-advance" id="stigma_adv_6"><div class="stigma-icon"></div></div>
+		</div>
+		<div id="stigma_free_wrapper"></div>
+		<div id="stigma_tree_wrapper"></div>
+		<div id="race_wrapper"></div>
+		<div id="cost_wrapper"><table>
+			<tr><td><div class="cost-shard"></div></td><td id="cost_shard">0</td></tr>
+			<tr><td><div class="cost-abyss"></div></td><td id="cost_abyss">0</td></tr>
+		</table></div>
+		<div id="class_wrapper">
+			<input id="class-level" name="char_level" size="2" value="60" />
+			<div id="class-picker" inputname="selected_class" class="class-select"></div>
+		</div>
+	
+		<div id="share_link"><input type="text" id="stigma_link" /></div>
+
+		<div id="lang_switch">
+			<button type="button" class="lang-btn" data-lang="uk">UA</button>
+			<button type="button" class="lang-btn" data-lang="en">EN</button>
+		</div>
+	</div>
+	
+	
+	
+</div>
+<div id="stigma_tooltip"></div>
+<script>
+	// Перемикач мови. Стара реалізація вела на ?lang=xx і покладалася на
+	// сервер; тут вибір зберігається локально, а набір стигм переживає
+	// перезавантаження, бо він лежить у хеші адреси.
+	(function () {
+		var buttons = document.querySelectorAll('.lang-btn');
+		for (var i = 0; i < buttons.length; i++) {
+			var btn = buttons[i];
+			if (btn.dataset.lang === window.STIGMA_LANG) btn.classList.add('lang-btn-active');
+			btn.addEventListener('click', function () {
+				var next = this.dataset.lang;
+				if (next === window.STIGMA_LANG) return;
+				try { localStorage.setItem('stigma_lang', next); } catch (e) {}
+				window.location.href = window.location.pathname + '?lang=' + next + window.location.hash;
+			});
+		}
+	})();
+</script>
+<div class="footer-text">
+			<p>Designed by <strong>ASPirine and Guimera</strong>.&nbsp;Aion® is a registered trademark of NCSOFT Corporation.</p>
+		</div>
+<script src="/aionua/stigma/js/back.js"></script>
+</body>

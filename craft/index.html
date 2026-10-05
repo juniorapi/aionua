@@ -1,175 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крафт біжутерії</title>
-    <link rel="stylesheet" href="css/style.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Крафт біжутерії та матеріалів · Aion UA</title>
+  <meta name="description" content="Калькулятор крафту біжутерії спеціаліста в Aion: кільця, сережки, намиста й пояси, матеріали для них і точки збору ресурсів для обох рас.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=13">
 
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
 </head>
 <body>
-<button class="back-button">
-    <span class="back-icon">←</span>
-</button>
-    <div class="calculator-container">
-        <div class="calculator">
-            <div class="calculator-header">
-                <h2>Крафт біжутерії</h2>
-                <button id="reset-jewelry" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="jewelry-icon-container">
-                    <img src="images" alt="jewelry" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="jewelry-type">Тип біжутерії:</label>
-                    <select id="jewelry-type">
-                        <option value="ring" data-icon="images/icon_item_ring_m01.png">Дарритове кільце спеціаліста</option>
-                        <option value="ring2" data-icon="images/icon_item_ring_m01.png">Опалове кільце спеціаліста</option>
-                        <option value="earring" data-icon="images/icon_item_earring_m01.png">Дарритова серйога спеціаліста</option>
-                        <option value="earring2" data-icon="images/icon_item_earring_m01.png">Опалова серйога спеціаліста</option>
-                        <option value="necklace" data-icon="images/icon_item_necklace_m01.png">Дарритове намисто спеціаліста</option>
-                        <option value="necklace2" data-icon="images/icon_item_necklace_m01.png">Опалове намисто спеціаліста</option>
-                        <option value="belt" data-icon="images/icon_item_belt_m01.png">Каталіумовий пояс спеціаліста</option>
-                        <option value="belt2" data-icon="images/icon_item_belt_m01.png">Каталіумовий ремінь спеціаліста</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-jewelry">Кількість крафтів:</label>
-                    <input type="number" id="quantity-jewelry" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Матеріал</th>
-                                    <th>Кількість</th>
-                                </tr>
-                            </thead>
-                            <tbody id="materials-list-jewelry"></tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Предмет</th>
-                                    <th>Кількість</th>
-                                </tr>
-                            </thead>
-                            <tbody id="output-list-jewelry"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<div class="calculator">
-            <div class="calculator-header">
-                <h2>Крафт матеріалу</h2>
-                <button id="reset-craftmaterials" class="reset-button">Скинути</button>
-            </div>
-            <div class="calculator-content">
-                <div id="craftmaterials-icon-container">
-                    <img src="images" alt="craftmaterials" width="40" height="40" class="calculator-icon">
-                </div>
-                <div class="input-group">
-                    <label for="craftmaterials-type">Тип матеріалу:</label>
-                    <select id="craftmaterials-type">
-                        <option value="daritejewellery" data-icon="images/icon_item_ha_ac_parts_n_r_60s.png">Дарритова прикраса</option>
-                        <option value="opaljewellery" data-icon="images/icon_item_ha_ac_parts_n_r_60a.png">Опалова прикраса</option>
-                        <option value="holyleather" data-icon="images/icon_item_ta_rt_parts_n_r_60a.png">Священна шкіра</option>
-                        <option value="ponicaweaving" data-icon="images/icon_item_ta_rb_parts_n_r_60a.png">Фонікова тканина</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="quantity-craftmaterials">Кількість крафтів:</label>
-                    <input type="number" id="quantity-craftmaterials" value="1" min="1" max="100">
-                </div>
-                <div class="ingredients">
-                    <h3>Необхідні матеріали</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Матеріал</th>
-                                    <th>Кількість</th>
-                                </tr>
-                            </thead>
-                            <tbody id="materials-list-craftmaterials"></tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="output">
-                    <h3>Результат крафту</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Предмет</th>
-                                    <th>Кількість</th>
-                                </tr>
-                            </thead>
-                            <tbody id="output-list-craftmaterials"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="calculator race-selector">
-   
-    <div class="calculator-content">
-        <div class="input-group">
-            <label for="race-select">Оберіть расу:</label>
-            <select id="race-select">
-                <option value="elyos">Елійці</option>
-                <option value="asmodian">Асмодіанці</option>
-            </select>
-        </div>
-        
-        <div class="materials-section">
-            <h3>Матеріали</h3>
-            <div class="table-container">
-                <table id="materials-table">
-                    <tbody>
-                        <tr><td class="popup-name" data-popup="Nolan">Даррит</td></tr>
-                        <tr><td class="popup-name" data-popup="Opal">Опал</td></tr>
-                        <tr><td class="popup-name" data-popup="Ceramium">Сераміум</td></tr>
-                        <tr><td class="popup-name" data-popup="Aether">Давній ефір</td></tr>
-                        <tr><td class="popup-name" data-popup="Ponica">Стебло фоніки</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-	
-	<div class="popup" id="popup">
-    <div class="popup-content">
-        <span class="close-btn" id="close-btn">&times;</span>
-        <h3 id="popup-title">Заголовок попапу</h3>
-        <textarea id="popup-textarea" readonly rows="10" style="width: 100%; resize: none;"></textarea>
-        <button id="copy-btn" class="copy-button">Копіювати</button>
-    </div>
-	</div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
 
+  <a class="skip-link" href="#main">До основного вмісту</a>
 
-	<div id="notification-container"></div>
-    <script src="js/script.js"></script>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="../schedule/">Розклад</a>
+        <a href="../#craft" aria-current="true">Крафт</a>
+        <a href="../#calculators">Калькулятори</a>
+        <a href="../#streambox">СтрімБокс</a>
+        <a href="../localization/">Локалізація</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap tool-page" data-asset-base="../">
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
+      <a href="../">Головна</a>
+      <span aria-hidden="true">/</span>
+      <a href="../#craft">Крафт</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Біжутерія</span>
+    </nav>
+
+    <div class="tool-head">
+      <h1 class="page-title">Крафт біжутерії</h1>
+      <p class="tool-lead">Кільця, сережки, намиста й пояси спеціаліста та проміжні матеріали для них. Нижче є точки збору сировини.</p>
+    </div>
+
+    <div class="tool-stack" data-calculators>
+      <p class="empty-note">Завантажуємо рецепти…</p>
+    </div>
+
+    <section class="tool-section" aria-labelledby="gathering-title">
+      <h2 class="section-title" id="gathering-title">Де збирати матеріали</h2>
+      <p class="tool-lead">Точки збору дарриту, опалу, сераміуму, давнього ефіру й фоніки для обох рас.</p>
+      <div data-gathering>
+        <p class="empty-note">Завантажуємо точки збору…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/tools/craft-page.js?v=1"></script>
 </body>
 </html>

@@ -1,227 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aion</title>
-    <link rel="stylesheet" href="css/style.css?v=offline-state">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aion UA — онлайн серверів, розклад, крафт і калькулятори</title>
+  <meta name="description" content="Український фан-хаб для гравців Aion: онлайн EuroAion, Origin Aion та AionDestiny наживо, розклад інстансів, калькулятори крафту й стігм, локалізація клієнта.">
+  <meta name="theme-color" content="#0a0b10">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/v2.css?v=13">
 
-  gtag('config', 'G-BDBL7DSC46');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDBL7DSC46');
+  </script>
 </head>
 <body>
-    <div class="container">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 2.5 19.5 16 16 29.5 12.5 16Z"/>
+        <path d="M12.9 13.2C9.6 12.4 6.2 9.9 3.5 5.5c3.6 1.6 6.7 2.4 9.9 2.6"/>
+        <path d="M19.1 13.2c3.3-.8 6.7-3.3 9.4-7.7-3.6 1.6-6.7 2.4-9.9 2.6"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+    </defs>
+  </svg>
 
-        <div class="online-bar">
-            <div class="online-bar-item">
-                <div class="status-dot is-loading" id="euro-status-dot"></div>
-                <span class="bar-server">EuroAion</span>
-                <span class="bar-total" id="euro-total">—</span>
-                <span class="bar-factions" id="euro-factions">(<span class="bar-asmo" id="euro-asmo">—</span> / <span class="bar-ely" id="euro-ely">—</span>)</span>
-            </div>
-            <div class="online-bar-sep">•</div>
-            <div class="online-bar-item">
-                <div class="status-dot is-loading" id="origin-status-dot"></div>
-                <span class="bar-server">Origin Aion</span>
-                <span class="bar-total" id="origin-total">—</span>
-                <span class="bar-factions" id="origin-factions" hidden>(<span class="bar-asmo" id="origin-asmo">—</span> / <span class="bar-ely" id="origin-ely">—</span>)</span>
-            </div>
-            <div class="online-bar-sep">•</div>
-            <div class="online-bar-item">
-                <div class="status-dot"></div>
-                <span class="bar-server">AionDestiny</span>
-                <span class="bar-total" id="destiny-total">—</span>
-                <span class="bar-factions">(<span class="bar-asmo" id="destiny-asmo">—</span> / <span class="bar-ely" id="destiny-ely">—</span>)</span>
-            </div>
-            <div class="online-bar-sep">•</div>
-            <div class="bar-updated" id="bar-updated">оновлення...</div>
-        </div>
+  <a class="skip-link" href="#main">До основного вмісту</a>
 
-        <div class="grid">
-            <div class="card" data-keywords="розклад інстанси евроайон origin aiondestiny">
-                <h2>Розклад інстансів</h2>
-                <p>Дізнайтесь, коли і де проходять найцікавіші події</p>
-                <div class="links">
-                    <a href="/aionua/euroaion/" class="link">EuroAion<span class="badge">Оновлено</span></a>
-                    <a href="/aionua/originaion/" class="link">Origin Aion<span class="badge">Нове</span></a>
-                    <a href="/aionua/aiondestiny/" class="link">AionDestiny</a>
-                </div>
-            </div>
-
-            <div class="card" data-keywords="крафт ресурси кристали біжутерія свитки зілля">
-                <h2>Ресурси та крафт</h2>
-                <p>Все необхідне для крафту в одному місці</p>
-                <div class="links">
-                    <a href="/aionua/crystal_crafting/" class="link">Кристали, стрижні, бруси, божики <!--<span class="badge"  style="color: #FFD711;">Нове</span>--></a>                    
-                    <a href="/aionua/craft/" class="link">Крафт біжутерії  <span class="badge">Оновлено</span></a>					
-                    <a href="/aionua/spc/" class="link">Крафт сувоїв, зілля, їжі <!--<span class="badge"  style="color: #FFD711;">Нове</span>--></a>
-                    <a href="/aionua/essencetapping/" class="link">Енергокінез</a>
-                    <a href="/aionua/aethertapping/" class="link">Ефірокінез</a>
-                </div>
-            </div>
-
-            <div class="card" data-keywords="калькулятор стігми чари">
-                <h2>Калькулятори стігм, чар, конвертор</h2>
-                <p>Оптимізуйте свого персонажа</p>
-                <div class="links">
-                    <a href="/aionua/aion-4.6-enchantment-calculator/" class="link">Калькулятор чар <span class="badge">Популярне</span></a>
-                    <a href="/aionua/stigma/" class="link">Стігми 4.6</a>
-                    <a href="/aionua/stigmas/" class="link">Стігми 4.8</a>
-		    <a href="/aionua/efir/" class="link">Конвертор ефіру  <span class="badge"  style="color: #FFD711;">Нове</span></a>
-                </div>
-            </div>
-
-		<div class="card" data-keywords="стрімери solution hammer counter">
-               	 <h2>СтрімБокс</h2>
-               	 <p>Віджети, лічильники, локалізація для гравців</p>
-               	 <div class="links">
-                    <a href="/aionua/tempering-solution-counter/" class="link">Solution Counter</a>
-                    <a href="/aionua/ice-hammer-counter/" class="link">Hammer Counter</a>
-		    <a href="/aionua/localization/" class="link">Локалізація + Розширення</a>
-					 
-                </div>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./" aria-label="Aion UA, на головну">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи">
+        <a href="schedule/">Розклад</a>
+        <a href="#craft">Крафт</a>
+        <a href="#calculators">Калькулятори</a>
+        <a href="#streambox">СтрімБокс</a>
+        <a href="localization/">Локалізація</a>
+      </nav>
+      <button class="search-trigger" type="button" data-focus-search>
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <span>Пошук</span>
+        <kbd class="kbd">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-focus-search aria-label="Пошук інструментів">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+      </button>
+      <button class="icon-button" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
     </div>
+  </header>
 
-<script>
-// Воркер збирає онлайн наживо (код у worker/, деплой: npx wrangler deploy).
-// Якщо він недоступний, сторінка тихо відкочується на data.json.
-const ONLINE_ENDPOINT = 'https://aionua-online.borsay86.workers.dev/';
-const FALLBACK_ENDPOINT = '/aionua/data.json';
-const REFRESH_MS = 2 * 60 * 1000;
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title" class="reveal">Облоги, крафт і стігми без зайвих вкладок</h1>
+          <p class="lead reveal" style="--i: 1">Онлайн серверів наживо, розклад інстансів, калькулятори й українська локалізація для EuroAion, Origin Aion та AionDestiny.</p>
 
-function setText(id, value) {
-    const element = document.getElementById(id);
-    if (element) element.textContent = value;
-}
+          <form class="search reveal" style="--i: 2" role="search" action="#tools" data-search>
+            <div class="search-field">
+              <svg aria-hidden="true"><use href="#i-search"/></svg>
+              <label class="visually-hidden" for="tool-search">Пошук інструментів</label>
+              <input id="tool-search" type="search" autocomplete="off" spellcheck="false"
+                     placeholder="Пошук: стігми, кристали, ефір…"
+                     aria-controls="search-results" aria-expanded="false">
+              <kbd class="kbd" aria-hidden="true">/</kbd>
+            </div>
+            <div class="search-results" id="search-results" hidden></div>
+          </form>
 
-// Воркер пропускає сервер, який не відповів, — тоді на екрані лишається попереднє значення.
-function render(d) {
-    if (d.destiny) {
-        setText('destiny-total', d.destiny.total);
-        setText('destiny-asmo', 'Asm: ' + d.destiny.dark);
-        setText('destiny-ely', 'Ely: ' + d.destiny.light);
-    }
+          <div class="quick reveal" style="--i: 3">
+            <span class="quick-label">Швидкий доступ:</span>
+            <a class="chip" href="aion-4.6-enchantment-calculator/">Калькулятор чар</a>
+            <a class="chip" href="schedule/?server=euro">Розклад EuroAion</a>
+            <a class="chip" href="stigmas/">Стигми 4.8</a>
+            <a class="chip" href="localization/">Локалізація</a>
+          </div>
+        </div>
 
-    // is_online: null — стан Origin невідомий (збій запиту чи змінилась відповідь API).
-    // Тоді нічого не міняємо: ні «офлайн», ні старе число як живе не стверджуємо.
-    if (d.origin && d.origin.is_online != null) {
-        const originOnline = d.origin.is_online === true;
-        const originDot = document.getElementById('origin-status-dot');
+        <div class="tower" aria-hidden="true">
+          <svg viewBox="0 0 72 560" preserveAspectRatio="xMidYMid meet" fill="none" stroke-width="1" stroke-linejoin="round">
+            <g stroke="#8fcbf0" opacity="0.6">
+              <path pathLength="1" vector-effect="non-scaling-stroke" d="M36 8 54 252 47 246 41 256 36 249 30 258 24 247 18 252Z"/>
+              <path pathLength="1" vector-effect="non-scaling-stroke" d="M36 8v240M32.2 60h7.6M28.5 110h15M24.8 160h22.4M21.1 210h29.8"/>
+            </g>
+            <g fill="#e2b865" stroke="none" opacity="0.85">
+              <path d="m27 270 2 2-2 2-2-2Z"/>
+              <path d="m44 278.4 2.6 2.6-2.6 2.6-2.6-2.6Z"/>
+              <path d="m35 290.4 1.6 1.6-1.6 1.6-1.6-1.6Z"/>
+              <path d="m52 266.8 1.2 1.2-1.2 1.2-1.2-1.2Z"/>
+              <path d="m20 286.8 1.2 1.2-1.2 1.2-1.2-1.2Z"/>
+            </g>
+            <g stroke="#d8583f" opacity="0.7">
+              <path pathLength="1" vector-effect="non-scaling-stroke" d="M36 552 54 308 47 314 41 304 36 311 30 302 24 313 18 308Z"/>
+              <path pathLength="1" vector-effect="non-scaling-stroke" d="M36 552V312M32.2 500h7.6M28.5 450h15M24.8 400h22.4M21.1 350h29.8"/>
+            </g>
+          </svg>
+        </div>
 
-        // З 27.08.2026 Origin не публікує кількість гравців: API віддає
-        // playerCount: null, хоча isOnline лишається true. Нуль на місці числа
-        // читався б як «на сервері нікого», тому без лічильника число просто
-        // ховаємо — що сервер працює, показує індикатор. Натомість зʼявився
-        // розподіл рас, його й виводимо.
-        const hasCount = Number.isFinite(d.origin.total);
-        const totalEl = document.getElementById('origin-total');
-        if (totalEl) {
-            totalEl.hidden = originOnline && !hasCount;
-            setText('origin-total', originOnline ? d.origin.total : 'офлайн');
-        }
+        <section class="servers reveal" style="--i: 2" aria-labelledby="servers-title" data-servers>
+          <div class="servers-head">
+            <h2 id="servers-title" class="label">Сервери зараз</h2>
+            <span class="live-pill" data-live-pill><span class="dot is-loading" data-live-dot></span><span data-live-text>оновлення…</span></span>
+          </div>
 
-        // Коли лічильник доступний, показуємо розбивку в людях, як у Destiny;
-        // без нього лишаються відсотки — вони приходять і при playerCount: null.
-        // Якщо Origin прибере обидві форми, блок ховаємо: намальовані нулі
-        // виглядали б як порожні фракції на робочому сервері.
-        const hasRaceCount = Number.isFinite(d.origin.asmo) && Number.isFinite(d.origin.elyos);
-        const hasRacePct = Number.isFinite(d.origin.asmo_pct) && Number.isFinite(d.origin.elyos_pct);
-        const asmo = hasRaceCount ? d.origin.asmo : d.origin.asmo_pct;
-        const ely = hasRaceCount ? d.origin.elyos : d.origin.elyos_pct;
-        const suffix = hasRaceCount ? '' : '%';
+          <article class="server" data-server="euro">
+            <div class="server-top">
+              <span class="dot is-loading" data-dot></span>
+              <div class="server-id">
+                <h3 class="server-name">EuroAion</h3>
+                <span class="server-state" data-state></span>
+              </div>
+              <p class="server-count" data-count hidden><span data-total>—</span><small data-unit>гравців</small></p>
+              <p class="server-note" data-note hidden>кількість не публікується</p>
+            </div>
+            <div class="faction-bar" aria-hidden="true" data-bar hidden><span class="asmo" data-bar-asmo></span><span class="ely" data-bar-ely></span></div>
+            <dl class="factions" data-factions hidden>
+              <div class="faction asmo"><dt>Асмодіани</dt><dd data-asmo>—</dd></div>
+              <div class="faction ely"><dt>Елійці</dt><dd data-ely>—</dd></div>
+            </dl>
+          </article>
 
-        const factions = document.getElementById('origin-factions');
-        if (factions) {
-            const hasRace = hasRaceCount || hasRacePct;
-            // 0/0 буває, коли сервер щойно піднявся, — краще не показувати нічого
-            factions.hidden = !originOnline || !hasRace || asmo + ely === 0;
-            if (hasRace) {
-                setText('origin-asmo', 'Asm: ' + asmo + suffix);
-                setText('origin-ely', 'Ely: ' + ely + suffix);
-            }
-        }
+          <article class="server" data-server="origin">
+            <div class="server-top">
+              <span class="dot is-loading" data-dot></span>
+              <div class="server-id">
+                <h3 class="server-name">Origin Aion</h3>
+                <span class="server-state" data-state></span>
+              </div>
+              <p class="server-count" data-count hidden><span data-total>—</span><small data-unit>гравців</small></p>
+              <p class="server-note" data-note hidden>кількість не публікується</p>
+            </div>
+            <div class="faction-bar" aria-hidden="true" data-bar hidden><span class="asmo" data-bar-asmo></span><span class="ely" data-bar-ely></span></div>
+            <dl class="factions" data-factions hidden>
+              <div class="faction asmo"><dt>Асмодіани</dt><dd data-asmo>—</dd></div>
+              <div class="faction ely"><dt>Елійці</dt><dd data-ely>—</dd></div>
+            </dl>
+          </article>
 
-        originDot.classList.remove('is-loading');
-        originDot.classList.toggle('is-offline', !originOnline);
-    }
+          <article class="server" data-server="destiny">
+            <div class="server-top">
+              <span class="dot is-loading" data-dot></span>
+              <div class="server-id">
+                <h3 class="server-name">AionDestiny</h3>
+                <span class="server-state" data-state></span>
+              </div>
+              <p class="server-count" data-count hidden><span data-total>—</span><small data-unit>гравців</small></p>
+              <p class="server-note" data-note hidden>кількість не публікується</p>
+            </div>
+            <div class="faction-bar" aria-hidden="true" data-bar hidden><span class="asmo" data-bar-asmo></span><span class="ely" data-bar-ely></span></div>
+            <dl class="factions" data-factions hidden>
+              <div class="faction asmo"><dt>Асмодіани</dt><dd data-asmo>—</dd></div>
+              <div class="faction ely"><dt>Елійці</dt><dd data-ely>—</dd></div>
+            </dl>
+          </article>
 
-    // EuroAion уже не раз міняв розмітку, тож будь-яке значення може не прийти.
-    // Відсутнє не малюємо — інакше на екрані зʼявиться «null»; лишається попереднє.
-    // Офлайн стверджуємо лише за явним is_online: false (техробіти). Відсутнє поле
-    // чи null означає «стан невідомий» — тоді нічого не міняємо, щоб не збрехати.
-    if (d.euro) {
-        const euroDot = document.getElementById('euro-status-dot');
-        const euroFactions = document.getElementById('euro-factions');
-        const euroTotal = document.getElementById('euro-total');
+          <p class="servers-foot meta"><span data-updated>Отримуємо дані…</span><span>оновлення кожні 2 хв</span></p>
+        </section>
+      </div>
+    </section>
 
-        if (d.euro.is_online === false) {
-            setText('euro-total', 'офлайн');
-            if (euroTotal) euroTotal.hidden = false;
-            if (euroFactions) euroFactions.hidden = true;
-            euroDot?.classList.remove('is-loading');
-            euroDot?.classList.add('is-offline');
-        } else {
-            // З 24.09.2026 EuroAion не публікує кількість гравців: сервер працює й
-            // віддає самі відсотки. Ховаємо тоді цифру, а не весь рядок, — як в Origin.
-            const hasCount = Number.isFinite(d.euro.total);
-            if (hasCount) setText('euro-total', d.euro.total);
-            // Немає числа — ховаємо цифру незалежно від того, відомий стан чи ні:
-            // інакше поруч із відсотками висить прочерк.
-            if (euroTotal) euroTotal.hidden = !hasCount;
-            if (hasCount || d.euro.is_online === true) {
-                euroDot?.classList.remove('is-loading', 'is-offline');
-            }
-            if (Number.isFinite(d.euro.asmo_pct) && Number.isFinite(d.euro.elyos_pct)) {
-                setText('euro-asmo', 'Asm: ' + d.euro.asmo_pct + '%');
-                setText('euro-ely', 'Ely: ' + d.euro.elyos_pct + '%');
-                if (euroFactions) euroFactions.hidden = false;
-            }
-        }
-    }
+    <section class="section" id="events" aria-labelledby="events-title" data-events>
+      <div class="wrap">
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <h2 id="events-title">Найближчі події</h2>
+              <p class="meta" data-events-date>за вашим часом</p>
+            </div>
+            <div class="segmented" role="group" aria-label="Сервер">
+              <button type="button" data-events-server="euro" aria-pressed="true">EuroAion</button>
+              <button type="button" data-events-server="origin" aria-pressed="false">Origin<span class="visually-hidden"> Aion</span></button>
+              <button type="button" data-events-server="destiny" aria-pressed="false">Destiny</button>
+            </div>
+            <a class="text-link" href="schedule/?server=euro" data-events-link>Повний розклад <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="events-body">
+            <div class="events-now">
+              <h3 class="label">Зараз триває</h3>
+              <ul class="now-list" data-now-list></ul>
+              <p class="events-empty" data-now-empty hidden>Зараз нічого не йде.</p>
+            </div>
+            <div class="events-next">
+              <h3 class="label">Далі</h3>
+              <ol class="next-list" data-next-list></ol>
+              <p class="events-empty" data-events-status>Завантажуємо розклад…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    if (d.updated_at) {
-        setText('bar-updated', new Date(d.updated_at).toLocaleString('uk-UA', {
-            day: '2-digit', month: '2-digit', year: 'numeric',
-            hour: '2-digit', minute: '2-digit'
-        }));
-    }
-}
+    <section class="section" id="tools" aria-labelledby="tools-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="tools-title" class="section-title">Усі інструменти</h2>
+        </div>
+        <div class="tool-index">
+          <section class="tool-group" id="schedules" aria-labelledby="group-schedules">
+            <h3 id="group-schedules">Розклад інстансів</h3>
+            <p>Коли й де проходять найцікавіші події</p>
+            <ul class="tool-list">
+              <li><a class="tool-link" href="schedule/?server=euro" data-keywords="розклад інстанси облоги арени pvp евроайон euroaion расписание осады"><span class="tool-name">EuroAion</span><span class="badge badge-gold">Оновлено</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="schedule/?server=origin" data-keywords="розклад інстанси облоги арени розломи оріджин origin расписание"><span class="tool-name">Origin Aion</span><span class="badge badge-gold">Нове</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="schedule/?server=destiny" data-keywords="розклад інстанси облоги турніри дестіні destiny расписание"><span class="tool-name">AionDestiny</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </section>
 
-async function fetchJson(url) {
-    const separator = url.includes('?') ? '&' : '?';
-    const resp = await fetch(url + separator + 't=' + Date.now(), { cache: 'no-store' });
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    return resp.json();
-}
+          <section class="tool-group" id="craft" aria-labelledby="group-craft">
+            <h3 id="group-craft">Ресурси та крафт</h3>
+            <p>Усе необхідне для крафту в одному місці</p>
+            <ul class="tool-list">
+              <li><a class="tool-link" href="crystal_crafting/" data-keywords="кристали стрижні бруси божики ресурси кристаллы стержни бруски crystal craft"><span class="tool-name">Кристали, стрижні, бруси, божики</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="craft/" data-keywords="біжутерія кільце сережка намисто пояс бижутерия кольцо серьги ожерелье jewelry"><span class="tool-name">Крафт біжутерії</span><span class="badge badge-gold">Оновлено</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="spc/" data-keywords="сувої зілля їжа свитки зелья еда scroll potion food"><span class="tool-name">Крафт сувоїв, зілля, їжі</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="essencetapping/" data-keywords="енергокінез збір эссенция сбор essence tapping"><span class="tool-name">Енергокінез</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="aethertapping/" data-keywords="ефірокінез ефір эфир эфирокинез aether tapping"><span class="tool-name">Ефірокінез</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </section>
 
-async function loadOnline() {
-    if (ONLINE_ENDPOINT) {
-        try {
-            render(await fetchJson(ONLINE_ENDPOINT));
-            return;
-        } catch (e) {
-            console.warn('Воркер недоступний, беремо data.json:', e);
-        }
-    }
+          <section class="tool-group" id="calculators" aria-labelledby="group-calculators">
+            <h3 id="group-calculators">Калькулятори</h3>
+            <p>Стігми, чари й ефір: оптимізуйте персонажа</p>
+            <ul class="tool-list">
+              <li><a class="tool-link" href="aion-4.6-enchantment-calculator/" data-keywords="чари заточка шанс камені зачарування точка enchantment enchant"><span class="tool-name">Калькулятор чар</span><span class="badge badge-gold">Популярне</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="stigma/" data-keywords="стигми стігми стигмы stigma 4.6 білд билд осколки"><span class="tool-name">Стигми 4.6</span><span class="badge badge-gold">Нове</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="stigmas/" data-keywords="стигми стігми стигмы stigma 4.8 класи билд заточка прихована"><span class="tool-name">Стигми 4.8</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="efir/" data-keywords="конвертер конвертор ефір магічний эфир ether"><span class="tool-name">Конвертер ефіру</span><span class="badge badge-gold">Нове</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </section>
 
-    try {
-        render(await fetchJson(FALLBACK_ENDPOINT));
-    } catch (e) {
-        console.error('Online fetch error:', e);
-    }
-}
+          <section class="tool-group" id="streambox" aria-labelledby="group-streambox">
+            <h3 id="group-streambox">СтрімБокс</h3>
+            <p>Віджети й лічильники для стрімів</p>
+            <ul class="tool-list">
+              <li><a class="tool-link" href="tempering-solution-counter/" data-keywords="стрім лічильник розчин solution tempering стрим счетчик obs"><span class="tool-name">Solution Counter</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="ice-hammer-counter/" data-keywords="стрім лічильник молот hammer стрим счетчик obs"><span class="tool-name">Hammer Counter</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="tool-link" href="localization/" data-keywords="локалізація переклад українська розширення tampermonkey скрипт локализация перевод"><span class="tool-name">Локалізація + розширення</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
 
-loadOnline();
-setInterval(loadOnline, REFRESH_MS);
-</script>
+    <section class="section" aria-labelledby="loc-title">
+      <div class="wrap">
+        <div class="loc-panel">
+          <div>
+            <h2 id="loc-title" class="section-title">Грайте українською</h2>
+            <p>Переклад клієнта для Origin Aion, Aion Riftshade та Aion Destiny, а ще скрипти, що перекладають сайти серверів.</p>
+            <a class="btn btn-primary" href="localization/">Обрати клієнт <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <ul class="loc-clients" aria-label="Доступні збірки">
+            <li class="client"><span class="client-server">Origin Aion</span><span class="client-version">4.6</span><span class="badge badge-gold">Нова версія</span></li>
+            <li class="client"><span class="client-server">Aion Riftshade</span><span class="client-version">4.8</span><span class="badge">ОБТ</span></li>
+            <li class="client"><span class="client-server">Aion Destiny</span><span class="client-version">4.6</span><span class="badge">Стабільна</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="./">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Aion UA</span>
+      </a>
+      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково">
+        <a href="https://github.com/juniorapi/aionua">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/home.js?v=1"></script>
 </body>
 </html>
