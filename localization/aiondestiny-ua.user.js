@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.3.1
+// @version      1.4.0
 // @description  Перекладає сайт aiondestiny.net українською (з прапором у перемикачі мов) і містить вбудований трекер досягнень
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
@@ -308,6 +308,11 @@
                 keywords: 'преміум aion, преміум акаунт aion 4.6, бонуси aion destiny',
                 title: 'Преміум-акаунт — Aion Destiny',
             },
+            promo: {
+                description: 'Стабільний онлайн, власна збірка сервера, античит і підтримка 24/7. Бонуси новачкам, автоматичний переклад чату та низький пінг для гравців із Європи.',
+                keywords: 'aion destiny, сервер aion 4.6, грати в aion, бонуси новачкам aion',
+                title: 'Aion Destiny 4.6 — сервер Aion',
+            },
             siteName: 'Aion Destiny',
         },
 
@@ -454,6 +459,33 @@
                 downloadButton: 'Завантажити',
                 title: 'МОВА КЛІЄНТА ЗАЛЕЖИТЬ ВІД МОВИ САЙТУ',
                 // torrentlink навмисно не перекладаємо — це URL
+                feature1Text: 'Завантажує гру з нуля, розпаковує та перевіряє файли.',
+                feature1Title: 'Встановлення клієнта',
+                feature2Text: 'Патчі встановлюються самі ще до запуску гри.',
+                feature2Title: 'Автооновлення',
+                feature3Text: 'Вхід зберігається — перемикайтеся без повторної авторизації.',
+                feature3Title: 'Кілька акаунтів',
+                feature4Text: 'Вбудований, сторонні програми не потрібні.',
+                feature4Title: 'Голосовий чат',
+                featuresTitle: 'Що вміє лаунчер',
+                fileLabel: 'Файл',
+                fileValue: 'aiondestinylauncher.exe',
+                heading: 'Лаунчер Aion Destiny',
+                headingShort: 'Лаунчер',
+                osLabel: 'Система',
+                osValue: 'Windows 7 / 8 / 10 / 11',
+                step1Text: 'Завантажте інсталятор із цієї сторінки та запустіть його.',
+                step1Title: 'Завантажте лаунчер',
+                step2Text: 'Увійдіть у лаунчер за допомогою свого ігрового акаунта.',
+                step2Title: 'Авторизуйтеся',
+                step3Text: 'Лаунчер сам завантажить файли гри та перевірить оновлення.',
+                step3Title: 'Завантажте гру',
+                step4Text: 'Натисніть «Грати» й створіть персонажа.',
+                step4Title: 'Можна грати',
+                stepsTitle: 'Як почати грати',
+                subheading: 'Встановлює та оновлює клієнт за вас — вам лишається тільки грати.',
+                versionLabel: 'Версія',
+                versionValue: '4.6',
             },
 
             footer: {
@@ -530,6 +562,59 @@
                 title: 'VIP-привілеї',
                 vip14: 'VIP (14 днів)',
                 vip30: 'VIP (30 днів)',
+            },
+            promo: {
+                advantage1Text: 'Велика активна спільнота та стабільний онлайн забезпечують комфортну гру.',
+                advantage1Title: 'Високий і стабільний онлайн',
+                advantage2Text: 'Власна система Destiny Netboost додатково захищає ігрове з\'єднання й дає змогу грати далі навіть за короткочасних проблем зі зв\'язком або розривів з\'єднання.',
+                advantage2Title: 'Стабільна робота сервера',
+                advantage3Text: 'Destiny 4.6 працює на власній збірці, створеній нашою командою. Це дає нам змогу глибоко змінювати наявні механіки, додавати новий контент і розвивати сервер без обмежень.',
+                advantage3Title: 'Власна збірка сервера',
+                advantage4Text: 'Ми завжди на зв\'язку. Команда підтримки швидко допоможе розв\'язати будь-які питання та технічні проблеми.',
+                advantage4Title: 'Технічна підтримка 24/7',
+                advantage5Text: 'Багаторівнева античит-система власної розробки ефективно виявляє публічні чити й забезпечує чесну гру.',
+                advantage5Title: 'Передова античит-система',
+                advantage6Text: 'Система сезонів, Бойовий пропуск, спорядження Архангела, PvP- і PvE-рейтинги, численні автоматичні івенти, бонуси та багато іншого.',
+                advantage6Title: 'Додатковий контент',
+                advantagesAria: 'Переваги сервера',
+                bonusBannerAria: 'Вересневі бонуси для новачків',
+                bonusCatchup: 'Якщо ваш персонаж створений до 02.09 і ще не досяг 61 рівня, ви також отримаєте такі самі бонуси.',
+                bonusClose: 'Закрити',
+                bonusCta: 'Переглянути бонуси',
+                bonusGiftsDates: '02.09 — 12.09',
+                bonusGiftsShort: 'Стартові бонуси',
+                bonusGiftsTitle: 'Покращені бонуси під час створення персонажа',
+                bonusHurry: 'Встигніть скористатися акцією!',
+                bonusKicker: 'Вересень',
+                bonusNoteMark: '[Знак новачка] — шанс дропу +50%, атака / захист у PvE +20%',
+                bonusNoteTitle: '[Титул] — HP +1500, MP +1500, швидкість руху +4%, захист у PvP +10%',
+                bonusPackBasicItem1: 'Броня Даеваніона',
+                bonusPackBasicItem2: 'Купон на розширення куба / складу',
+                bonusPackBasicItem3: 'Сувій швидкості ×100',
+                bonusPackBasicItem4: 'Зілля HP / MP ×100',
+                bonusPackBasicItem5: 'Титул «Мрійник»',
+                bonusPackBasicItem6: 'Давня корона ×2',
+                bonusPackBasicItem7: 'Бойовий кінь на 7 днів',
+                bonusPackBasicTitle: 'Базовий набір',
+                bonusPackSeptItem1: 'Сераміумова медаль ×50',
+                bonusPackSeptItem2: 'Знак новачка на 30 днів',
+                bonusPackSeptItem3: 'Титул «Новачок Destiny» на 30 днів',
+                bonusPackSeptItem4: 'Сувій входу в підземелля ×5',
+                bonusPackSeptItem5: 'Мішок реліквій ×20',
+                bonusPackSeptItem6: 'Знак крові ×300',
+                bonusPackSeptTitle: 'Вересневий бонус',
+                bonusRatesDates: '02.09 — 07.09',
+                bonusRatesTitle: 'Рейти ×2 • VIP ×3',
+                bonusTitle: 'Найкращий час почати',
+                euAria: 'Для гравців із Європи',
+                euLabel: 'Для гравців із Європи',
+                europe1Text: 'Система автоматично визначає мову й перекладає повідомлення в чаті — як вхідні, так і ваші. Спілкуйтеся вільно незалежно від країни та мови.',
+                europe1Title: 'Автопереклад повідомлень',
+                europe2Text: 'Проксі-сервери по всій Європі та автоматичний вибір найкращого маршруту забезпечують стабільне з\'єднання й мінімальний пінг.',
+                europe2Title: 'Оптимальний пінг',
+                install: 'Встановити',
+                language: 'Мова',
+                socialsAria: 'Соціальні мережі',
             },
 
             rating: {
@@ -1104,7 +1189,8 @@
     ═══════════════════════════════════════════════════════════════════ */
 
     window.__destinyUA = {
-        version: '1.3.1',
+        // Із заголовка скрипта, а не рядком: другий запис версії неминуче розходився з @version
+        version: (typeof GM_info !== 'undefined' && GM_info.script && GM_info.script.version) || 'невідомо',
         get locale() { return currentLocale(); },
         missing: () => [...missing].sort(),
         missingText: () => [...missing].sort().join('\n'),
