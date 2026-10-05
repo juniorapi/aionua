@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Aion Destiny — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.4.0
+// @version      1.4.1
 // @description  Перекладає сайт aiondestiny.net українською (з прапором у перемикачі мов) і містить вбудований трекер досягнень
 // @author       juniorapi
 // @match        https://aiondestiny.net/*
 // @icon         https://aiondestiny.net/favicon.ico
 // @homepageURL  https://juniorapi.github.io/aionua/localization/
-// @downloadURL  https://juniorapi.github.io/aionua/localization/aiondestiny-ua.user.js
-// @updateURL    https://juniorapi.github.io/aionua/localization/aiondestiny-ua.user.js
+// @downloadURL  https://raw.githubusercontent.com/juniorapi/aionua/main/localization/aiondestiny-ua.user.js
+// @updateURL    https://raw.githubusercontent.com/juniorapi/aionua/main/localization/aiondestiny-ua.user.js
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

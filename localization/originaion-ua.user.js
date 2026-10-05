@@ -2,15 +2,15 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.8.0
+// @version      1.8.1
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
 // @match        https://www.originaion.com/*
 // @icon         https://originaion.com/favicon.ico
 // @homepageURL  https://juniorapi.github.io/aionua/localization/
-// @downloadURL  https://juniorapi.github.io/aionua/localization/originaion-ua.user.js
-// @updateURL    https://juniorapi.github.io/aionua/localization/originaion-ua.user.js
+// @downloadURL  https://raw.githubusercontent.com/juniorapi/aionua/main/localization/originaion-ua.user.js
+// @updateURL    https://raw.githubusercontent.com/juniorapi/aionua/main/localization/originaion-ua.user.js
 // @run-at       document-start
 // @grant        GM_setValue
 // @grant        GM_getValue
