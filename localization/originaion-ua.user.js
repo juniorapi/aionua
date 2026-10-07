@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.8.4
+// @version      1.8.5
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -206,7 +206,8 @@
        фортеці підписані коротко («Sulfur»), у паку — повністю, тож беремо
        повну назву: коротка без слова «фортеця» часом нічого не означає
        («Divine» → «Фортеця святості»). ── */
-    'recharger': 'Зарядний пристрій',
+    // Зона між аренами. «Зарядний пристрій» у клієнті — обʼєкт у Повітряній фортеці, не зона.
+    'recharger': 'Підзарядник',
     'sulfur': 'Фортеця сірного дерева',
     'temple of scales': 'Храм давнього дракона',
     'vorgaltem citadel': 'Запечатана вежа',
@@ -235,12 +236,14 @@
     /* ── Локації та інстанси ── */
     'terath dredgion': 'Дерадикон Садх',
     'dredgion': 'Дерадикон',
-    'engulfed ophidan bridge': 'Поглинутий міст Офідан',
-    'kamar battlefield': 'Поле бою Камар',
-    'arena of discipline': 'Арена Дисципліни',
-    'arena of chaos': 'Арена Хаосу',
-    'arena of harmony': 'Арена Гармонії',
-    'arena of glory': 'Арена Слави',
+    // Назви з паку, звірені з англійським клієнтом за ID рядка (07.10.2026) — ті самі,
+    // що на сторінці розкладу aionua. Не плутати з Ophidan Bridge — «Міст Йормунганда».
+    'engulfed ophidan bridge': 'Тунель Йормунганда',
+    'kamar battlefield': 'Поле битви Камара',
+    'arena of discipline': 'Бойова арена доблесті',
+    'arena of chaos': 'Бойова арена хаосу',
+    'arena of harmony': 'Арена покровительства',
+    'arena of glory': 'Арена слави',
 
     /* ── Рейтинги ── */
     'pvp rankings': 'PvP-рейтинг',

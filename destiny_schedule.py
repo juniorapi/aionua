@@ -39,14 +39,16 @@ TIAMARANTA_NAME = ('Серця Тіамаранти', "Tiamaranta's Hearts")
 MIN_SIEGES = 10
 MIN_MATCHMAKERS = 10
 
-# Фортеці й Неприступна твердиня — назви з паку клієнта, як на інших серверах (assets/js/schedule-model.js).
+# Назви місць — копія спільного словника PLACE_NAMES з assets/js/schedule-model.js
+# (звірено з паком клієнта, 07.10.2026). Сайт однаково бере місця звідти за originalName,
+# тож тут вони потрібні лише для schedule.json; tests/test_place_names.py стежить за розбіжностями.
 UKRAINIAN_NAMES = {
     'Divine Fortress': 'Фортеця святості',
     "Siel's Western Fortress": 'Західна фортеця Сіелі',
     "Siel's Eastern Fortress": 'Східна фортеця Сіелі',
     'Sulfur Fortress': 'Фортеця сірного дерева',
     'Roah Fortress': 'Фортеця древнього міста Ру',
-    'Krotan Refuge': 'Прихисток Кротана',
+    'Krotan Refuge': 'Фортеця Кротан',
     'Kysis Fortress': 'Фортеця Ткісас',
     'Miren Fortress': 'Фортеця Ра-Мірен',
     'Asteria Fortress': 'Фортеця Астерія',
@@ -58,12 +60,12 @@ UKRAINIAN_NAMES = {
     'Silona Fortress': 'Фортеця Базен',
     'Pradeth Fortress': 'Фортеця Парадес',
     'Dredgion': 'Дерадикон',
-    'Arena of Chaos': 'Арена Хаосу',
-    'Arena of Discipline': 'Арена Дисципліни',
-    'Arena of Harmony': 'Арена Гармонії',
-    'Arena of Glory': 'Арена Слави',
+    'Arena of Chaos': 'Бойова арена хаосу',
+    'Arena of Discipline': 'Бойова арена доблесті',
+    'Arena of Harmony': 'Арена покровительства',
+    'Arena of Glory': 'Арена слави',
     'Kamar Battlefield': 'Поле битви Камара',
-    'Engulfed Ophidan Bridge': 'Затоплений міст Офідана',
+    'Engulfed Ophidan Bridge': 'Тунель Йормунганда',
     'Iron Wall Warfront': 'Неприступна твердиня',
     'Runatorium': 'Рунаторіум',
     'Event 1x1': '1×1',

@@ -59,7 +59,8 @@ class DestinyScheduleTest(unittest.TestCase):
         english = [event['name'] for event in self.schedule['events'] if event['name'] == event['originalName']]
         self.assertEqual(english, [])
         self.assertEqual(self.records('Event FFA(2x2)')[0]['name'], 'Кожен за себе 2×2')
-        self.assertEqual(self.records('Krotan Refuge')[0]['name'], 'Прихисток Кротана')
+        # У клієнті Krotan Refuge — «Фортеця Кротан»; «Прихисток Кротана» був нашим перекладом.
+        self.assertEqual(self.records('Krotan Refuge')[0]['name'], 'Фортеця Кротан')
 
     def test_days_start_on_monday(self):
         # У API [20, 196628]: неділя 20:00 і середа 20:00.

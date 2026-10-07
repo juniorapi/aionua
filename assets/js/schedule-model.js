@@ -20,19 +20,12 @@ export const CATEGORY_TITLES = Object.freeze({
 
 export const CATEGORY_ORDER = Object.freeze(["pvp", "arenas", "siege", "rifts", "tournaments"]);
 
-// Назви фортець і регіонів — з паку клієнта (звірені в скрипті перекладу originaion.com) і однакові
-// для всіх серверів: версія гри та сама. Арени й поля бою, крім Неприступної твердині, ще чекають звірки.
-
-// Назви EuroAion. Складені назви джерело віддає одним рядком — перекладаємо їх цілими.
-const EURO_NAMES = Object.freeze({
-  "Tiamaranta's Hearts": "Серця Тіамаранти",
-  "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірного дерева, Астерія, древнього міста Ру",
-  "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сіелі",
-  "Fortresses: Vorgaltem Citadel, Temple of Scales": "Запечатана вежа, Храм давнього дракона",
-  "Fortresses: Altar of Avarice, Crimson Temple": "Вівтар жадоби, Храм червоної землі",
-  "Fortresses: Sillus, Silona, Pradeth": "Фортеці Сіллус, Базен, Парадес",
-  "Fortresses: Kysis, Miren, Krotan": "Фортеці Ткісас, Ра-Мірен, Кротан",
-  "Arenas: Chaos, Discipline, Harmony": "Арени Хаосу, Дисципліни, Гармонії",
+// Один словник назв для всіх трьох серверів: версія гри та сама, тож і назви мають збігатися.
+// Джерело — український клієнт: кожну назву звірено з англійським клієнтом за ID рядка
+// (чат паків, 07.10.2026). Ключ — повна англійська назва. destiny_schedule.py тримає копію
+// для schedule.json, а tests/test_place_names.py стежить, щоб вони не розійшлися.
+export const PLACE_NAMES = Object.freeze({
+  // Фортеці
   "Sulfur Fortress": "Фортеця сірного дерева",
   "Asteria Fortress": "Фортеця Астерія",
   "Roah Fortress": "Фортеця древнього міста Ру",
@@ -47,52 +40,72 @@ const EURO_NAMES = Object.freeze({
   "Pradeth Fortress": "Фортеця Парадес",
   "Kysis Fortress": "Фортеця Ткісас",
   "Miren Fortress": "Фортеця Ра-Мірен",
+  // EuroAion пише Fortress, Destiny — Refuge; у клієнті обидва — «Фортеця Кротан».
   "Krotan Fortress": "Фортеця Кротан",
+  "Krotan Refuge": "Фортеця Кротан",
   "Divine Fortress": "Фортеця святості",
-  "Dredgions": "Дерадикони",
-  "Engulfed Ophidan Bridge": "Затоплений міст Офідана",
-  "Runatorium": "Рунаторіум",
-  "Kamar Battlefield": "Поле битви Камара",
-  "Iron Wall Warfront": "Неприступна твердиня",
-  "Arena of Chaos": "Арена Хаосу",
-  "Arena of Discipline": "Арена Дисципліни",
-  "Arena of Harmony": "Арена Гармонії",
-  "Arena of Glory": "Арена Слави",
-});
 
-// Origin Aion підписує фортеці коротко («Sulfur»), тож ключі свої; назви фортець і регіонів ті самі.
-const ORIGIN_NAMES = Object.freeze({
-  "Terath Dredgion": "Дерадикон Садх",
-  "Kamar Battlefield": "Поле битви Камара",
-  "Engulfed Ophidan Bridge": "Міст Йормунґанда",
-  "Iron Wall Warfront": "Неприступна твердиня",
-  "Arena of Chaos": "Арена Хаосу",
-  "Arena of Discipline": "Арена Доблесті",
-  "Arena of Harmony": "Арена Злагоди",
-  "Arena of Glory": "Арена Слави",
-  "Recharger": "Відновлювач",
-  "Divine": "Фортеця святості",
-  "Roah": "Фортеця древнього міста Ру",
-  "Sulfur": "Фортеця сірного дерева",
-  "Asteria": "Фортеця Астерія",
-  "Siel's Western": "Західна фортеця Сіелі",
-  "Siel's Eastern": "Східна фортеця Сіелі",
-  "Temple of Scales": "Храм давнього дракона",
-  "Vorgaltem Citadel": "Запечатана вежа",
-  "Altar of Avarice": "Вівтар жадоби",
-  "Crimson Temple": "Храм червоної землі",
-  "Tiamaranta": "Тіамаранта",
-  "Sillus": "Фортеця Сіллус",
-  "Silona": "Фортеця Базен",
-  "Pradeth": "Фортеця Парадес",
-  "Miren/Krotan/Kysis": "Ра-Мірен / Кротан / Ткісас",
+  // Регіони
   "Heiron": "Інтердика",
+  "Eltnen": "Елтенен",
+  "Morheim": "Морхейм",
   "Beluslan": "Белуслан",
   "Inggison": "Інгісон",
   "Gelkmaros": "Келькмарос",
-  "Eltnen": "Елтенен",
-  "Morheim": "Морхейм",
+  "Tiamaranta": "Тіамаранта",
+
+  // Інстанси й поля бою
+  "Dredgion": "Дерадикон",
+  "Dredgions": "Дерадикони",
+  "Terath Dredgion": "Дерадикон Садх",
+  "Kamar Battlefield": "Поле битви Камара",
+  // Не плутати зі звичайним Ophidan Bridge — то «Міст Йормунганда», інша зона.
+  "Engulfed Ophidan Bridge": "Тунель Йормунганда",
+  "Iron Wall Warfront": "Неприступна твердиня",
+
+  // Арени
+  "Arena of Chaos": "Бойова арена хаосу",
+  "Arena of Discipline": "Бойова арена доблесті",
+  "Arena of Harmony": "Арена покровительства",
+  "Arena of Glory": "Арена слави",
+  // Зона Origin між аренами. «Зарядний пристрій» у клієнті — обʼєкт у Повітряній фортеці, не зона.
+  "Recharger": "Підзарядник",
+
+  // У клієнті 4.6 цих зон немає — назви наші, доки не зʼявляться в паку.
+  "Runatorium": "Рунаторіум",
+  "Tiamaranta's Hearts": "Серця Тіамаранти",
 });
+
+// Групи, які джерело віддає одним рядком, — складено з назв вище.
+const COMBINED_NAMES = Object.freeze({
+  "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірного дерева, Астерія, древнього міста Ру",
+  "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сіелі",
+  "Fortresses: Vorgaltem Citadel, Temple of Scales": "Запечатана вежа, Храм давнього дракона",
+  "Fortresses: Altar of Avarice, Crimson Temple": "Вівтар жадоби, Храм червоної землі",
+  "Fortresses: Sillus, Silona, Pradeth": "Фортеці Сіллус, Базен, Парадес",
+  "Fortresses: Kysis, Miren, Krotan": "Фортеці Ткісас, Ра-Мірен, Кротан",
+  "Arenas: Chaos, Discipline, Harmony": "Бойові арени хаосу й доблесті, Арена покровительства",
+  "Miren/Krotan/Kysis": "Ра-Мірен / Кротан / Ткісас",
+});
+
+// Origin підписує фортеці коротко («Sulfur») — зводимо до повних ключів словника.
+const SHORT_NAMES = Object.freeze({
+  "Sulfur": "Sulfur Fortress",
+  "Asteria": "Asteria Fortress",
+  "Roah": "Roah Fortress",
+  "Siel's Western": "Siel's Western Fortress",
+  "Siel's Eastern": "Siel's Eastern Fortress",
+  "Sillus": "Sillus Fortress",
+  "Silona": "Silona Fortress",
+  "Pradeth": "Pradeth Fortress",
+  "Divine": "Divine Fortress",
+});
+
+/** Українська назва з клієнта або null, якщо такої в словнику немає. */
+export function placeName(englishName) {
+  const name = String(englishName ?? "");
+  return COMBINED_NAMES[name] || PLACE_NAMES[SHORT_NAMES[name] || name] || null;
+}
 
 function euroCategory(source) {
   if (source === "arena") return "arenas";
@@ -106,7 +119,7 @@ function validEvent(event) {
 
 function normalizeEuro(data) {
   return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => EURO_NAMES[name] || name).join(" / "),
+    name: event.names.map((name) => placeName(name) || name).join(" / "),
     originalName: event.names.join(" / "),
     category: euroCategory(event.cat),
     days: event.days,
@@ -116,7 +129,7 @@ function normalizeEuro(data) {
 
 function normalizeOrigin(data) {
   return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => ORIGIN_NAMES[name] || name).join(" / "),
+    name: event.names.map((name) => placeName(name) || name).join(" / "),
     originalName: event.names.join(" / "),
     category: CATEGORY_TITLES[event.cat] ? event.cat : "pvp",
     days: event.days,
@@ -124,12 +137,14 @@ function normalizeOrigin(data) {
   }));
 }
 
-// AionDestiny вже віддає українські назви. Записи без часу («2 входи») — примітки, не події.
+// AionDestiny віддає готові українські назви, але місця все одно беремо зі спільного словника
+// за англійською назвою — так усі три сервери показують однакове. Турніри («Кожен за себе»)
+// у словнику не місця, для них лишається назва з JSON. Записи без часу — примітки, не події.
 function normalizeDestiny(data) {
   return data.events
     .filter((event) => validEvent(event) && event.name && CATEGORY_TITLES[event.cat])
     .map((event) => ({
-      name: event.name,
+      name: placeName(event.originalName) || event.name,
       originalName: event.originalName || event.name,
       category: event.cat,
       days: event.days,
