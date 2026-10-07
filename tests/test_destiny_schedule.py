@@ -64,7 +64,7 @@ class DestinyScheduleTest(unittest.TestCase):
     def test_days_start_on_monday(self):
         # У API [20, 196628]: неділя 20:00 і середа 20:00.
         self.assertEqual(self.records('Divine Fortress'), [{
-            'name': 'Божественна фортеця', 'originalName': 'Divine Fortress', 'cat': 'siege',
+            'name': 'Фортеця святості', 'originalName': 'Divine Fortress', 'cat': 'siege',
             'days': [2, 6], 'times': [{'at': 20}],
         }])
 

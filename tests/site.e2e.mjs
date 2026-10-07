@@ -130,7 +130,7 @@ test("home shows live servers, upcoming events and tool search", async () => {
     assert.deepEqual(await now.allInnerTexts(), ["Дерадикони"]);
     assert.deepEqual(
       await page.locator("[data-next-list] .next-name").allInnerTexts(),
-      ["Передова Залізної стіни", "Серця Тіамаранти", "Арени Хаосу, Дисципліни, Гармонії", "Дерадикони", "Передова Залізної стіни", "Серця Тіамаранти"],
+      ["Неприступна твердиня", "Серця Тіамаранти", "Арени Хаосу, Дисципліни, Гармонії", "Дерадикони", "Неприступна твердиня", "Серця Тіамаранти"],
     );
     assert.equal(await page.locator("[data-next-list] .next-in").first().innerText(), "через 56 хв");
 
