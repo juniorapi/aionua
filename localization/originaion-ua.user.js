@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.8.6
+// @version      1.8.7
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -431,12 +431,14 @@
     'unlock': 'Відкрити',
 
     /* ── Нагороди пасу. Назви звірені з паком: «Greater Supplements» там
-       зветься посилювачем каменів, а Ceramium — сераміумом. ── */
+       зветься посилювачем каменів, а Ceramium — сераміумом. Ранги предметів —
+       за англійськими словами, як у калькуляторі чар: Heroic — героїчний,
+       Fabled — легендарний, Eternal — вічний, Mythic — міфічний. ── */
     'ceramium medal': 'Сераміумова медаль',
-    'greater supplements (eternal)': 'Посилювач каменів III (герой)',
-    'greater supplements (fabled)': 'Посилювач каменів III (унікал.)',
+    'greater supplements (eternal)': 'Посилювач каменів III (вічн.)',
+    'greater supplements (fabled)': 'Посилювач каменів III (легенд.)',
     'greater supplements (mythic)': 'Посилювач каменів III (міфіч.)',
-    'greater supplements (heroic or less)': 'Посилювач каменів III (легенд. і нижче)',
+    'greater supplements (heroic or less)': 'Посилювач каменів III (героїч. і нижче)',
     'stigma shard': 'Уламок стигми',
     'blood mark': 'Знак крові',
     'agrint candy': 'Цукерки огринта',
@@ -455,10 +457,9 @@
     'summoning stone: warehouse manager (group)': 'Ніка: Завідувач складом (група)',
     'kadomatsu enchantment stone bundles': 'Мішечки з магічними каменями Кадомач',
     'armor wrapping scroll (eternal/lv. 65 and lower)':
-      'Сяючий сувій упаковки героїчних обладунків',
-    // У паку тут неузгоджене «героїчного зброї» — виправлено.
+      'Сяючий сувій упаковки вічних обладунків',
     'weapon wrapping scroll (eternal/lv. 65 and lower)':
-      'Сяючий сувій упаковки героїчної зброї',
+      'Сяючий сувій упаковки вічної зброї',
 
     /* Нагороди, яких у паку немає — це предмети самого сервера. */
     'premium recovery serum': 'Преміум-зілля відновлення',

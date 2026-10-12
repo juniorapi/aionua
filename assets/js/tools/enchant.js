@@ -8,6 +8,8 @@ import { tr } from "../i18n.js";
 import { element } from "./common.js";
 
 // id — рідкість у грі (Heroic, Fabled, Eternal, Mythic), від неї колір назви.
+// Ранги — за англійськими словами (Heroic — героїчний, Fabled — легендарний, Eternal — вічний),
+// а не за російським клієнтом, де «легендарний» — це Heroic. Так само перекладено скрипт Origin і паки.
 const GRADES = [
   { value: 20, id: "heroic", name: tr("Героїчний", "Heroic") },
   { value: 30, id: "fabled", name: tr("Легендарний", "Fabled") },
