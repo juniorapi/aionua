@@ -40,13 +40,13 @@ MIN_SIEGES = 10
 MIN_MATCHMAKERS = 10
 
 # Назви місць — копія спільного словника PLACE_NAMES з assets/js/schedule-model.js
-# (звірено з паком клієнта, 07.10.2026). Сайт однаково бере місця звідти за originalName,
+# (звірено з паками клієнта, 07.10 і 12.10.2026). Сайт однаково бере місця звідти за originalName,
 # тож тут вони потрібні лише для schedule.json; tests/test_place_names.py стежить за розбіжностями.
 UKRAINIAN_NAMES = {
     'Divine Fortress': 'Фортеця святості',
     "Siel's Western Fortress": 'Західна фортеця Сіелі',
     "Siel's Eastern Fortress": 'Східна фортеця Сіелі',
-    'Sulfur Fortress': 'Фортеця сірного дерева',
+    'Sulfur Fortress': 'Фортеця сірчаного дерева',
     'Roah Fortress': 'Фортеця древнього міста Ру',
     'Krotan Refuge': 'Фортеця Кротан',
     'Kysis Fortress': 'Фортеця Ткісас',

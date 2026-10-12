@@ -2,7 +2,7 @@
 // @name         Origin Aion — українська локалізація
 // @name:uk      Origin Aion — українська локалізація
 // @namespace    https://github.com/juniorapi/aionua
-// @version      1.8.5
+// @version      1.8.6
 // @description  Перекладає сайт originaion.com українською: усі сторінки, крамниця, рейтинги, розклад.
 // @author       juniorapi
 // @match        https://originaion.com/*
@@ -208,7 +208,7 @@
        («Divine» → «Фортеця святості»). ── */
     // Зона між аренами. «Зарядний пристрій» у клієнті — обʼєкт у Повітряній фортеці, не зона.
     'recharger': 'Підзарядник',
-    'sulfur': 'Фортеця сірного дерева',
+    'sulfur': 'Фортеця сірчаного дерева',
     'temple of scales': 'Храм давнього дракона',
     'vorgaltem citadel': 'Запечатана вежа',
     'tiamaranta': 'Тіамаранта',
@@ -227,7 +227,6 @@
     "siel's eastern": 'Східна фортеця Сіелі',
     'roah': 'Фортеця древнього міста Ру',
     'asteria': 'Фортеця Астерія',
-    // У паку «Алтарь жадоби» — русизм, українською «вівтар».
     'altar of avarice': 'Вівтар жадоби',
     'crimson temple': 'Храм червоної землі',
     'miren/krotan/kysis': 'Ра-Мірен/Кротан/Ткісас',

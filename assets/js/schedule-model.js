@@ -22,11 +22,11 @@ export const CATEGORY_ORDER = Object.freeze(["pvp", "arenas", "siege", "rifts", 
 
 // Один словник назв для всіх трьох серверів: версія гри та сама, тож і назви мають збігатися.
 // Джерело — український клієнт: кожну назву звірено з англійським клієнтом за ID рядка
-// (чат паків, 07.10.2026). Ключ — повна англійська назва. destiny_schedule.py тримає копію
+// (чат паків, 07.10 і 12.10.2026 — паки Origin, Riftshade і Destiny однакові). Ключ — повна англійська назва. destiny_schedule.py тримає копію
 // для schedule.json, а tests/test_place_names.py стежить, щоб вони не розійшлися.
 export const PLACE_NAMES = Object.freeze({
   // Фортеці
-  "Sulfur Fortress": "Фортеця сірного дерева",
+  "Sulfur Fortress": "Фортеця сірчаного дерева",
   "Asteria Fortress": "Фортеця Астерія",
   "Roah Fortress": "Фортеця древнього міста Ру",
   "Siel's Eastern Fortress": "Східна фортеця Сіелі",
@@ -57,28 +57,32 @@ export const PLACE_NAMES = Object.freeze({
   // Інстанси й поля бою
   "Dredgion": "Дерадикон",
   "Dredgions": "Дерадикони",
+  "Baranath Dredgion": "Дерадикон",
+  "Chantra Dredgion": "Дерадикон Джантри",
   "Terath Dredgion": "Дерадикон Садх",
   "Kamar Battlefield": "Поле битви Камара",
-  // Не плутати зі звичайним Ophidan Bridge — то «Міст Йормунганда», інша зона.
+  // Engulfed Ophidan Bridge і звичайний Ophidan Bridge — різні зони.
   "Engulfed Ophidan Bridge": "Тунель Йормунганда",
+  "Ophidan Bridge": "Міст Йормунганда",
   "Iron Wall Warfront": "Неприступна твердиня",
+  "Runatorium": "Рунаторіум",
 
   // Арени
   "Arena of Chaos": "Бойова арена хаосу",
   "Arena of Discipline": "Бойова арена доблесті",
   "Arena of Harmony": "Арена покровительства",
   "Arena of Glory": "Арена слави",
-  // Зона Origin між аренами. «Зарядний пристрій» у клієнті — обʼєкт у Повітряній фортеці, не зона.
+  // Зона Origin між аренами, є лише в паку Origin. «Зарядний пристрій» у клієнті — обʼєкт
+  // у Повітряній фортеці, не зона.
   "Recharger": "Підзарядник",
 
-  // У клієнті 4.6 цих зон немає — назви наші, доки не зʼявляться в паку.
-  "Runatorium": "Рунаторіум",
+  // У жодному паку цієї назви немає — переклад сайту.
   "Tiamaranta's Hearts": "Серця Тіамаранти",
 });
 
 // Групи, які джерело віддає одним рядком, — складено з назв вище.
 const COMBINED_NAMES = Object.freeze({
-  "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірного дерева, Астерія, древнього міста Ру",
+  "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірчаного дерева, Астерія, древнього міста Ру",
   "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сіелі",
   "Fortresses: Vorgaltem Citadel, Temple of Scales": "Запечатана вежа, Храм давнього дракона",
   "Fortresses: Altar of Avarice, Crimson Temple": "Вівтар жадоби, Храм червоної землі",
