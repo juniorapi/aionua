@@ -1,40 +1,51 @@
-// Спільні форматери: українські множини, числа, час і тривалість.
+// Спільні форматери: множини, числа, час і тривалість — мовою сайту (див. i18n.js).
+import { locale, tr } from "./i18n.js";
 
-const pluralRules = new Intl.PluralRules("uk-UA");
-const numberFormat = new Intl.NumberFormat("uk-UA");
+const pluralRules = new Intl.PluralRules(locale);
+const numberFormat = new Intl.NumberFormat(locale);
 
 export const MINUTE = 60 * 1000;
 export const HOUR = 60 * MINUTE;
 export const DAY = 24 * HOUR;
 
-export const PLAYERS = { one: "гравець", few: "гравці", many: "гравців", other: "гравця" };
-export const TOOLS = { one: "інструмент", few: "інструменти", many: "інструментів", other: "інструмента" };
-export const EVENTS = { one: "подія", few: "події", many: "подій", other: "події" };
+// Форми множини для Intl.PluralRules: українській треба one/few/many/other, англійській — one/other.
+export const PLAYERS = tr(
+  { one: "гравець", few: "гравці", many: "гравців", other: "гравця" },
+  { one: "player", other: "players" },
+);
+export const TOOLS = tr(
+  { one: "інструмент", few: "інструменти", many: "інструментів", other: "інструмента" },
+  { one: "tool", other: "tools" },
+);
+export const EVENTS = tr(
+  { one: "подія", few: "події", many: "подій", other: "події" },
+  { one: "event", other: "events" },
+);
 
 // 1 гравець, 3 гравці, 1 289 гравців: форма залежить від останніх цифр.
 export function plural(count, forms) {
-  return forms[pluralRules.select(count)] ?? forms.many;
+  return forms[pluralRules.select(count)] ?? forms.many ?? forms.other;
 }
 
 export function formatNumber(value) {
   return numberFormat.format(value);
 }
 
-export const timeFormat = new Intl.DateTimeFormat("uk-UA", {
+export const timeFormat = new Intl.DateTimeFormat(locale, {
   hour: "2-digit",
   minute: "2-digit",
   hourCycle: "h23",
 });
 
-export const weekdayShort = new Intl.DateTimeFormat("uk-UA", { weekday: "short" });
+export const weekdayShort = new Intl.DateTimeFormat(locale, { weekday: "short" });
 
-export const dayLabel = new Intl.DateTimeFormat("uk-UA", {
+export const dayLabel = new Intl.DateTimeFormat(locale, {
   weekday: "short",
   day: "numeric",
   month: "long",
 });
 
-export const updatedFormat = new Intl.DateTimeFormat("uk-UA", {
+export const updatedFormat = new Intl.DateTimeFormat(locale, {
   day: "2-digit",
   month: "2-digit",
   hour: "2-digit",
@@ -42,14 +53,16 @@ export const updatedFormat = new Intl.DateTimeFormat("uk-UA", {
   hourCycle: "h23",
 });
 
-// «56 хв», «1 год 56 хв». Округлюємо вгору, щоб «через 0 хв» не траплялося.
+// «56 хв», «1 год 56 хв» («56 min», «1 h 56 min»). Округлюємо вгору, щоб «через 0 хв» не траплялося.
 export function formatDuration(ms) {
   const totalMinutes = Math.max(1, Math.ceil(ms / MINUTE));
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
-  if (hours === 0) return `${minutes} хв`;
-  if (minutes === 0) return `${hours} год`;
-  return `${hours} год ${minutes} хв`;
+  const h = tr("год", "h");
+  const min = tr("хв", "min");
+  if (hours === 0) return `${minutes} ${min}`;
+  if (minutes === 0) return `${hours} ${h}`;
+  return `${hours} ${h} ${minutes} ${min}`;
 }
 
 export function isSameLocalDay(a, b) {

@@ -2,6 +2,10 @@
 // для 4.8) і відкривається в рамці без власного фону й підвалу (див. embed.js у тих папках).
 // Збірка живе в адресі цієї сторінки: для 4.6 це #код, для 4.8 — #клас/код.
 
+import { initHeader } from "../header.js";
+
+initHeader();
+
 const root = document.querySelector("[data-stigma-embed]");
 const viewport = root.querySelector("[data-viewport]");
 const version = root.dataset.version;

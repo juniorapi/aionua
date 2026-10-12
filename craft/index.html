@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../assets/js/lang-boot.js?v=1"></script>
   <title>Крафт біжутерії та матеріалів · Aion UA</title>
   <meta name="description" content="Калькулятор крафту біжутерії спеціаліста в Aion: кільця, сережки, намиста й пояси, матеріали для них і точки збору ресурсів для обох рас.">
+  <link rel="alternate" hreflang="uk" href="https://juniorapi.github.io/aionua/craft/">
+  <link rel="alternate" hreflang="en" href="https://juniorapi.github.io/aionua/craft/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://juniorapi.github.io/aionua/craft/">
   <meta name="theme-color" content="#0a0b10">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="../assets/css/v2.css?v=13">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=14">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
   <script>
@@ -37,32 +41,36 @@
     </defs>
   </svg>
 
-  <a class="skip-link" href="#main">До основного вмісту</a>
+  <a class="skip-link" href="#main" data-en="Skip to main content">До основного вмісту</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="../" aria-label="Aion UA, на головну">
+      <a class="brand" href="../" aria-label="Aion UA, на головну" data-en-aria-label="Aion UA, home">
         <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
         <span class="brand-name">Aion UA</span>
       </a>
-      <nav class="site-nav" id="site-nav" aria-label="Розділи">
-        <a href="../schedule/">Розклад</a>
-        <a href="../#craft" aria-current="true">Крафт</a>
-        <a href="../#calculators">Калькулятори</a>
-        <a href="../#streambox">СтрімБокс</a>
-        <a href="../localization/">Локалізація</a>
+      <nav class="site-nav" id="site-nav" aria-label="Розділи" data-en-aria-label="Sections">
+        <a href="../schedule/" data-en="Schedule">Розклад</a>
+        <a href="../#craft" aria-current="true" data-en="Crafting">Крафт</a>
+        <a href="../#calculators" data-en="Calculators">Калькулятори</a>
+        <a href="../#streambox" data-en="Stream tools">СтрімБокс</a>
+        <a href="../localization/" data-en="Localization">Локалізація</a>
       </nav>
-      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню">
+      <nav class="lang-switch" aria-label="Мова сайту" data-en-aria-label="Site language">
+        <a href="?lang=uk" hreflang="uk" lang="uk" data-lang-link="uk" aria-current="true">UA</a>
+        <a href="?lang=en" hreflang="en" lang="en" data-lang-link="en">EN</a>
+      </nav>
+      <button class="icon-button icon-button--menu" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Меню" data-en-aria-label="Menu">
         <svg aria-hidden="true"><use href="#i-menu"/></svg>
       </button>
     </div>
   </header>
 
   <main id="main" class="wrap tool-page" data-asset-base="../">
-    <nav class="crumbs" aria-label="Навігаційний ланцюжок">
-      <a href="../">Головна</a>
+    <nav class="crumbs" aria-label="Навігаційний ланцюжок" data-en-aria-label="Breadcrumb">
+      <a href="../" data-en="Home">Головна</a>
       <span aria-hidden="true">/</span>
-      <a href="../#craft">Крафт</a>
+      <a href="../#craft" data-en="Crafting">Крафт</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Біжутерія</span>
     </nav>
@@ -91,8 +99,8 @@
         <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
         <span class="brand-name">Aion UA</span>
       </a>
-      <p class="footer-note">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
-      <nav class="footer-links" aria-label="Додатково">
+      <p class="footer-note" data-en="Unofficial community fan project. Aion is a trademark of NCSOFT Corporation.">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
+      <nav class="footer-links" aria-label="Додатково" data-en-aria-label="More">
         <a href="https://github.com/juniorapi/aionua">GitHub</a>
       </nav>
     </div>

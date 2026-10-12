@@ -395,6 +395,45 @@ textarea {
   cursor: pointer;
 }
 
+/* Перемикач мови UA/EN. Англійська сторінка ховається, доки i18n.js не перекладе текст
+   (lang-boot.js ставить i18n-pending), щоб не блимала українською. */
+.i18n-pending body {
+  visibility: hidden;
+}
+
+.lang-switch {
+  display: flex;
+  flex-shrink: 0;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.lang-switch a {
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  min-height: 36px;
+  padding: 0 8px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.lang-switch a:hover {
+  color: var(--text);
+}
+
+.lang-switch a[aria-current] {
+  background: var(--gold-tint);
+  color: var(--gold-strong);
+}
+
 /* ---------- Герой ---------- */
 
 .hero {
@@ -2701,8 +2740,13 @@ textarea {
   }
 
   .search-trigger + .icon-button,
-  .site-nav + .icon-button {
+  .site-nav + .icon-button,
+  .site-nav + .lang-switch {
     margin-left: auto;
+  }
+
+  .lang-switch ~ .icon-button {
+    margin-left: 0;
   }
 
   .events-body {

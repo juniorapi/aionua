@@ -1,5 +1,10 @@
-// Меню розділів на вузьких екранах.
+// Шапка: переклад сторінки, перемикач мови й меню розділів на вузьких екранах.
+import { initLanguageSwitch, localizePage, tr } from "./i18n.js";
+
 export function initHeader() {
+  localizePage();
+  initLanguageSwitch();
+
   const toggle = document.querySelector("[data-menu-toggle]");
   const nav = document.getElementById("site-nav");
   if (!toggle || !nav) return;
@@ -7,7 +12,7 @@ export function initHeader() {
   function setOpen(open) {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Закрити меню" : "Меню");
+    toggle.setAttribute("aria-label", open ? tr("Закрити меню", "Close menu") : tr("Меню", "Menu"));
   }
 
   toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
