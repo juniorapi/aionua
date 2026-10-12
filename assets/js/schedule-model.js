@@ -149,6 +149,11 @@ const TOURNAMENT_NAMES = Object.freeze({
   eventffa3x3: "Free-for-all 3v3",
 });
 
+// У розкладі кожен Дерадикон — просто «Дерадикон»: EuroAion пише «Dredgions», Origin — «Terath
+// Dredgion», Destiny — «Dredgion», а гравцеві однаково важливо одне — що йде Дерадикон. Назви
+// окремих кораблів із клієнта («Дерадикон Садх» тощо) лишаються в PLACE_NAMES.
+const DREDGIONS = new Set(["Dredgion", "Dredgions", "Baranath Dredgion", "Chantra Dredgion", "Terath Dredgion"]);
+
 function nameKey(name) {
   return name.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
@@ -159,8 +164,9 @@ function nameKey(name) {
  * зрозуміла назва турніру, решта — як у джерелі.
  */
 export function displayName(sourceName, fallback = sourceName) {
-  if (!isEnglish) return placeName(sourceName) || fallback;
   const name = String(sourceName ?? "");
+  if (DREDGIONS.has(name)) return tr("Дерадикон", "Dredgions");
+  if (!isEnglish) return placeName(sourceName) || fallback;
   if (!name) return fallback;
   return ENGLISH_NAMES[name] || SHORT_NAMES[name] || TOURNAMENT_NAMES[nameKey(name)] || name;
 }

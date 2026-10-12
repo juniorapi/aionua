@@ -127,15 +127,17 @@ test("home shows live servers, upcoming events and tool search", async () => {
 
     const now = page.locator("[data-now-list] .now-name");
     await now.first().waitFor();
-    assert.deepEqual(await now.allInnerTexts(), ["Дерадикони"]);
+    assert.deepEqual(await now.allInnerTexts(), ["Дерадикон"]);
     assert.deepEqual(
       await page.locator("[data-next-list] .next-name").allInnerTexts(),
-      ["Неприступна твердиня", "Серця Тіамаранти", "Бойові арени хаосу й доблесті, Арена покровительства", "Дерадикони", "Неприступна твердиня", "Серця Тіамаранти"],
+      ["Неприступна твердиня", "Серця Тіамаранти", "Бойові арени хаосу й доблесті, Арена покровительства", "Дерадикон", "Неприступна твердиня", "Серця Тіамаранти"],
     );
     assert.equal(await page.locator("[data-next-list] .next-in").first().innerText(), "через 56 хв");
 
     await page.getByRole("button", { name: "Origin Aion" }).click();
-    await page.locator("[data-next-list] .next-name").filter({ hasText: "Дерадикон Садх" }).waitFor();
+    // Дерадикон Origin («Terath Dredgion») зветься так само, як на EuroAion, тож чекаємо весь список Origin.
+    await page.waitForFunction(() => [...document.querySelectorAll("[data-next-list] .next-name")]
+      .map((node) => node.textContent).join("|") === "Дерадикон|Тіамаранта");
     assert.equal(await page.locator("[data-events-link]").getAttribute("href"), "schedule/?server=origin");
 
     await page.keyboard.press("/");
@@ -174,13 +176,13 @@ test("schedule shows today's timeline and the week in local time", async () => {
   await withSite(async (open) => {
     const { page, context, errors } = await open("schedule/?server=euro");
 
-    await page.locator(".tl-row .tl-name").filter({ hasText: "Дерадикони" }).waitFor();
+    await page.locator(".tl-row .tl-name").filter({ hasText: "Дерадикон" }).waitFor();
     assert.equal(await page.locator("[data-server-name]").innerText(), "EuroAion");
     assert.equal(await page.locator("[data-clock-server-label]").textContent(), "Сервер (UTC+2)");
     assert.equal(await page.locator(".tl-block.is-now").count(), 1);
     assert.equal(await page.locator(".week-table thead th.is-today").textContent(), "сб, 26");
 
-    const dredgions = page.locator(".week-table tbody tr").filter({ hasText: "Дерадикони" });
+    const dredgions = page.locator(".week-table tbody tr").filter({ hasText: "Дерадикон" });
     assert.equal(await dredgions.locator("td.is-today").innerText(), "13:00–15:00\n22:00–23:00");
 
     await page.getByRole("button", { name: "Облоги" }).click();
