@@ -10,28 +10,28 @@
     {
      "id": "ring",
      "name": "Дарритове кільце спеціаліста",
-     "nameEn": "Specialist's Darite Ring",
+     "nameEn": "Exalted Nolan Ring",
      "icon": "craft/images/icon_item_ring_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 5,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -45,70 +45,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 9,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 5,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "darite",
        "name": "Звичайний даррит",
-       "nameEn": "Ordinary Darite",
+       "nameEn": "Big Nolan Ore",
        "quantity": 3,
        "icon": "craft/images/icon_item_jewelry_r_60s.png"
       },
       {
        "id": "darite2",
        "name": "Добрий даррит",
-       "nameEn": "Fine Darite",
+       "nameEn": "Dazzling Nolan Ore",
        "quantity": 2,
        "icon": "craft/images/icon_item_jewelry_l_60s.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 12,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 6,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 39,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 4,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Дарритова прикраса",
-       "nameEn": "Darite Ornament",
+       "nameEn": "Nolan Pendant",
        "quantity": 1,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60s.png"
       },
@@ -124,28 +124,28 @@
     {
      "id": "ring2",
      "name": "Опалове кільце спеціаліста",
-     "nameEn": "Specialist's Opal Ring",
+     "nameEn": "Exalted Opal Ring",
      "icon": "craft/images/icon_item_ring_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 5,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -159,70 +159,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 9,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 5,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "opal",
        "name": "Звичайний опал",
-       "nameEn": "Ordinary Opal",
+       "nameEn": "Big Opal Ore",
        "quantity": 3,
        "icon": "craft/images/icon_item_jewelry_r_60a.png"
       },
       {
        "id": "opal2",
        "name": "Добрий опал",
-       "nameEn": "Fine Opal",
+       "nameEn": "Dazzling Opal Ore",
        "quantity": 2,
        "icon": "craft/images/icon_item_jewelry_l_60a.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 12,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 6,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 39,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 4,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Опалова прикраса",
-       "nameEn": "Opal Ornament",
+       "nameEn": "Opal Pendant",
        "quantity": 1,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60a.png"
       },
@@ -238,28 +238,28 @@
     {
      "id": "earring",
      "name": "Дарритова серйога спеціаліста",
-     "nameEn": "Specialist's Darite Earring",
+     "nameEn": "Exalted Nolan Earrings",
      "icon": "craft/images/icon_item_earring_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 13,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 13,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 7,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -273,70 +273,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 13,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 7,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "darite",
        "name": "Звичайний даррит",
-       "nameEn": "Ordinary Darite",
+       "nameEn": "Big Nolan Ore",
        "quantity": 5,
        "icon": "craft/images/icon_item_jewelry_r_60s.png"
       },
       {
        "id": "darite2",
        "name": "Добрий даррит",
-       "nameEn": "Fine Darite",
+       "nameEn": "Dazzling Nolan Ore",
        "quantity": 3,
        "icon": "craft/images/icon_item_jewelry_l_60s.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 15,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 8,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 61,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 12,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 6,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Дарритова прикраса",
-       "nameEn": "Darite Ornament",
+       "nameEn": "Nolan Pendant",
        "quantity": 2,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60s.png"
       },
@@ -352,28 +352,28 @@
     {
      "id": "earring2",
      "name": "Опалова серйога спеціаліста",
-     "nameEn": "Specialist's Opal Earring",
+     "nameEn": "Exalted Opal Earrings",
      "icon": "craft/images/icon_item_earring_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 13,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 13,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 7,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -387,70 +387,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 13,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 7,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "opal",
        "name": "Звичайний опал",
-       "nameEn": "Ordinary Opal",
+       "nameEn": "Big Opal Ore",
        "quantity": 5,
        "icon": "craft/images/icon_item_jewelry_r_60a.png"
       },
       {
        "id": "opal2",
        "name": "Добрий опал",
-       "nameEn": "Fine Opal",
+       "nameEn": "Dazzling Opal Ore",
        "quantity": 3,
        "icon": "craft/images/icon_item_jewelry_l_60a.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 15,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 8,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 61,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 12,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 6,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Опалова прикраса",
-       "nameEn": "Opal Ornament",
+       "nameEn": "Opal Pendant",
        "quantity": 2,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60a.png"
       },
@@ -466,28 +466,28 @@
     {
      "id": "necklace",
      "name": "Дарритове намисто спеціаліста",
-     "nameEn": "Specialist's Darite Necklace",
+     "nameEn": "Exalted Nolan Necklace",
      "icon": "craft/images/icon_item_necklace_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 19,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 19,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 10,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -501,70 +501,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 19,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 10,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "darite",
        "name": "Звичайний даррит",
-       "nameEn": "Ordinary Darite",
+       "nameEn": "Big Nolan Ore",
        "quantity": 8,
        "icon": "craft/images/icon_item_jewelry_r_60s.png"
       },
       {
        "id": "darite2",
        "name": "Добрий даррит",
-       "nameEn": "Fine Darite",
+       "nameEn": "Dazzling Nolan Ore",
        "quantity": 5,
        "icon": "craft/images/icon_item_jewelry_l_60s.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 20,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 11,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 83,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 16,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Дарритова прикраса",
-       "nameEn": "Darite Ornament",
+       "nameEn": "Nolan Pendant",
        "quantity": 3,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60s.png"
       },
@@ -580,28 +580,28 @@
     {
      "id": "necklace2",
      "name": "Опалове намисто спеціаліста",
-     "nameEn": "Specialist's Opal Necklace",
+     "nameEn": "Exalted Opal Necklace",
      "icon": "craft/images/icon_item_necklace_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 19,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 19,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 10,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -615,70 +615,70 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 19,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 10,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "opal",
        "name": "Звичайний опал",
-       "nameEn": "Ordinary Opal",
+       "nameEn": "Big Opal Ore",
        "quantity": 8,
        "icon": "craft/images/icon_item_jewelry_r_60a.png"
       },
       {
        "id": "opal2",
        "name": "Добрий опал",
-       "nameEn": "Fine Opal",
+       "nameEn": "Dazzling Opal Ore",
        "quantity": 5,
        "icon": "craft/images/icon_item_jewelry_l_60a.png"
       },
       {
        "id": "ceranium",
        "name": "Звичайний сераміум",
-       "nameEn": "Ordinary Ceramium",
+       "nameEn": "Greater Ceramium Ore",
        "quantity": 20,
        "icon": "craft/images/icon_item_noblemetal_r_60a.png"
       },
       {
        "id": "ceranium2",
        "name": "Добрий сераміум",
-       "nameEn": "Fine Ceramium",
+       "nameEn": "Pure Ceramium Ore",
        "quantity": 11,
        "icon": "craft/images/icon_item_noblemetal_l_60a.png"
       },
       {
        "id": "knife",
        "name": "Священний ніж ручної роботи",
-       "nameEn": "Holy Crafting Knife",
+       "nameEn": "Sublime Hobby Knife",
        "quantity": 83,
        "icon": "craft/images/icon_item_ha_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 16,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "jewellery",
        "name": "Опалова прикраса",
-       "nameEn": "Opal Ornament",
+       "nameEn": "Opal Pendant",
        "quantity": 3,
        "icon": "craft/images/icon_item_ha_ac_parts_n_r_60a.png"
       },
@@ -694,28 +694,28 @@
     {
      "id": "belt",
      "name": "Каталіумовий пояс спеціаліста",
-     "nameEn": "Specialist's Catalium Sash",
+     "nameEn": "Exalted Katalium Sash",
      "icon": "craft/images/icon_item_belt_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 5,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -729,21 +729,21 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 9,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 5,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "opal",
        "name": "Звичайне стебло фоніки",
-       "nameEn": "Ordinary Ponica Fiber",
+       "nameEn": "Strong Ponica Fiber",
        "quantity": 19,
        "icon": "craft/images/icon_item_plant_r_60a.png"
       },
@@ -757,28 +757,28 @@
       {
        "id": "thread",
        "name": "Священний клубок ниток",
-       "nameEn": "Holy Thread",
+       "nameEn": "Sublime Tailoring Thread",
        "quantity": 40,
        "icon": "craft/images/icon_item_ta_shopcmaterial_c_60b.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 4,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "ponicaweaving",
        "name": "Фонікова тканина",
-       "nameEn": "Ponica Weave",
+       "nameEn": "Ponica Textile",
        "quantity": 1,
        "icon": "craft/images/icon_item_ta_rb_parts_n_r_60a.png"
       },
@@ -794,28 +794,28 @@
     {
      "id": "belt2",
      "name": "Каталіумовий ремінь спеціаліста",
-     "nameEn": "Specialist's Catalium Belt",
+     "nameEn": "Exalted Katalium Leather Belt",
      "icon": "craft/images/icon_item_belt_m01.png",
      "output": 1,
      "materials": [
       {
        "id": "flux2",
        "name": "Священний камінь прикрас II",
-       "nameEn": "Holy Accessory Flux II",
+       "nameEn": "Lesser Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e.png"
       },
       {
        "id": "flux3",
        "name": "Священний камінь прикрас III",
-       "nameEn": "Holy Accessory Flux III",
+       "nameEn": "Mystic Accessory Flux",
        "quantity": 9,
        "icon": "craft/images/icon_item_crystalball01e_r.png"
       },
       {
        "id": "flux4",
        "name": "Священний камінь прикрас IV",
-       "nameEn": "Holy Accessory Flux IV",
+       "nameEn": "Greater Mystic Accessory Flux",
        "quantity": 5,
        "icon": "craft/images/icon_item_crystalball01e_l.png"
       },
@@ -829,56 +829,56 @@
       {
        "id": "ether2",
        "name": "Давній ефір II",
-       "nameEn": "Ancient Aether II",
+       "nameEn": "Greater Ancient Aether",
        "quantity": 9,
        "icon": "craft/images/icon_item_od_all_r_60a.png"
       },
       {
        "id": "ether3",
        "name": "Давній ефір III",
-       "nameEn": "Ancient Aether III",
+       "nameEn": "Pure Ancient Aether",
        "quantity": 5,
        "icon": "craft/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "opal",
        "name": "Проста священна недублена шкіра",
-       "nameEn": "Ordinary Holy Rawhide",
+       "nameEn": "Buttery Rawhide",
        "quantity": 19,
        "icon": "craft/images/icon_item_rawhide01e_r.png"
       },
       {
        "id": "opal2",
        "name": "Добра священна недублена шкіра",
-       "nameEn": "Fine Holy Rawhide",
+       "nameEn": "Splendiferous Rawhide",
        "quantity": 10,
        "icon": "craft/images/icon_item_rawhide01f_r.png"
       },
       {
        "id": "thread",
        "name": "Священний шкіряний шнур",
-       "nameEn": "Holy Leather Cord",
+       "nameEn": "Sublime Leather String",
        "quantity": 40,
        "icon": "craft/images/icon_item_ta_shopcmaterial_c_60a.png"
       },
       {
        "id": "crystal",
        "name": "Давній блискучий кристал",
-       "nameEn": "Ancient Shining Crystal",
+       "nameEn": "Deadly Engraved Crystal",
        "quantity": 8,
        "icon": "craft/images/icon_item_ac_shopcmaterial_s_pve_m_60a.png"
       },
       {
        "id": "water",
        "name": "Вічність води",
-       "nameEn": "Eternity of Water",
+       "nameEn": "Water Eternity",
        "quantity": 4,
        "icon": "craft/images/icon_item_ac_material_id_s_pve_m_60a.png"
       },
       {
        "id": "ponicaweaving",
        "name": "Священна шкіра",
-       "nameEn": "Holy Leather",
+       "nameEn": "Sublime Leather",
        "quantity": 1,
        "icon": "craft/images/icon_item_ta_rt_parts_n_r_60a.png"
       },
@@ -903,42 +903,42 @@
     {
      "id": "daritejewellery",
      "name": "Дарритова прикраса",
-     "nameEn": "Darite Ornament",
+     "nameEn": "Nolan Pendant",
      "icon": "craft/images/icon_item_ha_ac_parts_n_r_60s.png",
      "output": 10,
      "materials": [
       {
        "id": "holypreciousmetalacid",
        "name": "Священний дорогоцінний сплав",
-       "nameEn": "Holy Precious Alloy",
+       "nameEn": "Sublime Metal Acid",
        "quantity": 4,
        "icon": "craft/images/icon_item_ha_shopmaterial_c_60b.png"
       },
       {
        "id": "idiumjewellery",
        "name": "Ідіумова прикраса",
-       "nameEn": "Idium Ornament",
+       "nameEn": "Idas Pendant",
        "quantity": 20,
        "icon": "craft/images/icon_item_v6_n_ac_shopmaterial_c_60a.png"
       },
       {
        "id": "ceranium",
        "name": "Сераміум",
-       "nameEn": "Ceramium",
+       "nameEn": "Ceramium Ore",
        "quantity": 25,
        "icon": "craft/images/icon_item_noblemetal_c_60a.png"
       },
       {
        "id": "darite",
        "name": "Даррит",
-       "nameEn": "Darite",
+       "nameEn": "Nolan Ore",
        "quantity": 25,
        "icon": "craft/images/icon_item_jewelry_c_60s.png"
       },
       {
        "id": "steppeessence",
        "name": "Енергія луків",
-       "nameEn": "Steppe Essence",
+       "nameEn": "Grassy Anima",
        "quantity": 4,
        "icon": "craft/images/icon_item_ldf5a_b_material_60_r_60a.png"
       },
@@ -954,42 +954,42 @@
     {
      "id": "opaljewellery",
      "name": "Опалова прикраса",
-     "nameEn": "Opal Ornament",
+     "nameEn": "Opal Pendant",
      "icon": "craft/images/icon_item_ha_ac_parts_n_r_60a.png",
      "output": 10,
      "materials": [
       {
        "id": "holypreciousmetalacid",
        "name": "Священний дорогоцінний сплав",
-       "nameEn": "Holy Precious Alloy",
+       "nameEn": "Sublime Metal Acid",
        "quantity": 4,
        "icon": "craft/images/icon_item_ha_shopmaterial_c_60b.png"
       },
       {
        "id": "idiumjewellery",
        "name": "Ідіумова прикраса",
-       "nameEn": "Idium Ornament",
+       "nameEn": "Idas Pendant",
        "quantity": 20,
        "icon": "craft/images/icon_item_v6_n_ac_shopmaterial_c_60a.png"
       },
       {
        "id": "ceranium",
        "name": "Сераміум",
-       "nameEn": "Ceramium",
+       "nameEn": "Ceramium Ore",
        "quantity": 25,
        "icon": "craft/images/icon_item_noblemetal_c_60a.png"
       },
       {
        "id": "opal",
        "name": "Опал",
-       "nameEn": "Opal",
+       "nameEn": "Opal Ore",
        "quantity": 25,
        "icon": "craft/images/icon_item_jewelry_c_60a.png"
       },
       {
        "id": "mysteriousessence",
        "name": "Загадкова енергія",
-       "nameEn": "Mysterious Essence",
+       "nameEn": "Mysterious Anima",
        "quantity": 4,
        "icon": "craft/images/icon_item_ldf5b_c_material_60_r_60a.png"
       },
@@ -1005,14 +1005,14 @@
     {
      "id": "holyleather",
      "name": "Священна шкіра",
-     "nameEn": "Holy Leather",
+     "nameEn": "Sublime Leather",
      "icon": "craft/images/icon_item_ta_rt_parts_n_r_60a.png",
      "output": 10,
      "materials": [
       {
        "id": "holyleatherhardener",
        "name": "Священний шкіряний посилювач",
-       "nameEn": "Holy Leather Hardener",
+       "nameEn": "Sublime Leather Hardener",
        "quantity": 4,
        "icon": "craft/images/icon_item_ta_shopmaterial_c_60a.png"
       },
@@ -1026,21 +1026,21 @@
       {
        "id": "holyrawhide",
        "name": "Священна недублена шкіра",
-       "nameEn": "Holy Rawhide",
+       "nameEn": "Sublime Rawhide",
        "quantity": 50,
        "icon": "craft/images/icon_item_rawhide01f.png"
       },
       {
        "id": "plateauessence",
        "name": "Енергія рівнин",
-       "nameEn": "Plateau Essence",
+       "nameEn": "Windy Anima",
        "quantity": 1,
        "icon": "craft/images/icon_item_ldf5b_a_material_60_r_60a.png"
       },
       {
        "id": "essenceofambition",
        "name": "Енергія честолюбства",
-       "nameEn": "Essence of Ambition",
+       "nameEn": "Ambitious Anima",
        "quantity": 1,
        "icon": "craft/images/icon_item_ldf5under_d_material_60_r_60a.png"
       }
@@ -1049,21 +1049,21 @@
     {
      "id": "ponicaweaving",
      "name": "Фонікова тканина",
-     "nameEn": "Ponica Weave",
+     "nameEn": "Ponica Textile",
      "icon": "craft/images/icon_item_ta_rb_parts_n_r_60a.png",
      "output": 10,
      "materials": [
       {
        "id": "hardener",
        "name": "Священний посилювач волокон",
-       "nameEn": "Holy Fiber Hardener",
+       "nameEn": "Sublime Fabric Hardener",
        "quantity": 4,
        "icon": "craft/images/icon_item_ta_shopmaterial_c_60b.png"
       },
       {
        "id": "idastextile",
        "name": "Ідієва тканина",
-       "nameEn": "Idie Cloth",
+       "nameEn": "Idas Textile",
        "quantity": 20,
        "icon": "craft/images/icon_item_v18_n_rb_shopmaterial_c_60a.png"
       },
@@ -1077,14 +1077,14 @@
       {
        "id": "woodsessence",
        "name": "Енергія лісів",
-       "nameEn": "Forest Essence",
+       "nameEn": "Sylvan Anima",
        "quantity": 1,
        "icon": "craft/images/icon_item_ldf5b_b_material_60_r_60a.png"
       },
       {
        "id": "essenceofregret",
        "name": "Енергія розкаяння",
-       "nameEn": "Essence of Regret",
+       "nameEn": "Remorseful Anima",
        "quantity": 1,
        "icon": "craft/images/icon_item_ldf5under_f_material_60_r_60a.png"
       }
@@ -1097,7 +1097,7 @@
   {
    "id": "Nolan",
    "name": "Даррит",
-   "nameEn": "Darite",
+   "nameEn": "Nolan",
    "spots": {
     "elyos": [
      "[pos:Nolan;0 600050000 2192.9 2431.7 0.0 0]",
@@ -2284,7 +2284,7 @@
   {
    "id": "Ponica",
    "name": "Стебло фоніки",
-   "nameEn": "Ponica Fiber",
+   "nameEn": "Ponica",
    "spots": {
     "elyos": [
      "[pos:Ponica;0 600060000 2910.7 554.0 0.0 0]",
