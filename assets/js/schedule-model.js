@@ -39,15 +39,16 @@ export const CATEGORY_ORDER = Object.freeze(["pvp", "arenas", "siege", "rifts", 
 
 // Один словник назв для всіх трьох серверів: версія гри та сама, тож і назви мають збігатися.
 // Джерело — український клієнт: кожну назву звірено з англійським клієнтом за ID рядка
-// (чат паків, 07.10 і 12.10.2026 — паки Origin, Riftshade і Destiny однакові). Ключ — повна англійська назва. destiny_schedule.py тримає копію
+// (чат паків, 07.10 і 12.10.2026 — паки Origin, Riftshade і Destiny однакові). Siel пишемо
+// «Сієль, Сієлі» за правописом (як клієнт, Сієна) — паки переходять на те саме. Ключ — повна англійська назва. destiny_schedule.py тримає копію
 // для schedule.json, а tests/test_place_names.py стежить, щоб вони не розійшлися.
 export const PLACE_NAMES = Object.freeze({
   // Фортеці
   "Sulfur Fortress": "Фортеця сірчаного дерева",
   "Asteria Fortress": "Фортеця Астерія",
   "Roah Fortress": "Фортеця древнього міста Ру",
-  "Siel's Eastern Fortress": "Східна фортеця Сіелі",
-  "Siel's Western Fortress": "Західна фортеця Сіелі",
+  "Siel's Eastern Fortress": "Східна фортеця Сієлі",
+  "Siel's Western Fortress": "Західна фортеця Сієлі",
   "Vorgaltem Citadel": "Запечатана вежа",
   "Temple of Scales": "Храм давнього дракона",
   "Altar of Avarice": "Вівтар жадоби",
@@ -100,7 +101,7 @@ export const PLACE_NAMES = Object.freeze({
 // Групи, які джерело віддає одним рядком, — складено з назв вище.
 const COMBINED_NAMES = Object.freeze({
   "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірчаного дерева, Астерія, древнього міста Ру",
-  "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сіелі",
+  "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сієлі",
   "Fortresses: Vorgaltem Citadel, Temple of Scales": "Запечатана вежа, Храм давнього дракона",
   "Fortresses: Altar of Avarice, Crimson Temple": "Вівтар жадоби, Храм червоної землі",
   "Fortresses: Sillus, Silona, Pradeth": "Фортеці Сіллус, Базен, Парадес",

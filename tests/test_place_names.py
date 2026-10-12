@@ -109,8 +109,8 @@ class PlaceNamesTest(unittest.TestCase):
             'Sulfur Fortress': 'Фортеця сірчаного дерева',      # STR_DIC_W_AB1_13
             'Asteria Fortress': 'Фортеця Астерія',              # STR_DIC_W_AB1_43
             'Roah Fortress': 'Фортеця древнього міста Ру',      # STR_DIC_W_AB1_49
-            "Siel's Western Fortress": 'Західна фортеця Сіелі', # STR_DIC_W_AB1_23
-            "Siel's Eastern Fortress": 'Східна фортеця Сіелі',  # STR_DIC_W_AB1_20
+            "Siel's Western Fortress": 'Західна фортеця Сієлі', # STR_DIC_W_AB1_23, у паку поки «Сіелі»
+            "Siel's Eastern Fortress": 'Східна фортеця Сієлі',  # STR_DIC_W_AB1_20, у паку поки «Сіелі»
             'Vorgaltem Citadel': 'Запечатана вежа',             # STR_DIC_W_DF4_SZ_3011_A
             'Temple of Scales': 'Храм давнього дракона',        # STR_DIC_W_LF4_SZ_2011_A
             'Altar of Avarice': 'Вівтар жадоби',                # STR_DIC_W_LF4_SZ_2021_A

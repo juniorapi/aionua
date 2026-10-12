@@ -376,7 +376,7 @@ lang = $.extend(true, lang, {
 		"wa_steadiness": "Броня балансу",
 		"wi_arcaneboost": "Мудрість Байзела",
 		"wi_arcanepower": "Мудрість Джикела",
-		"wi_arcanewisdom": "Мудрість Руміеля",
+		"wi_arcanewisdom": "Мудрість Румієля",
 		"wi_countermagic": "Прокляття слабкості",
 		"wi_cursedtree": "Прокляття: Дерево",
 		"wi_cyclonestrike": "Штормовий удар",

@@ -44,8 +44,8 @@ MIN_MATCHMAKERS = 10
 # тож тут вони потрібні лише для schedule.json; tests/test_place_names.py стежить за розбіжностями.
 UKRAINIAN_NAMES = {
     'Divine Fortress': 'Фортеця святості',
-    "Siel's Western Fortress": 'Західна фортеця Сіелі',
-    "Siel's Eastern Fortress": 'Східна фортеця Сіелі',
+    "Siel's Western Fortress": 'Західна фортеця Сієлі',
+    "Siel's Eastern Fortress": 'Східна фортеця Сієлі',
     'Sulfur Fortress': 'Фортеця сірчаного дерева',
     'Roah Fortress': 'Фортеця древнього міста Ру',
     'Krotan Refuge': 'Фортеця Кротан',
