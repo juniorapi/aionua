@@ -14,7 +14,7 @@ window.AION_UPDATE_DATES = {
 // звідки їх читає script.js. Тут вони лишаються на випадок, коли GitHub API
 // недоступний або вичерпано анонімний ліміт запитів.
 window.AION_VERSIONS = {
-  destiny: "2.2.12",
-  origin: "1.3.11",
-  riftshade: "1.3.19",
+  destiny: "2.2.13",
+  origin: "1.3.12",
+  riftshade: "1.3.20",
 };
