@@ -9,6 +9,8 @@ import test from "node:test";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 const root = path.resolve(import.meta.dirname, "..");
+// Оригінальні калькулятори стигм тягнуть jQuery з CDN, якого в тестах немає: віддаємо локальну копію.
+const jquery = await readFile(path.join(root, "stigma", "js", "jquery.js"), "utf8");
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
@@ -66,6 +68,7 @@ async function withSite(run) {
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
     await page.route(/googletagmanager\.com|fonts\.googleapis\.com|workers\.dev|api\.github\.com/, (route) => route.abort());
+    await page.route(/ajax\.googleapis\.com/, (route) => route.fulfill({ contentType: "text/javascript", body: jquery }));
     await page.clock.install({ time: new Date(NOW) });
     await page.goto(`${base}${pagePath}`, { waitUntil: "networkidle" });
     return { page, errors };
@@ -108,10 +111,18 @@ async function cyrillicLeftovers(page) {
         if (value) out.push(`${attribute}: ${value}`);
       });
     });
+    document.querySelectorAll("textarea, input[type='text'], input:not([type])").forEach((field) => {
+      if (field.value && !field.closest("[hidden]")) out.push(`field: ${field.value.slice(0, 200)}`);
+    });
     out.push(`title: ${document.title}`);
     out.push(`description: ${document.querySelector('meta[name="description"]')?.content ?? ""}`);
     return out;
   });
+  for (const frame of page.frames()) {
+    if (frame === page.mainFrame()) continue;
+    const text = await frame.evaluate(() => document.body?.innerText ?? "").catch(() => "");
+    text.split("\n").map((line) => line.trim()).filter(Boolean).forEach((line) => found.push(`frame: ${line}`));
+  }
   return found.filter((text) => CYRILLIC.test(text) && !ALLOWED.includes(text));
 }
 
@@ -143,6 +154,31 @@ test("language switch keeps the choice across pages and in the address", async (
     await page.waitForURL(/lang=uk/);
     assert.equal(await page.locator("html").getAttribute("lang"), "uk");
     assert.equal(await page.locator(".skip-link").textContent(), "До основного вмісту");
+    assert.deepEqual(errors, []);
+    await context.close();
+  });
+});
+
+test("stigma calculator follows the site language unless a language was picked on the page", async () => {
+  await withSite(async ({ open, newContext }) => {
+    const context = await newContext();
+    // Старі калькулятори самі записують мову при кожному відкритті — це ще не вибір відвідувача.
+    await context.addInitScript(() => {
+      if (!sessionStorage.getItem("seeded")) {
+        localStorage.setItem("stigma_lang", "uk");
+        sessionStorage.setItem("seeded", "1");
+      }
+    });
+    const { page, errors } = await open(context, "stigma/?lang=en");
+    await page.waitForSelector("[data-viewport] iframe");
+    assert.match(await page.locator("[data-viewport] iframe").getAttribute("src"), /lang=en/);
+    assert.equal(await page.locator('[data-lang-switch] [data-lang="en"]').getAttribute("aria-pressed"), "true");
+
+    // Вибір кнопкою перемагає мову сайту й після перезавантаження.
+    await page.locator('[data-lang-switch] [data-lang="uk"]').click();
+    await page.waitForFunction(() => document.querySelector("[data-viewport] iframe")?.src.includes("lang=uk"));
+    await page.reload({ waitUntil: "networkidle" });
+    assert.match(await page.locator("[data-viewport] iframe").getAttribute("src"), /lang=uk/);
     assert.deepEqual(errors, []);
     await context.close();
   });

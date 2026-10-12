@@ -1,14 +1,16 @@
 // Конвертер ефіру: скільки звичайного магічного ефіру в усіх видах разом.
 import { initHeader } from "../header.js";
+import { tr } from "../i18n.js";
 import { createStepper, element, formatNumber, icon } from "./common.js";
 
 const MAX_COUNT = 9999;
 // Кожен наступний вид — утричі більше попереднього: 27 = 3 × 9 = 3 × 3 × 3.
+// Англійські назви — як у клієнті NA/EU: Brilliant, Pure, Greater і просто Magical Aether.
 const ETHERS = [
-  { id: "radiant", name: "Сяючий магічний ефір", rate: 27, icon: "efir/images/icon_item_od05_u.png" },
-  { id: "pure", name: "Чистий магічний ефір", rate: 9, icon: "efir/images/icon_item_od05_l.png" },
-  { id: "refined", name: "Очищений магічний ефір", rate: 3, icon: "efir/images/icon_item_od05_r.png" },
-  { id: "basic", name: "Магічний ефір", rate: 1, icon: "efir/images/icon_item_od05.png" },
+  { id: "radiant", name: tr("Сяючий магічний ефір", "Brilliant Magical Aether"), rate: 27, icon: "efir/images/icon_item_od05_u.png" },
+  { id: "pure", name: tr("Чистий магічний ефір", "Pure Magical Aether"), rate: 9, icon: "efir/images/icon_item_od05_l.png" },
+  { id: "refined", name: tr("Очищений магічний ефір", "Greater Magical Aether"), rate: 3, icon: "efir/images/icon_item_od05_r.png" },
+  { id: "basic", name: tr("Магічний ефір", "Magical Aether"), rate: 1, icon: "efir/images/icon_item_od05.png" },
 ];
 
 function renderConverter(root) {
@@ -19,7 +21,8 @@ function renderConverter(root) {
     const row = element("div", "ether-row");
     const label = element("label");
     label.htmlFor = `ether-${ether.id}`;
-    label.append(ether.name, element("small", "", `1 шт. = ${formatNumber(ether.rate)} магічного ефіру`));
+    const rate = formatNumber(ether.rate);
+    label.append(ether.name, element("small", "", tr(`1 шт. = ${rate} магічного ефіру`, `1 pc = ${rate} Magical Aether`)));
     const result = element("output", "ether-result", "0");
     result.htmlFor = `ether-${ether.id}`;
     const counter = createStepper({
@@ -36,7 +39,7 @@ function renderConverter(root) {
   });
 
   const footer = element("div", "ether-total");
-  const totalLabel = element("span", "", "Разом магічного ефіру");
+  const totalLabel = element("span", "", tr("Разом магічного ефіру", "Total Magical Aether"));
   totalLabel.id = "ether-total-label";
   total.setAttribute("aria-labelledby", totalLabel.id);
   total.setAttribute("aria-live", "polite");

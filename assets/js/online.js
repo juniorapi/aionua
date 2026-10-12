@@ -1,6 +1,7 @@
 // Онлайн серверів. Логіка станів перенесена з index.html основного сайту:
 // кожне правило там виросло з реального збою джерела, тож тут вони ті самі.
 import { fetchJson, formatNumber, plural, PLAYERS, updatedFormat, MINUTE } from "./format.js";
+import { tr } from "./i18n.js";
 
 // Воркер збирає онлайн наживо (код у worker/). Якщо він недоступний,
 // сторінка тихо відкочується на data.json, який оновлює GitHub Actions.
@@ -34,7 +35,7 @@ function setState(view, state) {
   view.dot.classList.toggle("is-offline", state === "offline");
   view.dot.classList.toggle("is-live", state === "online");
   view.state.classList.toggle("is-online", state === "online");
-  view.state.textContent = state === "online" ? "онлайн" : state === "offline" ? "офлайн" : "";
+  view.state.textContent = state === "online" ? tr("онлайн", "online") : state === "offline" ? tr("офлайн", "offline") : "";
 }
 
 function showCount(view, total) {
@@ -156,11 +157,11 @@ export function initOnline(root) {
 
     const stamp = data.updated_at ? new Date(data.updated_at) : null;
     if (stamp && !Number.isNaN(stamp.getTime())) {
-      updated.textContent = `Оновлено ${updatedFormat.format(stamp)}`;
+      updated.textContent = `${tr("Оновлено", "Updated")} ${updatedFormat.format(stamp)}`;
       const fresh = Date.now() - stamp.getTime() <= FRESH_MS;
-      setPill(fresh ? "live" : "stale", fresh ? "наживо" : "дані застаріли");
+      setPill(fresh ? "live" : "stale", fresh ? tr("наживо", "live") : tr("дані застаріли", "data is out of date"));
     } else {
-      setPill("stale", "час оновлення невідомий");
+      setPill("stale", tr("час оновлення невідомий", "update time unknown"));
     }
   }
 
@@ -175,8 +176,8 @@ export function initOnline(root) {
       render(await fetchJson(FALLBACK_ENDPOINT));
     } catch (error) {
       console.error("Не вдалося отримати онлайн:", error);
-      setPill("stale", "немає зв'язку");
-      if (updated.textContent === "Отримуємо дані…") updated.textContent = "Дані недоступні";
+      setPill("stale", tr("немає зв'язку", "no connection"));
+      if (updated.textContent === tr("Отримуємо дані…", "Fetching data…")) updated.textContent = tr("Дані недоступні", "Data unavailable");
     }
   }
 

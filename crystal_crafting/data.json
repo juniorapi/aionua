@@ -3,30 +3,37 @@
   {
    "id": "crystal",
    "title": "Кристали",
+   "titleEn": "Crystals",
    "label": "Тип кристалу",
+   "labelEn": "Crystal type",
    "recipes": [
     {
      "id": "white",
      "name": "Давній білий кристал",
+     "nameEn": "Ancient White Crystal",
      "icon": "crystal_crafting/images/icon_item_ws_combineskill_ar_r_60a.png",
      "profession": "Збройова справа",
+     "professionEn": "Weaponsmithing",
      "output": 5,
      "materials": [
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 40,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       }
@@ -35,25 +42,30 @@
     {
      "id": "yellow",
      "name": "Древній жовтий кристал",
+     "nameEn": "Ancient Yellow Crystal",
      "icon": "crystal_crafting/images/icon_item_ha_combineskill_ta_r_60a.png",
      "profession": "Ювелірна справа",
+     "professionEn": "Handicrafting",
      "output": 5,
      "materials": [
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 40,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       }
@@ -62,25 +74,30 @@
     {
      "id": "green",
      "name": "Давній зелений кристал",
+     "nameEn": "Ancient Green Crystal",
      "icon": "crystal_crafting/images/icon_item_as_combineskill_ha_r_60a.png",
      "profession": "Ковальська справа",
+     "professionEn": "Armorsmithing",
      "output": 5,
      "materials": [
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 40,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       }
@@ -89,25 +106,30 @@
     {
      "id": "red",
      "name": "Давній червоний кристал",
+     "nameEn": "Ancient Red Crystal",
      "icon": "crystal_crafting/images/icon_item_ta_combineskill_ws_r_60a.png",
      "profession": "Кравецька справа",
+     "professionEn": "Tailoring",
      "output": 5,
      "materials": [
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 40,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       }
@@ -116,25 +138,30 @@
     {
      "id": "blue",
      "name": "Давній синій кристал",
+     "nameEn": "Ancient Blue Crystal",
      "icon": "crystal_crafting/images/icon_item_al_combineskill_as_r_60a.png",
      "profession": "Алхімія",
+     "professionEn": "Alchemy",
      "output": 5,
      "materials": [
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 40,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       }
@@ -143,31 +170,37 @@
     {
      "id": "idium",
      "name": "Ідіумовий кристал часу",
+     "nameEn": "Idium Time Crystal",
      "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png",
      "profession": "Кулінарія",
+     "professionEn": "Cooking",
      "output": 10,
      "materials": [
       {
        "id": "powder",
        "name": "Порошок часу",
+       "nameEn": "Time Powder",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_co_shopmaterial_c_60a.png"
       },
       {
        "id": "shard",
        "name": "Осколок іделла",
+       "nameEn": "Idell Shard",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_v5_n_cs_shopmaterial_c_60a.png"
       },
       {
        "id": "ether",
        "name": "Давній ефір",
+       "nameEn": "Ancient Aether",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_od_all_c_60a.png"
       },
       {
        "id": "clemposil",
        "name": "Клемпосиль",
+       "nameEn": "Clemposil",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_material_r_60a.png"
       }
@@ -178,48 +211,58 @@
   {
    "id": "item",
    "title": "Стрижні та бруси",
+   "titleEn": "Rods and bars",
    "label": "Тип предмета",
+   "labelEn": "Item type",
    "recipes": [
     {
      "id": "rod",
      "name": "Гнучкий оброблений стержень",
+     "nameEn": "Flexible Refined Rod",
      "icon": "crystal_crafting/images/icon_item_ws_we_long_parts_n_e_60a.png",
      "profession": "Збройова справа",
+     "professionEn": "Weaponsmithing",
      "output": 1,
      "materials": [
       {
        "id": "rod",
        "name": "Каталієвий стержень",
+       "nameEn": "Catalium Rod",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_ws_we_parts_n_r_60a.png"
       },
       {
        "id": "whetstone",
        "name": "Священний точильний камінь",
+       "nameEn": "Holy Whetstone",
        "quantity": 45,
        "icon": "crystal_crafting/images/icon_item_ws_shopcmaterial_c_60a.png"
       },
       {
        "id": "aether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "flux",
        "name": "Священний камінь зброї IV",
+       "nameEn": "Holy Weapon Flux IV",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_crystalball01c_l.png"
       },
       {
        "id": "catalium",
        "name": "Добрий каталіум",
+       "nameEn": "Fine Catalium",
        "quantity": 29,
        "icon": "crystal_crafting/images/icon_item_metal_l_60a.png"
       },
       {
        "id": "crystal",
        "name": "Давній червоний кристал",
+       "nameEn": "Ancient Red Crystal",
        "quantity": 16,
        "icon": "crystal_crafting/images/icon_item_ta_combineskill_ws_r_60a.png"
       }
@@ -228,43 +271,51 @@
     {
      "id": "rod2",
      "name": "Оброблений каталіумовий стержень",
+     "nameEn": "Refined Catalium Rod",
      "icon": "crystal_crafting/images/icon_item_ws_we_long_parts_n_e_65a.png",
      "profession": "Збройова справа",
+     "professionEn": "Weaponsmithing",
      "output": 1,
      "materials": [
       {
        "id": "expertweapon",
        "name": "Сяюча зброя досвідченого експерта",
+       "nameEn": "Seasoned Expert's Shining Weapon",
        "quantity": 1,
        "icon": "crystal_crafting/images/weapon.png"
       },
       {
        "id": "whetstone",
        "name": "Священний точильний камінь",
+       "nameEn": "Holy Whetstone",
        "quantity": 45,
        "icon": "crystal_crafting/images/icon_item_ws_shopcmaterial_c_60a.png"
       },
       {
        "id": "aether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "flux",
        "name": "Священний камінь зброї IV",
+       "nameEn": "Holy Weapon Flux IV",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_crystalball01c_l.png"
       },
       {
        "id": "catalium",
        "name": "Добрий каталіум",
+       "nameEn": "Fine Catalium",
        "quantity": 29,
        "icon": "crystal_crafting/images/icon_item_metal_l_60a.png"
       },
       {
        "id": "crystal",
        "name": "Давній червоний кристал",
+       "nameEn": "Ancient Red Crystal",
        "quantity": 16,
        "icon": "crystal_crafting/images/icon_item_ta_combineskill_ws_r_60a.png"
       }
@@ -273,43 +324,51 @@
     {
      "id": "bar",
      "name": "Гнучкий оброблений брус",
+     "nameEn": "Flexible Refined Bar",
      "icon": "crystal_crafting/images/icon_item_ha_we_long_parts_n_e_60a.png",
      "profession": "Ювелірна справа",
+     "professionEn": "Handicrafting",
      "output": 1,
      "materials": [
       {
        "id": "pakirabar",
        "name": "Пахировий брус",
+       "nameEn": "Pakira Bar",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_ha_we_parts_n_r_60a.png"
       },
       {
        "id": "solysandpaper",
        "name": "Священний наждачний папір",
+       "nameEn": "Holy Sandpaper",
        "quantity": 45,
        "icon": "crystal_crafting/images/icon_item_ha_shopcmaterial_c_60a.png"
       },
       {
        "id": "aether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "flux",
        "name": "Священний камінь зброї IV",
+       "nameEn": "Holy Weapon Flux IV",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_crystalball01c_l.png"
       },
       {
        "id": "pakirawood",
        "name": "Добра пахіра",
+       "nameEn": "Fine Pakira",
        "quantity": 29,
        "icon": "crystal_crafting/images/icon_item_tree_l_60a.png"
       },
       {
        "id": "greencrystal",
        "name": "Давній зелений кристал",
+       "nameEn": "Ancient Green Crystal",
        "quantity": 16,
        "icon": "crystal_crafting/images/icon_item_as_combineskill_ha_r_60a.png"
       }
@@ -318,43 +377,51 @@
     {
      "id": "bar2",
      "name": "Оброблений каталіумовий брус",
+     "nameEn": "Refined Catalium Bar",
      "icon": "crystal_crafting/images/icon_item_ha_we_long_parts_n_e_65a.png",
      "profession": "Ювелірна справа",
+     "professionEn": "Handicrafting",
      "output": 1,
      "materials": [
       {
        "id": "staff",
        "name": "Сяючий каталіумовий посох досвідченого експерта",
+       "nameEn": "Seasoned Expert's Shining Catalium Staff",
        "quantity": 1,
        "icon": "crystal_crafting/images/weapon2.png"
       },
       {
        "id": "solysandpaper",
        "name": "Священний наждачний папір",
+       "nameEn": "Holy Sandpaper",
        "quantity": 45,
        "icon": "crystal_crafting/images/icon_item_ha_shopcmaterial_c_60a.png"
       },
       {
        "id": "aether",
        "name": "Давній ефір III",
+       "nameEn": "Ancient Aether III",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_od_all_l_60a.png"
       },
       {
        "id": "flux",
        "name": "Священний камінь зброї IV",
+       "nameEn": "Holy Weapon Flux IV",
        "quantity": 14,
        "icon": "crystal_crafting/images/icon_item_crystalball01c_l.png"
       },
       {
        "id": "pakirawood",
        "name": "Добра пахіра",
+       "nameEn": "Fine Pakira",
        "quantity": 29,
        "icon": "crystal_crafting/images/icon_item_tree_l_60a.png"
       },
       {
        "id": "greencrystal",
        "name": "Давній зелений кристал",
+       "nameEn": "Ancient Green Crystal",
        "quantity": 16,
        "icon": "crystal_crafting/images/icon_item_as_combineskill_ha_r_60a.png"
       }
@@ -365,54 +432,65 @@
   {
    "id": "resource",
    "title": "Божественне каміння",
+   "titleEn": "Godstones",
    "label": "Тип ресурсу",
+   "labelEn": "Godstone type",
    "recipes": [
     {
      "id": "godstone",
      "name": "Контратака експерта (10%)",
+     "nameEn": "Expert's Counterattack (10%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_fire_demage.png",
      "profession": "Ковальська справа",
+     "professionEn": "Armorsmithing",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія льоду",
+       "nameEn": "Ice Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5a_e_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія помсти",
+       "nameEn": "Essence of Vengeance",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_a_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Давній синій кристал",
+       "nameEn": "Ancient Blue Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_al_combineskill_as_r_60a.png"
       }
@@ -421,49 +499,58 @@
     {
      "id": "godstone3",
      "name": "Егоїзм експерта (10%)",
+     "nameEn": "Expert's Selfishness (10%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_water_demage.png",
      "profession": "Ковальська справа",
+     "professionEn": "Armorsmithing",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія льоду",
+       "nameEn": "Ice Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5a_e_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія помсти",
+       "nameEn": "Essence of Vengeance",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_a_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Давній синій кристал",
+       "nameEn": "Ancient Blue Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_al_combineskill_as_r_60a.png"
       }
@@ -472,49 +559,58 @@
     {
      "id": "godstone2",
      "name": "Справедливість експерта (10%)",
+     "nameEn": "Expert's Justice (10%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_earth_demage.png",
      "profession": "Ковальська справа",
+     "professionEn": "Armorsmithing",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія льоду",
+       "nameEn": "Ice Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5a_e_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія помсти",
+       "nameEn": "Essence of Vengeance",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_a_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Давній синій кристал",
+       "nameEn": "Ancient Blue Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_al_combineskill_as_r_60a.png"
       }
@@ -523,49 +619,58 @@
     {
      "id": "godstone4",
      "name": "Відгукливість експерта (10%)",
+     "nameEn": "Expert's Responsiveness (10%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_air_demage.png",
      "profession": "Ковальська справа",
+     "professionEn": "Armorsmithing",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія льоду",
+       "nameEn": "Ice Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5a_e_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія помсти",
+       "nameEn": "Essence of Vengeance",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_a_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Давній синій кристал",
+       "nameEn": "Ancient Blue Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_al_combineskill_as_r_60a.png"
       }
@@ -574,49 +679,58 @@
     {
      "id": "godstone5",
      "name": "Ярість експерта (1%)",
+     "nameEn": "Expert's Fury (1%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_fire_demage.png",
      "profession": "Кравецька справа",
+     "professionEn": "Tailoring",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія долин",
+       "nameEn": "Valley Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5b_f_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія відчаю",
+       "nameEn": "Essence of Despair",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_b_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Древній жовтий кристал",
+       "nameEn": "Ancient Yellow Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_ha_combineskill_ta_r_60a.png"
       }
@@ -625,49 +739,58 @@
     {
      "id": "godstone6",
      "name": "Жаль експерта (1%)",
+     "nameEn": "Expert's Sorrow (1%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_water_demage.png",
      "profession": "Кравецька справа",
+     "professionEn": "Tailoring",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія долин",
+       "nameEn": "Valley Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5b_f_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія відчаю",
+       "nameEn": "Essence of Despair",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_b_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Древній жовтий кристал",
+       "nameEn": "Ancient Yellow Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_ha_combineskill_ta_r_60a.png"
       }
@@ -676,49 +799,58 @@
     {
      "id": "godstone7",
      "name": "Розум експерта (1%)",
+     "nameEn": "Expert's Reason (1%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_earth_demage.png",
      "profession": "Кравецька справа",
+     "professionEn": "Tailoring",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія долин",
+       "nameEn": "Valley Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5b_f_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія відчаю",
+       "nameEn": "Essence of Despair",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_b_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Древній жовтий кристал",
+       "nameEn": "Ancient Yellow Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_ha_combineskill_ta_r_60a.png"
       }
@@ -727,49 +859,58 @@
     {
      "id": "godstone8",
      "name": "Клятва експерта (1%)",
+     "nameEn": "Expert's Oath (1%)",
      "icon": "crystal_crafting/images/icon_item_holystone_unique_air_demage.png",
      "profession": "Кравецька справа",
+     "professionEn": "Tailoring",
      "output": 1,
      "materials": [
       {
        "id": "idium",
        "name": "Ідіумовий кристал часу",
+       "nameEn": "Idium Time Crystal",
        "quantity": 20,
        "icon": "crystal_crafting/images/icon_item_co_combineskill_all_r_60a.png"
       },
       {
        "id": "catalyst",
        "name": "Каталізатор давнього перетворення",
+       "nameEn": "Ancient Transformation Catalyst",
        "quantity": 83,
        "icon": "crystal_crafting/images/icon_item_testtube01.png"
       },
       {
        "id": "ceraniumfragment",
        "name": "Частинка сераміуму",
+       "nameEn": "Ceramium Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5ab_all_material_u_60a.png"
       },
       {
        "id": "ancientfragment",
        "name": "Давній уламок",
+       "nameEn": "Ancient Fragment",
        "quantity": 10,
        "icon": "crystal_crafting/images/icon_item_ldf5under_all_material_u_60a.png"
       },
       {
        "id": "essenceice",
        "name": "Енергія долин",
+       "nameEn": "Valley Essence",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5b_f_material_60_r_60a.png"
       },
       {
        "id": "essencerevenge",
        "name": " Енергія відчаю",
+       "nameEn": "Essence of Despair",
        "quantity": 11,
        "icon": "crystal_crafting/images/icon_item_ldf5under_b_material_60_r_60a.png"
       },
       {
        "id": "bluecrystal",
        "name": "Древній жовтий кристал",
+       "nameEn": "Ancient Yellow Crystal",
        "quantity": 2,
        "icon": "crystal_crafting/images/icon_item_ha_combineskill_ta_r_60a.png"
       }

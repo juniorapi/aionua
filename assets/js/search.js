@@ -1,5 +1,6 @@
 // Пошук інструментів у герої: підказки під полем, стрілки, Enter відкриває перший збіг.
 import { TOOLS, plural } from "./format.js";
+import { tr } from "./i18n.js";
 
 const LIMIT = 7;
 
@@ -77,9 +78,12 @@ export function initSearch(form) {
     if (matches.length === 0) {
       const empty = document.createElement("p");
       empty.className = "search-empty";
-      empty.textContent = "Нічого не знайдено. Спробуйте «крафт», «стігми» або «розклад».";
+      empty.textContent = tr(
+        "Нічого не знайдено. Спробуйте «крафт», «стігми» або «розклад».",
+        "Nothing found. Try “crafting”, “stigmas” or “schedule”.",
+      );
       results.replaceChildren(empty);
-      announcer.textContent = "Нічого не знайдено";
+      announcer.textContent = tr("Нічого не знайдено", "Nothing found");
     } else {
       results.replaceChildren(...matches.map((tool, position) => {
         const link = document.createElement("a");
@@ -100,7 +104,8 @@ export function initSearch(form) {
         }
         return link;
       }));
-      announcer.textContent = `Знайдено ${matches.length} ${plural(matches.length, TOOLS)}. Стрілка вниз — до списку.`;
+      const found = `${matches.length} ${plural(matches.length, TOOLS)}`;
+      announcer.textContent = tr(`Знайдено ${found}. Стрілка вниз — до списку.`, `Found ${found}. Press the down arrow to open the list.`);
     }
     results.hidden = false;
     input.setAttribute("aria-expanded", "true");

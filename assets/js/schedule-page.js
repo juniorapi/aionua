@@ -1,8 +1,10 @@
 // Сторінка розкладу: шкала «Сьогодні» та тижнева таблиця за часом відвідувача.
 import { initHeader } from "./header.js";
+import { isEnglish, locale, tr } from "./i18n.js";
 import {
   CATEGORY_ORDER,
   CATEGORY_TITLES,
+  COLLATION,
   SERVERS,
   isServerId,
   loadSchedule,
@@ -15,14 +17,14 @@ const PREFERENCE_KEY = "aionua:v2:server";
 const BASE = "../";
 const TIMELINE_HOURS = 13;
 
-const clockFormat = new Intl.DateTimeFormat("uk-UA", {
+const clockFormat = new Intl.DateTimeFormat(locale, {
   weekday: "short",
   hour: "2-digit",
   minute: "2-digit",
   second: "2-digit",
   hourCycle: "h23",
 });
-const serverClockFormat = new Intl.DateTimeFormat("uk-UA", {
+const serverClockFormat = new Intl.DateTimeFormat(locale, {
   timeZone: "UTC",
   weekday: "short",
   hour: "2-digit",
@@ -30,16 +32,23 @@ const serverClockFormat = new Intl.DateTimeFormat("uk-UA", {
   second: "2-digit",
   hourCycle: "h23",
 });
-const headFormat = new Intl.DateTimeFormat("uk-UA", { weekday: "short", day: "numeric" });
-const todayFormat = new Intl.DateTimeFormat("uk-UA", { weekday: "long" });
-const fetchedFormat = new Intl.DateTimeFormat("uk-UA", {
+const headFormat = new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric" });
+const todayFormat = new Intl.DateTimeFormat(locale, { weekday: "long" });
+// «26.09.2026, 13:04» українською, «26 September at 13:04» англійською.
+const fetchedFormat = new Intl.DateTimeFormat(locale, tr({
   day: "2-digit",
   month: "2-digit",
   year: "numeric",
   hour: "2-digit",
   minute: "2-digit",
   hourCycle: "h23",
-});
+}, {
+  day: "numeric",
+  month: "long",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+}));
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -62,6 +71,13 @@ function localDayIndex(time) {
   return (new Date(time).getDay() + 6) % 7;
 }
 
+// Підказка з назвою, як її пише джерело. Англійською — лише коли на сторінці назва інша
+// («Sulfur Fortress» замість «Sulfur», «2v2 tournament (rounds)» замість «Event 2x2 (Round)»).
+function setOriginalTitle(node, group) {
+  if (isEnglish && group.originalName === group.name) return;
+  node.title = tr(`Офіційна назва: ${group.originalName}`, `Listed as: ${group.originalName}`);
+}
+
 function slotLabel(item) {
   return item.point ? timeFormat.format(item.start) : `${timeFormat.format(item.start)}–${timeFormat.format(item.end)}`;
 }
@@ -77,7 +93,7 @@ function groupEvents(events) {
     groups.get(key).events.push(event);
   }
   return [...groups.values()].sort((a, b) =>
-    CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) || a.name.localeCompare(b.name, "uk"));
+    CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) || a.name.localeCompare(b.name, COLLATION));
 }
 
 function init() {
@@ -110,7 +126,7 @@ function init() {
     const now = Date.now();
     clockLocal.textContent = clockFormat.format(now);
     const offset = model ? model.offset : SERVERS[serverId].defaultOffset;
-    clockServerLabel.textContent = `Сервер (${formatOffset(offset)})`;
+    clockServerLabel.textContent = `${tr("Сервер", "Server")} (${formatOffset(offset)})`;
     clockServer.textContent = serverClockFormat.format(now + offset * HOUR);
   }
 
@@ -121,7 +137,7 @@ function init() {
   function renderFilters() {
     const present = CATEGORY_ORDER.filter((key) => groups.some((group) => group.category === key));
     if (category !== "all" && !present.includes(category)) category = "all";
-    const options = [["all", "Усі події"], ...present.map((key) => [key, CATEGORY_TITLES[key]])];
+    const options = [["all", tr("Усі події", "All events")], ...present.map((key) => [key, CATEGORY_TITLES[key]])];
     filters.replaceChildren(...options.map(([key, label]) => {
       const button = el("button", "filter", label);
       button.type = "button";
@@ -145,7 +161,7 @@ function init() {
     const to = from + TIMELINE_HOURS * HOUR;
     const span = to - from;
     const percent = (time) => `${(((time - from) / span) * 100).toFixed(3)}%`;
-    todayRange.textContent = `${todayFormat.format(now)}, ${timeFormat.format(from)} – ${timeFormat.format(to)} · за вашим часом`;
+    todayRange.textContent = `${todayFormat.format(now)}, ${timeFormat.format(from)} – ${timeFormat.format(to)} · ${tr("за вашим часом", "your local time")}`;
 
     const axisTrack = el("div", "tl-track");
     for (let hour = 0; hour <= TIMELINE_HOURS; hour += 1) {
@@ -154,7 +170,7 @@ function init() {
       axisTrack.append(tick);
     }
     const axis = el("div", "tl-row tl-axis");
-    axis.append(el("span", "tl-name", "Подія"), axisTrack);
+    axis.append(el("span", "tl-name", tr("Подія", "Event")), axisTrack);
 
     const rows = [];
     let lastCategory = null;
@@ -167,7 +183,7 @@ function init() {
       }
       const row = el("div", "tl-row");
       const name = el("span", "tl-name", group.name);
-      name.title = `Офіційна назва: ${group.originalName}`;
+      setOriginalTitle(name, group);
       const track = el("div", "tl-track");
       for (const item of items) {
         const state = item.point ? (item.start <= now ? "is-past" : "is-next")
@@ -180,7 +196,7 @@ function init() {
         const label = slotLabel(item);
         block.title = label;
         block.append(el("span", "tl-block-text", item.point ? "" : timeFormat.format(item.start)));
-        block.append(el("span", "visually-hidden", `${label}${state === "is-now" ? ", триває зараз" : ""}`));
+        block.append(el("span", "visually-hidden", `${label}${state === "is-now" ? tr(", триває зараз", ", in progress") : ""}`));
         track.append(block);
       }
       row.append(name, track);
@@ -203,7 +219,7 @@ function init() {
     const weekEnd = weekStart + 7 * DAY;
     const today = localDayIndex(now);
 
-    const headCells = [el("th", "", "Подія")];
+    const headCells = [el("th", "", tr("Подія", "Event"))];
     headCells[0].scope = "col";
     for (let day = 0; day < 7; day += 1) {
       const date = new Date(weekStart);
@@ -243,14 +259,14 @@ function init() {
       const row = el("tr");
       const name = el("th", "", group.name);
       name.scope = "row";
-      name.title = `Офіційна назва: ${group.originalName}`;
+      setOriginalTitle(name, group);
       row.append(name);
       days.forEach((day, index) => {
         const cell = el("td", index === today ? "is-today" : "");
         if (day.slots.length === 0 && day.notes.size === 0) {
           cell.classList.add("is-empty");
           cell.append(el("span", "", "—"));
-          cell.setAttribute("aria-label", "немає");
+          cell.setAttribute("aria-label", tr("немає", "none"));
         } else {
           const list = el("ul", "slots");
           day.slots.sort((a, b) => a.start - b.start).forEach((item) => {
@@ -270,7 +286,7 @@ function init() {
   function renderStatus() {
     const count = model.eventCount || groups.length;
     const parts = [];
-    if (model.fetchedAt) parts.push(`Оновлено ${fetchedFormat.format(model.fetchedAt)}`);
+    if (model.fetchedAt) parts.push(`${tr("Оновлено", "Updated")} ${fetchedFormat.format(model.fetchedAt)}`);
     parts.push(`${count} ${plural(count, EVENTS)}`);
     status.textContent = parts.join(" · ");
     status.classList.remove("is-error");
@@ -281,7 +297,7 @@ function init() {
     writePreference(PREFERENCE_KEY, id);
     const server = SERVERS[id];
     serverName.textContent = server.name;
-    document.title = `Розклад ${server.name} · Aion UA`;
+    document.title = tr(`Розклад ${server.name} · Aion UA`, `${server.name} event schedule · Aion UA`);
     serverButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.serverButton === id)));
     official.hidden = !server.officialUrl;
     if (server.officialUrl) official.href = server.officialUrl;
@@ -291,7 +307,7 @@ function init() {
 
     const token = ++request;
     model = null;
-    status.textContent = "Завантажуємо розклад…";
+    status.textContent = tr("Завантажуємо розклад…", "Loading schedule…");
     updateClocks();
     try {
       const loaded = await loadSchedule(id, BASE);
@@ -305,8 +321,11 @@ function init() {
       renderWeek();
     } catch (error) {
       if (token !== request) return;
-      console.error("Розклад недоступний:", error);
-      status.textContent = "Не вдалося завантажити розклад. Спробуйте оновити сторінку пізніше.";
+      console.error(tr("Розклад недоступний:", "Schedule unavailable:"), error);
+      status.textContent = tr(
+        "Не вдалося завантажити розклад. Спробуйте оновити сторінку пізніше.",
+        "Couldn't load the schedule. Try refreshing the page later.",
+      );
       status.classList.add("is-error");
       filters.replaceChildren();
       timeline.replaceChildren();

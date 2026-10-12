@@ -1,22 +1,39 @@
 // Спільна модель розкладу для головної та сторінки розкладу.
 // Джерела — ті самі schedule.json, що їх оновлює fetch_online.py для старих сторінок.
+// Назви подій модель віддає вже мовою сайту: українською з клієнта або офіційною англійською.
 import { DAY, HOUR, fetchJson } from "./format.js";
+import { isEnglish, tr } from "./i18n.js";
 
-export const CATEGORY_LABELS = Object.freeze({
+export const CATEGORY_LABELS = Object.freeze(tr({
   pvp: "PvP",
   arenas: "Арена",
   siege: "Облога",
   rifts: "Розлом",
   tournaments: "Турнір",
-});
+}, {
+  pvp: "PvP",
+  arenas: "Arena",
+  siege: "Siege",
+  rifts: "Rift",
+  tournaments: "Tournament",
+}));
 
-export const CATEGORY_TITLES = Object.freeze({
+export const CATEGORY_TITLES = Object.freeze(tr({
   pvp: "PvP-інстанси",
   arenas: "Арени",
   siege: "Облоги",
   rifts: "Розломи",
   tournaments: "Турніри",
-});
+}, {
+  pvp: "PvP instances",
+  arenas: "Arenas",
+  siege: "Sieges",
+  rifts: "Rifts",
+  tournaments: "Tournaments",
+}));
+
+// Порядок сортування назв: за абеткою мови сайту.
+export const COLLATION = tr("uk", "en");
 
 export const CATEGORY_ORDER = Object.freeze(["pvp", "arenas", "siege", "rifts", "tournaments"]);
 
@@ -111,6 +128,42 @@ export function placeName(englishName) {
   return COMBINED_NAMES[name] || PLACE_NAMES[SHORT_NAMES[name] || name] || null;
 }
 
+// Англійська версія показує назви з джерела, лише виправляючи ті, що звучать не як у клієнті.
+const ENGLISH_NAMES = Object.freeze({
+  // Той самий порядок, що в EuroAion, і клієнтська назва Krotan Refuge замість «Krotan Fortress».
+  "Miren/Krotan/Kysis": "Fortresses: Kysis, Miren, Krotan",
+  "Krotan Fortress": "Krotan Refuge",
+});
+
+// Турніри Destiny підписані службово («Event 2x2 (Round)»). Ключ — як у destiny_schedule.py:
+// лише малі літери й цифри, бо сайт то пише «FFA(2x2)», то «2x2 (Round)».
+const TOURNAMENT_NAMES = Object.freeze({
+  event1x1: "1v1 tournament",
+  event2x2round: "2v2 tournament (rounds)",
+  event2x2killcount: "2v2 tournament (kill count)",
+  event3x3round: "3v3 tournament (rounds)",
+  event3x3killcount: "3v3 tournament (kill count)",
+  eventffa: "Free-for-all",
+  eventffa2x2: "Free-for-all 2v2",
+  eventffa3x3: "Free-for-all 3v3",
+});
+
+function nameKey(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+/**
+ * Назва для показу мовою сайту. Українською — назва з клієнта (як placeName), а без неї
+ * fallback; англійською — офіційна англійська: повна назва фортеці замість «Sulfur»,
+ * зрозуміла назва турніру, решта — як у джерелі.
+ */
+export function displayName(sourceName, fallback = sourceName) {
+  if (!isEnglish) return placeName(sourceName) || fallback;
+  const name = String(sourceName ?? "");
+  if (!name) return fallback;
+  return ENGLISH_NAMES[name] || SHORT_NAMES[name] || TOURNAMENT_NAMES[nameKey(name)] || name;
+}
+
 function euroCategory(source) {
   if (source === "arena") return "arenas";
   if (source === "siege" || source === "fortress") return "siege";
@@ -123,7 +176,7 @@ function validEvent(event) {
 
 function normalizeEuro(data) {
   return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => placeName(name) || name).join(" / "),
+    name: event.names.map((name) => displayName(name)).join(" / "),
     originalName: event.names.join(" / "),
     category: euroCategory(event.cat),
     days: event.days,
@@ -133,7 +186,7 @@ function normalizeEuro(data) {
 
 function normalizeOrigin(data) {
   return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => placeName(name) || name).join(" / "),
+    name: event.names.map((name) => displayName(name)).join(" / "),
     originalName: event.names.join(" / "),
     category: CATEGORY_TITLES[event.cat] ? event.cat : "pvp",
     days: event.days,
@@ -144,16 +197,17 @@ function normalizeOrigin(data) {
 // AionDestiny віддає готові українські назви, але місця все одно беремо зі спільного словника
 // за англійською назвою — так усі три сервери показують однакове. Турніри («Кожен за себе»)
 // у словнику не місця, для них лишається назва з JSON. Записи без часу — примітки, не події.
+// Англійська версія бере англійську назву з originalName, а примітку — з noteEn, якщо вона є.
 function normalizeDestiny(data) {
   return data.events
     .filter((event) => validEvent(event) && event.name && CATEGORY_TITLES[event.cat])
     .map((event) => ({
-      name: placeName(event.originalName) || event.name,
+      name: displayName(event.originalName, event.name),
       originalName: event.originalName || event.name,
       category: event.cat,
       days: event.days,
       slots: event.times,
-      note: event.note || "",
+      note: tr(event.note || "", event.noteEn || event.note || ""),
     }));
 }
 
@@ -194,11 +248,11 @@ export function loadSchedule(serverId, base = "") {
   if (!cache.has(key)) {
     const request = fetchJson(base + server.url).then((data) => {
       if (!data || !Array.isArray(data.events) || data.events.length === 0) {
-        throw new Error(`${server.name}: порожній розклад`);
+        throw new Error(`${server.name}: ${tr("порожній розклад", "empty schedule")}`);
       }
       const offset = Number(data.serverOffset);
       const events = server.normalize(data);
-      if (events.length === 0) throw new Error(`${server.name}: немає придатних подій`);
+      if (events.length === 0) throw new Error(`${server.name}: ${tr("немає придатних подій", "no usable events")}`);
       const fetched = data.fetchedAt ? new Date(data.fetchedAt) : null;
       return {
         id: serverId,
@@ -258,5 +312,5 @@ export function occurrences(events, offsetHours, from, to) {
     }
   }
 
-  return result.sort((a, b) => a.start - b.start || CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) || a.name.localeCompare(b.name, "uk"));
+  return result.sort((a, b) => a.start - b.start || CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category) || a.name.localeCompare(b.name, COLLATION));
 }

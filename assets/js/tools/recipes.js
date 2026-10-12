@@ -1,16 +1,25 @@
 // Калькулятор рецепта: вибір предмета, кількість крафтів, матеріали на один крафт і разом.
 import { plural } from "../format.js";
+import { isEnglish, tr } from "../i18n.js";
 import { assetUrl, createStepper, element, formatNumber, icon } from "./common.js";
 
 const MAX_CRAFTS = 999;
-const CRAFTS = { one: "крафт", few: "крафти", many: "крафтів", other: "крафта" };
+const CRAFTS = tr(
+  { one: "крафт", few: "крафти", many: "крафтів", other: "крафта" },
+  { one: "craft", other: "crafts" },
+);
+
+// Назва предмета мовою сайту: у data.json поруч з українською лежить англійська (nameEn).
+function itemName(item) {
+  return tr(item.name, item.nameEn ?? item.name);
+}
 
 function itemRow(item, perCraft, total) {
   const row = element("tr");
   const name = element("th");
   name.scope = "row";
   const label = element("span", "recipe-item");
-  label.append(icon(item.icon), element("span", "", item.name));
+  label.append(icon(item.icon), element("span", "", itemName(item)));
   name.append(label);
   row.append(name, element("td", "num", formatNumber(perCraft)), element("td", "num total", formatNumber(total)));
   return row;
@@ -20,23 +29,24 @@ function itemRow(item, perCraft, total) {
 // матеріалом, якого немає в двійника, а за тих самих матеріалів — пропорцією.
 function optionLabels(recipes) {
   const byName = new Map();
-  recipes.forEach((recipe) => byName.set(recipe.name, [...(byName.get(recipe.name) ?? []), recipe]));
+  recipes.forEach((recipe) => byName.set(itemName(recipe), [...(byName.get(itemName(recipe)) ?? []), recipe]));
   return new Map(recipes.map((recipe) => {
-    const twins = byName.get(recipe.name);
-    if (twins.length === 1) return [recipe.id, recipe.name];
+    const twins = byName.get(itemName(recipe));
+    if (twins.length === 1) return [recipe.id, itemName(recipe)];
     const shared = new Set(twins.filter((twin) => twin !== recipe).flatMap((twin) => twin.materials.map((material) => material.name)));
     const own = recipe.materials.filter((material) => !shared.has(material.name));
+    // Англійські назви предметів пишуться з великої, тож у дужках їх не зменшуємо.
     const hint = own.length
-      ? own.at(-1).name.toLocaleLowerCase("uk")
-      : `${recipe.materials.map((material) => material.quantity).join(" + ")} → ${recipe.output} шт.`;
-    return [recipe.id, `${recipe.name} (${hint})`];
+      ? tr(own.at(-1).name.toLocaleLowerCase("uk"), itemName(own.at(-1)))
+      : `${recipe.materials.map((material) => material.quantity).join(" + ")} → ${recipe.output} ${tr("шт.", "pcs")}`;
+    return [recipe.id, `${itemName(recipe)} (${hint})`];
   }));
 }
 
 function tableHead() {
   const head = element("thead");
   const row = element("tr");
-  [["Матеріал", ""], ["На 1 крафт", "num"], ["Разом", "num"]].forEach(([text, className]) => {
+  [[tr("Матеріал", "Material"), ""], [tr("На 1 крафт", "Per craft"), "num"], [tr("Разом", "Total"), "num"]].forEach(([text, className]) => {
     const cell = element("th", className, text);
     cell.scope = "col";
     row.append(cell);
@@ -54,16 +64,16 @@ export function renderRecipeCalculator(calculator) {
   section.setAttribute("aria-labelledby", `${prefix}-title`);
 
   const head = element("div", "panel-head");
-  const title = element("h2", "panel-heading", calculator.title);
+  const title = element("h2", "panel-heading", tr(calculator.title, calculator.titleEn ?? calculator.title));
   title.id = `${prefix}-title`;
-  const reset = element("button", "btn-ghost", "Скинути");
+  const reset = element("button", "btn-ghost", tr("Скинути", "Reset"));
   reset.type = "button";
   head.append(title, reset);
 
   const controls = element("div", "recipe-controls");
 
   const pickField = element("div", "field");
-  const pickLabel = element("label", "", calculator.label);
+  const pickLabel = element("label", "", tr(calculator.label, calculator.labelEn ?? calculator.label));
   pickLabel.htmlFor = `${prefix}-recipe`;
   const pick = element("div", "recipe-pick");
   const preview = icon(firstRecipe.icon, "item-icon item-icon--lg", 48);
@@ -78,11 +88,12 @@ export function renderRecipeCalculator(calculator) {
   const description = element("p", "recipe-desc");
 
   const quantityField = element("div", "field");
-  const quantityLabel = element("label", "", "Кількість крафтів");
+  const quantityText = tr("Кількість крафтів", "Number of crafts");
+  const quantityLabel = element("label", "", quantityText);
   quantityLabel.htmlFor = `${prefix}-quantity`;
   const quantity = createStepper({
     id: `${prefix}-quantity`,
-    label: "Кількість крафтів",
+    label: quantityText,
     min: 1,
     max: MAX_CRAFTS,
     value: 1,
@@ -106,21 +117,28 @@ export function renderRecipeCalculator(calculator) {
   function update() {
     const recipe = calculator.recipes.find((candidate) => candidate.id === select.value) ?? firstRecipe;
     const crafts = quantity.value;
+    const recipeDescription = isEnglish ? recipe.descriptionEn : recipe.description;
 
     preview.src = assetUrl(recipe.icon);
     meta.replaceChildren();
-    if (recipe.profession) meta.append(element("span", "badge badge-gold", recipe.profession));
-    meta.append(element("span", "", `За один крафт: ${formatNumber(recipe.output)} шт.`));
-    description.textContent = recipe.description ?? "";
-    description.hidden = !recipe.description;
+    if (recipe.profession) meta.append(element("span", "badge badge-gold", tr(recipe.profession, recipe.professionEn ?? recipe.profession)));
+    meta.append(element("span", "", tr(
+      `За один крафт: ${formatNumber(recipe.output)} шт.`,
+      `Yield per craft: ${formatNumber(recipe.output)}`,
+    )));
+    description.textContent = recipeDescription ?? "";
+    description.hidden = !recipeDescription;
 
-    caption.textContent = `Матеріали на ${formatNumber(crafts)} ${plural(crafts, CRAFTS)}: ${recipe.name}`;
+    caption.textContent = tr(
+      `Матеріали на ${formatNumber(crafts)} ${plural(crafts, CRAFTS)}: ${itemName(recipe)}`,
+      `Materials for ${formatNumber(crafts)} ${plural(crafts, CRAFTS)}: ${itemName(recipe)}`,
+    );
     body.replaceChildren(...recipe.materials.map(
       (material) => itemRow(material, material.quantity, material.quantity * crafts),
     ));
 
     const resultHead = element("tr");
-    const resultLabel = element("th", "", "Результат крафту");
+    const resultLabel = element("th", "", tr("Результат крафту", "Craft result"));
     resultLabel.colSpan = 3;
     resultLabel.scope = "colgroup";
     resultHead.append(resultLabel);

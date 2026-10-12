@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="../assets/js/lang-boot.js?v=1"></script>
-  <title>Калькулятор чар (патч 4.6) · Aion UA</title>
-  <meta name="description" content="Калькулятор зачарування Aion 4.6: шанс успіху для кожного рівня каменю залежно від рідкості, рівня предмета й поточного зачарування.">
+  <title data-en="Enchantment calculator (patch 4.6) · Aion UA">Калькулятор чар (патч 4.6) · Aion UA</title>
+  <meta name="description" content="Калькулятор зачарування Aion 4.6: шанс успіху для кожного рівня каменю залежно від рідкості, рівня предмета й поточного зачарування." data-en-content="Aion 4.6 enchantment calculator: the success chance for every Enchantment Stone level by item rarity, item level and current enchantment level.">
   <link rel="alternate" hreflang="uk" href="https://juniorapi.github.io/aionua/aion-4.6-enchantment-calculator/">
   <link rel="alternate" hreflang="en" href="https://juniorapi.github.io/aionua/aion-4.6-enchantment-calculator/?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://juniorapi.github.io/aionua/aion-4.6-enchantment-calculator/">
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Geologica:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="../assets/css/v2.css?v=14">
+  <link rel="stylesheet" href="../assets/css/v2.css?v=15">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDBL7DSC46"></script>
   <script>
@@ -72,33 +72,33 @@
       <span aria-hidden="true">/</span>
       <a href="../#calculators" data-en="Calculators">Калькулятори</a>
       <span aria-hidden="true">/</span>
-      <span aria-current="page">Калькулятор чар</span>
+      <span aria-current="page" data-en="Enchantment calculator">Калькулятор чар</span>
     </nav>
 
     <div class="tool-head">
-      <h1 class="page-title">Калькулятор чар</h1>
-      <p class="tool-lead">Шанс зачарування для кожного рівня каменю на патчі 4.6. Оберіть рідкість, рівень предмета й поточне зачарування.</p>
+      <h1 class="page-title" data-en="Enchantment calculator">Калькулятор чар</h1>
+      <p class="tool-lead" data-en="Enchantment chance for every stone level on patch 4.6. Choose the item rarity, item level and current enchantment level.">Шанс зачарування для кожного рівня каменю на патчі 4.6. Оберіть рідкість, рівень предмета й поточне зачарування.</p>
     </div>
 
     <div class="tool-stack">
       <section class="panel" data-enchant aria-labelledby="enchant-title">
-        <h2 class="visually-hidden" id="enchant-title">Параметри предмета й шанси</h2>
+        <h2 class="visually-hidden" id="enchant-title" data-en="Item settings and chances">Параметри предмета й шанси</h2>
         <div class="enchant-controls">
           <div class="field field--grade">
-            <span class="field-label" id="grade-label">Рідкість предмета</span>
+            <span class="field-label" id="grade-label" data-en="Item rarity">Рідкість предмета</span>
             <div class="segmented" role="group" aria-labelledby="grade-label" data-grades></div>
           </div>
           <div class="field">
-            <label for="item-level">Рівень предмета</label>
+            <label for="item-level" data-en="Item level">Рівень предмета</label>
             <select class="select" id="item-level" data-item-level></select>
           </div>
           <div class="field">
-            <label for="enchant-level">Поточне зачарування</label>
+            <label for="enchant-level" data-en="Current enchantment">Поточне зачарування</label>
             <select class="select" id="enchant-level" data-enchant-level></select>
           </div>
         </div>
         <p class="enchant-summary" data-summary role="status"></p>
-        <ol class="stone-grid" data-stones aria-label="Шанс успіху за рівнем каменю"></ol>
+        <ol class="stone-grid" data-stones aria-label="Шанс успіху за рівнем каменю" data-en-aria-label="Success chance by stone level"></ol>
       </section>
     </div>
   </main>
@@ -110,12 +110,9 @@
         <span class="brand-name">Aion UA</span>
       </a>
       <p class="footer-note" data-en="Unofficial community fan project. Aion is a trademark of NCSOFT Corporation.">Неофіційний фан-проєкт спільноти. Aion є торговою маркою NCSOFT Corporation.</p>
-      <nav class="footer-links" aria-label="Додатково" data-en-aria-label="More">
-        <a href="https://github.com/juniorapi/aionua">GitHub</a>
-      </nav>
     </div>
   </footer>
 
-  <script type="module" src="../assets/js/tools/enchant.js?v=2"></script>
+  <script type="module" src="../assets/js/tools/enchant.js?v=3"></script>
 </body>
 </html>

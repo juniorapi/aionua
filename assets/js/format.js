@@ -45,13 +45,11 @@ export const dayLabel = new Intl.DateTimeFormat(locale, {
   month: "long",
 });
 
-export const updatedFormat = new Intl.DateTimeFormat(locale, {
-  day: "2-digit",
-  month: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit",
-  hourCycle: "h23",
-});
+// «12.10, 04:47» українською; англійською — «12 Oct, 04:47», бо «12/10» у США читають як 10 грудня.
+export const updatedFormat = new Intl.DateTimeFormat(locale, tr(
+  { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" },
+  { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" },
+));
 
 // «56 хв», «1 год 56 хв» («56 min», «1 h 56 min»). Округлюємо вгору, щоб «через 0 хв» не траплялося.
 export function formatDuration(ms) {

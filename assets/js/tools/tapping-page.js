@@ -7,7 +7,7 @@ async function init() {
   initHeader();
   const root = document.querySelector("[data-gathering]");
   try {
-    const data = await loadData("data.json?v=1");
+    const data = await loadData("data.json?v=2");
     renderGathering(root, data.races);
   } catch (error) {
     console.error(error);

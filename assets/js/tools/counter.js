@@ -1,6 +1,7 @@
 // Сторінка лічильника: налаштування оверлею, посилання для OBS і прев'ю з кнопками.
 import { readPreference, writePreference } from "../format.js";
 import { initHeader } from "../header.js";
+import { isEnglish, tr } from "../i18n.js";
 import { copyText, element, formatNumber } from "./common.js";
 import {
   BACKGROUNDS,
@@ -17,11 +18,14 @@ const SETTINGS_KEY = "aionua-v2-counter-overlay";
 // Прев'ю перезавантажується з кожною зміною підпису, тож чекаємо паузи в наборі.
 const LABEL_DELAY_MS = 400;
 
+// Без збережених налаштувань англійська версія сайту пропонує англійський підпис оверлею.
+const DEFAULT_SETTINGS = isEnglish ? "lang=en" : "";
+
 function readSettings() {
   try {
-    return overlaySettings(new URLSearchParams(readPreference(SETTINGS_KEY) ?? ""));
+    return overlaySettings(new URLSearchParams(readPreference(SETTINGS_KEY) ?? DEFAULT_SETTINGS));
   } catch {
-    return overlaySettings(new URLSearchParams());
+    return overlaySettings(new URLSearchParams(DEFAULT_SETTINGS));
   }
 }
 
@@ -84,7 +88,7 @@ function init() {
 
   segmented(
     root.querySelector("[data-lang-options]"),
-    Object.fromEntries(Object.entries(LANGUAGES).map(([id, language]) => [id, language.short])),
+    Object.fromEntries(Object.entries(LANGUAGES).map(([id, language]) => [id, tr(language.short, language.shortEn)])),
     settings.lang,
     (lang) => {
       settings.lang = lang;
@@ -92,12 +96,18 @@ function init() {
     },
   );
   root.querySelectorAll("[data-lang-options] button").forEach((button) => {
-    button.setAttribute("aria-label", LANGUAGES[button.dataset.value].name);
+    const language = LANGUAGES[button.dataset.value];
+    button.setAttribute("aria-label", tr(language.name, language.nameEn));
   });
-  segmented(root.querySelector("[data-bg-options]"), BACKGROUNDS, settings.bg, (bg) => {
-    settings.bg = bg;
-    refreshOverlay();
-  });
+  segmented(
+    root.querySelector("[data-bg-options]"),
+    Object.fromEntries(Object.entries(BACKGROUNDS).map(([id, background]) => [id, tr(background.name, background.nameEn)])),
+    settings.bg,
+    (bg) => {
+      settings.bg = bg;
+      refreshOverlay();
+    },
+  );
 
   labelInput.value = settings.label;
   labelInput.addEventListener("input", () => {
@@ -112,7 +122,9 @@ function init() {
     const copied = await copyText(link.value, link);
     window.clearTimeout(statusTimer);
     copyStatus.classList.toggle("is-error", !copied);
-    copyStatus.textContent = copied ? "Посилання скопійовано" : "Не вдалося скопіювати: виділіть посилання й натисніть Ctrl+C";
+    copyStatus.textContent = copied
+      ? tr("Посилання скопійовано", "Link copied")
+      : tr("Не вдалося скопіювати: виділіть посилання й натисніть Ctrl+C", "Couldn't copy: select the link and press Ctrl+C");
     if (copied) statusTimer = window.setTimeout(() => { copyStatus.textContent = ""; }, 4000);
   });
 
@@ -126,7 +138,7 @@ function init() {
     setInput.value = "";
   });
   root.querySelector("[data-reset]").addEventListener("click", () => {
-    if (window.confirm("Скинути лічильник до нуля?")) setCount(0);
+    if (window.confirm(tr("Скинути лічильник до нуля?", "Reset the counter to zero?"))) setCount(0);
   });
 
   onCountChange(counter, showCount);

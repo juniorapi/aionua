@@ -482,6 +482,8 @@ textarea {
 
 .search {
   position: relative;
+  /* .reveal лишає transform після анімації, і чипи нижче малювались би поверх списку пошуку. */
+  z-index: 2;
   margin-top: 40px;
 }
 
@@ -1131,25 +1133,6 @@ textarea {
 .footer-note {
   font-size: 13px;
   color: var(--text-3);
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-  margin-left: auto;
-}
-
-.footer-links a {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  font-size: 14px;
-  color: var(--text-2);
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  color: var(--text);
 }
 
 /* ---------- Сторінка розкладу ---------- */
@@ -2400,7 +2383,8 @@ textarea {
 .loc-facts {
   grid-area: facts;
   display: grid;
-  grid-template-columns: 56px 80px 92px;
+  /* Ширина під англійські «VERSION» і «29 Sept 2026». */
+  grid-template-columns: 72px 80px 104px;
   gap: 4px 28px;
 }
 
@@ -2935,10 +2919,6 @@ textarea {
     grid-row: 1 / span 2;
     grid-column: 2;
     font-size: 26px;
-  }
-
-  .footer-links {
-    margin-left: 0;
   }
 
   .recipe-controls,

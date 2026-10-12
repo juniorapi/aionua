@@ -1,5 +1,7 @@
 // Спільне для сторінок інструментів: дані, іконки, лічильники, копіювання.
 
+import { tr } from "../i18n.js";
+
 export { formatNumber } from "../format.js";
 
 // Дані інструментів змінюються разом із сайтом, тож кешу браузера досить.
@@ -48,8 +50,8 @@ export function createStepper({ id, label, min, max, value, onChange }) {
   const input = element("input");
   minus.type = "button";
   plus.type = "button";
-  minus.setAttribute("aria-label", `${label}: менше`);
-  plus.setAttribute("aria-label", `${label}: більше`);
+  minus.setAttribute("aria-label", `${label}: ${tr("менше", "decrease")}`);
+  plus.setAttribute("aria-label", `${label}: ${tr("більше", "increase")}`);
   Object.assign(input, { id, type: "number", inputMode: "numeric", min, max, step: 1, value });
   root.append(minus, input, plus);
 
@@ -112,7 +114,10 @@ export function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export function showLoadError(container, message = "Не вдалося завантажити дані. Оновіть сторінку.") {
+export function showLoadError(
+  container,
+  message = tr("Не вдалося завантажити дані. Оновіть сторінку.", "Couldn't load the data. Please refresh the page."),
+) {
   const note = element("p", "empty-note", message);
   note.setAttribute("role", "alert");
   container.replaceChildren(note);

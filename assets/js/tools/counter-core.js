@@ -9,17 +9,19 @@ export const COUNTERS = {
 export const MAX_COUNT = 999999;
 
 // Підпис над числом бачать глядачі, тож він мовою стріму, а не сайту.
+// name/short — кнопки на сторінці налаштувань; nameEn/shortEn — ті самі кнопки в англійській
+// версії сайту. Модуль не імпортує i18n.js: його вантажить і оверлей, а там ?lang= — мова підпису.
 export const LANGUAGES = {
-  uk: { name: "Українська", short: "УКР", label: "Лічильник луту", locale: "uk-UA" },
-  en: { name: "English", short: "ENG", label: "Loot Counter", locale: "en-GB" },
-  de: { name: "Deutsch", short: "DEU", label: "Beutezähler", locale: "de-DE" },
-  es: { name: "Español", short: "ESP", label: "Contador de botín", locale: "es-ES" },
+  uk: { name: "Українська", nameEn: "Ukrainian", short: "УКР", shortEn: "UKR", label: "Лічильник луту", locale: "uk-UA" },
+  en: { name: "English", nameEn: "English", short: "ENG", shortEn: "ENG", label: "Loot Counter", locale: "en-GB" },
+  de: { name: "Deutsch", nameEn: "German", short: "DEU", shortEn: "DEU", label: "Beutezähler", locale: "de-DE" },
+  es: { name: "Español", nameEn: "Spanish", short: "ESP", shortEn: "ESP", label: "Contador de botín", locale: "es-ES" },
 };
 
 export const BACKGROUNDS = {
-  transparent: "Прозорий",
-  green: "Зелений",
-  dark: "Темний",
+  transparent: { name: "Прозорий", nameEn: "Transparent" },
+  green: { name: "Зелений", nameEn: "Green" },
+  dark: { name: "Темний", nameEn: "Dark" },
 };
 
 export const DEFAULT_LANGUAGE = "uk";

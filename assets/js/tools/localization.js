@@ -3,6 +3,7 @@
 // Логіка та сама, що в localization/script.js старої сторінки: запасні значення з
 // localization/dates.js, справжні — з релізу, кеш спільний для обох сторінок.
 import { initHeader } from "../header.js";
+import { isEnglish, locale, tr } from "../i18n.js";
 
 const RELEASE_API = "https://api.github.com/repos/juniorapi/aionua/releases/tags/localization";
 const RELEASE_CACHE_KEY = "aionua:release-assets";
@@ -14,17 +15,32 @@ const SCRIPTS_BASE = "./";
 // Заголовок userscript-а вміщається в перші кілобайти, решту файлу не тягнемо.
 const SCRIPT_HEAD_BYTES = 4096;
 
-const sizeFormat = new Intl.NumberFormat("uk-UA", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const sizeFormat = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+// Англійською — «12 Oct 2026»: короткий місяць вміщається у вузьку колонку дати.
+const englishDate = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" });
 
 function formatSize(bytes) {
-  return `${sizeFormat.format(bytes / 1048576)} МБ`;
+  return `${sizeFormat.format(bytes / 1048576)} ${tr("МБ", "MB")}`;
 }
 
 function formatDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "";
+  if (isEnglish) return englishDate.format(date);
   const pad = (number) => String(number).padStart(2, "0");
   return `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`;
+}
+
+// Дати з dates.js і опису релізу записані як «12.10.2026»: українською показуємо як є,
+// англійською — тим самим форматом, що й formatDate.
+function localizeDate(text) {
+  if (!isEnglish) return text;
+  const match = String(text).match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!match) return text;
+  const [day, month, year] = match.slice(1).map(Number);
+  const date = new Date(year, month - 1, day);
+  if (date.getDate() !== day || date.getMonth() !== month - 1) return text;
+  return englishDate.format(date);
 }
 
 function setText(client, field, text) {
@@ -65,7 +81,7 @@ function applyVersions(meta) {
   if (!meta) return;
   const versions = meta.versions ?? meta;
   Object.entries(versions).forEach(([client, version]) => setText(client, "version", version));
-  Object.entries(meta.dates ?? {}).forEach(([client, date]) => setText(client, "date", date));
+  Object.entries(meta.dates ?? {}).forEach(([client, date]) => setText(client, "date", localizeDate(date)));
 }
 
 function readCachedRelease() {
@@ -103,7 +119,7 @@ async function fetchRelease() {
 function loadReleaseMeta() {
   // Запасні значення показуємо одразу, щоб рядки не стояли порожні до відповіді GitHub.
   Object.entries(window.AION_VERSIONS ?? {}).forEach(([client, version]) => setText(client, "version", String(version).trim()));
-  Object.entries(window.AION_UPDATE_DATES ?? {}).forEach(([client, date]) => setText(client, "date", String(date).trim()));
+  Object.entries(window.AION_UPDATE_DATES ?? {}).forEach(([client, date]) => setText(client, "date", localizeDate(String(date).trim())));
 
   const cached = readCachedRelease();
   if (!cached) {
@@ -128,7 +144,10 @@ function loadScriptMeta() {
       const head = (await response.text()).slice(0, SCRIPT_HEAD_BYTES);
       const version = head.match(/@version\s+([\d.]+)/)?.[1];
       const date = formatDate(response.headers.get("last-modified") ?? "");
-      meta.textContent = [version && `Версія ${version}`, date && `оновлено ${date}`].filter(Boolean).join(" · ");
+      meta.textContent = [
+        version && tr(`Версія ${version}`, `Version ${version}`),
+        date && tr(`оновлено ${date}`, `updated ${date}`),
+      ].filter(Boolean).join(" · ");
     } catch {
       // Без метаданих рядок лишається як є.
     }
@@ -142,7 +161,7 @@ function initDownloads() {
       if (!label || button.classList.contains("is-starting")) return;
       const original = label.textContent;
       button.classList.add("is-starting");
-      label.textContent = "Завантаження почалося…";
+      label.textContent = tr("Завантаження почалося…", "Download started…");
       window.setTimeout(() => {
         button.classList.remove("is-starting");
         label.textContent = original;

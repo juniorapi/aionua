@@ -10,6 +10,7 @@ import {
   weekdayShort,
   writePreference,
 } from "./format.js";
+import { tr } from "./i18n.js";
 
 const PREFERENCE_KEY = "aionua:v2:server";
 const RUNNING_LIMIT = 4;
@@ -42,7 +43,7 @@ function runningItem(item, now) {
   fill.style.width = `${Math.min(100, Math.max(2, Math.round(share * 100)))}%`;
   progress.append(fill);
 
-  li.append(top, progress, element("p", "now-left", `ще ${formatDuration(item.end - now)}`));
+  li.append(top, progress, element("p", "now-left", tr(`ще ${formatDuration(item.end - now)}`, `${formatDuration(item.end - now)} left`)));
   return li;
 }
 
@@ -57,7 +58,7 @@ function nextItem(item, now) {
     time,
     element("span", "next-name", item.name),
     badge(item.category),
-    element("span", "next-in", `через ${formatDuration(item.start - now)}`),
+    element("span", "next-in", tr(`через ${formatDuration(item.start - now)}`, `in ${formatDuration(item.start - now)}`)),
   );
   return li;
 }
@@ -79,7 +80,7 @@ export function initEvents(root) {
 
   function render() {
     const now = Date.now();
-    dateText.textContent = `${dayLabel.format(now)} · за вашим часом`;
+    dateText.textContent = `${dayLabel.format(now)} · ${tr("за вашим часом", "your local time")}`;
     if (!model) return;
 
     const around = occurrences(model.events, model.offset, now - 12 * HOUR, now + 36 * HOUR);
@@ -90,14 +91,15 @@ export function initEvents(root) {
 
     nowList.replaceChildren(...running.slice(0, RUNNING_LIMIT).map((item) => runningItem(item, now)));
     if (running.length > RUNNING_LIMIT) {
-      const more = element("li", "now-left", `і ще ${running.length - RUNNING_LIMIT} у повному розкладі`);
+      const extra = running.length - RUNNING_LIMIT;
+      const more = element("li", "now-left", tr(`і ще ${extra} у повному розкладі`, `and ${extra} more in the full schedule`));
       nowList.append(more);
     }
     nowEmpty.hidden = running.length > 0;
 
     nextList.replaceChildren(...upcoming.map((item) => nextItem(item, now)));
     status.hidden = upcoming.length > 0;
-    if (upcoming.length === 0) status.textContent = "Найближчим часом подій немає.";
+    if (upcoming.length === 0) status.textContent = tr("Найближчим часом подій немає.", "No events coming up soon.");
   }
 
   async function select(serverId) {
@@ -105,12 +107,12 @@ export function initEvents(root) {
     writePreference(PREFERENCE_KEY, serverId);
     buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.eventsServer === serverId)));
     link.href = `schedule/?server=${serverId}`;
-    link.setAttribute("aria-label", `Повний розклад ${SERVERS[serverId].name}`);
+    link.setAttribute("aria-label", tr(`Повний розклад ${SERVERS[serverId].name}`, `Full ${SERVERS[serverId].name} schedule`));
 
     const token = ++request;
     model = null;
     status.hidden = false;
-    status.textContent = "Завантажуємо розклад…";
+    status.textContent = tr("Завантажуємо розклад…", "Loading schedule…");
     try {
       const loaded = await loadSchedule(serverId);
       if (token !== request) return;
@@ -123,7 +125,7 @@ export function initEvents(root) {
       nextList.replaceChildren();
       nowEmpty.hidden = true;
       status.hidden = false;
-      status.textContent = "Не вдалося завантажити розклад. Спробуйте пізніше.";
+      status.textContent = tr("Не вдалося завантажити розклад. Спробуйте пізніше.", "Couldn't load the schedule. Please try again later.");
     }
   }
 

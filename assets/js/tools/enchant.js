@@ -4,14 +4,15 @@
 // зачарування» і вище. Кожен рівень каменю нижче забирає 2 %, тож за 40 рівнів
 // шанс падає до нуля: разом 41 рядок, як у старому калькуляторі.
 import { initHeader } from "../header.js";
+import { tr } from "../i18n.js";
 import { element } from "./common.js";
 
 // id — рідкість у грі (Heroic, Fabled, Eternal, Mythic), від неї колір назви.
 const GRADES = [
-  { value: 20, id: "heroic", name: "Героїчний" },
-  { value: 30, id: "fabled", name: "Легендарний" },
-  { value: 40, id: "eternal", name: "Вічний" },
-  { value: 50, id: "mythic", name: "Міфічний" },
+  { value: 20, id: "heroic", name: tr("Героїчний", "Heroic") },
+  { value: 30, id: "fabled", name: tr("Легендарний", "Fabled") },
+  { value: 40, id: "eternal", name: tr("Вічний", "Eternal") },
+  { value: 50, id: "mythic", name: tr("Міфічний", "Mythic") },
 ];
 const DEFAULT_GRADE = 40;
 const MAX_ITEM_LEVEL = 65;
@@ -48,13 +49,27 @@ function renderCalculator(root) {
     const gradeName = element("span", "grade-name", chosen.name);
     gradeName.dataset.grade = chosen.id;
 
+    const bestChance = element("strong", "", `${STEPS * STEP_CHANCE}%`);
+    const bestStone = element("strong", "", `L${best}`);
     summary.replaceChildren(
-      gradeName,
-      ` предмет ${itemLevel.value} рівня, +${enchantLevel.value}: найкращий шанс `,
-      element("strong", "", `${STEPS * STEP_CHANCE}%`),
-      " дає камінь ",
-      element("strong", "", `L${best}`),
-      " і вище.",
+      ...tr(
+        [
+          gradeName,
+          ` предмет ${itemLevel.value} рівня, +${enchantLevel.value}: найкращий шанс `,
+          bestChance,
+          " дає камінь ",
+          bestStone,
+          " і вище.",
+        ],
+        [
+          gradeName,
+          ` item, level ${itemLevel.value}, +${enchantLevel.value}: the best chance (`,
+          bestChance,
+          ") comes from ",
+          bestStone,
+          " stones and higher.",
+        ],
+      ),
     );
 
     const fragment = document.createDocumentFragment();
