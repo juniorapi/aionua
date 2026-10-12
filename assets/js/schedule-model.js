@@ -98,18 +98,6 @@ export const PLACE_NAMES = Object.freeze({
   "Tiamaranta's Hearts": "Серця Тіамаранти",
 });
 
-// Групи, які джерело віддає одним рядком, — складено з назв вище.
-const COMBINED_NAMES = Object.freeze({
-  "Fortresses: Sulfur, Asteria, Roah": "Фортеці сірчаного дерева, Астерія, древнього міста Ру",
-  "Fortresses: Siel's Eastern, Siel's Western": "Східна й Західна фортеці Сієлі",
-  "Fortresses: Vorgaltem Citadel, Temple of Scales": "Запечатана вежа, Храм давнього дракона",
-  "Fortresses: Altar of Avarice, Crimson Temple": "Вівтар жадоби, Храм червоної землі",
-  "Fortresses: Sillus, Silona, Pradeth": "Фортеці Сіллус, Базен, Парадес",
-  "Fortresses: Kysis, Miren, Krotan": "Фортеці Ткісас, Ра-Мірен, Кротан",
-  "Arenas: Chaos, Discipline, Harmony": "Бойові арени хаосу й доблесті, Арена покровительства",
-  "Miren/Krotan/Kysis": "Ра-Мірен / Кротан / Ткісас",
-});
-
 // Origin підписує фортеці коротко («Sulfur») — зводимо до повних ключів словника.
 const SHORT_NAMES = Object.freeze({
   "Sulfur": "Sulfur Fortress",
@@ -126,15 +114,30 @@ const SHORT_NAMES = Object.freeze({
 /** Українська назва з клієнта або null, якщо такої в словнику немає. */
 export function placeName(englishName) {
   const name = String(englishName ?? "");
-  return COMBINED_NAMES[name] || PLACE_NAMES[SHORT_NAMES[name] || name] || null;
+  return PLACE_NAMES[SHORT_NAMES[name] || name] || null;
 }
 
 // Англійська версія показує назви з джерела, лише виправляючи ті, що звучать не як у клієнті.
 const ENGLISH_NAMES = Object.freeze({
-  // Той самий порядок, що в EuroAion, і клієнтська назва Krotan Refuge замість «Krotan Fortress».
-  "Miren/Krotan/Kysis": "Fortresses: Kysis, Miren, Krotan",
+  // Клієнтська назва, як у Destiny, а не мітка EuroAion.
   "Krotan Fortress": "Krotan Refuge",
 });
+
+// Групи, які джерело віддає одним рядком: EuroAion — «Arenas: Chaos, Discipline, Harmony» і
+// «Fortresses: Sulfur, Asteria, Roah», Origin — «Miren/Krotan/Kysis». У розкладі кожна арена й
+// фортеця — окремий рядок, як у Destiny, тож і порядок рядків на всіх серверах той самий.
+// Невідому групу лишаємо одним рядком, а не вгадуємо назви.
+function splitGroup(name) {
+  const arenas = /^Arenas:\s*(.+)$/.exec(name);
+  const fortresses = /^Fortresses:\s*(.+)$/.exec(name);
+  let parts = null;
+  if (arenas) parts = arenas[1].split(",").map((part) => `Arena of ${part.trim()}`);
+  else if (fortresses) parts = fortresses[1].split(",").map((part) => part.trim());
+  else if (name.includes("/")) parts = name.split("/").map((part) => part.trim());
+  if (!parts) return [name];
+  const full = parts.map((part) => (PLACE_NAMES[part] ? part : `${part} Fortress`));
+  return full.every((part) => PLACE_NAMES[part]) ? full : [name];
+}
 
 // Турніри Destiny підписані службово («Event 2x2 (Round)»). Ключ — як у destiny_schedule.py:
 // лише малі літери й цифри, бо сайт то пише «FFA(2x2)», то «2x2 (Round)».
@@ -181,24 +184,27 @@ function validEvent(event) {
   return event && Array.isArray(event.days) && Array.isArray(event.times);
 }
 
-function normalizeEuro(data) {
-  return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => displayName(name)).join(" / "),
-    originalName: event.names.join(" / "),
-    category: euroCategory(event.cat),
+// Кожне місце з запису — окрема подія з тим самим часом.
+function eachPlace(event, category) {
+  return event.names.flatMap(splitGroup).map((name) => ({
+    name: displayName(name),
+    originalName: name,
+    category,
     days: event.days,
     slots: event.times,
   }));
 }
 
+function normalizeEuro(data) {
+  return data.events
+    .filter((event) => validEvent(event) && Array.isArray(event.names))
+    .flatMap((event) => eachPlace(event, euroCategory(event.cat)));
+}
+
 function normalizeOrigin(data) {
-  return data.events.filter((event) => validEvent(event) && Array.isArray(event.names)).map((event) => ({
-    name: event.names.map((name) => displayName(name)).join(" / "),
-    originalName: event.names.join(" / "),
-    category: CATEGORY_TITLES[event.cat] ? event.cat : "pvp",
-    days: event.days,
-    slots: event.times,
-  }));
+  return data.events
+    .filter((event) => validEvent(event) && Array.isArray(event.names))
+    .flatMap((event) => eachPlace(event, CATEGORY_TITLES[event.cat] ? event.cat : "pvp"));
 }
 
 // AionDestiny віддає готові українські назви, але місця все одно беремо зі спільного словника
