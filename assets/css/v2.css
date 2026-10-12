@@ -358,26 +358,6 @@ textarea {
   box-shadow: inset 0 -2px 0 var(--gold);
 }
 
-.search-trigger {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 10px 0 14px;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-md);
-  background: var(--surface);
-  font-size: 14px;
-  color: var(--text-2);
-  cursor: pointer;
-  transition: border-color 0.15s;
-}
-
-.search-trigger:hover {
-  border-color: var(--gold-line);
-}
-
-.search-trigger svg,
 .icon-button svg {
   width: 18px;
   height: 18px;
@@ -2715,15 +2695,10 @@ textarea {
     height: 64px;
   }
 
-  .search-trigger {
-    display: none;
-  }
-
   .icon-button {
     display: grid;
   }
 
-  .search-trigger + .icon-button,
   .site-nav + .icon-button,
   .site-nav + .lang-switch {
     margin-left: auto;
