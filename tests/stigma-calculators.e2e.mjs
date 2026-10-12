@@ -126,13 +126,15 @@ test("stigma page 4.6 shows the original calculator in the site design and keeps
       ?.querySelectorAll(".stigma-slot-active, .stigma-slot-advance-active").length === 4);
     assert.equal(page.url(), `${base}#fBybdeBbakaib`);
 
-    // Мова перемикається на сторінці, збірка лишається.
-    await page.getByRole("button", { name: "English" }).click();
+    // Мова калькулятора — мова сайту: EN у шапці відкриває його англійською, збірка лишається.
+    await page.locator('[data-lang-link="en"]').click();
+    await page.waitForURL(/lang=en/);
     await page.waitForFunction(() => /lang=en/.test(document.querySelector('[data-viewport][data-state="ready"] iframe')?.src ?? ""));
-    await calc.locator("#stigma_nor_1.stigma-slot-active").waitFor();
-    assert.equal(await active(), 4);
-    assert.equal(await page.getByRole("button", { name: "English" }).getAttribute("aria-pressed"), "true");
-    assert.equal(page.url(), `${base}#fBybdeBbakaib`);
+    const english = await calculatorFrame(page);
+    await english.locator("#stigma_nor_1.stigma-slot-active").waitFor();
+    assert.equal(await english.locator(".stigma-slot-active, .stigma-slot-advance-active").count(), 4);
+    assert.equal(await page.locator("[data-lang-switch]").count(), 0);
+    assert.equal(page.url(), `${base}?lang=en#fBybdeBbakaib`);
     assert.deepEqual(errors, []);
     await context.close();
   });

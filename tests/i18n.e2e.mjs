@@ -21,15 +21,15 @@ const mimeTypes = {
   ".png": "image/png",
 };
 
-// Сторінки з шапкою сайту. Англійська версія не має показувати жодної української літери,
-// крім назви мови в перемикачі мови калькулятора стигм. I18N_PAGES=craft/,spc/ — лише ці.
+// Сторінки з шапкою сайту. Англійська версія не має показувати жодної української літери.
+// I18N_PAGES=craft/,spc/ — лише ці.
 const PAGES = [
   "", "schedule/", "schedule/?server=origin", "schedule/?server=destiny",
   "craft/", "crystal_crafting/", "spc/", "essencetapping/", "aethertapping/", "efir/",
   "aion-4.6-enchantment-calculator/", "stigma/", "stigmas/", "localization/",
   "tempering-solution-counter/", "ice-hammer-counter/",
 ];
-const ALLOWED = ["Українська"];
+const ALLOWED = [];
 const CYRILLIC = /[А-ЯЁа-яёІіЇїЄєҐґ]/;
 
 const NOW = "2026-09-26T10:04:07Z";
@@ -159,27 +159,19 @@ test("language switch keeps the choice across pages and in the address", async (
   });
 });
 
-test("stigma calculator follows the site language unless a language was picked on the page", async () => {
+test("stigma calculators speak the site language", async () => {
   await withSite(async ({ open, newContext }) => {
     const context = await newContext();
-    // Старі калькулятори самі записують мову при кожному відкритті — це ще не вибір відвідувача.
-    await context.addInitScript(() => {
-      if (!sessionStorage.getItem("seeded")) {
-        localStorage.setItem("stigma_lang", "uk");
-        sessionStorage.setItem("seeded", "1");
-      }
-    });
-    const { page, errors } = await open(context, "stigma/?lang=en");
-    await page.waitForSelector("[data-viewport] iframe");
-    assert.match(await page.locator("[data-viewport] iframe").getAttribute("src"), /lang=en/);
-    assert.equal(await page.locator('[data-lang-switch] [data-lang="en"]').getAttribute("aria-pressed"), "true");
-
-    // Вибір кнопкою перемагає мову сайту й після перезавантаження.
-    await page.locator('[data-lang-switch] [data-lang="uk"]').click();
-    await page.waitForFunction(() => document.querySelector("[data-viewport] iframe")?.src.includes("lang=uk"));
-    await page.reload({ waitUntil: "networkidle" });
-    assert.match(await page.locator("[data-viewport] iframe").getAttribute("src"), /lang=uk/);
-    assert.deepEqual(errors, []);
+    // Старий запис мови калькулятора з минулих візитів нічого не важить: діє лише мова сайту.
+    await context.addInitScript(() => localStorage.setItem("stigma_lang", "uk"));
+    for (const [pagePath, lang] of [["stigma/?lang=en", "en"], ["stigma/?lang=uk", "uk"], ["stigmas/?lang=en", "en"], ["stigmas/?lang=uk", "uk"]]) {
+      const { page, errors } = await open(context, pagePath);
+      await page.waitForSelector("[data-viewport] iframe");
+      assert.match(await page.locator("[data-viewport] iframe").getAttribute("src"), new RegExp(`lang=${lang}`));
+      assert.equal(await page.locator("[data-lang-switch]").count(), 0);
+      assert.deepEqual(errors, []);
+      await page.close();
+    }
     await context.close();
   });
 });

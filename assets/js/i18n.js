@@ -79,6 +79,11 @@ export function initLanguageSwitch(root = document) {
   root.querySelectorAll("[data-lang-link]").forEach((link) => {
     const target = link.dataset.langLink;
     link.href = languageUrl(target);
+    // Сторінка могла змінити адресу після завантаження (збірка стигм, вибраний сервер), тож
+    // перед переходом беремо поточну: інша мова відкриває те саме, що зараз на екрані.
+    link.addEventListener("click", () => {
+      link.href = languageUrl(target);
+    });
     if (target === lang) link.setAttribute("aria-current", "true");
     else link.removeAttribute("aria-current");
   });

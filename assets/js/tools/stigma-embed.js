@@ -12,12 +12,6 @@ const viewport = root.querySelector("[data-viewport]");
 const version = root.dataset.version;
 const classLinks = [...root.querySelectorAll("[data-class]")];
 const classes = classLinks.map((link) => link.dataset.class);
-const langButtons = [...root.querySelectorAll("[data-lang-switch] button")];
-// Ті самі ключі, що в оригінальних калькуляторах: мова спільна для обох версій сторінки.
-const langKey = version === "4.6" ? "stigma_lang" : "stigmas_lang";
-// Сам калькулятор записує langKey при кожному відкритті, тож вибір кнопкою позначаємо окремо:
-// інакше старий запис «uk» з минулих візитів перебивав би англійську мову сайту.
-const choiceKey = `aionua:${langKey}-chosen`;
 const baseTitle = document.title;
 
 // Від цієї ширини калькулятор стоїть як в оригіналі. Вужча рамка 4.8 ставить панелі одна під одною
@@ -25,36 +19,12 @@ const baseTitle = document.title;
 const wide = Number(root.dataset.width);
 const narrow = Number(root.dataset.narrow || 0);
 
-const storedLang = readStoredLang();
-// Обрану кнопкою мову калькулятор пам'ятає, а без вибору говорить мовою сайту.
-let langChosen = storedLang !== null;
-let lang = storedLang ?? siteLang;
+// Калькулятор говорить мовою сайту: UA/EN у шапці перемикає й його, збірка в адресі лишається.
+const lang = siteLang;
 let state = readHash(hashText());
 let frame = null;
 // Висота калькулятора без масштабу: до завантаження — з розмітки, далі — заміряна в рамці.
 let height = 0;
-
-function readStoredLang() {
-  try {
-    if (localStorage.getItem(choiceKey) !== "1") return null;
-    const stored = localStorage.getItem(langKey);
-    if (stored === "uk" || stored === "en") return stored;
-  } catch {
-    // Сховище недоступне: діє мова сайту.
-  }
-  return null;
-}
-
-// Калькулятор у рамці записує в сховище мову, з якою його відкрили. Поки відвідувач її не обрав,
-// запис прибираємо: інакше мова сайту, з якою калькулятор відкрився вперше, лишилася б назавжди.
-function forgetDefaultLang() {
-  if (langChosen) return;
-  try {
-    localStorage.removeItem(langKey);
-  } catch {
-    // Сховище недоступне: нічого не записано.
-  }
-}
 
 function hashText() {
   const raw = location.hash.slice(1);
@@ -119,7 +89,6 @@ function ready(target) {
   const win = frame.contentWindow;
   const wrapper = frame.contentDocument?.getElementById("wrapper");
   viewport.dataset.state = "ready";
-  forgetDefaultLang();
   measure();
   if (wrapper && win.ResizeObserver) new win.ResizeObserver(measure).observe(wrapper);
   // «Назад» і «Вперед» міняють код у рамці. 4.6 сам перечитує збірку, а 4.8 — ні, тож відкриваємо її заново.
@@ -168,10 +137,6 @@ function layout() {
   frame.style.transform = scale < 1 ? `scale(${scale})` : "";
 }
 
-function markLang() {
-  for (const button of langButtons) button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
-}
-
 function markClass() {
   let name = "";
   for (const link of classLinks) {
@@ -192,22 +157,6 @@ function revealClass() {
   if (row.scrollWidth > row.clientWidth) row.scrollLeft = link.offsetLeft - (row.clientWidth - link.offsetWidth) / 2;
 }
 
-for (const button of langButtons) {
-  button.addEventListener("click", () => {
-    if (button.dataset.lang === lang) return;
-    lang = button.dataset.lang;
-    langChosen = true;
-    try {
-      localStorage.setItem(langKey, lang);
-      localStorage.setItem(choiceKey, "1");
-    } catch {
-      // Без сховища мова діє до перезавантаження сторінки.
-    }
-    markLang();
-    load();
-  });
-}
-
 for (const link of classLinks) {
   link.addEventListener("click", (event) => {
     // Повторний клік по своєму класу не скидає збірку.
@@ -226,7 +175,6 @@ addEventListener("hashchange", () => {
   load();
 });
 
-markLang();
 markClass();
 writeAddress();
 revealClass();
