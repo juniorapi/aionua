@@ -6,7 +6,7 @@
 // інакше сторінка відставатиме від того, що справді лежить на GitHub.
 window.AION_UPDATE_DATES = {
   destiny: "14.10.2026",
-  origin: "14.10.2026",
+  origin: "18.10.2026",
   riftshade: "14.10.2026",
 };
 
@@ -15,6 +15,6 @@ window.AION_UPDATE_DATES = {
 // недоступний або вичерпано анонімний ліміт запитів.
 window.AION_VERSIONS = {
   destiny: "2.2.14",
-  origin: "1.3.13",
+  origin: "1.3.14",
   riftshade: "1.3.21",
 };
