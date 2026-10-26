@@ -5,6 +5,8 @@ import os
 from datetime import datetime, timezone
 
 import destiny_schedule
+# Зсув часу сервера Origin — за центральноєвропейським часом, див. origin_time.py.
+from origin_time import origin_server_offset as _origin_server_offset
 
 ORIGIN_SCHEDULE_URL = 'https://originaion.com/schedule'
 ORIGIN_BASE_URL = 'https://originaion.com'
@@ -13,8 +15,6 @@ ORIGIN_DAYS = (
     'friday', 'saturday', 'sunday',
 )
 ORIGIN_SERVER_OFFSET = 2
-# Підпис під розкладом: «Час указано за серверним (GMT +2)», англійською — «…server time (GMT +2)».
-ORIGIN_OFFSET_PATTERN = re.compile(r'\((?:GMT|UTC)\s*([+\-\u2212])\s*(\d{1,2})(?::([0-5]\d))?\)')
 
 
 def _origin_number(value):
@@ -31,24 +31,6 @@ def _origin_event_name(chunks, key):
         if match:
             return json.loads(f'"{match.group(1)}"')
     return re.sub(r'(?<!^)([A-Z])', r' \1', key).title()
-
-
-def _origin_server_offset(texts):
-    """Зсув сервера з підпису на сторінці чи в перекладах.
-
-    Без підпису або з різними зсувами в різних місцях лишаємо GMT+2, який сайт пише зараз.
-    """
-    offsets = set()
-    for text in texts:
-        for sign, hours, minutes in ORIGIN_OFFSET_PATTERN.findall(text):
-            offset = int(hours) + int(minutes or 0) / 60
-            offsets.add(offset if sign == '+' else -offset)
-    offsets = {offset for offset in offsets if -12 <= offset <= 14}
-    if len(offsets) == 1:
-        offset = offsets.pop()
-        return int(offset) if offset.is_integer() else offset
-    print(f"Origin schedule: server offset label {sorted(offsets) or 'not found'}, keeping GMT+{ORIGIN_SERVER_OFFSET}")
-    return ORIGIN_SERVER_OFFSET
 
 
 def _parse_origin_schedule_chunk(chunk, all_chunks, source_asset, server_offset=ORIGIN_SERVER_OFFSET):
